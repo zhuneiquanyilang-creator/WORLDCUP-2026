@@ -112,13 +112,13 @@ export function PastBracket({ matches }: Props) {
               {ordered[r]!.map((m, i) => (
                 <MatchCard key={i} match={m} />
               ))}
-              {r === "final" && third && (
-                <div className={styles.third}>
-                  <div className={styles.thirdTitle}>{ROUND_LABEL.third}</div>
-                  <MatchCard match={third} />
-                </div>
-              )}
             </div>
+            {r === "final" && third && (
+              <div className={styles.third}>
+                <div className={styles.thirdTitle}>{ROUND_LABEL.third}</div>
+                <MatchCard match={third} />
+              </div>
+            )}
           </div>
         ))}
       </div>
