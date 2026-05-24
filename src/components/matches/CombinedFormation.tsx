@@ -10,6 +10,38 @@ import {
 } from "@/utils/applySubs";
 import styles from "./CombinedFormation.module.css";
 
+/**
+ * ピッチ上の表示用に名前から姓だけを抜き出す。ベンチはフルネームのままにする。
+ *
+ *  - "Cole Palmer"             → "Palmer"   (英語名: 最後のスペース以降)
+ *  - "Enzo Fernández"          → "Fernández"
+ *  - "ジョーダン・ピックフォード"  → "ピックフォード" (カタカナ西洋名: 最後の中黒以降)
+ *  - "南野 拓実"               → "南野"     (日本名 姓+空白+名: 最初のトークン)
+ *  - "Cucurella" / 名前1語のみ  → そのまま
+ *  - "van de Ven"              → "Ven"     (前置詞は無視、簡易ロジックの限界)
+ */
+function surnameOf(name: string): string {
+  if (!name) return name;
+  // カタカナ西洋名: 中黒 (・) 区切りなら最後のトークン
+  if (name.includes("・") || name.includes("·")) {
+    const parts = name.split(/[・·]+/);
+    return parts[parts.length - 1] || name;
+  }
+  // 日本式 姓+空白+名: ひらがな/カタカナ/漢字が含まれていて空白区切りなら最初のトークン
+  if (
+    /[぀-ヿ一-鿿]/.test(name) &&
+    /[\s　]/.test(name)
+  ) {
+    return name.split(/[\s　]+/)[0];
+  }
+  // 英語名: 最後のスペース以降
+  if (/\s/.test(name)) {
+    const parts = name.split(/\s+/);
+    return parts[parts.length - 1];
+  }
+  return name;
+}
+
 type Props = {
   homeTeam: Team | undefined;
   homeLabel?: string;
@@ -306,7 +338,7 @@ function Spot({
         strokeWidth={0.18}
         paintOrder="stroke"
       >
-        {spot.name}
+        {surnameOf(spot.name)}
       </text>
       {/* カード (左上に小さく) */}
       {(yellow || red) && (

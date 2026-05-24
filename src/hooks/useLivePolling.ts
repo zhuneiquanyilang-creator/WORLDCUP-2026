@@ -1,17 +1,20 @@
 import { useEffect, useRef } from "react";
 import type { Match } from "@/types/match";
-import { isLive } from "@/utils/matchTiming";
+import { PREMATCH_POLL_MINUTES, shouldPoll } from "@/utils/matchTiming";
 import { setMatchOverride } from "@/utils/matchOverrides";
 import { getLiveSource } from "@/services/liveSource";
 
 const POLL_INTERVAL_MS = 60_000; // 1分
 
 /**
- * 1分毎に「現在ライブ中の試合」を検出し、それぞれの最新情報を外部ソースから取得して
+ * 1分毎に「polling 対象の試合」を検出し、最新情報を外部ソースから取得して
  * localStorage にオーバーレイ保存する。
  *
- * - 取得対象: `isLive(match)` が true のもののみ
- * - ライブ中の試合が無いときは何もしない
+ * - 取得対象: `shouldPoll(match)` が true のもの
+ *   → ライブ枠 (KO 〜 KO+135/180分) に加え、**KO 30 分前から**もカバーする。
+ *      これによりフォーメーション・ベンチメンバーが試合開始前に取得される
+ *      (Sofascore の lineups は試合前に予想スタメンとして公開される)。
+ * - 対象が無いときは何もしない
  * - 取得結果が null の場合はスキップ (上書きしない)
  * - 初回 fetch は matches が読み込まれた直後にも発火する (60秒待たない)
  *
@@ -26,12 +29,15 @@ export function useLivePolling(matches: Match[] | undefined) {
     const list = matchesRef.current;
     if (!list || list.length === 0) return;
     const now = Date.now();
-    const live = list.filter((m) => isLive(m, now));
-    if (live.length === 0) return;
+    const targets = list.filter((m) => shouldPoll(m, now));
+    if (targets.length === 0) return;
     const source = getLiveSource();
     // eslint-disable-next-line no-console
-    console.info(`[live] polling ${live.length} match(es)`, live.map((m) => m.id));
-    for (const m of live) {
+    console.info(
+      `[live] polling ${targets.length} match(es) (incl. pre-match -${PREMATCH_POLL_MINUTES}min)`,
+      targets.map((m) => m.id)
+    );
+    for (const m of targets) {
       try {
         const update = await source.fetchUpdate(m);
         if (update) {

@@ -38,6 +38,14 @@ export function useAutoSyncResults() {
       for (const [id, u] of Object.entries(edits)) {
         if (u && u.status === "finished" && u.score) finished[id] = u;
       }
+      // matchEdits に確定済み試合が 1 つも無いときは POST しない。
+      // server 側の field-level merge は空 incoming で existing を消さないが、
+      // そもそも余計な write を発生させないことで「クリア操作 → file 触る」の
+      // 連鎖をゼロにする (二重防衛)。
+      if (Object.keys(finished).length === 0) {
+        lastSyncedJson.current = "{}";
+        return;
+      }
       const json = JSON.stringify(finished);
       if (json === lastSyncedJson.current) return;
 

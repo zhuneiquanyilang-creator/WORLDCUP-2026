@@ -12,11 +12,13 @@
 | 部分更新型 | `types/live.ts` (`LiveUpdate`) |
 | 永続化 | `utils/matchOverrides.ts` (localStorage) |
 | ソース抽象化 | `services/liveSource.ts` (`LiveSource` interface + `MockLiveSource`) |
-| ポーリング | `hooks/useLivePolling.ts` (1分毎、ライブ中のみフェッチ) |
+| ポーリング | `hooks/useLivePolling.ts` (1分毎、`shouldPoll()` = KO-30分 〜 KO+135/180分 の試合をフェッチ) |
 | データ統合 | `hooks/useMatches.ts` が file + localStorage をマージ |
 | 表示 | `components/common/LiveBadge.tsx` (赤いパルスバッジ) |
 
-ポーリングは `<Layout>` 配下にマウント。アプリ全体で1インスタンス。ライブ中試合 0 ならネットワーク呼び出しゼロ。
+ポーリングは `<Layout>` 配下にマウント。アプリ全体で1インスタンス。対象試合が 0 件 (ライブ枠外 & プリマッチ枠外) ならネットワーク呼び出しゼロ。
+
+**プリマッチ枠 (フォーメーション・ベンチメンバー)**: `utils/matchTiming.ts` の `PREMATCH_POLL_MINUTES = 30` で定義。KO 30 分前から polling が起動するので、試合開始前にフォーメーションとベンチメンバーがサイトに反映される（Sofascore の `/event/{id}/lineups` は試合前から予想スタメンを返す）。incidents (goals/cards/subs) と statistics は試合が進行中・終了状態に入ってから取得される（Sofascore 側がプリマッチでは提供しないため）。
 
 ## Sofascore 連携
 

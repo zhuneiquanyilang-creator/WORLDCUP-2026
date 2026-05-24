@@ -1,5 +1,6 @@
 [
   { "id": "test_che_tot", "stage": "test", "date": "2026-05-19T20:15:00+01:00", "venue": "Stamford Bridge, London", "homeTeamId": "CHE", "homeTeamLabel": "チェルシー", "awayTeamId": "TOT", "awayTeamLabel": "トッテナム", "status": "scheduled" },
+  { "id": "test_bha_mun", "stage": "test", "date": "2026-05-24T16:00:00+01:00", "venue": "American Express Stadium, Falmer", "homeTeamId": "BHA", "homeTeamLabel": "ブライトン", "awayTeamId": "MUN", "awayTeamLabel": "マンチェスター・ユナイテッド", "status": "scheduled" },
 
   { "id": "m001", "stage": "group", "groupId": "A", "date": "2026-06-11T13:00:00-06:00", "venue": "Estadio Azteca, Mexico City", "homeTeamId": "MEX", "awayTeamId": "ZAF", "status": "scheduled" },
   { "id": "m002", "stage": "group", "groupId": "A", "date": "2026-06-11T20:00:00-06:00", "venue": "Estadio Guadalajara, Zapopan", "homeTeamId": "KOR", "awayTeamId": "CZE", "status": "scheduled" },
