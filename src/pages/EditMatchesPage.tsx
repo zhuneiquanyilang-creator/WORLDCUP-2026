@@ -18,7 +18,11 @@ type GoalDraft = {
   minute: string;
   teamId: string;
   playerId: string;
+  /** playerId に該当する Player が無い時の表示名フォールバック (Sofascore の英語名等)。
+   *  保存時に playerId 未選択でも playerName だけは保持する。 */
+  playerName?: string;
   assistPlayerId: string;
+  assistPlayerName?: string;
   type: GoalType;
 };
 
@@ -86,7 +90,9 @@ function goalToDraft(g: Goal): GoalDraft {
     minute: String(g.minute ?? ""),
     teamId: g.teamId,
     playerId: g.playerId ?? "",
+    playerName: g.playerName,
     assistPlayerId: g.assistPlayerId ?? "",
+    assistPlayerName: g.assistPlayerName,
     type: g.type ?? "normal",
   };
 }
@@ -102,11 +108,16 @@ function draftToGoal(
   if (player) {
     goal.playerId = player.id;
     goal.playerName = player.name;
+  } else if (d.playerName) {
+    // playerId が未選択でも、元データの playerName (Sofascore の英語名等) は保持
+    goal.playerName = d.playerName;
   }
   const assist = d.assistPlayerId ? playerMap.get(d.assistPlayerId) : undefined;
   if (assist) {
     goal.assistPlayerId = assist.id;
     goal.assistPlayerName = assist.name;
+  } else if (d.assistPlayerName) {
+    goal.assistPlayerName = d.assistPlayerName;
   }
   return goal;
 }
@@ -729,7 +740,11 @@ function GoalEditor({
                         onUpdate(i, { playerId: ev.target.value })
                       }
                     >
-                      <option value="">— 選択 —</option>
+                      <option value="">
+                        {g.playerName
+                          ? `— 選択 — (現在: ${g.playerName})`
+                          : "— 選択 —"}
+                      </option>
                       {players.map((p) => (
                         <option key={p.id} value={p.id}>
                           {p.name} ({p.position})
@@ -756,7 +771,11 @@ function GoalEditor({
                         onUpdate(i, { assistPlayerId: ev.target.value })
                       }
                     >
-                      <option value="">— なし —</option>
+                      <option value="">
+                        {g.assistPlayerName
+                          ? `— なし — (現在: ${g.assistPlayerName})`
+                          : "— なし —"}
+                      </option>
                       {players.map((p) => (
                         <option key={p.id} value={p.id}>
                           {p.name} ({p.position})
