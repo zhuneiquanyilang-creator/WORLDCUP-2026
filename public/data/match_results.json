@@ -11,16 +11,22 @@
       {
         "minute": 18,
         "teamId": "CHE",
+        "playerName": "Enzo Fernández",
+        "assistPlayerName": "Pedro Neto",
         "type": "normal"
       },
       {
         "minute": 67,
         "teamId": "CHE",
+        "playerName": "Andrey Santos",
+        "assistPlayerName": "Enzo Fernández",
         "type": "normal"
       },
       {
         "minute": 74,
         "teamId": "TOT",
+        "playerName": "Richarlison",
+        "assistPlayerName": "Pape Matar Sarr",
         "type": "normal"
       }
     ],
@@ -118,7 +124,7 @@
         "outName": "Cole Palmer"
       }
     ],
-    "fetchedAt": "2026-05-24T01:38:49.785Z",
+    "fetchedAt": "2026-05-24T02:10:13.909Z",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
