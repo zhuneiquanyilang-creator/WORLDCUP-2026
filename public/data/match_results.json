@@ -386,8 +386,8 @@
   },
   "test_bha_mun": {
     "matchId": "test_bha_mun",
-    "status": "live",
-    "liveLabel": "2nd half",
+    "status": "finished",
+    "liveLabel": "Ended",
     "score": {
       "home": 0,
       "away": 3
@@ -727,23 +727,23 @@
     },
     "stats": {
       "possession": {
-        "home": 51,
-        "away": 49
+        "home": 52,
+        "away": 48
       },
       "xG": {
-        "home": 0.57,
-        "away": 1.81
+        "home": 0.8,
+        "away": 1.83
       },
       "shots": {
-        "home": 9,
-        "away": 10
+        "home": 13,
+        "away": 11
       },
       "shotsOnTarget": {
-        "home": 0,
+        "home": 2,
         "away": 7
       }
     },
-    "fetchedAt": "2026-05-24T16:47:26.690Z",
+    "fetchedAt": "2026-05-24T16:57:30.994Z",
     "currentPeriodStart": 1779638751000
   }
 }
