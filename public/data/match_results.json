@@ -11,22 +11,16 @@
       {
         "minute": 18,
         "teamId": "CHE",
-        "playerName": "Enzo Fernández",
-        "assistPlayerName": "Pedro Neto",
         "type": "normal"
       },
       {
         "minute": 67,
         "teamId": "CHE",
-        "playerName": "Andrey Santos",
-        "assistPlayerName": "Enzo Fernández",
         "type": "normal"
       },
       {
         "minute": 74,
         "teamId": "TOT",
-        "playerName": "Richarlison",
-        "assistPlayerName": "Pape Matar Sarr",
         "type": "normal"
       }
     ],
