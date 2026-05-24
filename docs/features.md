@@ -142,6 +142,8 @@ Windows 等で Unicode 国旗絵文字が正しく描画されないため、`co
 
 書き込みエンドポイントは `vite.config.ts` の `matchResultsWriter` プラグイン (`apply: "serve"`) で実装。merge モード書き込みなので、複数試合を同時並行で確定しても既存の他試合データを消さない。
 
+**自動 git push**: dev サーバーが `match_results.json` を書き換えると、30 秒デバウンスで `git add public/data/match_results.json && git commit -m "auto: ..." && git push origin HEAD` を自動実行する。`git commit -- public/data/match_results.json` のようにパスを明示するため、他のファイルの未 commit 変更は巻き込まない。GitHub Desktop バンドル版 git を絶対パスでフォールバック検出するので、git CLI が PATH に無い環境でも動く。`AUTO_PUSH_RESULTS=0` 環境変数で無効化可。git push が失敗 (認証エラー等) した場合は `[auto-push] git push failed: ...` がサーバーログに出るだけで他の動作には影響しない。
+
 ## トーナメント表への自動反映（グループ確定 / KO 勝者）
 
 `matches.json` の R32 以降は `homeTeamId: "GA1"` (= `homeTeamLabel: "A組1位"`) のような**プレースホルダ ID** を持つ。`utils/resolveMatchTeams.ts` が試合データを描画前に変換し、確定した位置だけ実チーム ID に差し替える（差し替えた場合は `homeTeamLabel` を落とすので、`TeamLink` / `MatchCard` / `BracketMatch` が普通のチームカードとして国旗付きで描画する）。`hooks/useMatches.ts` が `teams.json` 読み込み後に自動で適用するので、トーナメント表ビュー (`BracketView`) もスケジュール一覧も追加コード不要で反映される。
