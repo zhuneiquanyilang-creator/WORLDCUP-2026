@@ -727,8 +727,8 @@
     },
     "stats": {
       "possession": {
-        "home": 52,
-        "away": 48
+        "home": 51,
+        "away": 49
       },
       "xG": {
         "home": 0.57,
@@ -743,7 +743,7 @@
         "away": 7
       }
     },
-    "fetchedAt": "2026-05-24T16:44:46.142Z",
+    "fetchedAt": "2026-05-24T16:47:26.690Z",
     "currentPeriodStart": 1779638751000
   }
 }
