@@ -26,6 +26,28 @@
   text-align: right;
 }
 
+/* スマホ (縦レイアウト): ピッチの上 (ホーム) と下 (アウェイ) に置く個別ヘッダ */
+.mobileHomeHead,
+.mobileAwayHead {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.4rem;
+}
+
+.mobileAwayHead {
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
+
+.mobileHomeHead .teamHead,
+.mobileAwayHead .teamHead {
+  justify-content: center;
+  text-align: center;
+}
+
 .teamName {
   font-size: 1rem;
 }

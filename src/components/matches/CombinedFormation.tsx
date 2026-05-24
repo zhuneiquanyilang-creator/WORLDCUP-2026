@@ -165,21 +165,34 @@ export function CombinedFormation({
     [awayFormation, awaySubs, awayBookings, awayGoals]
   );
 
+  const homeHead = (
+    <div className={`${styles.teamHead} ${styles.teamHeadHome}`}>
+      {homeTeam && <Flag isoCode={homeTeam.isoCode} size={22} alt={homeTeam.name} />}
+      <span className={styles.teamName}>{homeTeam?.name ?? homeLabel ?? ""}</span>
+      {homeFormation && <span className={styles.shape}>{homeFormation.shape}</span>}
+    </div>
+  );
+  const awayHead = (
+    <div className={`${styles.teamHead} ${styles.teamHeadAway}`}>
+      {awayFormation && <span className={styles.shape}>{awayFormation.shape}</span>}
+      <span className={styles.teamName}>{awayTeam?.name ?? awayLabel ?? ""}</span>
+      {awayTeam && <Flag isoCode={awayTeam.isoCode} size={22} alt={awayTeam.name} />}
+    </div>
+  );
+
   return (
     <section className={styles.card}>
-      <header className={styles.header}>
-        <div className={styles.teamHead}>
-          {homeTeam && <Flag isoCode={homeTeam.isoCode} size={22} alt={homeTeam.name} />}
-          <span className={styles.teamName}>{homeTeam?.name ?? homeLabel ?? ""}</span>
-          {homeFormation && <span className={styles.shape}>{homeFormation.shape}</span>}
-        </div>
-        <div className={styles.vs}>VS</div>
-        <div className={`${styles.teamHead} ${styles.teamHeadAway}`}>
-          {awayFormation && <span className={styles.shape}>{awayFormation.shape}</span>}
-          <span className={styles.teamName}>{awayTeam?.name ?? awayLabel ?? ""}</span>
-          {awayTeam && <Flag isoCode={awayTeam.isoCode} size={22} alt={awayTeam.name} />}
-        </div>
-      </header>
+      {/* スマホ (縦レイアウト): ピッチ上にホーム名、下にアウェイ名を別々に置く。
+          PC (横レイアウト): 従来通り Home VS Away の単一ヘッダー。 */}
+      {isNarrow ? (
+        <div className={styles.mobileHomeHead}>{homeHead}</div>
+      ) : (
+        <header className={styles.header}>
+          {homeHead}
+          <div className={styles.vs}>VS</div>
+          {awayHead}
+        </header>
+      )}
 
       <div className={styles.pitchWrap} style={{ maxWidth: layout.maxWidth }}>
         <svg
@@ -203,6 +216,10 @@ export function CombinedFormation({
           })}
         </svg>
       </div>
+
+      {isNarrow && (
+        <div className={styles.mobileAwayHead}>{awayHead}</div>
+      )}
 
       <div className={styles.legend}>
         <span className={styles.legendItem}>
