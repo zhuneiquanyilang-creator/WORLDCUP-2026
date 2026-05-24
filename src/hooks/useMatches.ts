@@ -23,6 +23,9 @@ function applyUpdate(m: Match, u: LiveUpdate): Match {
     ...m,
     ...(u.status ? { status: u.status } : {}),
     ...(u.liveLabel ? { liveLabel: u.liveLabel } : {}),
+    ...(u.currentPeriodStart
+      ? { currentPeriodStart: u.currentPeriodStart }
+      : {}),
     ...(u.score ? { score: u.score } : {}),
     ...(u.penaltyScore ? { penaltyScore: u.penaltyScore } : {}),
     ...(u.goals ? { goals: u.goals } : {}),

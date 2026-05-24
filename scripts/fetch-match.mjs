@@ -222,6 +222,9 @@ async function main() {
       away: ev.awayScore.penalties,
     };
   }
+  if (typeof ev.time?.currentPeriodStartTimestamp === "number") {
+    update.currentPeriodStart = ev.time.currentPeriodStartTimestamp * 1000;
+  }
 
   // incidents
   const goals = [];

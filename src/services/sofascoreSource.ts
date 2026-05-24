@@ -222,6 +222,10 @@ export class SofascoreLiveSource implements LiveSource {
     if (score) update.score = score;
     if (penaltyScore) update.penaltyScore = penaltyScore;
     update.liveLabel = event.status?.description;
+    // 現在 period (1st half / 2nd half / ET 等) の開始時刻 (Sofascore は秒単位なので ms に変換)
+    if (typeof event.time?.currentPeriodStartTimestamp === "number") {
+      update.currentPeriodStart = event.time.currentPeriodStartTimestamp * 1000;
+    }
 
     // ラインアップ取得 (confirmed === true なら確実、false でも予想スタメンが入ることが多い)
     try {

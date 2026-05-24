@@ -59,34 +59,73 @@ export function elapsedMinutes(match: Match, now: number = Date.now()): number {
   return Math.max(0, Math.floor(ms / 60_000));
 }
 
+/** 現在の period 開始からの経過分 (1 から始まる) を計算。 */
+function periodElapsedMinutes(periodStartMs: number, now: number): number {
+  const sec = Math.floor((now - periodStartMs) / 1000);
+  if (sec < 0) return 1;
+  return Math.floor(sec / 60) + 1;
+}
+
+/** "1st half" → 1, "2nd half" → 2, "Extra time 1st" → 3, "Extra time 2nd" → 4, それ以外 null */
+function detectPeriod(label: string): 1 | 2 | 3 | 4 | null {
+  const ll = label.toLowerCase();
+  const isFirst = ll.includes("1st") || ll.includes("first half");
+  const isSecond = ll.includes("2nd") || ll.includes("second half");
+  const isExtra = ll.includes("extra") || ll.includes("et");
+  if (isExtra && isFirst) return 3;
+  if (isExtra && isSecond) return 4;
+  if (isFirst) return 1;
+  if (isSecond) return 2;
+  return null;
+}
+
 /**
  * ライブバッジ用の進行ラベルを返す。
- * - 試合が live で無いとき: "" (空)
- * - 外部ソースが Halftime / Full time を示しているとき: "HT" / "FT"
- * - それ以外: KO からの経過分から推定。
- *   - 0-45分: そのまま (1'～45')
- *   - 45-60分: "HT" 扱い (簡易15分ハーフタイム)
- *   - 60分以降: 2nd half として 15分引いて表示 (46'～)
  *
- * 例: 23' / 45' / HT / 67' / 91'
+ * 優先順位:
+ *   1. Sofascore の `liveLabel` が Halftime / Full time / Penalty を示せばそれ
+ *   2. `currentPeriodStart` (Sofascore の `time.currentPeriodStartTimestamp`) と
+ *      `liveLabel` の period 情報から、アディショナルタイム込みで実際の分を計算
+ *      - 1st half: 経過 45 分以内なら `N'`、45 分超なら `45+N'`
+ *      - 2nd half: 同様、90 分超なら `90+N'`
+ *      - ET 1st: 105 分超なら `105+N'`、ET 2nd: 120 分超なら `120+N'`
+ *   3. どちらも欠けていれば KO からの経過分の簡易ロジック (旧動作)
+ *
+ * これで「45 分ちょうどで HT」と誤って固定表示する問題が解消され、
+ * Sofascore が報告するロスタイム延長中も「45+3'」のように現実的に出る。
  */
 export function liveMinuteLabel(match: Match, now: number = Date.now()): string {
   if (match.status !== "live") return "";
 
-  const ll = match.liveLabel?.toLowerCase();
-  if (ll) {
-    if (ll.includes("halftime") || ll.includes("half time") || ll === "ht") return "HT";
-    if (ll === "full time" || ll === "ft" || ll === "finished") return "FT";
+  const ll = match.liveLabel?.toLowerCase() ?? "";
+
+  // 1) 静止状態
+  if (ll.includes("halftime") || ll === "ht") return "HT";
+  if (ll === "full time" || ll === "ft" || ll === "finished" || ll === "ended")
+    return "FT";
+  if (ll.includes("penalty") || ll === "pen" || ll === "pk") return "PK";
+  if (ll.includes("awaiting") || ll.includes("extra time halftime"))
+    return "HT";
+
+  // 2) period + 開始時刻から実分を計算 (Sofascore の正確なタイマー)
+  if (match.currentPeriodStart && match.liveLabel) {
+    const period = detectPeriod(match.liveLabel);
+    if (period !== null) {
+      const inPeriod = periodElapsedMinutes(match.currentPeriodStart, now);
+      const regulationCap = [45, 45, 15, 15][period - 1];
+      const baseBefore = [0, 45, 90, 105][period - 1];
+      if (inPeriod <= regulationCap) {
+        return `${baseBefore + inPeriod}'`;
+      }
+      // アディショナルタイム
+      return `${baseBefore + regulationCap}+${inPeriod - regulationCap}'`;
+    }
   }
 
+  // 3) フォールバック: KO からの単純経過 (currentPeriodStart が無いとき)
   const elapsed = elapsedMinutes(match, now);
-  const FIRST_HALF_END = 45;
-  const HALFTIME_END = 60; // KO + 60分 ≒ 2nd half 開始
-  if (elapsed <= FIRST_HALF_END) {
-    return `${Math.max(1, elapsed)}'`;
-  }
-  if (elapsed < HALFTIME_END) {
-    return "HT";
-  }
+  if (elapsed < 45) return `${Math.max(1, elapsed)}'`;
+  if (elapsed < 47) return `45+${elapsed - 45}'`; // 軽くアディショナルを示唆
+  if (elapsed < 60) return "HT";
   return `${elapsed - 15}'`;
 }

@@ -84,6 +84,10 @@ export type Match = {
   status: MatchStatus;
   /** Sofascore など外部ソース由来の進行ラベル (例: "1st half" / "Halftime" / "Full time") */
   liveLabel?: string;
+  /** 現在の period (1st half / 2nd half / ET 等) が始まった瞬間の UTC ms タイムスタンプ。
+   *  Sofascore の `event.time.currentPeriodStartTimestamp` * 1000。
+   *  アディショナルタイム込みのライブ経過分計算に使う (`liveMinuteLabel`)。 */
+  currentPeriodStart?: number;
   score?: { home: number; away: number };
   /** PK決着のスコア (KO戦のみ)。`score` は90分+延長の最終、`penaltyScore` は PK の最終本数。 */
   penaltyScore?: { home: number; away: number };

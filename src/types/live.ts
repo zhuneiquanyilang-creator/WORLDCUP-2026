@@ -20,6 +20,8 @@ export type LiveUpdate = {
   penaltyScore?: { home: number; away: number };
   /** 表示用の現在進行情報（例: "45+2'" / "HT" / "FT" / "ライブ"） */
   liveLabel?: string;
+  /** 現在の period が始まった瞬間の UTC ms タイムスタンプ (Sofascore 由来)。 */
+  currentPeriodStart?: number;
   goals?: Goal[];
   bookings?: Booking[];
   substitutions?: Substitution[];
