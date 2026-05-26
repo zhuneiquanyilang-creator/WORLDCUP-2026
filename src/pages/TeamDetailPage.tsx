@@ -70,7 +70,10 @@ export function TeamDetailPage() {
       {tab === "detail" ? (
         <div className={styles.grid}>
           <TeamProfile detail={detail} />
-          <TeamHistory results={detail?.pastResults ?? []} />
+          {/* 初出場の国 (過去成績データ無し) は「過去の成績」欄を出さない */}
+          {detail && detail.pastResults.length > 0 && (
+            <TeamHistory results={detail.pastResults} />
+          )}
         </div>
       ) : (
         <div className={styles.grid}>

@@ -1,42 +1,21 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { TeamDetail } from "@/types/teamDetail";
 import { useJsonResource } from "./useJsonResource";
 import { dataUrl } from "@/utils/dataUrl";
-import { loadOverrides } from "@/utils/teamDetailsOverrides";
 
 /**
- * チーム詳細データ。`team_details.json` を元に localStorage の上書き（pastResults）をマージする。
- * 編集画面 (`/edit/history`) からの変更が同タブ内の表示に反映されるよう、
- * `storage` イベント + カスタムイベント `team-details-override-changed` を監視する。
+ * チーム詳細データ (`team_details.json`)。
+ *
+ * **ファイルが唯一の真実**。`/edit/history` の localStorage オーバーレイは
+ * 以前はここでマージされていたが、「ファイルを直接編集したのに反映されない」
+ * 混乱を避けるため、表示パスからは外した。
+ *
+ * 編集 UI からファイルへ反映する場合は `/edit/history` の「JSON 出力」を
+ * 押し、出力された JSON を `public/data/team_details.json` に貼り付けて
+ * commit / push する。
  */
 export function useTeamDetails() {
-  const fileState = useJsonResource<TeamDetail[]>(dataUrl("team_details.json"));
-  const [overrideVersion, setOverrideVersion] = useState(0);
-
-  useEffect(() => {
-    const bump = () => setOverrideVersion((v) => v + 1);
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === "wc2026:teamDetailsOverrides") bump();
-    };
-    window.addEventListener("storage", onStorage);
-    window.addEventListener("team-details-override-changed", bump);
-    return () => {
-      window.removeEventListener("storage", onStorage);
-      window.removeEventListener("team-details-override-changed", bump);
-    };
-  }, []);
-
-  return useMemo(() => {
-    if (fileState.status !== "ready") return fileState;
-    const overrides = loadOverrides();
-    const merged: TeamDetail[] = fileState.data.map((d) => {
-      const o = overrides[d.teamId];
-      if (!o) return d;
-      return { ...d, pastResults: o.pastResults ?? d.pastResults };
-    });
-    return { ...fileState, data: merged };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fileState, overrideVersion]);
+  return useJsonResource<TeamDetail[]>(dataUrl("team_details.json"));
 }
 
 export function useTeamDetailMap() {
