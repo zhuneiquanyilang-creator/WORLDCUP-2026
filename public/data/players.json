@@ -814,7 +814,7 @@
   { "id": "p_ned_23", "name": "ドニエル・マレン", "teamId": "NED", "position": "FW", "birthDate": "1999-01-19", "club": "ASローマ（イタリア）", "goals": 0, "assists": 0 },
   { "id": "p_ned_24", "name": "ノア・ラング", "teamId": "NED", "position": "FW", "birthDate": "1999-06-17", "club": "ガラタサライ（トルコ）", "goals": 0, "assists": 0 },
   { "id": "p_ned_25", "name": "メンフィス・デパイ", "teamId": "NED", "position": "FW", "birthDate": "1994-02-13", "club": "コリンチャンス（ブラジル）", "goals": 0, "assists": 0 },
-  { "id": "p_ned_26", "name": "ワウト・ウェクホルスト", "teamId": "NED", "position": "FW", "birthDate": "1992-08-07", "club": "アヤックス", "goals": 0, "assists": 0 },
+  { "id": "p_ned_26", "name": "ワウト・ヴェフホルスト", "teamId": "NED", "position": "FW", "birthDate": "1992-08-07", "club": "アヤックス", "goals": 0, "assists": 0 },
 
   { "id": "p_zaf_1", "name": "ロンウェン・ウィリアムズ", "teamId": "ZAF", "position": "GK", "birthDate": "1992-01-21", "club": "マメロディ・サンダウンズ", "goals": 0, "assists": 0 },
   { "id": "p_zaf_2", "name": "リカルド・ゴス", "teamId": "ZAF", "position": "GK", "birthDate": "1994-04-02", "club": "シウェレレ", "goals": 0, "assists": 0 },
