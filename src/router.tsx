@@ -10,6 +10,8 @@ import { EditHistoryPage } from "./pages/EditHistoryPage";
 import { EditMatchesPage } from "./pages/EditMatchesPage";
 import { PastTournamentsPage } from "./pages/PastTournamentsPage";
 import { PastTournamentDetailPage } from "./pages/PastTournamentDetailPage";
+import { ColumnsPage } from "./pages/ColumnsPage";
+import { ColumnDetailPage } from "./pages/ColumnDetailPage";
 
 export const router = createHashRouter([
   {
@@ -25,6 +27,8 @@ export const router = createHashRouter([
       { path: "stats", element: <StatsPage /> },
       { path: "past", element: <PastTournamentsPage /> },
       { path: "past/:year", element: <PastTournamentDetailPage /> },
+      { path: "columns", element: <ColumnsPage /> },
+      { path: "columns/:id", element: <ColumnDetailPage /> },
       { path: "edit/history", element: <EditHistoryPage /> },
       { path: "edit/matches", element: <EditMatchesPage /> },
       { path: "*", element: <Navigate to="/" replace /> },
