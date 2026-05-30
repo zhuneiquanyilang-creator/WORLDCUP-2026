@@ -5,11 +5,12 @@ import { useTeamDetailMap } from "@/hooks/useTeamDetails";
 import { TeamProfile } from "@/components/teams/TeamProfile";
 import { TeamHistory } from "@/components/teams/TeamHistory";
 import { PlayerRoster } from "@/components/teams/PlayerRoster";
+import { TeamResults } from "@/components/teams/TeamResults";
 import { Flag } from "@/components/common/Flag";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
 import styles from "./TeamDetailPage.module.css";
 
-type Tab = "detail" | "roster";
+type Tab = "detail" | "roster" | "results";
 
 export function TeamDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -65,9 +66,16 @@ export function TeamDetailPage() {
         >
           選手一覧
         </button>
+        <button
+          type="button"
+          onClick={() => setTab("results")}
+          className={tab === "results" ? `${styles.tab} ${styles.tabActive}` : styles.tab}
+        >
+          試合結果
+        </button>
       </div>
 
-      {tab === "detail" ? (
+      {tab === "detail" && (
         <div className={styles.grid}>
           <TeamProfile detail={detail} />
           {/* 初出場の国 (過去成績データ無し) は「過去の成績」欄を出さない */}
@@ -75,9 +83,15 @@ export function TeamDetailPage() {
             <TeamHistory results={detail.pastResults} />
           )}
         </div>
-      ) : (
+      )}
+      {tab === "roster" && (
         <div className={styles.grid}>
           <PlayerRoster teamId={team.id} />
+        </div>
+      )}
+      {tab === "results" && (
+        <div className={styles.grid}>
+          <TeamResults teamId={team.id} />
         </div>
       )}
     </div>

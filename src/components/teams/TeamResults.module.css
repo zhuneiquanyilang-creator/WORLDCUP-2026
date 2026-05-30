@@ -1,0 +1,136 @@
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.5rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+  color: var(--color-primary-dark);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.subHeading {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.table {
+  width: 100%;
+  font-size: 0.95rem;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.6rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+  background-color: #f9fafb;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.colMd {
+  width: 22%;
+}
+
+.colOpp {
+  width: 48%;
+}
+
+.colScore {
+  width: 30%;
+  text-align: right !important;
+}
+
+.md {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.mdLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mdLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.opp {
+  font-weight: 600;
+}
+
+.oppLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.oppLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.score {
+  text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+}
+
+.scoreLink {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.scoreLink:hover {
+  text-decoration: underline;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* PK 補足 (90分+延長同点 → PK 決着) */
+.pk {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .table {
+    font-size: 0.88rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+}
