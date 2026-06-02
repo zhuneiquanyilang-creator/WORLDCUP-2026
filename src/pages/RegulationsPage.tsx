@@ -11,6 +11,10 @@
  * 出典: Wikipedia「2026 FIFAワールドカップ」（2026-05-17 取得）、
  *       FIFA 公式ルール準拠（ユーザー提供）。
  */
+import {
+  BroadcasterBadge,
+  BROADCASTER_LEGEND,
+} from "@/components/common/BroadcasterBadge";
 import styles from "./RegulationsPage.module.css";
 
 export function RegulationsPage() {
@@ -121,6 +125,28 @@ export function RegulationsPage() {
             負傷者の差し替えは大会規定に従って大会前まで可能。
           </li>
         </ul>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>テレビ放送・配信（日本国内）</h2>
+        <p>
+          試合カードに表示されるバッジは、その試合の日本国内中継・配信を示します。
+          出典: FIFA 公式「Scores &amp; Fixtures」のページから日本向け放送局情報（2026 年 5 月 26 日取得）。
+        </p>
+        <ul className={styles.broadcasterList}>
+          {BROADCASTER_LEGEND.map((b) => (
+            <li key={b.code} className={styles.broadcasterItem}>
+              <BroadcasterBadge code={b.code} />
+              <span className={styles.broadcasterName}>{b.name}</span>
+              <span className={styles.broadcasterNote}>— {b.note}</span>
+            </li>
+          ))}
+        </ul>
+        <p className={styles.note}>
+          DAZN は全 104 試合を独占ストリーミング配信。NHK・日テレ・フジテレビは
+          一部の試合のみ地上波／BS で放送します。試合ごとの中継局は「日程・結果」
+          ページの各試合カードに付いているバッジで確認できます。
+        </p>
       </section>
 
       <p className={styles.sources}>

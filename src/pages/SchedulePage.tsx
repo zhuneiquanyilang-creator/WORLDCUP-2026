@@ -7,6 +7,10 @@ import { StatusFilter } from "@/components/schedule/StatusFilter";
 import { GroupFilter } from "@/components/schedule/GroupFilter";
 import { BracketView } from "@/components/schedule/BracketView";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
+import {
+  BroadcasterBadge,
+  BROADCASTER_LEGEND,
+} from "@/components/common/BroadcasterBadge";
 import type { MatchStage, MatchStatus } from "@/types/match";
 import styles from "./SchedulePage.module.css";
 
@@ -59,6 +63,21 @@ export function SchedulePage() {
   return (
     <div>
       <h1>日程・結果</h1>
+
+      <details className={styles.broadcasterLegend}>
+        <summary className={styles.broadcasterSummary}>
+          放送局バッジの凡例（日本国内）
+        </summary>
+        <ul className={styles.broadcasterList}>
+          {BROADCASTER_LEGEND.map((b) => (
+            <li key={b.code} className={styles.broadcasterItem}>
+              <BroadcasterBadge code={b.code} />
+              <span className={styles.broadcasterName}>{b.name}</span>
+              <span className={styles.broadcasterNote}>— {b.note}</span>
+            </li>
+          ))}
+        </ul>
+      </details>
 
       <div className={styles.viewTabs}>
         <button

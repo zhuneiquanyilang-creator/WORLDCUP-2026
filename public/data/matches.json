@@ -1,7 +1,4 @@
 [
-  { "id": "test_che_tot", "stage": "test", "date": "2026-05-19T20:15:00+01:00", "venue": "スタンフォード・ブリッジ（イングランド）", "homeTeamId": "CHE", "homeTeamLabel": "チェルシー", "awayTeamId": "TOT", "awayTeamLabel": "トッテナム", "status": "scheduled" },
-  { "id": "test_bha_mun", "stage": "test", "date": "2026-05-24T16:00:00+01:00", "venue": "アメリカン・エクスプレス・スタジアム（イングランド）", "homeTeamId": "BHA", "homeTeamLabel": "ブライトン", "awayTeamId": "MUN", "awayTeamLabel": "マンチェスター・ユナイテッド", "status": "scheduled" },
-
   { "id": "m001", "stage": "group", "groupId": "A", "date": "2026-06-11T13:00:00-06:00", "venue": "エスタディオ・アステカ（メキシコ）", "homeTeamId": "MEX", "awayTeamId": "ZAF", "status": "scheduled", "broadcasters": ["nhk-g","nhk-bs4k","dazn"] },
   { "id": "m002", "stage": "group", "groupId": "A", "date": "2026-06-11T20:00:00-06:00", "venue": "エスタディオ・グアダラハラ（メキシコ）", "homeTeamId": "KOR", "awayTeamId": "CZE", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m003", "stage": "group", "groupId": "A", "date": "2026-06-18T12:00:00-04:00", "venue": "アトランタ・スタジアム（アメリカ）", "homeTeamId": "CZE", "awayTeamId": "ZAF", "status": "scheduled", "broadcasters": ["ntv","dazn"] },
@@ -74,7 +71,6 @@
   { "id": "m070", "stage": "group", "groupId": "L", "date": "2026-06-23T19:00:00-04:00", "venue": "トロント・スタジアム（カナダ）", "homeTeamId": "PAN", "awayTeamId": "CRO", "status": "scheduled", "broadcasters": ["fuji","dazn"] },
   { "id": "m071", "stage": "group", "groupId": "L", "date": "2026-06-27T17:00:00-04:00", "venue": "ニューヨーク・ニュージャージー・スタジアム（アメリカ）", "homeTeamId": "PAN", "awayTeamId": "ENG", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m072", "stage": "group", "groupId": "L", "date": "2026-06-27T17:00:00-04:00", "venue": "フィラデルフィア・スタジアム（アメリカ）", "homeTeamId": "CRO", "awayTeamId": "GHA", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m073", "stage": "round32", "date": "2026-06-28T12:00:00-07:00", "venue": "ロサンゼルス・スタジアム（アメリカ）", "homeTeamId": "GA2", "homeTeamLabel": "A組2位", "awayTeamId": "GB2", "awayTeamLabel": "B組2位", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m074", "stage": "round32", "date": "2026-06-29T16:30:00-04:00", "venue": "ボストン・スタジアム（アメリカ）", "homeTeamId": "GE1", "homeTeamLabel": "E組1位", "awayTeamId": "G3_ABCDF", "awayTeamLabel": "A/B/C/D/F組3位", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m075", "stage": "round32", "date": "2026-06-29T19:00:00-06:00", "venue": "エスタディオ・モンテレイ（メキシコ）", "homeTeamId": "GF1", "homeTeamLabel": "F組1位", "awayTeamId": "GC2", "awayTeamLabel": "C組2位", "status": "scheduled", "broadcasters": ["dazn"] },
@@ -91,7 +87,6 @@
   { "id": "m086", "stage": "round32", "date": "2026-07-03T18:00:00-04:00", "venue": "マイアミ・スタジアム（アメリカ）", "homeTeamId": "GJ1", "homeTeamLabel": "J組1位", "awayTeamId": "GH2", "awayTeamLabel": "H組2位", "status": "scheduled", "broadcasters": ["ntv","dazn"] },
   { "id": "m087", "stage": "round32", "date": "2026-07-03T20:30:00-05:00", "venue": "未定", "homeTeamId": "GK1", "homeTeamLabel": "K組1位", "awayTeamId": "G3_DEIJL", "awayTeamLabel": "D/E/I/J/L組3位", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m088", "stage": "round32", "date": "2026-07-03T13:00:00-05:00", "venue": "ダラス・スタジアム（アメリカ）", "homeTeamId": "GD2", "homeTeamLabel": "D組2位", "awayTeamId": "GG2", "awayTeamLabel": "G組2位", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m089", "stage": "round16", "date": "2026-07-04T12:00:00-05:00", "venue": "ヒューストン・スタジアム（アメリカ）", "homeTeamId": "W73", "homeTeamLabel": "73試合勝者", "awayTeamId": "W75", "awayTeamLabel": "75試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m090", "stage": "round16", "date": "2026-07-04T17:00:00-04:00", "venue": "フィラデルフィア・スタジアム（アメリカ）", "homeTeamId": "W74", "homeTeamLabel": "74試合勝者", "awayTeamId": "W77", "awayTeamLabel": "77試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m091", "stage": "round16", "date": "2026-07-05T16:00:00-04:00", "venue": "ニューヨーク・ニュージャージー・スタジアム（アメリカ）", "homeTeamId": "W76", "homeTeamLabel": "76試合勝者", "awayTeamId": "W78", "awayTeamLabel": "78試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
@@ -100,16 +95,12 @@
   { "id": "m094", "stage": "round16", "date": "2026-07-06T17:00:00-07:00", "venue": "シアトル・スタジアム（アメリカ）", "homeTeamId": "W81", "homeTeamLabel": "81試合勝者", "awayTeamId": "W82", "awayTeamLabel": "82試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m095", "stage": "round16", "date": "2026-07-07T12:00:00-04:00", "venue": "アトランタ・スタジアム（アメリカ）", "homeTeamId": "W86", "homeTeamLabel": "86試合勝者", "awayTeamId": "W88", "awayTeamLabel": "88試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m096", "stage": "round16", "date": "2026-07-07T13:00:00-07:00", "venue": "BCプレイス（カナダ）", "homeTeamId": "W85", "homeTeamLabel": "85試合勝者", "awayTeamId": "W87", "awayTeamLabel": "87試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m097", "stage": "quarter", "date": "2026-07-09T16:00:00-04:00", "venue": "ボストン・スタジアム（アメリカ）", "homeTeamId": "W89", "homeTeamLabel": "89試合勝者", "awayTeamId": "W90", "awayTeamLabel": "90試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m098", "stage": "quarter", "date": "2026-07-11T17:00:00-04:00", "venue": "マイアミ・スタジアム（アメリカ）", "homeTeamId": "W91", "homeTeamLabel": "91試合勝者", "awayTeamId": "W92", "awayTeamLabel": "92試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m099", "stage": "quarter", "date": "2026-07-10T12:00:00-07:00", "venue": "ロサンゼルス・スタジアム（アメリカ）", "homeTeamId": "W93", "homeTeamLabel": "93試合勝者", "awayTeamId": "W94", "awayTeamLabel": "94試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m100", "stage": "quarter", "date": "2026-07-11T20:00:00-05:00", "venue": "カンザスシティ・スタジアム（アメリカ）", "homeTeamId": "W95", "homeTeamLabel": "95試合勝者", "awayTeamId": "W96", "awayTeamLabel": "96試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m101", "stage": "semi", "date": "2026-07-14T14:00:00-05:00", "venue": "ダラス・スタジアム（アメリカ）", "homeTeamId": "W97", "homeTeamLabel": "97試合勝者", "awayTeamId": "W98", "awayTeamLabel": "98試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
   { "id": "m102", "stage": "semi", "date": "2026-07-15T15:00:00-04:00", "venue": "アトランタ・スタジアム（アメリカ）", "homeTeamId": "W99", "homeTeamLabel": "99試合勝者", "awayTeamId": "W100", "awayTeamLabel": "100試合勝者", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m103", "stage": "third", "date": "2026-07-18T17:00:00-04:00", "venue": "マイアミ・スタジアム（アメリカ）", "homeTeamId": "L101", "homeTeamLabel": "101試合敗者", "awayTeamId": "L102", "awayTeamLabel": "102試合敗者", "status": "scheduled", "broadcasters": ["dazn"] },
-
   { "id": "m104", "stage": "final", "date": "2026-07-19T15:00:00-04:00", "venue": "ニューヨーク・ニュージャージー・スタジアム（アメリカ）", "homeTeamId": "W101", "homeTeamLabel": "101試合勝者", "awayTeamId": "W102", "awayTeamLabel": "102試合勝者", "status": "scheduled", "broadcasters": ["dazn"] }
 ]

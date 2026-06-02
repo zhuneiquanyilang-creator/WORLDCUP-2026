@@ -31,7 +31,7 @@
 
 **CORS 対策**: `vite.config.ts` で `/sofascore-api/*` → `https://api.sofascore.com/api/v1/*` のリバースプロキシを設定（dev server のみ有効）。本番デプロイ時は別途リバースプロキシが必要。
 
-**試合ID マッピング**: `public/data/sofascore_mapping.json` にローカル試合ID (`m001` 等) と Sofascore event ID (`15186710` 等) の対応を保存。トーナメントID: `16`、シーズン: `58210` (2026)。全104試合 + `test_che_tot`（テスト用）を登録済み（`scripts/build-mapping.mjs` で生成）。未登録試合があればライブ更新はスキップ (graceful)。
+**試合ID マッピング**: `public/data/sofascore_mapping.json` にローカル試合ID (`m001` 等) と Sofascore event ID (`15186710` 等) の対応を保存。トーナメントID: `16`、シーズン: `58210` (2026)。全104試合を登録済み（`scripts/build-mapping.mjs` で生成）。未登録試合があればライブ更新はスキップ (graceful)。
 
 **インシデント変換**:
 - `incidentType="goal"` → `Goal` (`incidentClass`: regular/penalty/ownGoal → normal/penalty/own)

@@ -181,7 +181,7 @@ async function main() {
     console.log(`  ${m.id} <- ${e.id}  [${m.stage}]  ${f1} + ${f2}`);
   }
 
-  // --- 非W杯エントリ（test_che_tot 等）は旧マッピングから引き継ぐ ---
+  // --- 非W杯エントリ (将来的なテスト用追加が出てきたら) は旧マッピングから引き継ぐ ---
   for (const [k, v] of Object.entries(old.mapping ?? {})) {
     if (!isWcId(k) && !(k in mapping)) mapping[k] = v;
   }
@@ -193,7 +193,7 @@ async function main() {
   console.log(`マッピング済み W杯試合: ${wcIds.length - missing.length}/${wcIds.length}`);
   if (missing.length) console.log(`未マッピング: ${missing.join(", ")}`);
 
-  // --- 書き出し（test_che_tot を先頭、その後 m### を番号順）---
+  // --- 書き出し（非 W 杯エントリを先頭、その後 m### を番号順）---
   const ord = (k) => (isWcId(k) ? matchNum(k) : -1);
   const sorted = Object.fromEntries(
     Object.entries(mapping).sort((a, b) => ord(a[0]) - ord(b[0]))

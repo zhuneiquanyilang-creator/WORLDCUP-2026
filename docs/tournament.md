@@ -86,5 +86,16 @@ points → goalDiff → goalsFor
 - `matches.json`: **全104試合**の実日程（グループ72 + R32 16 + R16 8 + QF 4 + SF 2 + 3位決定戦 1 + 決勝 1）。すべて `status: "scheduled"`、スコアなし。出典は Wikipedia（2026-05-18 取得）。
   - **R32**: 日付・会場確定、対戦カードは「A組1位 vs C/E/F/H/I組3位」等のラベル表記
   - **R16以降**: 日付・会場・KO時刻すべて確定（2026-05-26 更新、出典 en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage）、対戦カードは「73試合勝者 vs 75試合勝者」等のブラケットベース表記
-  - **broadcasters**: 各試合に日本国内放送局コードの配列を保持（出典 FIFA 公式 canadamexicousa2026/scores-fixtures?country=JP、2026-05-26 取得）。値は `"nhk-g"|"nhk-bs1"|"nhk-bs4k"|"ntv"|"fuji"|"dazn"`。DAZN は全 104 試合に独占ストリーミング配信される前提で機械的に付与。
+  - **broadcasters**: 各試合に日本国内放送局コードの配列を保持（出典 FIFA 公式 canadamexicousa2026/scores-fixtures?country=JP、2026-05-26 取得）。DAZN は全 104 試合に独占ストリーミング配信される前提で機械的に付与。**コード → 放送局対応表**（`components/common/BroadcasterBadge.tsx` の `META` と一致）:
+
+    | コード | 放送局 | バッジ表示 | 配色 |
+    |---|---|---|---|
+    | `nhk-g` | NHK 総合 (地上波) | `G` | 赤地に白文字 (#e60012) |
+    | `nhk-bs1` | NHK BS1 (BS) | `BS1` | 青地に白文字 (#0a5cb8) |
+    | `nhk-bs4k` | NHK BS4K (4K) | `BS4K` | グレー地に白文字 (#6b6b6b) |
+    | `ntv` | 日本テレビ (地上波) | `日テレ` | 白地に赤テキスト + 赤枠 (#e60019) |
+    | `fuji` | フジテレビ (地上波) | `フジ` | 朱赤地に白文字 (#ff6a13) |
+    | `dazn` | DAZN (配信、全 104 試合独占) | `DAZN` | 黒地に白文字 (#111) |
+
+    ユーザー向けの凡例は `/regulations` ページ最下部「テレビ放送・配信」セクションにも掲載済み。
 - `players.json`: **48カ国全代表メンバー実データ**（出場 48 か国全員ぶん）。各選手: 氏名 / ポジション / 生年月日 / 所属クラブ。`goals` / `assists` フィールドは保持しているが**未使用**（`utils/computePlayerStats.ts` が `matches.json` から実行時集計）。出典は worldcdb.com の各国ページ（2026-05-18 取得を皮切りに 5/20 / 5/22 / 5/24 / 5/26 / 5/27 / 5/28 / 5/30 / 5/31 / 6/1 / 6/2 と分割して取得。コロンビアとメキシコは予備 55 名リストから正式 26 名へ更新、ヨルダンは予備 30 名から正式 26 名へ更新）。サウジアラビアは FIFA 公式コードの **KSA** (Kingdom of Saudi Arabia) で teams.json と対応させる。

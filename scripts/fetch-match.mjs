@@ -4,8 +4,7 @@
  *
  * 使い方:
  *   node scripts/fetch-match.mjs <matchId>
- *   例: node scripts/fetch-match.mjs test_bha_mun
- *       node scripts/fetch-match.mjs m003
+ *   例: node scripts/fetch-match.mjs m003
  *
  * 前提:
  *   - dev サーバー (`npm run dev`) が起動していること
@@ -166,7 +165,7 @@ async function main() {
   const matchId = process.argv[2];
   if (!matchId) {
     console.error("使い方: node scripts/fetch-match.mjs <matchId>");
-    console.error("例: node scripts/fetch-match.mjs test_bha_mun");
+    console.error("例: node scripts/fetch-match.mjs m003");
     process.exit(1);
   }
 

@@ -39,6 +39,19 @@ export function BroadcasterBadge({ code }: Props) {
   );
 }
 
+/**
+ * バッジコード一覧と人間向けの説明。`/regulations` と `/schedule` の
+ * 凡例表示で共通利用する単一の真実の源。
+ */
+export const BROADCASTER_LEGEND: { code: BroadcasterCode; name: string; note: string }[] = [
+  { code: "nhk-g", name: "NHK 総合", note: "地上波・主要試合の生中継" },
+  { code: "nhk-bs1", name: "NHK BS1", note: "BS の生中継・録画放送" },
+  { code: "nhk-bs4k", name: "NHK BS4K", note: "4K 画質での生中継" },
+  { code: "ntv", name: "日本テレビ", note: "日本戦を含む地上波生中継" },
+  { code: "fuji", name: "フジテレビ", note: "日本戦を含む地上波生中継" },
+  { code: "dazn", name: "DAZN", note: "全 104 試合の独占ストリーミング配信" },
+];
+
 export function BroadcasterList({ codes }: { codes?: string[] }) {
   if (!codes || codes.length === 0) return null;
   return (
