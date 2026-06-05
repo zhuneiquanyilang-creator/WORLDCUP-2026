@@ -76,17 +76,29 @@
   font-size: 0.8rem;
 }
 
+.colNumber {
+  width: 10%;
+  text-align: center !important;
+}
+
 .colName {
-  width: 38%;
+  width: 32%;
 }
 
 .colClub {
-  width: 50%;
+  width: 46%;
 }
 
 .colAge {
   width: 12%;
   text-align: right !important;
+}
+
+.number {
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary-dark);
 }
 
 .name {

@@ -83,6 +83,7 @@ export function PlayerRoster({ teamId }: Props) {
             <table className={styles.table}>
               <thead>
                 <tr>
+                  <th className={styles.colNumber}>背番号</th>
                   <th className={styles.colName}>氏名</th>
                   <th className={styles.colClub}>所属クラブ</th>
                   <th className={styles.colAge}>年齢</th>
@@ -93,6 +94,9 @@ export function PlayerRoster({ teamId }: Props) {
                   const age = calculateAge(p.birthDate);
                   return (
                     <tr key={p.id}>
+                      <td className={styles.number}>
+                        {p.number != null ? p.number : "—"}
+                      </td>
                       <td className={styles.name}>{p.name}</td>
                       <td className={styles.club}>{p.club ?? "—"}</td>
                       <td className={styles.age}>
