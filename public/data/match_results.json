@@ -84,6 +84,26 @@
       ],
       "bench": [
         {
+          "number": 2,
+          "name": "ホルヘ・サンチェス"
+        },
+        {
+          "number": 4,
+          "name": "エドソン・アルバレス"
+        },
+        {
+          "number": 7,
+          "name": "ルイス・ロモ"
+        },
+        {
+          "number": 10,
+          "name": "アレクシス・ベガ"
+        },
+        {
+          "number": 11,
+          "name": "サンティアゴ・ヒメネス"
+        },
+        {
           "number": 12,
           "name": "カルロス・アセベド"
         },
@@ -92,56 +112,36 @@
           "name": "ギジェルモ・オチョア"
         },
         {
-          "number": 2,
-          "name": "ホルヘ・サンチェス"
-        },
-        {
-          "number": 7,
-          "name": "ルイス・ロモ"
-        },
-        {
-          "number": 20,
-          "name": "マテオ・チャベス"
-        },
-        {
-          "number": 10,
-          "name": "アレクシス・ベガ"
-        },
-        {
-          "number": 21,
-          "name": "セサル・ウエルタ"
-        },
-        {
-          "number": 4,
-          "name": "エドソン・アルバレス"
-        },
-        {
-          "number": 19,
-          "name": "ヒルベルト・モラ"
-        },
-        {
-          "number": 24,
-          "name": "ルイス・チャベス"
-        },
-        {
-          "number": 18,
-          "name": "オベド・バルガス"
+          "number": 14,
+          "name": "アルマンド・ゴンサレス"
         },
         {
           "number": 17,
           "name": "オルベリン・ピネダ"
         },
         {
-          "number": 14,
-          "name": "アルマンド・ゴンサレス"
+          "number": 18,
+          "name": "オベド・バルガス"
+        },
+        {
+          "number": 19,
+          "name": "ヒルベルト・モラ"
+        },
+        {
+          "number": 20,
+          "name": "マテオ・チャベス"
+        },
+        {
+          "number": 21,
+          "name": "セサル・ウエルタ"
         },
         {
           "number": 22,
           "name": "ギジェルモ・マルティネス"
         },
         {
-          "number": 11,
-          "name": "サンティアゴ・ヒメネス"
+          "number": 24,
+          "name": "ルイス・チャベス"
         }
       ]
     },
@@ -228,32 +228,16 @@
       ],
       "bench": [
         {
-          "number": 22,
-          "name": "リカルド・ゴス"
-        },
-        {
-          "number": 16,
-          "name": "シフォ・チェイン"
-        },
-        {
-          "number": 26,
-          "name": "ブラッドリー・クロス"
+          "number": 2,
+          "name": "タバン・マトゥルディ"
         },
         {
           "number": 3,
           "name": "クルマニ・ンダマネ"
         },
         {
-          "number": 24,
-          "name": "オルウェトゥ・マカニャ"
-        },
-        {
-          "number": 18,
-          "name": "サムケレ・カビニ"
-        },
-        {
-          "number": 2,
-          "name": "タバン・マトゥルディ"
+          "number": 5,
+          "name": "タレンテ・ムバサ"
         },
         {
           "number": 7,
@@ -268,14 +252,6 @@
           "name": "レレボヒレ・モフォケン"
         },
         {
-          "number": 25,
-          "name": "カモゲロ・セベレベレ"
-        },
-        {
-          "number": 5,
-          "name": "タレンテ・ムバサ"
-        },
-        {
           "number": 11,
           "name": "ゼンバ・ズワネ"
         },
@@ -284,8 +260,32 @@
           "name": "タペロ・マセコ"
         },
         {
+          "number": 16,
+          "name": "シフォ・チェイン"
+        },
+        {
           "number": 17,
           "name": "エヴィデンス・マクゴパ"
+        },
+        {
+          "number": 18,
+          "name": "サムケレ・カビニ"
+        },
+        {
+          "number": 22,
+          "name": "リカルド・ゴス"
+        },
+        {
+          "number": 24,
+          "name": "オルウェトゥ・マカニャ"
+        },
+        {
+          "number": 25,
+          "name": "カモゲロ・セベレベレ"
+        },
+        {
+          "number": 26,
+          "name": "ブラッドリー・クロス"
         }
       ]
     },
@@ -298,20 +298,20 @@
       {
         "minute": 9,
         "teamId": "MEX",
+        "type": "normal",
         "playerId": "p_mex_22",
         "playerName": "フリアン・キニョネス",
         "assistPlayerId": "p_mex_13",
-        "assistPlayerName": "エリック・リラ",
-        "type": "normal"
+        "assistPlayerName": "エリック・リラ"
       },
       {
         "minute": 67,
         "teamId": "MEX",
+        "type": "normal",
         "playerId": "p_mex_20",
         "playerName": "ラウール・ヒメネス",
         "assistPlayerId": "p_mex_26",
-        "assistPlayerName": "ロベルト・アルバラード",
-        "type": "normal"
+        "assistPlayerName": "ロベルト・アルバラード"
       }
     ],
     "bookings": [
@@ -420,29 +420,29 @@
       {
         "minute": 59,
         "teamId": "CZE",
+        "type": "normal",
         "playerId": "p_cze_12",
         "playerName": "ラディスラフ・クレイチー",
         "assistPlayerId": "p_cze_10",
-        "assistPlayerName": "ヴラディミール・ツォウファル",
-        "type": "normal"
+        "assistPlayerName": "ヴラディミール・ツォウファル"
       },
       {
         "minute": 67,
         "teamId": "KOR",
+        "type": "normal",
         "playerId": "p_kor_16",
         "playerName": "ファン・インボム",
         "assistPlayerId": "p_kor_23",
-        "assistPlayerName": "イ・ガンイン",
-        "type": "normal"
+        "assistPlayerName": "イ・ガンイン"
       },
       {
         "minute": 80,
         "teamId": "KOR",
+        "type": "normal",
         "playerId": "p_kor_25",
         "playerName": "オ・ヒョンギュ",
         "assistPlayerId": "p_kor_16",
-        "assistPlayerName": "ファン・インボム",
-        "type": "normal"
+        "assistPlayerName": "ファン・インボム"
       }
     ],
     "bookings": [
@@ -457,14 +457,14 @@
       {
         "minute": 62,
         "teamId": "KOR",
-        "outName": "イ・ジェソン",
-        "inName": "ファン・ヒチャン"
+        "inName": "ファン・ヒチャン",
+        "outName": "イ・ジェソン"
       },
       {
         "minute": 63,
         "teamId": "CZE",
-        "outName": "パヴェル・シュルツ",
-        "inName": "アダム・ハロジェク"
+        "inName": "アダム・ハロジェク",
+        "outName": "パヴェル・シュルツ"
       },
       {
         "minute": 63,
