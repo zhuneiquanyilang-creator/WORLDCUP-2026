@@ -416,6 +416,100 @@
       "home": 2,
       "away": 1
     },
+     "goals": [
+      {
+        "minute": 59,
+        "teamId": "CZE",
+        "playerId": "p_cze_12",
+        "playerName": "ラディスラフ・クレイチー",
+        "assistPlayerId": "p_cze_10",
+        "assistPlayerName": "ヴラディミール・ツォウファル",
+        "type": "normal"
+      },
+      {
+        "minute": 67,
+        "teamId": "KOR",
+        "playerId": "p_kor_16",
+        "playerName": "ファン・インボム",
+        "assistPlayerId": "p_kor_23",
+        "assistPlayerName": "イ・ガンイン",
+        "type": "normal"
+      },
+      {
+        "minute": 80,
+        "teamId": "KOR",
+        "playerId": "p_kor_25",
+        "playerName": "オ・ヒョンギュ",
+        "assistPlayerId": "p_kor_16",
+        "assistPlayerName": "ファン・インボム",
+        "type": "normal"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 96,
+        "teamId": "KOR",
+        "playerName": "イ・ギヒョク",
+        "type": "Y"
+      } 
+    ],
+    "substitutions": [
+      {
+        "minute": 62,
+        "teamId": "KOR",
+        "outName": "イ・ジェソン",
+        "inName": "ファン・ヒチャン"
+      },
+      {
+        "minute": 63,
+        "teamId": "CZE",
+        "outName": "パヴェル・シュルツ",
+        "inName": "アダム・ハロジェク"
+      },
+      {
+        "minute": 63,
+        "teamId": "CZE",
+        "inName": "ミハル・サディーレク",
+        "outName": "パトリク・シック"
+      },
+      {
+        "minute": 63,
+        "teamId": "CZE",
+        "inName": "トマーシュ・ホリー",
+        "outName": "ルカーシュ・プロヴァド"
+      },
+      {
+        "minute": 69,
+        "teamId": "KOR",
+        "inName": "オ・ヒョンギュ",
+        "outName": "ソン・フンミン"
+      },
+      {
+        "minute": 69,
+        "teamId": "KOR",
+        "inName": "オム・チソン",
+        "outName": "イ・テソク"
+      },
+      {
+        "minute": 84,
+        "teamId": "KOR",
+        "inName": "キム・ジンギュ",
+        "outName": "ファン・インボム"
+      },
+      {
+        "minute": 84,
+        "teamId": "KOR",
+        "inName": "パク・ジンソプ",
+        "outName": "ペク・スンホ"
+      },
+      {
+        "minute": 84,
+        "teamId": "CZE",
+        "inName": "モイミール・ヒティル",
+        "outName": "アレクサンドル・ソイカ"
+      }
+    ],
+  
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -703,6 +797,7 @@
           "name": "デニス・ヴィシンスキー"
         }
       ]
+      
     }
   },
   "m003": {
