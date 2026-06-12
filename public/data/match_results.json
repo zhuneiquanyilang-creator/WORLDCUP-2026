@@ -820,7 +820,409 @@
     "score": {
       "home": 1,
       "away": 1
-    }
+    },
+    "goals": [
+      {
+        "minute": 21,
+        "teamId": "BIH",
+        "type": "normal",
+        "playerId": "p_bih_26",
+        "playerName": "ヨヴォ・ルキッチ",
+        "assistPlayerId": "p_bih_11",
+        "assistPlayerName": "セアド・コラシナツ"
+      },
+      {
+        "minute": 78,
+        "teamId": "CAN",
+        "type": "normal",
+        "playerId": "p_can_25",
+        "playerName": "サイル・ラリン",
+        "assistPlayerId": "p_can_26",
+        "assistPlayerName": "プロミス・デイヴィッド"
+      }
+    ],
+    "homeFormation": {
+      "shape": "4-4-2",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 16,
+          "name": "デイン・セント・クレア",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 2,
+          "name": "アリスター・ジョンストン",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 4,
+          "name": "アルフィー・ジョーンズ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 13,
+          "name": "デレク・コーネリアス",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 22,
+          "name": "リッチー・ラリア",
+          "role": "DF"
+        },
+        {
+          "x": 54,
+          "y": 12.5,
+          "number": 17,
+          "name": "タジョン・ブキャナン",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 37.5,
+          "number": 8,
+          "name": "イスマエル・コネ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 62.5,
+          "number": 7,
+          "name": "スティーヴン・エウスタキオ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 87.5,
+          "number": 11,
+          "name": "リアム・ミラー",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 25,
+          "number": 10,
+          "name": "ジョナサン・デイヴィッド",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 75,
+          "number": 12,
+          "name": "タニ・オルワセイ",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 1,
+          "name": "マクシム・クレポー"
+        },
+        {
+          "number": 3,
+          "name": "リュック・ド・フジュロル"
+        },
+        {
+          "number": 5,
+          "name": "ジョエル・ウォーターマン"
+        },
+        {
+          "number": 6,
+          "name": "マシュー・ショワニエール"
+        },
+        {
+          "number": 9,
+          "name": "サイル・ラリン"
+        },
+        {
+          "number": 14,
+          "name": "ジェイコブ・シャッフェルバーグ"
+        },
+        {
+          "number": 15,
+          "name": "モイーズ・ボンビト"
+        },
+        {
+          "number": 18,
+          "name": "オーウェン・グッドマン"
+        },
+        {
+          "number": 19,
+          "name": "アルフォンソ・デイヴィス"
+        },
+        {
+          "number": 20,
+          "name": "アリ・アーメド"
+        },
+        {
+          "number": 21,
+          "name": "ジョナサン・オソリオ"
+        },
+        {
+          "number": 23,
+          "name": "ニコ・シグル"
+        },
+        {
+          "number": 24,
+          "name": "プロミス・デイヴィッド"
+        },
+        {
+          "number": 25,
+          "name": "ネイサン・サリバ"
+        },
+        {
+          "number": 26,
+          "name": "マルセロ・フローレス"
+        }
+      ]
+    },
+    "awayFormation": {
+      "shape": "4-4-2",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 1,
+          "name": "ニコラ・ヴァシリ",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 7,
+          "name": "アマル・デディッチ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 18,
+          "name": "ニコラ・カティッチ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 4,
+          "name": "タリク・ムハレモビッチ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 5,
+          "name": "セアド・コラシナツ",
+          "role": "DF"
+        },
+        {
+          "x": 54,
+          "y": 12.5,
+          "number": 20,
+          "name": "エスミル・バイラクタレビッチ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 37.5,
+          "number": 13,
+          "name": "イヴァン・バシッチ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 62.5,
+          "number": 6,
+          "name": "ベンヤミン・タヒロビッチ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 87.5,
+          "number": 15,
+          "name": "アマル・メミッチ",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 25,
+          "number": 10,
+          "name": "エルメディン・デミロビッチ",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 75,
+          "number": 25,
+          "name": "ヨヴォ・ルキッチ",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 2,
+          "name": "ニハド・ムヤキッチ"
+        },
+        {
+          "number": 3,
+          "name": "デニス・ハジカドゥニッチ"
+        },
+        {
+          "number": 8,
+          "name": "アルミン・ギゴビッチ"
+        },
+        {
+          "number": 9,
+          "name": "サメド・バズダル"
+        },
+        {
+          "number": 11,
+          "name": "エディン・ジェコ"
+        },
+        {
+          "number": 12,
+          "name": "ムラデン・ユルカス"
+        },
+        {
+          "number": 14,
+          "name": "イヴァン・シュニッチ"
+        },
+        {
+          "number": 16,
+          "name": "アミル・ハジアフメトビッチ"
+        },
+        {
+          "number": 17,
+          "name": "ジェニス・ブルニッチ"
+        },
+        {
+          "number": 19,
+          "name": "ケリム・アライベゴビッチ"
+        },
+        {
+          "number": 21,
+          "name": "ステパン・ラデリッチ"
+        },
+        {
+          "number": 22,
+          "name": "マルティン・ズロミシリ"
+        },
+        {
+          "number": 23,
+          "name": "ハリス・タバコビッチ"
+        },
+        {
+          "number": 24,
+          "name": "ニダル・チェリッチ"
+        },
+        {
+          "number": 26,
+          "name": "エルミン・マフミッチ"
+        }
+      ]
+    },
+    "bookings": [
+      {
+        "minute": 11,
+        "teamId": "CAN",
+        "playerName": "アリスター・ジョンストン",
+        "type": "Y"
+      },
+      {
+        "minute": 44,
+        "teamId": "BIH",
+        "playerName": "エルメディン・デミロビッチ",
+        "type": "Y"
+      },
+      {
+        "minute": 45,
+        "teamId": "BIH",
+        "playerName": "ヨヴォ・ルキッチ",
+        "type": "Y"
+      },
+      {
+        "minute": 53,
+        "teamId": "CAN",
+        "playerName": "リュック・ド・フジュロル",
+        "type": "Y"
+      },
+      {
+        "minute": 93,
+        "teamId": "BIH",
+        "playerName": "ニコラ・カティッチ",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 61,
+        "teamId": "CAN",
+        "inName": "アリ・アーメド",
+        "outName": "タジョン・ブキャナン"
+      },
+      {
+        "minute": 61,
+        "teamId": "CAN",
+        "inName": "ジェイコブ・シャッフェルバーグ",
+        "outName": "リアム・ミラー"
+      },
+      {
+        "minute": 61,
+        "teamId": "CAN",
+        "inName": "プロミス・デイヴィッド",
+        "outName": "ジョナサン・オソリオ"
+      },
+      {
+        "minute": 61,
+        "teamId": "BIH",
+        "inName": "アルミン・ギゴビッチ",
+        "outName": "イヴァン・バシッチ"
+      },
+      {
+        "minute": 61,
+        "teamId": "BIH",
+        "inName": "サメド・バズダル",
+        "outName": "ヨヴォ・ルキッチ"
+      },
+      {
+        "minute": 74,
+        "teamId": "BIH",
+        "inName": "イヴァン・シュニッチ",
+        "outName": "エスミル・バイラクタレビッチ"
+      },
+      {
+        "minute": 74,
+        "teamId": "BIH",
+        "inName": "ケリム・アライベゴビッチ",
+        "outName": "アマル・メミッチ"
+      },
+      {
+        "minute": 76,
+        "teamId": "CAN",
+        "inName": "サイル・ラリン",
+        "outName": "タニ・オルワセイ"
+      },
+      {
+        "minute": 83,
+        "teamId": "BIH",
+        "inName": "ジェニス・ブルニッチ",
+        "outName": "セアド・コラシナツ"
+      },
+      {
+        "minute": 90,
+        "teamId": "CAN",
+        "inName": "ジョナサン・オソリオ",
+        "outName": "スティーヴン・エウスタキオ"
+      }
+    ]
   },
   "m008": {
     "matchId": "m008",
