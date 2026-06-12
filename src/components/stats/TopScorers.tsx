@@ -15,6 +15,17 @@ export function TopScorers({ players, teamMap, limit = 10 }: Props) {
     .sort((a, b) => b.goals - a.goals || b.assists - a.assists)
     .slice(0, limit);
 
+  // 同得点 (同値) のときは同順位、次の異なる値は飛び順位 (1, 1, 3 形式)。
+  // 表示順は assists の降順で保たれるので、順位だけ揃える。
+  let prevGoals = -1;
+  let prevRank = 0;
+  const ranked = sorted.map((p, i) => {
+    const rank = p.goals === prevGoals ? prevRank : i + 1;
+    prevGoals = p.goals;
+    prevRank = rank;
+    return { player: p, rank };
+  });
+
   return (
     <section className={styles.card}>
       <h2 className={styles.heading}>
@@ -33,10 +44,10 @@ export function TopScorers({ players, teamMap, limit = 10 }: Props) {
           </tr>
         </thead>
         <tbody>
-          {sorted.map((p, i) => (
+          {ranked.map(({ player: p, rank }) => (
             <PlayerStatRow
               key={p.id}
-              rank={i + 1}
+              rank={rank}
               player={p}
               team={teamMap.get(p.teamId)}
               value={p.goals}
