@@ -19,7 +19,13 @@ import {
  *
  * 動作:
  *  - matchEdits 変化を listen
- *  - finished かつ score を持つエントリだけ抽出 (確定済みのみ)
+ *  - 次のいずれかに該当するエントリだけ抽出して POST 対象とする:
+ *    a) **試合結果が確定済み** (status === "finished" かつ score がある)
+ *    b) **補助データ** (homeFormation / awayFormation / bookings /
+ *       substitutions / goals のいずれか) が入っている
+ *    → b は「試合前にフォーメーションだけ確定したい」「カードや交代だけ
+ *      追記したい」といったケースを公開サイトに反映できるようにするため。
+ *      公開サイト側は server の field-level merge で既存データを壊さない。
  *  - 直前の sync 内容と差分があれば 1.5s デバウンスで POST
  *
  * dev でのみ動かす (`import.meta.env.DEV`)。本番ビルドからは実質コードごと
@@ -34,19 +40,27 @@ export function useAutoSyncResults() {
 
     const syncNow = async () => {
       const edits = loadMatchEdits();
-      const finished: Record<string, LiveUpdate> = {};
+      const toSync: Record<string, LiveUpdate> = {};
       for (const [id, u] of Object.entries(edits)) {
-        if (u && u.status === "finished" && u.score) finished[id] = u;
+        if (!u) continue;
+        const hasResult = u.status === "finished" && !!u.score;
+        const hasContent =
+          !!u.homeFormation ||
+          !!u.awayFormation ||
+          (u.goals?.length ?? 0) > 0 ||
+          (u.bookings?.length ?? 0) > 0 ||
+          (u.substitutions?.length ?? 0) > 0;
+        if (hasResult || hasContent) toSync[id] = u;
       }
-      // matchEdits に確定済み試合が 1 つも無いときは POST しない。
+      // matchEdits に同期対象が 1 つも無いときは POST しない。
       // server 側の field-level merge は空 incoming で existing を消さないが、
       // そもそも余計な write を発生させないことで「クリア操作 → file 触る」の
       // 連鎖をゼロにする (二重防衛)。
-      if (Object.keys(finished).length === 0) {
+      if (Object.keys(toSync).length === 0) {
         lastSyncedJson.current = "{}";
         return;
       }
-      const json = JSON.stringify(finished);
+      const json = JSON.stringify(toSync);
       if (json === lastSyncedJson.current) return;
 
       try {
@@ -65,7 +79,7 @@ export function useAutoSyncResults() {
         const ok = await res.json().catch(() => null);
         if (ok)
           console.log(
-            `[auto-sync] match_results.json updated (${Object.keys(finished).length} finished, total ${ok.count})`
+            `[auto-sync] match_results.json updated (${Object.keys(toSync).length} entries, total ${ok.count})`
           );
       } catch (e) {
         console.warn("[auto-sync] failed (dev server only):", e);

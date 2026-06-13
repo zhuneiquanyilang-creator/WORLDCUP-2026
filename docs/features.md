@@ -238,7 +238,7 @@ Windows 等で Unicode 国旗絵文字が正しく描画されないため、`co
 **運用フロー (使い分け)**:
 
 - **localhost で見る現在のスコア**: live > manual > file。Sofascore のライブ更新がそのまま見える。手動編集を保存しても localhost の表示には現れないので、編集作業がライブ視聴を邪魔しない。
-- **localhost で公式結果を確定**: `/edit/matches` を開く → 各行で「↓ ライブ」ボタンを押すとその試合のライブ値が編集フォームにコピーされる (保存はまだ) → 必要なら修正 → 「手動編集として保存」→ matchEdits に書き込まれる → dev サーバー実行中なら auto-sync が match_results.json を自動更新 (finished + score を持つもののみ、1.5s デバウンス)。
+- **localhost で公式結果を確定**: `/edit/matches` を開く → 各行で「↓ ライブ」ボタンを押すとその試合のライブ値が編集フォームにコピーされる (保存はまだ) → 必要なら修正 → 「手動編集として保存」→ matchEdits に書き込まれる → dev サーバー実行中なら auto-sync が match_results.json を自動更新 (1.5s デバウンス)。**auto-sync の対象**: (a) status === "finished" かつ score がある「確定済み」エントリ、または (b) homeFormation / awayFormation / bookings / substitutions / goals のいずれかが入っている「補助データ付き」エントリ。後者によって試合前のフォーメーション入力やカード・交代だけの追記も公開サイトに反映される。サーバ側は field-level merge なので既存の他フィールドは壊さない。
 - **編集結果の確認**: `/edit/matches` の入力欄が現在の matchEdits 内容を表示するのでそこで確認する。実際の公開サイト見た目は push 後に GitHub Pages URL で確認。
 - **公開サイトに反映**: 自動更新された `match_results.json` を `git commit && git push`。
 - **公開サイト訪問者**: localStorage 空 → file (`match_results.json`) がそのまま見える。
