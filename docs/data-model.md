@@ -55,6 +55,7 @@ type Match = {
 
 type Goal = {
   minute: number;
+  addedTime?: number;    // アディショナルタイム (例: 90+3 なら minute=90, addedTime=3)
   teamId: string;
   playerId?: string;     // players.json 参照
   playerName?: string;   // playerId が無い場合のフォールバック
@@ -65,6 +66,7 @@ type Goal = {
 
 type Booking = {
   minute: number;
+  addedTime?: number;    // 同上 (例: 45+2 なら minute=45, addedTime=2)
   teamId: string;
   playerName: string;
   type: "Y" | "Y2R" | "R" | "YR";  // イエロー / 2枚目イエロー / 一発レッド / イエロー後の一発レッド
@@ -72,6 +74,7 @@ type Booking = {
 
 type Substitution = {
   minute: number;
+  addedTime?: number;    // 同上
   teamId: string;
   inName: string;
   outName: string;
@@ -101,7 +104,7 @@ type FormationData = {
   - **フォーメーション**: `CombinedFormation` — 1枚の SVG ピッチに両チーム11人を配置。**PC は横向き**（ホーム左／アウェイ右）、**スマホ (≤640px) は縦向き**（ホーム上／アウェイ下）に自動切替（`useIsNarrow` が `matchMedia` を監視）。ベンチは下部に常時全表示。
 - フォーメーションデータがない試合はタブが disabled
 
-`MatchEvents` は `Goal` / `Booking` / `Substitution` を統合してソート表示。アイコン: ⚽ / 🟨 / 🟥 / 🔁。
+`MatchEvents` は `Goal` / `Booking` / `Substitution` を統合してソート表示。アイコン: ⚽ / 🟨 / 🟥 / 🔁。分の表示は `addedTime` が入っていれば `90+3` 形式 (`utils/eventMinute.ts` の `formatMinute`)。ソートも `eventSortKey` (100 進数キー) で 45+1 < 45+2 < 46 / 90+1 < 90+2 < 91 を保証する。`/edit/matches` の編集 UI では分の入力欄が text 形式で「90+3」をそのまま受け付けて `parseMinuteText` でデコードする。
 
 ### Player
 ```ts

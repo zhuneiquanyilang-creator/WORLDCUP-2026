@@ -9,6 +9,8 @@ import type {
 export type SpotWithSub = FormationSpot & {
   /** 先発出場した選手が、途中交代で下がった場合の分 */
   subbedOutAt?: number;
+  /** その分のアディショナルタイム (90+3 等)。表示は `formatMinute` 経由 */
+  subbedOutAddedTime?: number;
   /** 受けたカード一覧 (時系列順) */
   cards?: Booking[];
   /** この選手が決めたゴール一覧 (時系列順) */
@@ -22,6 +24,8 @@ export type BenchWithSub = {
   name: string;
   /** ベンチスタートから途中出場した場合の分 */
   subbedInAt?: number;
+  /** その分のアディショナルタイム (90+3 等)。表示は `formatMinute` 経由 */
+  subbedInAddedTime?: number;
   cards?: Booking[];
   goals?: Goal[];
   assists?: Goal[];
@@ -86,7 +90,12 @@ export function applySubsToLineup(
     const playerAssists = assistsByName.get(s.name);
     return {
       ...s,
-      ...(out ? { subbedOutAt: out.minute } : {}),
+      ...(out
+        ? {
+            subbedOutAt: out.minute,
+            ...(out.addedTime ? { subbedOutAddedTime: out.addedTime } : {}),
+          }
+        : {}),
       ...(cards ? { cards } : {}),
       ...(playerGoals ? { goals: playerGoals } : {}),
       ...(playerAssists ? { assists: playerAssists } : {}),
@@ -100,7 +109,12 @@ export function applySubsToLineup(
     const playerAssists = assistsByName.get(b.name);
     return {
       ...b,
-      ...(inSub ? { subbedInAt: inSub.minute } : {}),
+      ...(inSub
+        ? {
+            subbedInAt: inSub.minute,
+            ...(inSub.addedTime ? { subbedInAddedTime: inSub.addedTime } : {}),
+          }
+        : {}),
       ...(cards ? { cards } : {}),
       ...(playerGoals ? { goals: playerGoals } : {}),
       ...(playerAssists ? { assists: playerAssists } : {}),

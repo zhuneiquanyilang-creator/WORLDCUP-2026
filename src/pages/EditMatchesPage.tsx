@@ -8,6 +8,7 @@ import { Loading, ErrorMessage } from "@/components/common/AsyncState";
 import { dataUrl } from "@/utils/dataUrl";
 import { matchNumber } from "@/utils/matchNumber";
 import { generateFormation } from "@/utils/formation";
+import { formatMinute, parseMinuteText } from "@/utils/eventMinute";
 import type {
   Booking,
   BookingType,
@@ -176,7 +177,7 @@ function syncStarters(starters: StarterDraft[], shape: string): StarterDraft[] {
 
 function goalToDraft(g: Goal): GoalDraft {
   return {
-    minute: String(g.minute ?? ""),
+    minute: formatMinute(g.minute, g.addedTime),
     teamId: g.teamId,
     playerId: g.playerId ?? "",
     playerName: g.playerName,
@@ -190,9 +191,10 @@ function draftToGoal(
   d: GoalDraft,
   playerMap: Map<string, Player>
 ): Goal | null {
-  const min = Number(d.minute);
-  if (!Number.isFinite(min) || !d.teamId) return null;
-  const goal: Goal = { minute: min, teamId: d.teamId, type: d.type };
+  const m = parseMinuteText(d.minute);
+  if (!m || !d.teamId) return null;
+  const goal: Goal = { minute: m.minute, teamId: d.teamId, type: d.type };
+  if (m.addedTime) goal.addedTime = m.addedTime;
   const player = d.playerId ? playerMap.get(d.playerId) : undefined;
   if (player) {
     goal.playerId = player.id;
@@ -273,7 +275,7 @@ function bookingToDraft(
   const arr = playersByTeam.get(b.teamId) ?? [];
   const p = arr.find((x) => x.name === b.playerName);
   return {
-    minute: String(b.minute ?? ""),
+    minute: formatMinute(b.minute, b.addedTime),
     teamId: b.teamId,
     playerId: p?.id ?? "",
     playerName: b.playerName,
@@ -285,12 +287,19 @@ function draftToBooking(
   d: BookingDraft,
   playerMap: Map<string, Player>
 ): Booking | null {
-  const min = Number(d.minute);
-  if (!Number.isFinite(min) || !d.teamId) return null;
+  const m = parseMinuteText(d.minute);
+  if (!m || !d.teamId) return null;
   const p = d.playerId ? playerMap.get(d.playerId) : undefined;
   const name = p?.name ?? d.playerName ?? "";
   if (!name) return null;
-  return { minute: min, teamId: d.teamId, playerName: name, type: d.type };
+  const out: Booking = {
+    minute: m.minute,
+    teamId: d.teamId,
+    playerName: name,
+    type: d.type,
+  };
+  if (m.addedTime) out.addedTime = m.addedTime;
+  return out;
 }
 
 function subToDraft(
@@ -301,7 +310,7 @@ function subToDraft(
   const inP = arr.find((x) => x.name === s.inName);
   const outP = arr.find((x) => x.name === s.outName);
   return {
-    minute: String(s.minute ?? ""),
+    minute: formatMinute(s.minute, s.addedTime),
     teamId: s.teamId,
     inPlayerId: inP?.id ?? "",
     inName: s.inName,
@@ -314,8 +323,8 @@ function draftToSub(
   d: SubDraft,
   playerMap: Map<string, Player>
 ): Substitution | null {
-  const min = Number(d.minute);
-  if (!Number.isFinite(min) || !d.teamId) return null;
+  const m = parseMinuteText(d.minute);
+  if (!m || !d.teamId) return null;
   const inName =
     (d.inPlayerId ? playerMap.get(d.inPlayerId)?.name : undefined) ??
     d.inName ??
@@ -325,7 +334,14 @@ function draftToSub(
     d.outName ??
     "";
   if (!inName || !outName) return null;
-  return { minute: min, teamId: d.teamId, inName, outName };
+  const out: Substitution = {
+    minute: m.minute,
+    teamId: d.teamId,
+    inName,
+    outName,
+  };
+  if (m.addedTime) out.addedTime = m.addedTime;
+  return out;
 }
 
 function fromUpdate(
@@ -1104,14 +1120,14 @@ function GoalEditor({
                 <tr key={i}>
                   <td>
                     <input
-                      type="number"
+                      type="text"
                       className={styles.minuteInput}
                       value={g.minute}
                       onChange={(ev) =>
                         onUpdate(i, { minute: ev.target.value })
                       }
-                      min={1}
-                      max={130}
+                      placeholder="例: 67 / 90+3"
+                      title="分。アディショナルタイムは 90+3 形式で入力"
                     />
                   </td>
                   <td>
@@ -1484,14 +1500,14 @@ function BookingEditor({
                 <tr key={i}>
                   <td>
                     <input
-                      type="number"
+                      type="text"
                       className={styles.minuteInput}
                       value={b.minute}
                       onChange={(ev) =>
                         onUpdate(i, { minute: ev.target.value })
                       }
-                      min={1}
-                      max={130}
+                      placeholder="例: 45+2"
+                      title="分。アディショナルタイムは 45+2 形式で入力"
                     />
                   </td>
                   <td>
@@ -1634,14 +1650,14 @@ function SubEditor({
                 <tr key={i}>
                   <td>
                     <input
-                      type="number"
+                      type="text"
                       className={styles.minuteInput}
                       value={s.minute}
                       onChange={(ev) =>
                         onUpdate(i, { minute: ev.target.value })
                       }
-                      min={1}
-                      max={130}
+                      placeholder="例: 67 / 90+3"
+                      title="分。アディショナルタイムは 90+3 形式で入力"
                     />
                   </td>
                   <td>

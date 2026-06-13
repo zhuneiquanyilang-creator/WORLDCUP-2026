@@ -3,6 +3,7 @@ import type { Match, Goal, Booking, Substitution } from "@/types/match";
 import type { Player } from "@/types/player";
 import type { Team } from "@/types/team";
 import { useLiveMinute } from "@/hooks/useLiveMinute";
+import { eventSortKey, formatMinute } from "@/utils/eventMinute";
 import styles from "./MatchEvents.module.css";
 
 type Props = {
@@ -12,9 +13,9 @@ type Props = {
 };
 
 type EventItem =
-  | { kind: "goal"; minute: number; teamId: string; data: Goal }
-  | { kind: "booking"; minute: number; teamId: string; data: Booking }
-  | { kind: "sub"; minute: number; teamId: string; data: Substitution };
+  | { kind: "goal"; minute: number; addedTime?: number; teamId: string; data: Goal }
+  | { kind: "booking"; minute: number; addedTime?: number; teamId: string; data: Booking }
+  | { kind: "sub"; minute: number; addedTime?: number; teamId: string; data: Substitution };
 
 type RenderItem = EventItem | { kind: "halftime" };
 
@@ -57,15 +58,34 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
   const events = useMemo<EventItem[]>(() => {
     const list: EventItem[] = [];
     (match.goals ?? []).forEach((g) =>
-      list.push({ kind: "goal", minute: g.minute, teamId: g.teamId, data: g })
+      list.push({
+        kind: "goal",
+        minute: g.minute,
+        addedTime: g.addedTime,
+        teamId: g.teamId,
+        data: g,
+      })
     );
     (match.bookings ?? []).forEach((b) =>
-      list.push({ kind: "booking", minute: b.minute, teamId: b.teamId, data: b })
+      list.push({
+        kind: "booking",
+        minute: b.minute,
+        addedTime: b.addedTime,
+        teamId: b.teamId,
+        data: b,
+      })
     );
     (match.substitutions ?? []).forEach((s) =>
-      list.push({ kind: "sub", minute: s.minute, teamId: s.teamId, data: s })
+      list.push({
+        kind: "sub",
+        minute: s.minute,
+        addedTime: s.addedTime,
+        teamId: s.teamId,
+        data: s,
+      })
     );
-    return list.sort((a, b) => a.minute - b.minute);
+    // 45+1 < 45+2 < 46 / 90+1 < 90+2 < 91 を保証する 100 進数ソートキー
+    return list.sort((a, b) => eventSortKey(a) - eventSortKey(b));
   }, [match]);
 
   const renderItems = useMemo<RenderItem[]>(() => {
@@ -141,7 +161,9 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
                   <EventContent event={item} playerMap={playerMap} align="right" />
                 )}
               </div>
-              <div className={styles.minute}>{item.minute}&apos;</div>
+              <div className={styles.minute}>
+                {formatMinute(item.minute, item.addedTime)}&apos;
+              </div>
               <div className={styles.side}>
                 {!isHome && (
                   <EventContent event={item} playerMap={playerMap} align="left" />

@@ -14,6 +14,9 @@ export type GoalType = "normal" | "penalty" | "own";
 
 export type Goal = {
   minute: number;
+  /** アディショナルタイムの追加分 (例: 90+3 なら minute=90, addedTime=3)。
+   *  表示・ソートでは `minute` と合わせて扱う。 */
+  addedTime?: number;
   teamId: string;
   /** players.json の選手 ID */
   playerId?: string;
@@ -29,6 +32,8 @@ export type BookingType = "Y" | "Y2R" | "R" | "YR";
 
 export type Booking = {
   minute: number;
+  /** アディショナルタイムの追加分 (例: 45+2 なら minute=45, addedTime=2)。 */
+  addedTime?: number;
   teamId: string;
   playerName: string;
   type: BookingType;
@@ -36,6 +41,8 @@ export type Booking = {
 
 export type Substitution = {
   minute: number;
+  /** アディショナルタイムの追加分 (例: 90+1 なら minute=90, addedTime=1)。 */
+  addedTime?: number;
   teamId: string;
   inName: string;
   outName: string;
