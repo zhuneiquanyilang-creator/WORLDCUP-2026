@@ -24,6 +24,8 @@ export type SpotWithSub = FormationSpot & {
 export type BenchWithSub = {
   number?: number;
   name: string;
+  isCaptain?: boolean;
+  isMvp?: boolean;
   /** ベンチスタートから途中出場した場合の分 */
   subbedInAt?: number;
   /** その分のアディショナルタイム (90+3 等)。表示は `formatMinute` 経由 */

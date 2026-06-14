@@ -48,7 +48,8 @@
           "y": 37.5,
           "number": 3,
           "name": "セサル・モンテス",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -97,7 +98,8 @@
           "y": 87.5,
           "number": 16,
           "name": "フリアン・キニョネス",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 80,
@@ -178,7 +180,8 @@
           "y": 50,
           "number": 1,
           "name": "ロンウェン・ウィリアムズ",
-          "role": "GK"
+          "role": "GK",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -489,7 +492,8 @@
           "y": 37.5,
           "number": 6,
           "name": "ファン・インボム",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 45.33333333333333,
@@ -524,7 +528,8 @@
           "y": 50,
           "number": 7,
           "name": "ソン・フンミン",
-          "role": "FW"
+          "role": "FW",
+          "isCaptain": true
         }
       ],
       "bench": [
@@ -619,7 +624,8 @@
           "y": 83.33333333333334,
           "number": 7,
           "name": "ラディスラフ・クレイチー",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 45.33333333333333,
@@ -877,14 +883,16 @@
           "y": 37.5,
           "number": 8,
           "name": "イスマエル・コネ",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 54,
           "y": 62.5,
           "number": 7,
           "name": "スティーヴン・エウスタキオ",
-          "role": "MF"
+          "role": "MF",
+          "isCaptain": true
         },
         {
           "x": 54,
@@ -1007,7 +1015,8 @@
           "y": 87.5,
           "number": 5,
           "name": "セアド・コラシナツ",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 54,
@@ -1294,7 +1303,8 @@
           "y": 62.5,
           "number": 13,
           "name": "ティム・リーム",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -1343,7 +1353,8 @@
           "y": 50,
           "number": 20,
           "name": "フォラリン・バログン",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
@@ -1431,7 +1442,8 @@
           "y": 37.5,
           "number": 15,
           "name": "グスタボ・ゴメス",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -1683,7 +1695,8 @@
           "y": 50,
           "number": 1,
           "name": "マフムード・アブナダ",
-          "role": "GK"
+          "role": "GK",
+          "isMvp": true
         },
         {
           "x": 28,
@@ -1704,7 +1717,8 @@
           "y": 62.5,
           "number": 16,
           "name": "ブアレム・コーキ",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -1869,7 +1883,8 @@
           "y": 50,
           "number": 10,
           "name": "グラニト・ジャカ",
-          "role": "MF"
+          "role": "MF",
+          "isCaptain": true
         },
         {
           "x": 54,
@@ -2071,7 +2086,8 @@
           "y": 37.5,
           "number": 4,
           "name": "マルキーニョス",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -2120,7 +2136,8 @@
           "y": 83.33333333333334,
           "number": 7,
           "name": "ヴィニシウス・ジュニオール",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 80,
@@ -2208,7 +2225,8 @@
           "y": 12.5,
           "number": 2,
           "name": "アクラフ・ハキミ",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -2450,7 +2468,8 @@
           "y": 50,
           "number": 1,
           "name": "ジョニー・プラシード",
-          "role": "GK"
+          "role": "GK",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -2622,7 +2641,8 @@
           "y": 87.5,
           "number": 3,
           "name": "アンドリュー・ロバートソン",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 54,
@@ -2650,7 +2670,8 @@
           "y": 87.5,
           "number": 7,
           "name": "ジョン・マッギン",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 80,
@@ -2859,7 +2880,8 @@
           "y": 50,
           "number": 19,
           "name": "ハリー・ソウター",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -2901,7 +2923,8 @@
           "y": 87.5,
           "number": 17,
           "name": "ネストリ・イランクンダ",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 80,
@@ -3024,7 +3047,8 @@
           "y": 75,
           "number": 10,
           "name": "ハカン・チャルハノール",
-          "role": "MF"
+          "role": "MF",
+          "isCaptain": true
         },
         {
           "x": 62.666666666666664,
@@ -3292,7 +3316,8 @@
           "y": 50,
           "number": 7,
           "name": "カイ・ハヴァーツ",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
@@ -3589,7 +3614,7 @@
       {
         "minute": 65,
         "teamId": "CUR",
-        "inName": "ソンチェ・ハンセン",
+        "inName": "タイリース・ノスリン",
         "outName": "シェレル・フロラヌス"
       },
       {
@@ -3656,7 +3681,8 @@
           "y": 62.5,
           "number": 4,
           "name": "フィルジル・ファンダイク",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -3807,7 +3833,8 @@
           "y": 12.5,
           "number": 10,
           "name": "堂安律",
-          "role": "MF"
+          "role": "MF",
+          "isCaptain": true
         },
         {
           "x": 45.33333333333333,

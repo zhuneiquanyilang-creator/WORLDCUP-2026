@@ -57,13 +57,24 @@ export type FormationSpot = {
   name: string;
   /** 役割表記 (例: "GK", "CB", "CM") */
   role?: string;
+  /** キャプテン。フォーメーション画面で名前の横に (C) を付ける。
+   *  starting / bench 含めチーム 1 試合あたり 1 人。 */
+  isCaptain?: boolean;
+  /** MVP (Man of the Match)。フォーメーション画面で背番号の右上に星 (★) を付ける。
+   *  試合 1 人 (両チーム合わせて 1 人) を想定。 */
+  isMvp?: boolean;
 };
 
 export type FormationData = {
   /** "4-3-3" 等 */
   shape: string;
   starting: FormationSpot[];
-  bench?: { number?: number; name: string }[];
+  bench?: {
+    number?: number;
+    name: string;
+    isCaptain?: boolean;
+    isMvp?: boolean;
+  }[];
 };
 
 export type MatchStats = {

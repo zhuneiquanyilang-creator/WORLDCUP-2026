@@ -487,15 +487,27 @@ function Spot({
 
   return (
     <g transform={`translate(${x}, ${y})`}>
-      <circle r={3.6} fill="#fff" stroke={ringColor} strokeWidth={0.7} />
+      {spot.isMvp ? (
+        // MVP: 背番号サークルを金色の星形に置き換える (番号は中央に残す)
+        <polygon
+          points="0,-4.2 0.926,-1.273 3.994,-1.297 1.499,0.487 2.469,3.397 0,1.575 -2.469,3.397 -1.499,0.487 -3.994,-1.297 -0.926,-1.273"
+          fill="#fbbf24"
+          stroke="#7c2d12"
+          strokeWidth={0.4}
+          strokeLinejoin="round"
+          aria-label="MVP"
+        />
+      ) : (
+        <circle r={3.6} fill="#fff" stroke={ringColor} strokeWidth={0.7} />
+      )}
       <text
         x={0}
         y={0.2}
         textAnchor="middle"
         dominantBaseline="central"
         fontSize={3}
-        fontWeight={700}
-        fill={textColor}
+        fontWeight={800}
+        fill={spot.isMvp ? "#7c2d12" : textColor}
       >
         {spot.number ?? ""}
       </text>
@@ -511,6 +523,7 @@ function Spot({
         paintOrder="stroke"
       >
         {displayName(spot.name, useFullName)}
+        {spot.isCaptain && " (C)"}
       </text>
       {/* カード (左上に小さく) */}
       {(yellow || red) && (
@@ -591,8 +604,22 @@ function BenchList({
               key={i}
               className={p.subbedInAt !== undefined ? styles.benchIn : undefined}
             >
-              {p.number !== undefined && <span className={styles.benchNum}>{p.number}</span>}
-              <span className={styles.benchName}>{p.name}</span>
+              {p.number !== undefined && (
+                <span
+                  className={
+                    p.isMvp
+                      ? `${styles.benchNum} ${styles.benchNumMvp}`
+                      : styles.benchNum
+                  }
+                  aria-label={p.isMvp ? "MVP" : undefined}
+                >
+                  {p.number}
+                </span>
+              )}
+              <span className={styles.benchName}>
+                {p.name}
+                {p.isCaptain && " (C)"}
+              </span>
               {yellow && <span className={styles.cardYellow} aria-label="イエロー" />}
               {red && <span className={styles.cardRed} aria-label="レッド" />}
               {/* ゴール・OG・アシストは交代時間 (↑N') の直左に並べる */}

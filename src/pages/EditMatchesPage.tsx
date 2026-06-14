@@ -7,6 +7,7 @@ import { usePlayers } from "@/hooks/usePlayers";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
 import { dataUrl } from "@/utils/dataUrl";
 import { matchNumber } from "@/utils/matchNumber";
+import { dayKey } from "@/utils/date";
 import { generateFormation } from "@/utils/formation";
 import { formatMinute, parseMinuteText } from "@/utils/eventMinute";
 import type {
@@ -47,10 +48,16 @@ type StarterDraft = {
  *  - shape: "4-3-3" 等
  *  - starters: 長さ = 1 + Σparts。
  *    index 0 = GK / 以降 layer 0..N-1 の順に「右→左」で並ぶ
- *    (write-m00X-formations.mjs と同じ規約)。 */
+ *    (write-m00X-formations.mjs と同じ規約)。
+ *  - captainName: キャプテン名 (starting / bench いずれかから 1 名)。
+ *    formationToData で `isCaptain` を該当 spot / bench entry に付与する。
+ *  - mvpName: MVP 名 (starting / bench いずれかから 1 名)。
+ *    formationToData で `isMvp` を該当 spot / bench entry に付与する。 */
 type FormationDraft = {
   shape: string;
   starters: StarterDraft[];
+  captainName?: string;
+  mvpName?: string;
 };
 
 type BookingDraft = {
@@ -234,7 +241,18 @@ function formationFromData(
       number: p?.number ?? s.number,
     };
   });
-  return { shape: f.shape, starters };
+  const captainSpot = (f.starting ?? []).find((s) => s.isCaptain);
+  const captainBench = (f.bench ?? []).find((b) => b.isCaptain);
+  const captainName = captainSpot?.name ?? captainBench?.name;
+  const mvpSpot = (f.starting ?? []).find((s) => s.isMvp);
+  const mvpBench = (f.bench ?? []).find((b) => b.isMvp);
+  const mvpName = mvpSpot?.name ?? mvpBench?.name;
+  return {
+    shape: f.shape,
+    starters,
+    ...(captainName ? { captainName } : {}),
+    ...(mvpName ? { mvpName } : {}),
+  };
 }
 
 function formationToData(
@@ -266,7 +284,23 @@ function formationToData(
     .sort((a, b) => (a.number ?? 999) - (b.number ?? 999))
     .map((p) => ({ number: p.number, name: p.name }));
 
-  return generateFormation(d.shape, rawPlayers, bench);
+  const formation = generateFormation(d.shape, rawPlayers, bench);
+  // キャプテン / MVP: starting / bench どちらかの該当エントリにフラグを付与
+  const markFlag = (name: string, key: "isCaptain" | "isMvp") => {
+    const sIdx = formation.starting.findIndex((s) => s.name === name);
+    if (sIdx >= 0) {
+      formation.starting[sIdx] = { ...formation.starting[sIdx], [key]: true };
+      return;
+    }
+    if (!formation.bench) return;
+    const bIdx = formation.bench.findIndex((b) => b.name === name);
+    if (bIdx >= 0) {
+      formation.bench[bIdx] = { ...formation.bench[bIdx], [key]: true };
+    }
+  };
+  if (d.captainName) markFlag(d.captainName, "isCaptain");
+  if (d.mvpName) markFlag(d.mvpName, "isMvp");
+  return formation;
 }
 
 function bookingToDraft(
@@ -473,6 +507,7 @@ export function EditMatchesPage() {
 
   const [edits, setEdits] = useState<Record<string, Editable>>({});
   const [stageFilter, setStageFilter] = useState<Match["stage"] | "all">("all");
+  const [todayOnly, setTodayOnly] = useState(false);
   const [savedMsg, setSavedMsg] = useState("");
   const [exportText, setExportText] = useState("");
   const [importText, setImportText] = useState("");
@@ -521,10 +556,12 @@ export function EditMatchesPage() {
     const bn = matchNumber(b.id) ?? 0;
     return an - bn;
   });
-  const filtered =
-    stageFilter === "all"
-      ? allMatches
-      : allMatches.filter((m) => m.stage === stageFilter);
+  const todayKey = dayKey(new Date().toISOString());
+  const filtered = allMatches.filter((m) => {
+    if (stageFilter !== "all" && m.stage !== stageFilter) return false;
+    if (todayOnly && dayKey(m.date) !== todayKey) return false;
+    return true;
+  });
 
   const updateEdit = (matchId: string, patch: Partial<Editable>) => {
     setEdits((prev) => ({
@@ -577,7 +614,7 @@ export function EditMatchesPage() {
       const key = side === "home" ? "homeFormation" : "awayFormation";
       const f = cur[key];
       const starters = syncStarters(f.starters, shape);
-      return { ...prev, [matchId]: { ...cur, [key]: { shape, starters } } };
+      return { ...prev, [matchId]: { ...cur, [key]: { ...f, shape, starters } } };
     });
   };
 
@@ -594,6 +631,51 @@ export function EditMatchesPage() {
       const starters = [...f.starters];
       starters[idx] = { ...(starters[idx] ?? { playerId: "" }), ...patch };
       return { ...prev, [matchId]: { ...cur, [key]: { ...f, starters } } };
+    });
+  };
+
+  const updateCaptain = (
+    matchId: string,
+    side: "home" | "away",
+    captainName: string
+  ) => {
+    setEdits((prev) => {
+      const cur = prev[matchId] ?? freshEditable();
+      const key = side === "home" ? "homeFormation" : "awayFormation";
+      const f = cur[key];
+      return {
+        ...prev,
+        [matchId]: {
+          ...cur,
+          [key]: { ...f, captainName: captainName || undefined },
+        },
+      };
+    });
+  };
+
+  const updateMvp = (
+    matchId: string,
+    side: "home" | "away",
+    mvpName: string
+  ) => {
+    setEdits((prev) => {
+      const cur = prev[matchId] ?? freshEditable();
+      // MVP は試合 1 人。反対側のチームに既に MVP が立っていれば外す。
+      const otherKey =
+        side === "home" ? "awayFormation" : "homeFormation";
+      const selfKey = side === "home" ? "homeFormation" : "awayFormation";
+      const self = cur[selfKey];
+      const other = cur[otherKey];
+      return {
+        ...prev,
+        [matchId]: {
+          ...cur,
+          [selfKey]: { ...self, mvpName: mvpName || undefined },
+          ...(mvpName && other.mvpName
+            ? { [otherKey]: { ...other, mvpName: undefined } }
+            : {}),
+        },
+      };
     });
   };
 
@@ -797,6 +879,14 @@ export function EditMatchesPage() {
             </option>
           ))}
         </select>
+        <label className={styles.label}>
+          <input
+            type="checkbox"
+            checked={todayOnly}
+            onChange={(e) => setTodayOnly(e.target.checked)}
+          />
+          {" "}今日の試合のみ
+        </label>
         <span className={styles.count}>{filtered.length} 試合</span>
       </div>
 
@@ -964,6 +1054,10 @@ export function EditMatchesPage() {
                             onStarter={(idx, patch) =>
                               updateStarter(m.id, "home", idx, patch)
                             }
+                            onCaptain={(name) =>
+                              updateCaptain(m.id, "home", name)
+                            }
+                            onMvp={(name) => updateMvp(m.id, "home", name)}
                           />
                           <FormationEditor
                             side="away"
@@ -975,6 +1069,10 @@ export function EditMatchesPage() {
                             onStarter={(idx, patch) =>
                               updateStarter(m.id, "away", idx, patch)
                             }
+                            onCaptain={(name) =>
+                              updateCaptain(m.id, "away", name)
+                            }
+                            onMvp={(name) => updateMvp(m.id, "away", name)}
                           />
                           <BookingEditor
                             match={m}
@@ -1274,6 +1372,8 @@ type FormationEditorProps = {
   playerMap: Map<string, Player>;
   onShape: (shape: string) => void;
   onStarter: (idx: number, patch: Partial<StarterDraft>) => void;
+  onCaptain: (captainName: string) => void;
+  onMvp: (mvpName: string) => void;
 };
 
 function FormationEditor({
@@ -1284,6 +1384,8 @@ function FormationEditor({
   playerMap,
   onShape,
   onStarter,
+  onCaptain,
+  onMvp,
 }: FormationEditorProps) {
   const parts = parseShape(draft.shape);
   const sortedPlayers = useMemo(
@@ -1331,6 +1433,38 @@ function FormationEditor({
             onChange={(ev) => onShape(ev.target.value)}
             placeholder="例: 4-3-3"
           />
+        </label>
+        <label className={styles.shapeLabel}>
+          (C):
+          <select
+            className={styles.select}
+            value={draft.captainName ?? ""}
+            onChange={(ev) => onCaptain(ev.target.value)}
+            disabled={noRoster}
+          >
+            <option value="">— なし —</option>
+            {sortedPlayers.map((p) => (
+              <option key={p.id} value={p.name}>
+                #{p.number ?? "?"} {p.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className={styles.shapeLabel}>
+          ★ MVP:
+          <select
+            className={styles.select}
+            value={draft.mvpName ?? ""}
+            onChange={(ev) => onMvp(ev.target.value)}
+            disabled={noRoster}
+          >
+            <option value="">— なし —</option>
+            {sortedPlayers.map((p) => (
+              <option key={p.id} value={p.name}>
+                #{p.number ?? "?"} {p.name}
+              </option>
+            ))}
+          </select>
         </label>
         {parts.length > 0 && (
           <span className={styles.formationCount}>

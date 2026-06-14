@@ -165,6 +165,25 @@
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* MVP: ベンチでは番号バッジに金色 + 星アイコンを並べ、番号を可読のまま残す。
+ *  (pitch 側は SVG ポリゴンの星形に番号を重ねる。ベンチは HTML/CSS の制約上
+ *  クリップパスで星形にすると 2 桁番号が読めなくなるため、ピル型に変える。) */
+.benchNumMvp {
+  background-color: #fbbf24;
+  color: #7c2d12;
+  width: auto;
+  min-width: 1.5rem;
+  padding: 0 0.3rem;
+  gap: 0.1rem;
+  font-weight: 800;
+}
+
+.benchNumMvp::before {
+  content: "★";
+  font-size: 0.8em;
 }
 
 .benchName {
