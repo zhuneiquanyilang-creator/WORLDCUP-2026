@@ -93,10 +93,20 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
       }
       list.push(ev);
     }
+    // ライブ取得で「ハーフタイム中」と分かっているときは、末尾にもハーフタイム
+    // ディバイダーを置く (まだ後半イベントが入っておらずループ内で挿入されない場合)。
+    // status==="live" + liveLabel に halftime / half time が含まれることが条件。
+    // finished の自動付与はしない (前半のみゴールの試合で末尾に出てしまうため)。
+    if (!htInserted && match.status === "live") {
+      const ll = (match.liveLabel ?? "").toLowerCase();
+      if (ll.includes("halftime") || ll.includes("half time")) {
+        list.push({ kind: "halftime" });
+      }
+    }
     return list;
-  }, [events]);
+  }, [events, match.status, match.liveLabel]);
 
-  if (events.length === 0) {
+  if (renderItems.length === 0) {
     return (
       <section className={styles.section}>
         <p className={styles.empty}>試合経過のデータはまだありません。</p>

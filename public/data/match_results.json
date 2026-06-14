@@ -3651,7 +3651,7 @@
   },
   "m031": {
     "matchId": "m031",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -3941,6 +3941,31 @@
           "name": "塩貝健斗"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "goals": [
+      {
+        "minute": 50,
+        "teamId": "NED",
+        "type": "normal",
+        "playerId": "p_ned_10",
+        "playerName": "フィルジル・ファンダイク",
+        "assistPlayerId": "p_ned_17",
+        "assistPlayerName": "ライアン・フラーフェンベルフ"
+      },
+      {
+        "minute": 57,
+        "teamId": "JPN",
+        "type": "normal",
+        "playerId": "p_jpn_14",
+        "playerName": "中村敬斗",
+        "assistPlayerId": "p_jpn_21",
+        "assistPlayerName": "久保建英"
+      }
+    ],
+    "liveLabel": "Live"
   }
 }
