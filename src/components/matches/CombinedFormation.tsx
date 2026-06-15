@@ -10,6 +10,7 @@ import {
   type BenchWithSub,
 } from "@/utils/applySubs";
 import { formatMinute } from "@/utils/eventMinute";
+import { spreadFormationLayers } from "@/utils/formation";
 import styles from "./CombinedFormation.module.css";
 
 /**
@@ -202,27 +203,37 @@ export function CombinedFormation({
   const layout = isNarrow ? VERTICAL_LAYOUT : HORIZONTAL_LAYOUT;
   const Pitch = isNarrow ? VerticalPitch : HorizontalPitch;
 
+  // 層 x 間隔の調整 (= ピッチ上の名前ラベル重なり防止)。
+  // 4-2-3-1 等の AM/ST が y=50 で揃うケースで前方を押し出す。
+  const homeSpreadFormation = useMemo(
+    () => (homeFormation ? spreadFormationLayers(homeFormation) : undefined),
+    [homeFormation]
+  );
+  const awaySpreadFormation = useMemo(
+    () => (awayFormation ? spreadFormationLayers(awayFormation) : undefined),
+    [awayFormation]
+  );
   const homeProcessed = useMemo(
     () =>
       applySubsToLineup(
-        homeFormation,
+        homeSpreadFormation,
         homeTeamId,
         homeSubs,
         homeBookings,
         goals
       ),
-    [homeFormation, homeTeamId, homeSubs, homeBookings, goals]
+    [homeSpreadFormation, homeTeamId, homeSubs, homeBookings, goals]
   );
   const awayProcessed = useMemo(
     () =>
       applySubsToLineup(
-        awayFormation,
+        awaySpreadFormation,
         awayTeamId,
         awaySubs,
         awayBookings,
         goals
       ),
-    [awayFormation, awayTeamId, awaySubs, awayBookings, goals]
+    [awaySpreadFormation, awayTeamId, awaySubs, awayBookings, goals]
   );
 
   const homeHead = (

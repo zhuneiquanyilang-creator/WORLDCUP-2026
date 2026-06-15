@@ -5968,8 +5968,14 @@
         }
       ]
     },
+    "bookings": [
+      {
+        "minute": 44,
+        "teamId": "KSA",
+        "playerName": "アブドゥルエラ・アル・アムリ",
+        "type": "Y"
+      }
+    ],
     "liveLabel": "Live"
   }
-}
-
 }

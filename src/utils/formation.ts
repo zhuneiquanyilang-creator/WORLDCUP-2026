@@ -89,3 +89,74 @@ function layerRoleHint(
   if (layerIdx === totalLayers - 1) return "FW";
   return "MF";
 }
+
+/** 表示用に「層と層の x 間隔が狭すぎて選手名が重なる」フォーメーションを
+ *  描画前に調整する。前後の層が**両方とも中央 (y=50 付近) に選手を抱えている**
+ *  ときだけ、`MIN_LAYER_SPREAD` 単位の間隔を確保するように後方の層を前進させる。
+ *
+ *  例: 4-2-3-1 (層 x = 28 / 45.33 / 62.67 / 80)
+ *    - DF: y=12.5/37.5/62.5/87.5 (中央なし)
+ *    - DM: y=25/75 (中央なし)
+ *    - AM: y=16.67/50/83.33 (中央あり)
+ *    - ST: y=50 (中央あり)
+ *    → AM と ST が「両方中央あり」かつ間隔 17.33 で名前が重なる → ST を 80→83.67 に前進
+ *
+ *  4-3-3 のように両層中央ありでも元の間隔が十分 (26) ある場合は何もしない。
+ *  GK (role: "GK") は層調整の対象外。
+ *  保存データ (`match_results.json`) は変更しない、レンダー時に毎回適用。 */
+export function spreadFormationLayers(
+  formation: FormationData
+): FormationData {
+  if (!formation.starting || formation.starting.length === 0) return formation;
+  const fieldSpots = formation.starting.filter((s) => s.role !== "GK");
+  if (fieldSpots.length === 0) return formation;
+
+  const distinctX = [...new Set(fieldSpots.map((s) => s.x))].sort(
+    (a, b) => a - b
+  );
+  if (distinctX.length < 2) return formation;
+
+  // 各層が中央 (y∈[40,60]) に選手を持つかを記録
+  const hasCenter = new Map<number, boolean>();
+  for (const x of distinctX) {
+    const inLayer = fieldSpots.filter((s) => s.x === x);
+    hasCenter.set(x, inLayer.some((s) => s.y >= 40 && s.y <= 60));
+  }
+
+  const MIN_LAYER_SPREAD = 25;
+  const MAX_X = 95;
+  const adjusted = new Map<number, number>();
+  for (let i = 0; i < distinctX.length; i++) {
+    const original = distinctX[i];
+    if (i === 0) {
+      adjusted.set(original, original);
+      continue;
+    }
+    const prevOriginal = distinctX[i - 1];
+    const prevAdjusted = adjusted.get(prevOriginal)!;
+    const bothCenter = hasCenter.get(prevOriginal) && hasCenter.get(original);
+    if (!bothCenter) {
+      adjusted.set(original, original);
+      continue;
+    }
+    const minHere = prevAdjusted + MIN_LAYER_SPREAD;
+    const x = Math.min(MAX_X, Math.max(original, minHere));
+    adjusted.set(original, x);
+  }
+
+  let changed = false;
+  for (const [k, v] of adjusted) {
+    if (k !== v) {
+      changed = true;
+      break;
+    }
+  }
+  if (!changed) return formation;
+
+  return {
+    ...formation,
+    starting: formation.starting.map((s) =>
+      s.role === "GK" ? s : { ...s, x: adjusted.get(s.x) ?? s.x }
+    ),
+  };
+}
