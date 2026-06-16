@@ -4833,7 +4833,7 @@
         "minute": 64,
         "teamId": "SWE",
         "inName": "ルーカス・ベリヴァル",
-        "outName": "ベンジャミン・ニグレン"
+        "outName": "ベンジャミン・��グレン"
       },
       {
         "minute": 72,
@@ -6455,7 +6455,7 @@
   },
   "m049": {
     "matchId": "m049",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 3,
       "away": 1
@@ -6831,7 +6831,7 @@
         "outName": "イドリッサ・ガナ・ゲイェ"
       }
     ],
-    "liveLabel": "Live"
+    "liveLabel": "Full time"
   },
   "m050": {
     "matchId": "m050",
