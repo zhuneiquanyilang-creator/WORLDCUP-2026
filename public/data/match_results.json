@@ -5664,7 +5664,7 @@
   },
   "m044": {
     "matchId": "m044",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 1
@@ -6025,8 +6025,29 @@
         "teamId": "URU",
         "inName": "ロドリゴ・アギーレ",
         "outName": "フェデリコ・ビニャス"
+      },
+      {
+        "minute": 90,
+        "teamId": "KSA",
+        "inName": "アブドラ・アル・ハムダン",
+        "outName": "フィラス・アル・ブライカン",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "KSA",
+        "inName": "アリ・ラジャミ",
+        "outName": "サウド・アブドゥルハミド",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "KSA",
+        "inName": "アイマン・ヤヒヤ",
+        "outName": "モテブ・アル・ハルビ",
+        "addedTime": 3
       }
     ],
-    "liveLabel": "Live"
+    "liveLabel": "Full time"
   }
 }
