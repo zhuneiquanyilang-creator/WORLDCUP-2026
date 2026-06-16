@@ -19,18 +19,53 @@ export function DateFilter({ dates, current, onChange }: Props) {
   }
   const items = [...byKey.entries()].sort(([a], [b]) => a.localeCompare(b));
 
+  const currentIdx =
+    current === "all" ? -1 : items.findIndex(([k]) => k === current);
+  const prevDisabled = current === "all" || currentIdx <= 0;
+  const nextDisabled =
+    current === "all" || currentIdx < 0 || currentIdx >= items.length - 1;
+
+  const goPrev = () => {
+    if (prevDisabled) return;
+    onChange(items[currentIdx - 1][0]);
+  };
+  const goNext = () => {
+    if (nextDisabled) return;
+    onChange(items[currentIdx + 1][0]);
+  };
+
   return (
-    <select
-      className={styles.select}
-      value={current}
-      onChange={(e) => onChange(e.target.value as string | "all")}
-    >
-      <option value="all">すべて</option>
-      {items.map(([key, iso]) => (
-        <option key={key} value={key}>
-          {formatDateJa(iso)}
-        </option>
-      ))}
-    </select>
+    <div className={styles.wrap}>
+      <button
+        type="button"
+        className={styles.arrow}
+        onClick={goPrev}
+        disabled={prevDisabled}
+        aria-label="前日の試合"
+      >
+        ◀
+      </button>
+      <select
+        className={styles.select}
+        value={current}
+        onChange={(e) => onChange(e.target.value as string | "all")}
+      >
+        <option value="all">すべて</option>
+        {items.map(([key, iso]) => (
+          <option key={key} value={key}>
+            {formatDateJa(iso)}
+          </option>
+        ))}
+      </select>
+      <button
+        type="button"
+        className={styles.arrow}
+        onClick={goNext}
+        disabled={nextDisabled}
+        aria-label="翌日の試合"
+      >
+        ▶
+      </button>
+    </div>
   );
 }

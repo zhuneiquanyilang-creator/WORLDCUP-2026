@@ -5241,7 +5241,7 @@
         "outName": "ティモシー・カスターニュ"
       },
       {
-        "minute": 66,
+        "minute": 65,
         "teamId": "BEL",
         "inName": "ロメル・ルカク",
         "outName": "シャルル・デケテラーレ"
@@ -5874,7 +5874,8 @@
           "number": 8,
           "name": "フェデリコ・バルベルデ",
           "role": "MF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 54,
@@ -6052,7 +6053,47 @@
   },
   "m038": {
     "matchId": "m038",
-    "status": "scheduled",
+    "status": "finished",
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "goals": [
+      {
+        "minute": 7,
+        "teamId": "NZL",
+        "type": "normal",
+        "playerId": "p_nzl_22",
+        "playerName": "イライジャ・ジャスト",
+        "assistPlayerId": "p_nzl_18",
+        "assistPlayerName": "クリス・ウッド"
+      },
+      {
+        "minute": 33,
+        "teamId": "IRN",
+        "type": "normal",
+        "playerId": "p_irn_6",
+        "playerName": "ラミン・レザイアン"
+      },
+      {
+        "minute": 54,
+        "teamId": "NZL",
+        "type": "normal",
+        "playerId": "p_nzl_22",
+        "playerName": "イライジャ・ジャスト",
+        "assistPlayerId": "p_nzl_18",
+        "assistPlayerName": "クリス・ウッド"
+      },
+      {
+        "minute": 64,
+        "teamId": "IRN",
+        "type": "normal",
+        "playerId": "p_irn_19",
+        "playerName": "モハマド・モヘビ",
+        "assistPlayerId": "p_irn_6",
+        "assistPlayerName": "ラミン・レザイアン"
+      }
+    ],
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -6342,6 +6383,75 @@
           "name": "トミー・スミス"
         }
       ]
-    }
+    },
+    "liveLabel": "Full time",
+    "bookings": [
+      {
+        "minute": 89,
+        "teamId": "IRN",
+        "playerName": "エフサン・ハジサフィ",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "IRN",
+        "inName": "メフディ・ガイェディ",
+        "outName": "アリア・ユセフィ"
+      },
+      {
+        "minute": 53,
+        "teamId": "IRN",
+        "inName": "アリ・アリプール",
+        "outName": "シャフリヤル・モガンルー"
+      },
+      {
+        "minute": 65,
+        "teamId": "IRN",
+        "inName": "エフサン・ハジサフィ",
+        "outName": "サマン・ゴッドス"
+      },
+      {
+        "minute": 68,
+        "teamId": "NZL",
+        "inName": "ベン・オールド",
+        "outName": "リベラト・カカーチェ"
+      },
+      {
+        "minute": 68,
+        "teamId": "NZL",
+        "inName": "ライアン・トーマス",
+        "outName": "カラム・マッコワット"
+      },
+      {
+        "minute": 77,
+        "teamId": "NZL",
+        "inName": "カラン・エリオット",
+        "outName": "ティム・ペイン"
+      },
+      {
+        "minute": 80,
+        "teamId": "IRN",
+        "inName": "アミルホセイン・ホセインザデ",
+        "outName": "メフディ・タレミ"
+      },
+      {
+        "minute": 90,
+        "teamId": "NZL",
+        "inName": "タイラー・ビンドン",
+        "outName": "マルコ・スタメニッチ",
+        "addedTime": 2
+      },
+      {
+        "minute": 90,
+        "teamId": "NZL",
+        "inName": "ジェシー・ランドール",
+        "outName": "サープリート・シン",
+        "addedTime": 2
+      }
+    ]
   }
+}
+
 }
