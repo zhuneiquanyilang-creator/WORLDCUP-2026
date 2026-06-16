@@ -7,6 +7,63 @@ import { spawn } from "node:child_process";
 const RESULTS_PATH = path.resolve(__dirname, "public/data/match_results.json");
 const RESULTS_REL = "public/data/match_results.json";
 
+/**
+ * `match_results.json` を読んで JSON オブジェクトを返す。普通に `JSON.parse` を
+ * 試し、失敗したら末尾のバランス外 `}` 等のゴミを切り落として再パース (自己修復)。
+ * 修復した場合は `repaired: true` を返すので、呼び出し側で書き戻せる。
+ *
+ * 過去に複数回、末尾に `\n}` が混入してファイルが parse 不能になり、公開サイトで
+ * スコアが全消滅する事故が起きた。書き込み経路 (`matchResultsWriter`) は構造上
+ * きれいな JSON しか出さないので、外部 (エディタの誤挿入等) で混入したと推測。
+ * いずれにせよ次の書き込みで自動的に直すよう、ここで自己修復する。
+ */
+function selfHealJson(
+  raw: string
+): { data: Record<string, unknown>; repaired: boolean } | null {
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && !Array.isArray(parsed))
+      return { data: parsed as Record<string, unknown>, repaired: false };
+    return null;
+  } catch {
+    // バランスの取れた最後の `}` までを残して再パース。
+    let depth = 0;
+    let lastClose = -1;
+    let inStr = false;
+    let esc = false;
+    for (let i = 0; i < raw.length; i++) {
+      const c = raw[i];
+      if (esc) {
+        esc = false;
+        continue;
+      }
+      if (inStr) {
+        if (c === "\\") esc = true;
+        else if (c === '"') inStr = false;
+        continue;
+      }
+      if (c === '"') {
+        inStr = true;
+        continue;
+      }
+      if (c === "{") depth++;
+      else if (c === "}") {
+        depth--;
+        if (depth === 0) lastClose = i;
+      }
+    }
+    if (lastClose < 0) return null;
+    try {
+      const parsed = JSON.parse(raw.slice(0, lastClose + 1));
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed))
+        return { data: parsed as Record<string, unknown>, repaired: true };
+      return null;
+    } catch {
+      return null;
+    }
+  }
+}
+
 // GitHub Desktop バンドル版 git のパス。PATH に git が無い環境向けフォールバック。
 const GIT_BIN_CANDIDATES = [
   "git",
@@ -190,11 +247,29 @@ function matchResultsWriter(): Plugin {
           let existing: Record<string, unknown> = {};
           try {
             const raw = await fs.readFile(RESULTS_PATH, "utf8");
-            const parsed = JSON.parse(raw);
-            if (parsed && typeof parsed === "object" && !Array.isArray(parsed))
-              existing = parsed as Record<string, unknown>;
-          } catch {
-            // ファイルが無いか壊れているなら空から始める
+            const healed = selfHealJson(raw);
+            if (!healed) {
+              // 既存ファイルがあるのに parse 出来ない & 修復も無理 →
+              // 全データを失うのでここで書き込み拒否。
+              console.warn(
+                "[match-results-writer] 既存 match_results.json が parse 不能 & 自己修復不能 — 書き込みを拒否してデータ保護"
+              );
+              res.statusCode = 500;
+              res.end(
+                "match_results.json is corrupt and cannot be self-healed; refusing write to protect data"
+              );
+              return;
+            }
+            existing = healed.data;
+            if (healed.repaired) {
+              console.warn(
+                "[match-results-writer] 既存 match_results.json の末尾ゴミを自動修復しました"
+              );
+            }
+          } catch (e: unknown) {
+            // ENOENT (ファイル未作成) なら空から始める。それ以外は再 throw。
+            const code = (e as { code?: string } | null)?.code;
+            if (code !== "ENOENT") throw e;
           }
           // field-level merge per match (cf. ヘッダコメント)
           const merged: Record<string, unknown> = { ...existing };
@@ -217,11 +292,19 @@ function matchResultsWriter(): Plugin {
               merged[id] = val;
             }
           }
-          await fs.writeFile(
-            RESULTS_PATH,
-            JSON.stringify(merged, null, 2) + "\n",
-            "utf8"
-          );
+          const output = JSON.stringify(merged, null, 2) + "\n";
+          await fs.writeFile(RESULTS_PATH, output, "utf8");
+          // 書き戻し検証 — 万一書き込み直後に壊れたら気付けるように。
+          try {
+            const verify = await fs.readFile(RESULTS_PATH, "utf8");
+            JSON.parse(verify);
+          } catch (verr) {
+            console.warn(
+              `[match-results-writer] 書き込み後の verify に失敗: ${
+                verr instanceof Error ? verr.message : String(verr)
+              }`
+            );
+          }
           res.setHeader("Content-Type", "application/json");
           res.statusCode = 200;
           res.end(JSON.stringify({ ok: true, count: Object.keys(merged).length }));
@@ -260,14 +343,49 @@ function startupCatchup(apiKey: string): Plugin {
     apply: "serve",
     configureServer(server) {
       server.httpServer?.once("listening", () => {
+        // 1) JSON 自己修復 — 起動時に壊れたファイルを検知したら直しておく。
+        //    Football-Data 取得の前に走らせるので、catchup 側で
+        //    parse 失敗 → 空ファイル扱い → 既存データ喪失、という事故を防ぐ。
+        runStartupSelfHeal().catch((e) =>
+          console.warn(
+            `[startup-self-heal] failed: ${e?.message ?? e}`
+          )
+        );
         if (process.env.STARTUP_CATCHUP_RESULTS === "0") return;
-        // サーバー起動と並走させる (await しない)
+        // 2) サーバー起動と並走させる (await しない)
         runStartupCatchup(apiKey).catch((e) =>
           console.warn(`[startup-catchup] failed: ${e?.message ?? e}`)
         );
       });
     },
   };
+}
+
+async function runStartupSelfHeal() {
+  let raw: string;
+  try {
+    raw = await fs.readFile(RESULTS_PATH, "utf8");
+  } catch (e: unknown) {
+    const code = (e as { code?: string } | null)?.code;
+    if (code === "ENOENT") return;
+    throw e;
+  }
+  const healed = selfHealJson(raw);
+  if (!healed) {
+    console.warn(
+      "[startup-self-heal] match_results.json が parse 不能 & 自己修復不能 — 手動で修正してください"
+    );
+    return;
+  }
+  if (!healed.repaired) return;
+  await fs.writeFile(
+    RESULTS_PATH,
+    JSON.stringify(healed.data, null, 2) + "\n",
+    "utf8"
+  );
+  console.warn(
+    "[startup-self-heal] match_results.json の末尾ゴミを自動修復しました (commit & push 推奨)"
+  );
 }
 
 function mapFdStatus(s: string): "scheduled" | "live" | "finished" | null {
@@ -312,11 +430,18 @@ async function runStartupCatchup(apiKey: string) {
   let results: Record<string, Record<string, unknown>> = {};
   try {
     const raw = await fs.readFile(RESULTS_PATH, "utf8");
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === "object" && !Array.isArray(parsed))
-      results = parsed;
-  } catch {
-    // 無ければ空
+    const healed = selfHealJson(raw);
+    if (!healed) {
+      console.warn(
+        "[startup-catchup] match_results.json が parse 不能 — 既存データ喪失を避けるため catchup をスキップ"
+      );
+      return;
+    }
+    results = healed.data as Record<string, Record<string, unknown>>;
+  } catch (e: unknown) {
+    const code = (e as { code?: string } | null)?.code;
+    if (code !== "ENOENT") throw e;
+    // ファイル未作成 → 空から始める
   }
 
   const now = Date.now();
