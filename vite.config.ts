@@ -81,6 +81,27 @@ async function schedulePush() {
         return;
       }
       const cwd = __dirname;
+      // 0) JSON 健全性チェック — 壊れたファイルを GitHub Pages に送らない。
+      //    過去に末尾に余分な `}` が混入した事故があり、公開サイトで全試合
+      //    のスコアが消える障害になった。手動編集経路でも auto-push 経路でも
+      //    最終的にここを通るので、ここで弾けば公開サイトには絶対に行かない。
+      try {
+        const raw = await fs.readFile(RESULTS_PATH, "utf8");
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+          console.warn(
+            "[auto-push] match_results.json is not a JSON object — skipping push"
+          );
+          return;
+        }
+      } catch (e) {
+        console.warn(
+          `[auto-push] match_results.json failed JSON.parse — skipping push: ${
+            e instanceof Error ? e.message : String(e)
+          }`
+        );
+        return;
+      }
       // 1) 対象ファイルだけステージ (他の変更は巻き込まない)
       const add = await runGit(gitBin, ["add", "--", RESULTS_REL], cwd);
       if (add.code !== 0) {
