@@ -8333,9 +8333,20 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 6,
+        "teamId": "POR",
+        "type": "normal",
+        "playerId": "p_por_16",
+        "playerName": "ジョアン・ネヴェス",
+        "assistPlayerId": "p_por_22",
+        "assistPlayerName": "ペドロ・ネト"
+      }
+    ]
   }
 }
