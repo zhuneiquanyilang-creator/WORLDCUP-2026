@@ -8334,7 +8334,7 @@
     },
     "score": {
       "home": 1,
-      "away": 0
+      "away": 1
     },
     "liveLabel": "Live",
     "goals": [
@@ -8346,6 +8346,30 @@
         "playerName": "ジョアン・ネヴェス",
         "assistPlayerId": "p_por_22",
         "assistPlayerName": "ペドロ・ネト"
+      },
+      {
+        "minute": 45,
+        "teamId": "COD",
+        "type": "normal",
+        "addedTime": 5,
+        "playerId": "p_cod_23",
+        "playerName": "ヨアヌ・ウィサ",
+        "assistPlayerId": "p_cod_9",
+        "assistPlayerName": "アルトゥール・マスアク"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 13,
+        "teamId": "POR",
+        "playerName": "ベルナルド・シルバ",
+        "type": "Y"
+      },
+      {
+        "minute": 32,
+        "teamId": "COD",
+        "playerName": "シャンセル・ムベンバ",
+        "type": "Y"
       }
     ]
   }
