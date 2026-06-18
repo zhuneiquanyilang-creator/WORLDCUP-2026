@@ -4833,7 +4833,7 @@
         "minute": 64,
         "teamId": "SWE",
         "inName": "ルーカス・ベリヴァル",
-        "outName": "ベンジャミン・ニグレン"
+        "outName": "ベンジャミン・��グレン"
       },
       {
         "minute": 72,
@@ -9586,6 +9586,16 @@
         "playerName": "ルイス・ディアス",
         "assistPlayerId": "p_col_19",
         "assistPlayerName": "グスタボ・プエルタ"
+      },
+      {
+        "minute": 90,
+        "teamId": "COL",
+        "type": "normal",
+        "addedTime": 9,
+        "playerId": "p_col_15",
+        "playerName": "ハミントン・カンパス",
+        "assistPlayerId": "p_col_23",
+        "assistPlayerName": "クチョ・エルナンデス"
       }
     ],
     "substitutions": [
@@ -9600,6 +9610,57 @@
         "teamId": "UZB",
         "inName": "ファルフ・サイフィエフ",
         "outName": "オストン・ウルノフ"
+      },
+      {
+        "minute": 72,
+        "teamId": "COL",
+        "inName": "ハミントン・カンパス",
+        "outName": "ハメス・ロドリゲス"
+      },
+      {
+        "minute": 77,
+        "teamId": "UZB",
+        "inName": "ジャホンギル・ウロゾフ",
+        "outName": "ルスタムジョン・アシュルマトフ"
+      },
+      {
+        "minute": 77,
+        "teamId": "UZB",
+        "inName": "アジズベク・アモノフ",
+        "outName": "アボスベク・ファイズラエフ"
+      },
+      {
+        "minute": 80,
+        "teamId": "COL",
+        "inName": "リチャード・リオス",
+        "outName": "グスタボ・プエルタ"
+      },
+      {
+        "minute": 80,
+        "teamId": "COL",
+        "inName": "クチョ・エルナンデス",
+        "outName": "ルイス・スアレス"
+      },
+      {
+        "minute": 90,
+        "teamId": "UZB",
+        "inName": "イゴール・セルゲーエフ",
+        "outName": "エルドル・ショムロドフ",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "COL",
+        "inName": "ケビン・カスターニョ",
+        "outName": "ジョン・アリアス",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "COL",
+        "inName": "カルロス・ゴメス",
+        "outName": "ルイス・ディアス",
+        "addedTime": 3
       }
     ]
   }
