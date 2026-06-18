@@ -4455,7 +4455,7 @@
       {
         "minute": 85,
         "teamId": "NED",
-        "inName": "ブライアン・ブロビー",
+        "inName": "ブライ��ン・ブロビー",
         "outName": "コーディ・ガクポ"
       }
     ],
@@ -9671,7 +9671,385 @@
       "home": 1,
       "away": 1
     },
-    "liveLabel": "Full time"
+    "liveLabel": "Full time",
+    "goals": [
+      {
+        "minute": 6,
+        "teamId": "CZE",
+        "type": "normal",
+        "playerId": "p_cze_18",
+        "playerName": "ミハル・サディーレク",
+        "assistPlayerId": "p_cze_14",
+        "assistPlayerName": "アレクサンドル・ソイカ"
+      },
+      {
+        "minute": 83,
+        "teamId": "ZAF",
+        "type": "penalty",
+        "playerId": "p_zaf_17",
+        "playerName": "テボホ・モコエナ"
+      }
+    ],
+    "homeFormation": {
+      "shape": "3-5-2",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 1,
+          "name": "マチェイ・コヴァーシュ",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 16.666666666666664,
+          "number": 4,
+          "name": "ロビン・フラナーチ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 50,
+          "number": 3,
+          "name": "トマーシュ・ホレシュ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 83.33333333333334,
+          "number": 7,
+          "name": "ラディスラフ・クレイチー",
+          "role": "DF",
+          "isCaptain": true,
+          "isMvp": true
+        },
+        {
+          "x": 54,
+          "y": 10,
+          "number": 5,
+          "name": "ヴラディミール・ツォウファル",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 30,
+          "number": 18,
+          "name": "ミハル・サディーレク",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 50,
+          "number": 8,
+          "name": "ヴラディミール・ダリダ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 70,
+          "number": 12,
+          "name": "ルカーシュ・チェルフ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 90,
+          "number": 24,
+          "name": "アレクサンドル・ソイカ",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 25,
+          "number": 9,
+          "name": "アダム・ハロジェク",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 75,
+          "number": 10,
+          "name": "パトリク・シック",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 2,
+          "name": "ダヴィド・ジマ"
+        },
+        {
+          "number": 6,
+          "name": "シュテパン・チャロウペク"
+        },
+        {
+          "number": 11,
+          "name": "ヤン・クフタ"
+        },
+        {
+          "number": 13,
+          "name": "モイミール・ヒティル"
+        },
+        {
+          "number": 14,
+          "name": "ダヴィド・ユラーセク"
+        },
+        {
+          "number": 15,
+          "name": "パヴェル・シュルツ"
+        },
+        {
+          "number": 16,
+          "name": "インジフ・スタニェク"
+        },
+        {
+          "number": 17,
+          "name": "ルカーシュ・プロヴォド"
+        },
+        {
+          "number": 19,
+          "name": "トマーシュ・ホリー"
+        },
+        {
+          "number": 20,
+          "name": "ヤロスラフ・ゼレニー"
+        },
+        {
+          "number": 21,
+          "name": "ダヴィド・ドウデラ"
+        },
+        {
+          "number": 22,
+          "name": "トマーシュ・ソウチェク"
+        },
+        {
+          "number": 23,
+          "name": "ルカーシュ・ホルニーチェク"
+        },
+        {
+          "number": 25,
+          "name": "ヒューゴ・ソフフルェク"
+        },
+        {
+          "number": 26,
+          "name": "デニス・ヴィシンスキー"
+        }
+      ]
+    },
+    "awayFormation": {
+      "shape": "4-3-3",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 1,
+          "name": "ロンウェン・ウィリアムズ",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 20,
+          "name": "クリソ・ムダウ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 21,
+          "name": "イメ・オコン",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 14,
+          "name": "ムベケゼリ・ムボカジ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 6,
+          "name": "オーブリー・モディバ",
+          "role": "DF"
+        },
+        {
+          "x": 54,
+          "y": 16.666666666666664,
+          "number": 5,
+          "name": "タレンテ・ムバサ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 50,
+          "number": 4,
+          "name": "テボホ・モコエナ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 83.33333333333334,
+          "number": 23,
+          "name": "ジェイデン・アダムス",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 16.666666666666664,
+          "number": 12,
+          "name": "タペロ・マセコ",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 50,
+          "number": 15,
+          "name": "イクラーム・レイナーズ",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 83.33333333333334,
+          "number": 7,
+          "name": "オスウィン・アポリス",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 2,
+          "name": "タバン・マトゥルディ"
+        },
+        {
+          "number": 3,
+          "name": "クルマニ・ンダマネ"
+        },
+        {
+          "number": 8,
+          "name": "ツェパン・モレミ"
+        },
+        {
+          "number": 9,
+          "name": "ライル・フォスター"
+        },
+        {
+          "number": 10,
+          "name": "レレボヒレ・モフォケン"
+        },
+        {
+          "number": 11,
+          "name": "ゼンバ・ズワネ"
+        },
+        {
+          "number": 13,
+          "name": "スフィフェロ・シトレ"
+        },
+        {
+          "number": 16,
+          "name": "シフォ・チェイン"
+        },
+        {
+          "number": 17,
+          "name": "エヴィデンス・マクゴパ"
+        },
+        {
+          "number": 18,
+          "name": "サムケレ・カビニ"
+        },
+        {
+          "number": 19,
+          "name": "ンコシナティ・シビシ"
+        },
+        {
+          "number": 22,
+          "name": "リカルド・ゴス"
+        },
+        {
+          "number": 24,
+          "name": "オルウェトゥ・マカニャ"
+        },
+        {
+          "number": 25,
+          "name": "カモゲロ・セベレベレ"
+        },
+        {
+          "number": 26,
+          "name": "ブラッドリー・クロス"
+        }
+      ]
+    },
+    "bookings": [
+      {
+        "minute": 33,
+        "teamId": "ZAF",
+        "playerName": "テボホ・モコエナ",
+        "type": "Y"
+      },
+      {
+        "minute": 40,
+        "teamId": "ZAF",
+        "playerName": "タレンテ・ムバサ",
+        "type": "Y"
+      },
+      {
+        "minute": 75,
+        "teamId": "CZE",
+        "playerName": "ラディスラフ・クレイチー",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "ZAF",
+        "inName": "レレボヒレ・モフォケン",
+        "outName": "ジェイデン・アダムス"
+      },
+      {
+        "minute": 55,
+        "teamId": "CZE",
+        "inName": "ヤロスラフ・ゼレニー",
+        "outName": "ヴラディミール・ダリダ"
+      },
+      {
+        "minute": 55,
+        "teamId": "CZE",
+        "inName": "パヴェル・シュルツ",
+        "outName": "アレクサンドル・ソイカ"
+      },
+      {
+        "minute": 66,
+        "teamId": "ZAF",
+        "inName": "エヴィデンス・マクゴパ",
+        "outName": "イクラーム・レイナーズ"
+      },
+      {
+        "minute": 67,
+        "teamId": "CZE",
+        "inName": "トマーシュ・ソウチェク",
+        "outName": "ミハル・サディーレク"
+      },
+      {
+        "minute": 67,
+        "teamId": "CZE",
+        "inName": "ルカーシュ・プロヴォド",
+        "outName": "アダム・ハロジェク"
+      },
+      {
+        "minute": 78,
+        "teamId": "CZE",
+        "inName": "ダヴィド・ジマ",
+        "outName": "ルカーシュ・チェルフ"
+      },
+      {
+        "minute": 84,
+        "teamId": "ZAF",
+        "inName": "カモゲロ・セベレベレ",
+        "outName": "タペロ・マセコ"
+      }
+    ]
   },
   "m009": {
     "matchId": "m009",
@@ -9692,4 +10070,3 @@
     "liveLabel": "Live"
   }
 }
-
