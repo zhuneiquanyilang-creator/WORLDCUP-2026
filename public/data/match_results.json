@@ -4790,7 +4790,7 @@
         },
         {
           "number": 18,
-          "name": "ライアン・エルミ"
+          "name": "ラ��アン・エルミ"
         },
         {
           "number": 19,
@@ -4833,7 +4833,7 @@
         "minute": 64,
         "teamId": "SWE",
         "inName": "ルーカス・ベリヴァル",
-        "outName": "ベンジャミン・��グレン"
+        "outName": "ベンジャミン・ニグレン"
       },
       {
         "minute": 72,
@@ -9254,7 +9254,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -9570,6 +9570,20 @@
         "playerName": "ダニエル・ムニョス",
         "assistPlayerId": "p_col_22",
         "assistPlayerName": "ルイス・ディアス"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "UZB",
+        "inName": "ドストンベク・ハムダモフ",
+        "outName": "シェルゾド・ナスルラエフ"
+      },
+      {
+        "minute": 46,
+        "teamId": "UZB",
+        "inName": "ファルフ・サイフィエフ",
+        "outName": "オストン・ウルノフ"
       }
     ]
   }
