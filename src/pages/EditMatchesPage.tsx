@@ -150,6 +150,7 @@ const SHAPE_SUGGESTIONS = [
   "4-3-3",
   "4-2-3-1",
   "4-4-2",
+  "4-4-1-1",
   "4-1-4-1",
   "4-3-2-1",
   "4-3-1-2",
@@ -535,13 +536,14 @@ export function EditMatchesPage() {
           ? { ...fileR, ...manualR }
           : (manualR ?? fileR);
       const editable = fromUpdate(combined, m, playersByTeam);
-      // これからの試合 (scheduled) で交代が 1 件も入っていなければ、
-      // 空の交代枠を 10 個用意して入力を楽にする。空のまま保存しても
+      // これからの試合 / 進行中の試合 (= finished 以外) で交代が 1 件も
+      // 入っていなければ、空の交代枠を 10 個用意して入力を楽にする。
+      // 上 5 枠ホーム / 下 5 枠アウェイ。空のまま保存しても
       // draftToSub は inName/outName が無いと null を返すので LiveUpdate
       // には乗らない (= 公開サイトに「空の交代」が出ない)。
-      const isUpcoming =
-        (editable.status || m.status) === "scheduled";
-      if (isUpcoming && editable.substitutions.length === 0) {
+      const effectiveStatus = editable.status || m.status;
+      const isPreOrLive = effectiveStatus !== "finished";
+      if (isPreOrLive && editable.substitutions.length === 0) {
         editable.substitutions = Array.from({ length: 10 }, (_, i) => ({
           minute: "",
           teamId: i < 5 ? m.homeTeamId : m.awayTeamId,
