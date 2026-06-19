@@ -10204,7 +10204,7 @@
         },
         {
           "number": 14,
-          "name": "アルドン・ヤシャリ"
+          "name": "アルドン・ヤシャ���"
         },
         {
           "number": 15,
@@ -11230,6 +11230,319 @@
         "playerName": "イ・ガンイン",
         "type": "Y"
       }
+    ],
+    "goals": [
+      {
+        "minute": 50,
+        "teamId": "MEX",
+        "type": "normal",
+        "playerId": "p_mex_11",
+        "playerName": "ルイス・ロモ"
+      }
     ]
+  },
+  "m021": {
+    "matchId": "m021",
+    "status": "scheduled"
+  },
+  "m015": {
+    "matchId": "m015",
+    "status": "scheduled"
+  },
+  "m016": {
+    "matchId": "m016",
+    "status": "scheduled"
+  },
+  "m022": {
+    "matchId": "m022",
+    "status": "scheduled"
+  },
+  "m033": {
+    "matchId": "m033",
+    "status": "scheduled"
+  },
+  "m027": {
+    "matchId": "m027",
+    "status": "scheduled"
+  },
+  "m028": {
+    "matchId": "m028",
+    "status": "scheduled"
+  },
+  "m034": {
+    "matchId": "m034",
+    "status": "scheduled"
+  },
+  "m045": {
+    "matchId": "m045",
+    "status": "scheduled"
+  },
+  "m039": {
+    "matchId": "m039",
+    "status": "scheduled"
+  },
+  "m046": {
+    "matchId": "m046",
+    "status": "scheduled"
+  },
+  "m040": {
+    "matchId": "m040",
+    "status": "scheduled"
+  },
+  "m057": {
+    "matchId": "m057",
+    "status": "scheduled"
+  },
+  "m051": {
+    "matchId": "m051",
+    "status": "scheduled"
+  },
+  "m052": {
+    "matchId": "m052",
+    "status": "scheduled"
+  },
+  "m058": {
+    "matchId": "m058",
+    "status": "scheduled"
+  },
+  "m063": {
+    "matchId": "m063",
+    "status": "scheduled"
+  },
+  "m069": {
+    "matchId": "m069",
+    "status": "scheduled"
+  },
+  "m070": {
+    "matchId": "m070",
+    "status": "scheduled"
+  },
+  "m064": {
+    "matchId": "m064",
+    "status": "scheduled"
+  },
+  "m011": {
+    "matchId": "m011",
+    "status": "scheduled"
+  },
+  "m012": {
+    "matchId": "m012",
+    "status": "scheduled"
+  },
+  "m018": {
+    "matchId": "m018",
+    "status": "scheduled"
+  },
+  "m017": {
+    "matchId": "m017",
+    "status": "scheduled"
+  },
+  "m005": {
+    "matchId": "m005",
+    "status": "scheduled"
+  },
+  "m006": {
+    "matchId": "m006",
+    "status": "scheduled"
+  },
+  "m030": {
+    "matchId": "m030",
+    "status": "scheduled"
+  },
+  "m029": {
+    "matchId": "m029",
+    "status": "scheduled"
+  },
+  "m036": {
+    "matchId": "m036",
+    "status": "scheduled"
+  },
+  "m035": {
+    "matchId": "m035",
+    "status": "scheduled"
+  },
+  "m023": {
+    "matchId": "m023",
+    "status": "scheduled"
+  },
+  "m024": {
+    "matchId": "m024",
+    "status": "scheduled"
+  },
+  "m053": {
+    "matchId": "m053",
+    "status": "scheduled"
+  },
+  "m054": {
+    "matchId": "m054",
+    "status": "scheduled"
+  },
+  "m048": {
+    "matchId": "m048",
+    "status": "scheduled"
+  },
+  "m047": {
+    "matchId": "m047",
+    "status": "scheduled"
+  },
+  "m042": {
+    "matchId": "m042",
+    "status": "scheduled"
+  },
+  "m041": {
+    "matchId": "m041",
+    "status": "scheduled"
+  },
+  "m071": {
+    "matchId": "m071",
+    "status": "scheduled"
+  },
+  "m072": {
+    "matchId": "m072",
+    "status": "scheduled"
+  },
+  "m065": {
+    "matchId": "m065",
+    "status": "scheduled"
+  },
+  "m066": {
+    "matchId": "m066",
+    "status": "scheduled"
+  },
+  "m060": {
+    "matchId": "m060",
+    "status": "scheduled"
+  },
+  "m059": {
+    "matchId": "m059",
+    "status": "scheduled"
+  },
+  "m073": {
+    "matchId": "m073",
+    "status": "scheduled"
+  },
+  "m076": {
+    "matchId": "m076",
+    "status": "scheduled"
+  },
+  "m074": {
+    "matchId": "m074",
+    "status": "scheduled"
+  },
+  "m075": {
+    "matchId": "m075",
+    "status": "scheduled"
+  },
+  "m078": {
+    "matchId": "m078",
+    "status": "scheduled"
+  },
+  "m077": {
+    "matchId": "m077",
+    "status": "scheduled"
+  },
+  "m079": {
+    "matchId": "m079",
+    "status": "scheduled"
+  },
+  "m080": {
+    "matchId": "m080",
+    "status": "scheduled"
+  },
+  "m082": {
+    "matchId": "m082",
+    "status": "scheduled"
+  },
+  "m081": {
+    "matchId": "m081",
+    "status": "scheduled"
+  },
+  "m084": {
+    "matchId": "m084",
+    "status": "scheduled"
+  },
+  "m083": {
+    "matchId": "m083",
+    "status": "scheduled"
+  },
+  "m085": {
+    "matchId": "m085",
+    "status": "scheduled"
+  },
+  "m088": {
+    "matchId": "m088",
+    "status": "scheduled"
+  },
+  "m086": {
+    "matchId": "m086",
+    "status": "scheduled"
+  },
+  "m087": {
+    "matchId": "m087",
+    "status": "scheduled"
+  },
+  "m089": {
+    "matchId": "m089",
+    "status": "scheduled"
+  },
+  "m090": {
+    "matchId": "m090",
+    "status": "scheduled"
+  },
+  "m091": {
+    "matchId": "m091",
+    "status": "scheduled"
+  },
+  "m092": {
+    "matchId": "m092",
+    "status": "scheduled"
+  },
+  "m093": {
+    "matchId": "m093",
+    "status": "scheduled"
+  },
+  "m094": {
+    "matchId": "m094",
+    "status": "scheduled"
+  },
+  "m095": {
+    "matchId": "m095",
+    "status": "scheduled"
+  },
+  "m096": {
+    "matchId": "m096",
+    "status": "scheduled"
+  },
+  "m097": {
+    "matchId": "m097",
+    "status": "scheduled"
+  },
+  "m099": {
+    "matchId": "m099",
+    "status": "scheduled"
+  },
+  "m098": {
+    "matchId": "m098",
+    "status": "scheduled"
+  },
+  "m100": {
+    "matchId": "m100",
+    "status": "scheduled"
+  },
+  "m101": {
+    "matchId": "m101",
+    "status": "scheduled"
+  },
+  "m102": {
+    "matchId": "m102",
+    "status": "scheduled"
+  },
+  "m103": {
+    "matchId": "m103",
+    "status": "scheduled"
+  },
+  "m104": {
+    "matchId": "m104",
+    "status": "scheduled"
   }
 }
