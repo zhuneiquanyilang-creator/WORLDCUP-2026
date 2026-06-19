@@ -3179,7 +3179,7 @@
         "minute": 61,
         "teamId": "AUS",
         "inName": "ニシャン・ヴェルピレイ",
-        "outName": "ネストリ・イランクンダ"
+        "outName": "ネストリ・��ランクンダ"
       },
       {
         "minute": 62,
@@ -11717,6 +11717,20 @@
         "teamId": "USA",
         "inName": "ジョー・スカリー",
         "outName": "セルジーニョ・デスト"
+      },
+      {
+        "minute": 90,
+        "teamId": "USA",
+        "inName": "ジョヴァンニ・レイナ",
+        "outName": "ウェストン・マッケニー",
+        "addedTime": 6
+      },
+      {
+        "minute": 90,
+        "teamId": "USA",
+        "inName": "ハジ・ライト",
+        "outName": "フォラリン・バログン",
+        "addedTime": 6
       }
     ]
   },
