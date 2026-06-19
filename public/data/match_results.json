@@ -11314,7 +11314,7 @@
     "matchId": "m021",
     "status": "live",
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
     "homeFormation": {
@@ -11606,7 +11606,17 @@
           "name": "テテ・イェンギ"
         }
       ]
-    }
+    },
+    "goals": [
+      {
+        "minute": 11,
+        "teamId": "USA",
+        "type": "own",
+        "playerId": "p_aus_11",
+        "playerName": "キャメロン・バージェス"
+      }
+    ],
+    "liveLabel": "Live"
   },
   "m015": {
     "matchId": "m015",
