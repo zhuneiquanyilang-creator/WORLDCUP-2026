@@ -2876,7 +2876,7 @@
           "x": 8,
           "y": 50,
           "number": 18,
-          "name": "パトリック・ビーチ",
+          "name": "パトリック・ビー���",
           "role": "GK"
         },
         {
@@ -3695,7 +3695,7 @@
           "x": 28,
           "y": 62.5,
           "number": 20,
-          "name": "エマニュエル・アグバド���",
+          "name": "エマニュエル・アグバドゥ",
           "role": "DF"
         },
         {
@@ -12032,7 +12032,18 @@
       "home": 0,
       "away": 0
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 2,
+        "teamId": "MAR",
+        "type": "normal",
+        "playerId": "p_mar_13",
+        "playerName": "イスマエル・サイバリ",
+        "assistPlayerId": "p_mar_20",
+        "assistPlayerName": "ブライム・ディアス"
+      }
+    ]
   },
   "m016": {
     "matchId": "m016",
