@@ -3179,7 +3179,7 @@
         "minute": 61,
         "teamId": "AUS",
         "inName": "ニシャン・ヴェルピレイ",
-        "outName": "ネストリ・イランクンダ"
+        "outName": "ネストリ・��ランクンダ"
       },
       {
         "minute": 62,
@@ -11314,7 +11314,7 @@
     "matchId": "m021",
     "status": "live",
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "homeFormation": {
@@ -11614,9 +11614,30 @@
         "type": "own",
         "playerId": "p_aus_11",
         "playerName": "キャメロン・バージェス"
+      },
+      {
+        "minute": 43,
+        "teamId": "USA",
+        "type": "normal",
+        "playerId": "p_usa_10",
+        "playerName": "アレックス・フリーマン"
       }
     ],
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "bookings": [
+      {
+        "minute": 17,
+        "teamId": "AUS",
+        "playerName": "ジョーダン・ボス",
+        "type": "Y"
+      },
+      {
+        "minute": 32,
+        "teamId": "AUS",
+        "playerName": "アレッサンドロ・チルカティ",
+        "type": "Y"
+      }
+    ]
   },
   "m015": {
     "matchId": "m015",
