@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -13223,10 +13223,21 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 5,
+        "teamId": "NED",
+        "type": "normal",
+        "playerId": "p_ned_20",
+        "playerName": "ブライアン・ブロビー",
+        "assistPlayerId": "p_ned_19",
+        "assistPlayerName": "コーディ・ガクポ"
+      }
+    ]
   },
   "m027": {
     "matchId": "m027",
