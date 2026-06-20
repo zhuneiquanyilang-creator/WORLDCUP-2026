@@ -514,16 +514,31 @@ function Spot({
   const ownGoalCount = spot.ownGoals?.length ?? 0;
   // GK はピッチ両端 (ゴール側) に置かれるため、長い名前ラベルが SVG 枠を
   // はみ出して見切れる (例: NED「フェルブルッヘン」左端 / SWE「ノードフェルト」右端)。
-  // home GK はラベルを右、away GK は左に少しずらして内側 (ピッチ中央) に逃がす。
-  // 横向きレイアウト前提 (縦向きでは GK が中央寄せ y=50 なので不要)。
-  // 5 (前は 6) — 大きすぎると 3-back / 5-back のセンターバック (y=50) の
-  // 名前 (例 ヒエン) と被るので、formation.ts の STRONG_SPREAD=30 と組で調整。
+  // 名前長から「はみ出る分だけ」内側にずらす。短い名前 (4文字程度) は ±0 のままで、
+  // ラベルが GK 円の直下に来るので不自然な配置にならない。
+  // formation.ts の STRONG_SPREAD=30 と組で、長い名前でもセンターバック (y=50) と
+  // 被らない範囲に収まる。
   const isGK = spot.role === "GK";
-  const labelDX = isGK ? (variant === "home" ? 5 : -5) : 0;
+  const displayedText =
+    resolveDisplayName(spot.name, shortNames) + (spot.isCaptain ? " (C)" : "");
+  let labelDX = 0;
+  if (isGK) {
+    // カタカナ平均幅 ≈ fontSize × 1.2 (安全側に多めに見積もる)
+    const halfWidth = (displayedText.length * nameSize * 1.2) / 2;
+    // GK 円中心から SVG ピッチ端までの余裕 (px) ≈ 5.2
+    const EDGE_CLEARANCE = 5.2;
+    const needed = Math.max(0, halfWidth - EDGE_CLEARANCE);
+    if (needed > 0) {
+      labelDX = variant === "home" ? needed : -needed;
+    }
+  }
 
   // 右側に縦積みで配置 (上から ↓N' → ⚽ → 🔴⚽ (OG) → Ⓐ)。
   // 退出済みのときは ↓N' を最上段に置き、その下のバッジ群は順に 3 ずつ下げる。
-  const STACK_X = 4.2;
+  // STACK_X は「選手円中心 (x=0) からバッジ中心までの右オフセット」。
+  // 6 にすることで、半幅 4 程度の名前ラベル (≒ 4 文字カタカナまで) はバッジと
+  // 物理的に重ならず、長い名前で重なっても z-order で名前が前面に来る。
+  const STACK_X = 6;
   const subbedOutY = -4.2;
   const goalY = isSubbedOut ? 0 : -1;
   const ownGoalY = goalCount > 0 ? goalY + 3 : goalY;
@@ -559,20 +574,6 @@ function Spot({
         fill={spot.isMvp ? "#7c2d12" : textColor}
       >
         {spot.number ?? ""}
-      </text>
-      <text
-        x={labelDX}
-        y={6.8}
-        textAnchor="middle"
-        fontSize={nameSize}
-        fontWeight={600}
-        fill="#fff"
-        stroke="#000"
-        strokeWidth={0.18}
-        paintOrder="stroke"
-      >
-        {resolveDisplayName(spot.name, shortNames)}
-        {spot.isCaptain && " (C)"}
       </text>
       {/* カード (左上に小さく) */}
       {(yellow || red) && (
@@ -627,6 +628,22 @@ function Spot({
       {assistCount > 0 && (
         <AssistBadge count={assistCount} x={STACK_X} y={assistY} />
       )}
+      {/* 名前ラベルは最後に描画 (SVG は後出しが上) — バッジ群と重なる場合に
+       *  名前が読めなくなるのを防ぐ。stroke で縁取って背景バッジの色を遮る。 */}
+      <text
+        x={labelDX}
+        y={6.8}
+        textAnchor="middle"
+        fontSize={nameSize}
+        fontWeight={600}
+        fill="#fff"
+        stroke="#000"
+        strokeWidth={0.18}
+        paintOrder="stroke"
+      >
+        {resolveDisplayName(spot.name, shortNames)}
+        {spot.isCaptain && " (C)"}
+      </text>
     </g>
   );
 }
