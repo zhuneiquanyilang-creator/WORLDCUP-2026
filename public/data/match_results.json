@@ -12430,6 +12430,16 @@
         "playerName": "マテウス・クーニャ",
         "assistPlayerId": "p_bra_18",
         "assistPlayerName": "ヴィニシウス・ジュニオール"
+      },
+      {
+        "minute": 45,
+        "teamId": "BRA",
+        "type": "normal",
+        "addedTime": 3,
+        "playerId": "p_bra_18",
+        "playerName": "ヴィニシウス・ジュニオール",
+        "assistPlayerId": "p_bra_13",
+        "assistPlayerName": "ルーカス・パケタ"
       }
     ],
     "bookings": [
@@ -12438,6 +12448,13 @@
         "teamId": "HAI",
         "playerName": "カルラン・アルキュス",
         "type": "Y"
+      },
+      {
+        "minute": 45,
+        "teamId": "HAI",
+        "playerName": "フランツディ・ピエロ",
+        "type": "Y",
+        "addedTime": 4
       }
     ],
     "substitutions": [
