@@ -2442,7 +2442,7 @@
         "teamId": "PAR",
         "type": "normal",
         "playerId": "p_par_16",
-        "playerName": "マウリシオ・マガリャエス��プラド",
+        "playerName": "マウリシオ・マガリャエス・プラド",
         "assistPlayerId": "p_par_20",
         "assistPlayerName": "フリオ・エンシソ"
       },
@@ -12481,6 +12481,18 @@
         "teamId": "HAI",
         "inName": "ドン・ディードソン・ルイシウス",
         "outName": "ジョズエ・カジミール"
+      },
+      {
+        "minute": 64,
+        "teamId": "BRA",
+        "inName": "エンドリッキ",
+        "outName": "マテウス・クーニャ"
+      },
+      {
+        "minute": 64,
+        "teamId": "BRA",
+        "inName": "ガブリエウ・マルティネッリ",
+        "outName": "ルーカス・パケタ"
       }
     ]
   },
