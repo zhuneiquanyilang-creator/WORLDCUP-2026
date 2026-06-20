@@ -5935,7 +5935,7 @@
         },
         {
           "number": 5,
-          "name": "ローガン・コスタ"
+          "name": "��ーガン・コスタ"
         },
         {
           "number": 8,
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -13335,6 +13335,12 @@
         "minute": 75,
         "teamId": "SWE",
         "playerName": "ヤシン・アヤリ",
+        "type": "Y"
+      },
+      {
+        "minute": 80,
+        "teamId": "SWE",
+        "playerName": "ルーカス・ベリヴァル",
         "type": "Y"
       }
     ]
