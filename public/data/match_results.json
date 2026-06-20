@@ -13369,7 +13369,7 @@
   },
   "m027": {
     "matchId": "m027",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -13659,6 +13659,10 @@
           "name": "パフェ・ギアゴン"
         }
       ]
+    },
+    "score": {
+      "home": 0,
+      "away": 0
     }
   },
   "m028": {
