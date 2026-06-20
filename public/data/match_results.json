@@ -11710,7 +11710,7 @@
       {
         "minute": 80,
         "teamId": "USA",
-        "inName": "オース���ン・トラスティ",
+        "inName": "オーストン・トラスティ",
         "outName": "アントニー・ロビンソン"
       },
       {
@@ -13223,7 +13223,7 @@
       ]
     },
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "liveLabel": "Live",
@@ -13236,6 +13236,15 @@
         "playerName": "ブライアン・ブロビー",
         "assistPlayerId": "p_ned_19",
         "assistPlayerName": "コーディ・ガクポ"
+      },
+      {
+        "minute": 17,
+        "teamId": "NED",
+        "type": "normal",
+        "playerId": "p_ned_20",
+        "playerName": "ブライアン・ブロビー",
+        "assistPlayerId": "p_ned_4",
+        "assistPlayerName": "デンゼル・ダンフリース"
       }
     ]
   },
