@@ -5597,7 +5597,7 @@
         },
         {
           "number": 19,
-          "name": "ベン・オールド"
+          "name": "ベン・オー��ド"
         },
         {
           "number": 21,
@@ -13663,8 +13663,18 @@
     },
     "score": {
       "home": 0,
-      "away": 0
-    }
+      "away": 1
+    },
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 30,
+        "teamId": "CIV",
+        "type": "normal",
+        "playerId": "p_civ_12",
+        "playerName": "フランク・ケシエ"
+      }
+    ]
   },
   "m028": {
     "matchId": "m028",
