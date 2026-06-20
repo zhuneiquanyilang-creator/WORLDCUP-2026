@@ -13673,6 +13673,15 @@
         "type": "normal",
         "playerId": "p_civ_12",
         "playerName": "フランク・ケシエ"
+      },
+      {
+        "minute": 68,
+        "teamId": "GER",
+        "type": "normal",
+        "playerId": "p_ger_25",
+        "playerName": "デニズ・ウンダフ",
+        "assistPlayerId": "p_ger_16",
+        "assistPlayerName": "ナディエム・アミリ"
       }
     ],
     "substitutions": [
