@@ -6859,7 +6859,7 @@
           "x": 28,
           "y": 37.5,
           "number": 4,
-          "name": "ザイド・タ���セン",
+          "name": "ザイド・タフセン",
           "role": "DF"
         },
         {
@@ -12409,10 +12409,44 @@
       ]
     },
     "score": {
-      "home": 2,
+      "home": 1,
       "away": 0
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 23,
+        "teamId": "BRA",
+        "type": "normal",
+        "playerId": "p_bra_21",
+        "playerName": "マテウス・クーニャ"
+      },
+      {
+        "minute": 36,
+        "teamId": "BRA",
+        "type": "normal",
+        "playerId": "p_bra_21",
+        "playerName": "マテウス・クーニャ",
+        "assistPlayerId": "p_bra_18",
+        "assistPlayerName": "ヴィニシウス・ジュニオール"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 4,
+        "teamId": "HAI",
+        "playerName": "カルラン・アルキュス",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 40,
+        "teamId": "BRA",
+        "inName": "ラヤン",
+        "outName": "ラフィーニャ"
+      }
+    ]
   },
   "m022": {
     "matchId": "m022",
