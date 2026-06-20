@@ -13223,7 +13223,7 @@
       ]
     },
     "score": {
-      "home": 3,
+      "home": 2,
       "away": 0
     },
     "liveLabel": "Live",
@@ -13262,6 +13262,14 @@
         "teamId": "NED",
         "inName": "クリセンシオ・サマーフィル",
         "outName": "ドニエル・マレン"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 53,
+        "teamId": "SWE",
+        "playerName": "ガブリエル・グズムンドソン",
+        "type": "Y"
       }
     ]
   },
