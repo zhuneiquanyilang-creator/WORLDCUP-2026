@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -13223,7 +13223,7 @@
       ]
     },
     "score": {
-      "home": 4,
+      "home": 5,
       "away": 1
     },
     "liveLabel": "Live",
@@ -13272,6 +13272,15 @@
         "playerName": "アントニー・エランガ",
         "assistPlayerId": "p_swe_21",
         "assistPlayerName": "アレクサンデル・イサク"
+      },
+      {
+        "minute": 89,
+        "teamId": "NED",
+        "type": "normal",
+        "playerId": "p_ned_22",
+        "playerName": "クリセンシオ・サマーフィル",
+        "assistPlayerId": "p_ned_25",
+        "assistPlayerName": "メンフィス・デパイ"
       }
     ],
     "substitutions": [
@@ -13328,6 +13337,13 @@
         "teamId": "NED",
         "inName": "ノア・ラング",
         "outName": "コーディ・ガクポ"
+      },
+      {
+        "minute": 90,
+        "teamId": "SWE",
+        "inName": "エリオット・ストラウド",
+        "outName": "ガブリエル・グズムンドソン",
+        "addedTime": 3
       }
     ],
     "bookings": [
