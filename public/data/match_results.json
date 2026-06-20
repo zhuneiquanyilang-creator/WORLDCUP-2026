@@ -5655,7 +5655,7 @@
       {
         "minute": 68,
         "teamId": "NZL",
-        "inName": "ベン・���ールド",
+        "inName": "ベン・オールド",
         "outName": "リベラト・カカーチェ"
       },
       {
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -13011,7 +13011,8 @@
           "y": 83.33333333333334,
           "number": 11,
           "name": "コーディ・ガクポ",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
