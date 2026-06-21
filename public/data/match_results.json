@@ -15680,7 +15680,27 @@
         "assistPlayerName": "マクシミリアーノ・アラウホ"
       }
     ],
-    "liveLabel": "Halftime"
+    "liveLabel": "Halftime",
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "CPV",
+        "inName": "デロイ・ドゥアルテ",
+        "outName": "テルモ・アルカンジョ"
+      },
+      {
+        "minute": 58,
+        "teamId": "CPV",
+        "inName": "エリオ・バレラ",
+        "outName": "ガリー・ロドリゲス"
+      },
+      {
+        "minute": 58,
+        "teamId": "CPV",
+        "inName": "ヌーノ・ダ・コスタ",
+        "outName": "ベンシモル"
+      }
+    ]
   },
   "m040": {
     "matchId": "m040",
