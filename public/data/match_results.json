@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺��",
+          "name": "上田 綺世",
           "role": "FW",
           "isMvp": true
         }
@@ -15639,7 +15639,21 @@
     "score": {
       "home": 0,
       "away": 0
-    }
+    },
+    "bookings": [
+      {
+        "minute": 5,
+        "teamId": "CPV",
+        "playerName": "シドニー・カブラル",
+        "type": "Y"
+      },
+      {
+        "minute": 20,
+        "teamId": "URU",
+        "playerName": "ロドリゴ・ベンタンクール",
+        "type": "Y"
+      }
+    ]
   },
   "m040": {
     "matchId": "m040",
