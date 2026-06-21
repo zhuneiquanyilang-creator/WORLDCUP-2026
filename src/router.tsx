@@ -2,6 +2,7 @@ import { createHashRouter, Navigate } from "react-router-dom";
 import { Layout } from "./components/common/Layout";
 import { HomePage } from "./pages/HomePage";
 import { StandingsPage } from "./pages/StandingsPage";
+import { BracketPage } from "./pages/BracketPage";
 import { SchedulePage } from "./pages/SchedulePage";
 import { MatchDetailPage } from "./pages/MatchDetailPage";
 import { StatsPage } from "./pages/StatsPage";
@@ -21,6 +22,7 @@ export const router = createHashRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "standings", element: <StandingsPage /> },
+      { path: "bracket", element: <BracketPage /> },
       { path: "schedule", element: <SchedulePage /> },
       { path: "matches", element: <Navigate to="/schedule" replace /> },
       { path: "matches/:id", element: <MatchDetailPage /> },

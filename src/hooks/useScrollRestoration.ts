@@ -39,8 +39,14 @@ function savePositions(positions: Record<string, number>) {
 export function useScrollRestoration() {
   const location = useLocation();
   const navType = useNavigationType();
-  // 現在表示中の location.key と、その上での最終スクロール位置を保持
-  const lastRef = useRef({ key: location.key, y: 0 });
+  // 現在表示中の location.key / pathname と、その上での最終スクロール位置を保持。
+  // pathname を持っておくのは「クエリだけ変わった (フィルタ切替) ときに先頭へ
+  // 戻らない」判定のため。
+  const lastRef = useRef({
+    key: location.key,
+    pathname: location.pathname,
+    y: 0,
+  });
 
   // ブラウザの自動復元を切る (一度きり)。
   // これがオンのままだと React Router の復元と競合して場所が定まらない。
@@ -62,13 +68,19 @@ export function useScrollRestoration() {
   // 画面遷移時: 直前 key の位置を保存 → 新 key を復元 or トップへ
   useEffect(() => {
     const prev = lastRef.current;
+    const samePath = prev.pathname === location.pathname;
     if (prev.key !== location.key) {
       // 直前画面の最終位置を保存
       const positions = loadPositions();
       positions[prev.key] = prev.y;
       savePositions(positions);
-      // ref を新 key に切替 (まだスクロール 0 として開始)
-      lastRef.current = { key: location.key, y: 0 };
+      // ref を新 key に切替。pathname が同じならスクロール位置は維持されるので
+      // 現在の scrollY を引き継ぐ、違うなら 0 から開始。
+      lastRef.current = {
+        key: location.key,
+        pathname: location.pathname,
+        y: samePath ? window.scrollY : 0,
+      };
     }
 
     if (navType === "POP") {
@@ -86,7 +98,11 @@ export function useScrollRestoration() {
       return () => timers.forEach((t) => window.clearTimeout(t));
     }
 
-    // 新規遷移 (PUSH / REPLACE) は先頭へ
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [location.key, navType]);
+    // 新規遷移 (PUSH / REPLACE) は先頭へ。
+    // ただし pathname が変わっていない (= 同じページ内でクエリだけ変えた、
+    // 例: /standings?group=A → /standings?group=B) ならスクロール位置を維持する。
+    if (!samePath) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [location.key, location.pathname, navType]);
 }

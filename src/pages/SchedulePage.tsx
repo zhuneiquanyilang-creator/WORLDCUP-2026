@@ -7,7 +7,6 @@ import { StageFilter } from "@/components/schedule/StageFilter";
 import { StatusFilter } from "@/components/schedule/StatusFilter";
 import { GroupFilter } from "@/components/schedule/GroupFilter";
 import { DateFilter } from "@/components/schedule/DateFilter";
-import { BracketView } from "@/components/schedule/BracketView";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
 import {
   BroadcasterBadge,
@@ -17,15 +16,12 @@ import type { MatchStage, MatchStatus } from "@/types/match";
 import { dayKey } from "@/utils/date";
 import styles from "./SchedulePage.module.css";
 
-type ViewMode = "list" | "bracket";
-
 export function SchedulePage() {
   const matchesRes = useMatches();
   const teamsRes = useTeamMap();
   // 絞り込み状態を URL クエリに保存。チーム詳細・試合詳細などへ遷移 → 戻る で復帰。
   // 「試合日」のみ初回マウント時に「今日」をクエリ未指定なら使う特別扱い。
   const [params, setParams] = useSearchParams();
-  const view = (params.get("view") as ViewMode) ?? "list";
   const stage = (params.get("stage") as MatchStage | "all") ?? "all";
   const status = (params.get("status") as MatchStatus | "all") ?? "all";
   const group = params.get("group") ?? "all";
@@ -37,7 +33,6 @@ export function SchedulePage() {
     else next.set(key, value);
     setParams(next, { replace: true });
   };
-  const setView = (v: ViewMode) => updateParam("view", v, "list");
   const setStage = (s: MatchStage | "all") => updateParam("stage", s, "all");
   const setStatus = (s: MatchStatus | "all") => updateParam("status", s, "all");
   const setGroup = (g: string | "all") => updateParam("group", g, "all");
@@ -122,55 +117,30 @@ export function SchedulePage() {
         </ul>
       </details>
 
-      <div className={styles.viewTabs}>
-        <button
-          type="button"
-          onClick={() => setView("list")}
-          className={view === "list" ? `${styles.viewTab} ${styles.viewTabActive}` : styles.viewTab}
-        >
-          一覧
-        </button>
-        <button
-          type="button"
-          onClick={() => setView("bracket")}
-          className={view === "bracket" ? `${styles.viewTab} ${styles.viewTabActive}` : styles.viewTab}
-        >
-          トーナメント表
-        </button>
-      </div>
-
-      {view === "list" && (
-        <>
-          <div className={styles.filters}>
-            <div>
-              <div className={styles.filterLabel}>ステージ</div>
-              <StageFilter stages={stages} current={stage} onChange={setStage} />
-            </div>
-            <div>
-              <div className={styles.filterLabel}>ステータス</div>
-              <StatusFilter current={status} onChange={setStatus} />
-            </div>
-            <div>
-              <div className={styles.filterLabel}>試合日</div>
-              <DateFilter dates={allDates} current={day} onChange={setDay} />
-            </div>
-            {stage === "group" && (
-              <div>
-                <div className={styles.filterLabel}>グループ</div>
-                <GroupFilter groupIds={groupIds} current={group} onChange={setGroup} />
-              </div>
-            )}
+      <div className={styles.filters}>
+        <div>
+          <div className={styles.filterLabel}>ステージ</div>
+          <StageFilter stages={stages} current={stage} onChange={setStage} />
+        </div>
+        <div>
+          <div className={styles.filterLabel}>ステータス</div>
+          <StatusFilter current={status} onChange={setStatus} />
+        </div>
+        <div>
+          <div className={styles.filterLabel}>試合日</div>
+          <DateFilter dates={allDates} current={day} onChange={setDay} />
+        </div>
+        {stage === "group" && (
+          <div>
+            <div className={styles.filterLabel}>グループ</div>
+            <GroupFilter groupIds={groupIds} current={group} onChange={setGroup} />
           </div>
-          {filtered.length === 0 ? (
-            <p className={styles.empty}>該当する試合がありません。</p>
-          ) : (
-            <ScheduleList matches={filtered} teamMap={teamsRes.map} />
-          )}
-        </>
-      )}
-
-      {view === "bracket" && (
-        <BracketView matches={matchesRes.data} teamMap={teamsRes.map} />
+        )}
+      </div>
+      {filtered.length === 0 ? (
+        <p className={styles.empty}>該当する試合がありません。</p>
+      ) : (
+        <ScheduleList matches={filtered} teamMap={teamsRes.map} />
       )}
     </div>
   );

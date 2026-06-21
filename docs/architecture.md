@@ -75,6 +75,7 @@ new_claude_app/
 |------|--------|---------------|
 | `/` | トップ（メニュー導線） | `HomePage` |
 | `/standings` | 順位表 | `StandingsPage` |
+| `/bracket` | トーナメント表（R32〜決勝） | `BracketPage` |
 | `/schedule` | 日程・結果 | `SchedulePage` |
 | `/matches` | → `/schedule` リダイレクト | (`<Navigate>`) |
 | `/matches/:id` | 試合詳細 | `MatchDetailPage` |

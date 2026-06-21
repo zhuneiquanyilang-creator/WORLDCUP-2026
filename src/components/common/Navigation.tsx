@@ -3,6 +3,7 @@ import styles from "./Navigation.module.css";
 
 const items = [
   { to: "/standings", label: "順位表" },
+  { to: "/bracket", label: "トーナメント表" },
   { to: "/schedule", label: "日程・結果" },
   { to: "/stats", label: "スタッツ" },
   { to: "/past", label: "過去の大会" },
