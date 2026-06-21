@@ -5185,7 +5185,7 @@
         },
         {
           "number": 21,
-          "name": "マハムード・サベル"
+          "name": "マハム���ド・サベル"
         },
         {
           "number": 24,
@@ -11710,7 +11710,7 @@
       {
         "minute": 80,
         "teamId": "USA",
-        "inName": "オース���ン・トラスティ",
+        "inName": "オーストン・トラスティ",
         "outName": "アントニー・ロビンソン"
       },
       {
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -14071,6 +14071,12 @@
         "minute": 53,
         "teamId": "CUR",
         "playerName": "ジュニーニョ・バクーナ",
+        "type": "Y"
+      },
+      {
+        "minute": 56,
+        "teamId": "CUR",
+        "playerName": "リヴァノ・コメネンシア",
         "type": "Y"
       }
     ],
