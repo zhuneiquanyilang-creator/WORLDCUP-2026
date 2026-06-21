@@ -15730,6 +15730,12 @@
         "teamId": "CPV",
         "inName": "ラロス・ドゥアルテ",
         "outName": "ケビン・ピナ"
+      },
+      {
+        "minute": 80,
+        "teamId": "CPV",
+        "inName": "ヤニック・セメド",
+        "outName": "ジャミロ・モンテイロ"
       }
     ]
   },
