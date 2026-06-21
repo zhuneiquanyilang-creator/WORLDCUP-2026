@@ -15661,6 +15661,13 @@
         "type": "normal",
         "playerId": "p_cpv_13",
         "playerName": "ケビン・ピナ"
+      },
+      {
+        "minute": 44,
+        "teamId": "URU",
+        "type": "normal",
+        "playerId": "p_uru_20",
+        "playerName": "マクシミリアーノ・アラウホ"
       }
     ],
     "liveLabel": "Live"
