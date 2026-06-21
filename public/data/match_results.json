@@ -11710,7 +11710,7 @@
       {
         "minute": 80,
         "teamId": "USA",
-        "inName": "オース���ン・トラスティ",
+        "inName": "オーストン・トラスティ",
         "outName": "アントニー・ロビンソン"
       },
       {
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺世",
+          "name": "上田 綺��",
           "role": "FW",
           "isMvp": true
         }
@@ -15638,7 +15638,7 @@
     },
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
     "bookings": [
       {
@@ -15662,7 +15662,8 @@
         "playerId": "p_cpv_13",
         "playerName": "ケビン・ピナ"
       }
-    ]
+    ],
+    "liveLabel": "Live"
   },
   "m040": {
     "matchId": "m040",
