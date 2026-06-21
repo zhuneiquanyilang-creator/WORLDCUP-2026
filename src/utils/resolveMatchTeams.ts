@@ -53,12 +53,16 @@ function computeGroupRanks(
     const groupMatches = matches.filter(
       (m) => m.stage === "group" && m.groupId === groupId
     );
-    // 「score が入っていれば clinch 計算に使う」(= computeStandings と同じ
-    // 扱い)。これにより live 中で 1-0 とかが反映され、H2H タイブレーカーが
-    // 効くケース (例: MEX が KOR に勝利 → 同点時 MEX 1 位) で正しく clinch する。
-    // live 中にスコアが変わったら自動再計算されるので flicker は許容。
-    const finished = groupMatches.filter((m) => m.score);
-    const remaining = groupMatches.filter((m) => !m.score);
+    // トーナメント表への自動反映は「試合終了 (status === "finished") かつ
+    // score 確定」したものだけを clinch 計算に使う。ライブ中のスコアは
+    // まだ動く可能性があるため (例: ECU vs CUR がライブで GER の進出が
+    // 暫定確定でも、後半に逆転すれば変わる)、ブラケットがちらつくのを防ぐ。
+    const finished = groupMatches.filter(
+      (m) => m.status === "finished" && m.score
+    );
+    const remaining = groupMatches.filter(
+      (m) => m.status !== "finished" || !m.score
+    );
     result.set(groupId, clinchedRanks(teamIds, groupId, finished, remaining));
   }
   return result;

@@ -156,6 +156,7 @@ export function spreadFormationLayers(
   const WEAK_SPREAD = 20;   // 4-packed で y 近接時の最低横間隔
   const SAFE_GAP = 12;      // 強制 spread が無くても前層との余白を確保
   const MAX_X = 95;
+  // 第 1 段階: spread 量だけ守って累積。MAX_X 越えは無視 (後で比例縮小する)。
   const adjusted = new Map<number, number>();
   for (let i = 0; i < distinctX.length; i++) {
     const original = distinctX[i];
@@ -178,7 +179,23 @@ export function spreadFormationLayers(
       // 前層が押し出された結果 original に近づきすぎた → 最低限離す
       target = prevAdjusted + SAFE_GAP;
     }
-    adjusted.set(original, Math.min(MAX_X, target));
+    adjusted.set(original, target);
+  }
+
+  // 第 2 段階: 累積結果が MAX_X を超えていれば、全層を比例縮小して収める。
+  // (個別 cap だと最後の層だけが MAX_X に張り付いて手前の層と詰まる
+  //  ── 例えば 3-1-4-2 で FW が x=108 → 95 にクランプされ MF と 7 単位差
+  //  まで合体してしまう ── のを防ぐ。)
+  const firstX = distinctX[0];
+  const lastX = distinctX[distinctX.length - 1];
+  const lastAdjusted = adjusted.get(lastX)!;
+  if (lastAdjusted > MAX_X) {
+    const range = lastAdjusted - firstX;
+    const newRange = MAX_X - firstX;
+    const scale = newRange / range;
+    for (const [k, v] of adjusted) {
+      adjusted.set(k, firstX + (v - firstX) * scale);
+    }
   }
 
   // 「全体的に左に寄せる」最終調整: GK を含む全選手の x を一律
