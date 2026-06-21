@@ -9357,7 +9357,7 @@
         },
         {
           "number": 10,
-          "name": "ジャロリディン・マシャリポフ"
+          "name": "���ャロリディン・マシャリポフ"
         },
         {
           "number": 12,
@@ -14871,6 +14871,15 @@
         "playerName": "ミケル・オヤルサバル",
         "assistPlayerId": "p_esp_6",
         "assistPlayerName": "エメリク・ラポルテ"
+      },
+      {
+        "minute": 24,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_23",
+        "playerName": "ミケル・オヤルサバル",
+        "assistPlayerId": "p_esp_21",
+        "assistPlayerName": "ダニ・オルモ"
       }
     ]
   },
