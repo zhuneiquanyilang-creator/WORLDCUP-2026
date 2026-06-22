@@ -8356,7 +8356,7 @@
         "playerId": "p_cod_23",
         "playerName": "ヨアヌ・ウィサ",
         "assistPlayerId": "p_cod_9",
-        "assistPlayerName": "アルトゥー���・マスアク"
+        "assistPlayerName": "アルトゥール・マスアク"
       }
     ],
     "bookings": [
@@ -15345,7 +15345,7 @@
   },
   "m046": {
     "matchId": "m046",
-    "status": "live",
+    "status": "finished",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
