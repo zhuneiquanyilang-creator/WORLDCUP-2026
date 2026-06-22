@@ -15965,7 +15965,8 @@
           "number": 10,
           "name": "モハメド・サラー",
           "role": "MF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -16049,7 +16050,65 @@
       "home": 1,
       "away": 3
     },
-    "liveLabel": "Full time"
+    "liveLabel": "Full time",
+    "goals": [
+      {
+        "minute": 15,
+        "teamId": "NZL",
+        "type": "normal",
+        "playerId": "p_nzl_9",
+        "playerName": "フィン・サーマン",
+        "assistPlayerId": "p_nzl_7",
+        "assistPlayerName": "ティム・ペイン"
+      },
+      {
+        "minute": 58,
+        "teamId": "EGY",
+        "type": "normal",
+        "playerId": "p_egy_15",
+        "playerName": "モスタファ・ジコ",
+        "assistPlayerId": "p_egy_9",
+        "assistPlayerName": "モハメド・ハニー"
+      },
+      {
+        "minute": 67,
+        "teamId": "EGY",
+        "type": "normal",
+        "playerId": "p_egy_24",
+        "playerName": "モハメド・サラー",
+        "assistPlayerId": "p_egy_15",
+        "assistPlayerName": "モスタファ・ジコ"
+      },
+      {
+        "minute": 82,
+        "teamId": "EGY",
+        "type": "normal",
+        "playerId": "p_egy_20",
+        "playerName": "マハムード・ハッサン（トレゼゲ）",
+        "assistPlayerId": "p_egy_24",
+        "assistPlayerName": "モハメド・サラー"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 17,
+        "teamId": "EGY",
+        "playerName": "モハナド・ラシーン",
+        "type": "Y"
+      },
+      {
+        "minute": 20,
+        "teamId": "NZL",
+        "playerName": "サープリート・シン",
+        "type": "Y"
+      },
+      {
+        "minute": 34,
+        "teamId": "NZL",
+        "playerName": "カラム・マッコワット",
+        "type": "Y"
+      }
+    ]
   },
   "m057": {
     "matchId": "m057",
