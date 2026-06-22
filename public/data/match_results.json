@@ -7882,7 +7882,7 @@
         },
         {
           "number": 7,
-          "name": "モハマド・アブ・ズライク"
+          "name": "モ���マド・アブ・ズライク"
         },
         {
           "number": 12,
@@ -7926,7 +7926,7 @@
         },
         {
           "number": 26,
-          "name": "ア��ス・バダウィ"
+          "name": "アナス・バダウィ"
         }
       ]
     },
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺��",
+          "name": "上田 綺世",
           "role": "FW",
           "isMvp": true
         }
@@ -16484,8 +16484,8 @@
         "type": "normal",
         "playerId": "p_arg_19",
         "playerName": "リオネル・メッシ",
-        "assistPlayerId": "p_arg_11",
-        "assistPlayerName": "ナウエル・モリーナ"
+        "assistPlayerId": "p_arg_6",
+        "assistPlayerName": "ファクンド・メディーナ"
       }
     ],
     "bookings": [
