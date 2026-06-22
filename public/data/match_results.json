@@ -16550,6 +16550,18 @@
         "teamId": "AUT",
         "inName": "パトリック・ヴィマー",
         "outName": "ロマーノ・シュミット"
+      },
+      {
+        "minute": 82,
+        "teamId": "ARG",
+        "inName": "ニコラス・タグリアフィコ",
+        "outName": "ファクンド・メディーナ"
+      },
+      {
+        "minute": 82,
+        "teamId": "ARG",
+        "inName": "レアンドロ・パレデス",
+        "outName": "ロドリゴ・デ・パウル"
       }
     ]
   },
