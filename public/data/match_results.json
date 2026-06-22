@@ -16494,6 +16494,18 @@
         "teamId": "AUT",
         "playerName": "シュテファン・ポッシュ",
         "type": "Y"
+      },
+      {
+        "minute": 76,
+        "teamId": "ARG",
+        "playerName": "ファクンド・メディーナ",
+        "type": "Y"
+      },
+      {
+        "minute": 76,
+        "teamId": "AUT",
+        "playerName": "コンラッド・ライマー",
+        "type": "Y"
       }
     ],
     "substitutions": [
@@ -16532,6 +16544,12 @@
         "teamId": "AUT",
         "inName": "マルコ・アルナウトビッチ",
         "outName": "パウル・ヴァナー"
+      },
+      {
+        "minute": 76,
+        "teamId": "AUT",
+        "inName": "パトリック・ヴィマー",
+        "outName": "ロマーノ・シュミット"
       }
     ]
   },
