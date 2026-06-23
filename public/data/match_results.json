@@ -18201,6 +18201,20 @@
         "teamId": "POR",
         "inName": "ラファエル・レオン",
         "outName": "ヴィティーニャ"
+      },
+      {
+        "minute": 90,
+        "teamId": "UZB",
+        "inName": "シェルゾド・エサノフ",
+        "outName": "ベフルズ・カリモフ",
+        "addedTime": 2
+      },
+      {
+        "minute": 90,
+        "teamId": "UZB",
+        "inName": "ジャロリディン・マシャリポフ",
+        "outName": "オタベク・シュクロフ",
+        "addedTime": 2
       }
     ]
   },
