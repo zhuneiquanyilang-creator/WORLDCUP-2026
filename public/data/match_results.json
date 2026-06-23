@@ -18516,7 +18516,15 @@
       "home": 0,
       "away": 0
     },
-    "liveLabel": "Halftime"
+    "liveLabel": "Halftime",
+    "bookings": [
+      {
+        "minute": 41,
+        "teamId": "ENG",
+        "playerName": "デクラン・ライス",
+        "type": "Y"
+      }
+    ]
   },
   "m070": {
     "matchId": "m070",
