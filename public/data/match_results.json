@@ -16589,7 +16589,6 @@
   "m051": {
     "matchId": "m051",
     "status": "live",
-    "note": "中断中",
     "score": {
       "home": 1,
       "away": 0
@@ -16915,7 +16914,7 @@
   },
   "m052": {
     "matchId": "m052",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -17205,6 +17204,10 @@
           "name": "アントワーヌ・メンディ"
         }
       ]
+    },
+    "score": {
+      "home": 0,
+      "away": 0
     }
   },
   "m058": {
