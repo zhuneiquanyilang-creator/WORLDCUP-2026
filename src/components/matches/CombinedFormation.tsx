@@ -541,7 +541,10 @@ function SpotBody({
   const ownGoalCount = spot.ownGoals?.length ?? 0;
 
   // 右側に縦積みで配置 (上から ↓N' → ⚽ → 🔴⚽ (OG) → Ⓐ)。
-  const STACK_X = 6;
+  // ただし GK のみ: アウェイ側は SVG 右端に寄ってバッジが見切れるため、
+  // ピッチ内側 (= 左) へ反転して配置する。ホーム GK は元のまま右で OK。
+  const isGK = spot.role === "GK";
+  const STACK_X = isGK && variant === "away" ? -6 : 6;
   const subbedOutY = -4.2;
   const goalY = isSubbedOut ? 0 : -1;
   const ownGoalY = goalCount > 0 ? goalY + 3 : goalY;
