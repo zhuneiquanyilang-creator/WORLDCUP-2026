@@ -11710,7 +11710,7 @@
       {
         "minute": 80,
         "teamId": "USA",
-        "inName": "オース���ン・トラスティ",
+        "inName": "オーストン・トラスティ",
         "outName": "アントニー・ロビンソン"
       },
       {
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -17272,7 +17272,7 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
     "liveLabel": "Live",
@@ -17282,6 +17282,15 @@
         "teamId": "NOR",
         "inName": "マルクス・ホルムグレン・ペデルセン",
         "outName": "ユリアン・リエルソン"
+      }
+    ],
+    "goals": [
+      {
+        "minute": 44,
+        "teamId": "NOR",
+        "type": "normal",
+        "playerId": "p_nor_7",
+        "playerName": "マルクス・ホルムグレン・ペデルセン"
       }
     ]
   },
