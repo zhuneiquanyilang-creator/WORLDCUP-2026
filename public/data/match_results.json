@@ -18530,6 +18530,32 @@
         "playerName": "イニャキ・ウィリアムス",
         "type": "Y"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 65,
+        "teamId": "ENG",
+        "inName": "ブカヨ・サカ",
+        "outName": "アンソニー・ゴードン"
+      },
+      {
+        "minute": 65,
+        "teamId": "ENG",
+        "inName": "ニコ・オライリー",
+        "outName": "ジェド・スペンス"
+      },
+      {
+        "minute": 66,
+        "teamId": "GHA",
+        "inName": "アブドゥル・ファタウ・イサハク",
+        "outName": "イニャキ・ウィリアムス"
+      },
+      {
+        "minute": 66,
+        "teamId": "GHA",
+        "inName": "プリンス・クワベナ・アドゥ",
+        "outName": "ジョーダン・アユー"
+      }
     ]
   },
   "m070": {
