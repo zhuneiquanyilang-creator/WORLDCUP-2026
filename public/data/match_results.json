@@ -18130,6 +18130,13 @@
         "type": "own",
         "playerId": "p_uzb_13",
         "playerName": "アブドゥコディル・クサノフ"
+      },
+      {
+        "minute": 88,
+        "teamId": "POR",
+        "type": "normal",
+        "playerId": "p_por_24",
+        "playerName": "ラファエル・レオン"
       }
     ],
     "bookings": [
