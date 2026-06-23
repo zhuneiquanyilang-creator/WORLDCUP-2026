@@ -18094,8 +18094,8 @@
       ]
     },
     "score": {
-      "home": 2,
-      "away": 1
+      "home": 3,
+      "away": 0
     },
     "liveLabel": "Live",
     "goals": [
@@ -18120,7 +18120,9 @@
         "teamId": "POR",
         "type": "normal",
         "playerId": "p_por_20",
-        "playerName": "クリスティアーノ・ロナウド"
+        "playerName": "クリスティアーノ・ロナウド",
+        "assistPlayerId": "p_por_19",
+        "assistPlayerName": "ブルーノ・フェルナンデス"
       }
     ],
     "bookings": [
