@@ -17280,7 +17280,7 @@
     },
     "score": {
       "home": 2,
-      "away": 0
+      "away": 1
     },
     "liveLabel": "Live",
     "substitutions": [
@@ -17334,6 +17334,15 @@
         "playerName": "イスマイラ・サール",
         "assistPlayerId": "p_sen_19",
         "assistPlayerName": "サディオ・マネ"
+      },
+      {
+        "minute": 58,
+        "teamId": "NOR",
+        "type": "normal",
+        "playerId": "p_nor_24",
+        "playerName": "アーリング・ブラウト・ハーランド",
+        "assistPlayerId": "p_nor_13",
+        "assistPlayerName": "パトリック・ベルグ"
       }
     ]
   },
