@@ -16254,7 +16254,8 @@
           "number": 10,
           "name": "リオネル・メッシ",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 80,
@@ -16701,7 +16702,8 @@
           "number": 10,
           "name": "キリアン・エンバペ",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         }
       ],
       "bench": [
