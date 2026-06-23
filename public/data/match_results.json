@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュ���オール"
+        "outName": "ヴィニシウス・ジュニオール"
       },
       {
         "minute": 81,
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺世",
+          "name": "上田 綺��",
           "role": "FW",
           "isMvp": true
         }
@@ -17280,7 +17280,7 @@
     },
     "score": {
       "home": 2,
-      "away": 0
+      "away": 1
     },
     "liveLabel": "Live",
     "substitutions": [
@@ -17295,6 +17295,18 @@
         "teamId": "NOR",
         "inName": "フレドリク・アウルスネス",
         "outName": "パトリック・ベルグ"
+      },
+      {
+        "minute": 55,
+        "teamId": "SEN",
+        "inName": "イスマイル・ヤコブス",
+        "outName": "エル・アジ・マリック・ディウフ"
+      },
+      {
+        "minute": 55,
+        "teamId": "SEN",
+        "inName": "イブラヒム・ンバイェ",
+        "outName": "パペ・ゲイェ"
       }
     ],
     "goals": [
@@ -17313,6 +17325,15 @@
         "playerName": "アーリング・ブラウト・ハーランド",
         "assistPlayerId": "p_nor_23",
         "assistPlayerName": "マルティン・ウーデゴール"
+      },
+      {
+        "minute": 53,
+        "teamId": "SEN",
+        "type": "normal",
+        "playerId": "p_sen_21",
+        "playerName": "イスマイラ・サール",
+        "assistPlayerId": "p_sen_19",
+        "assistPlayerName": "サディオ・マネ"
       }
     ]
   },
