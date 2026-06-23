@@ -7552,7 +7552,7 @@
         "teamId": "ARG",
         "type": "normal",
         "playerId": "p_arg_19",
-        "playerName": "リオネル・メッシ",
+        "playerName": "リオネ���・メッシ",
         "assistPlayerId": "p_arg_13",
         "assistPlayerName": "ロドリゴ・デ・パウル"
       },
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュ���オール"
+        "outName": "ヴィニシウス・ジュニオール"
       },
       {
         "minute": 81,
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺世",
+          "name": "上田 綺��",
           "role": "FW",
           "isMvp": true
         }
@@ -17254,7 +17254,7 @@
         },
         {
           "number": 17,
-          "name": "パペ・マ���ル・サール"
+          "name": "パペ・マタル・サール"
         },
         {
           "number": 20,
