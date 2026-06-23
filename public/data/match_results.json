@@ -17802,7 +17802,7 @@
   },
   "m063": {
     "matchId": "m063",
-    "status": "live",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
