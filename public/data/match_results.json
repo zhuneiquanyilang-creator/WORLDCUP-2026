@@ -6397,7 +6397,7 @@
         "minute": 46,
         "teamId": "URU",
         "inName": "アグスティン・カノッビオ",
-        "outName": "ダ���ウィン・ヌニェス"
+        "outName": "ダルウィン・ヌニェス"
       },
       {
         "minute": 63,
@@ -8801,7 +8801,7 @@
       {
         "minute": 58,
         "teamId": "CRO",
-        "inName": "マテオ・コヴァ���ッチ",
+        "inName": "マテオ・コヴァチッチ",
         "outName": "ルカ・モドリッチ"
       },
       {
@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -16588,7 +16588,7 @@
   },
   "m051": {
     "matchId": "m051",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 3,
       "away": 0
@@ -16983,7 +16983,7 @@
         "addedTime": 1
       }
     ],
-    "liveLabel": "Live"
+    "liveLabel": "Full time"
   },
   "m052": {
     "matchId": "m052",
@@ -17254,7 +17254,7 @@
         },
         {
           "number": 17,
-          "name": "パペ・マタル・サール"
+          "name": "パペ・マ���ル・サール"
         },
         {
           "number": 20,
