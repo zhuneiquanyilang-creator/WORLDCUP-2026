@@ -14111,7 +14111,7 @@
       {
         "minute": 75,
         "teamId": "CUR",
-        "inName": "ケンジ・ゴレ",
+        "inName": "ケ��ジ・ゴレ",
         "outName": "デヴェロン・フォンヴィル"
       },
       {
@@ -15620,7 +15620,7 @@
         },
         {
           "number": 23,
-          "name": "CJ・ドス・サントス"
+          "name": "CJ���ドス・サントス"
         },
         {
           "number": 24,
@@ -19134,7 +19134,7 @@
           "x": 28,
           "y": 30,
           "number": 22,
-          "name": "シ��ンセル・ムベンバ",
+          "name": "シャンセル・ムベンバ",
           "role": "DF",
           "isCaptain": true
         },
@@ -20463,7 +20463,7 @@
       ]
     },
     "score": {
-      "home": 2,
+      "home": 3,
       "away": 2
     },
     "liveLabel": "Live",
@@ -20500,6 +20500,15 @@
         "playerName": "イスマエル・サイバリ",
         "assistPlayerId": "p_mar_12",
         "assistPlayerName": "アクラフ・ハキミ"
+      },
+      {
+        "minute": 78,
+        "teamId": "MAR",
+        "type": "normal",
+        "playerId": "p_mar_26",
+        "playerName": "スフィアン・ラヒミ",
+        "assistPlayerId": "p_mar_9",
+        "assistPlayerName": "シャディ・リアド"
       }
     ],
     "substitutions": [
@@ -20532,6 +20541,18 @@
         "teamId": "MAR",
         "inName": "スフィアン・ラヒミ",
         "outName": "イスマエル・サイバリ"
+      },
+      {
+        "minute": 80,
+        "teamId": "HAI",
+        "inName": "ドミニク・シモン",
+        "outName": "ダンリー・ジャン・ジャック"
+      },
+      {
+        "minute": 80,
+        "teamId": "HAI",
+        "inName": "カルラン・アルキュス",
+        "outName": "ジャン・ケヴィン・デュヴェルン"
       }
     ]
   },
