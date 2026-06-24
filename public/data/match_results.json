@@ -12523,7 +12523,7 @@
         "minute": 81,
         "teamId": "BRA",
         "inName": "エデルソン",
-        "outName": "ヴィニシウス・ジュニオール"
+        "outName": "ヴィニシウス・ジュ���オール"
       },
       {
         "minute": 81,
@@ -14379,7 +14379,7 @@
           "x": 80,
           "y": 50,
           "number": 18,
-          "name": "上田 綺��",
+          "name": "上田 綺世",
           "role": "FW",
           "isMvp": true
         }
@@ -17241,7 +17241,7 @@
         },
         {
           "number": 9,
-          "name": "バンバ・デ��エング"
+          "name": "バンバ・ディエング"
         },
         {
           "number": 12,
@@ -18793,7 +18793,7 @@
           "x": 45.33333333333333,
           "y": 75,
           "number": 8,
-          "name": "マテオ・コヴァチッチ",
+          "name": "マテオ・コヴ���チッチ",
           "role": "MF"
         },
         {
@@ -18856,7 +18856,7 @@
         },
         {
           "number": 17,
-          "name": "ペ���ル・スチッチ"
+          "name": "ペタル・スチッチ"
         },
         {
           "number": 18,
@@ -19262,7 +19262,7 @@
       "home": 1,
       "away": 0
     },
-    "liveLabel": "Halftime",
+    "liveLabel": "Live",
     "substitutions": [
       {
         "minute": 46,
@@ -19295,6 +19295,17 @@
         "teamId": "COL",
         "playerName": "ジョン・ルクミ",
         "type": "Y"
+      }
+    ],
+    "goals": [
+      {
+        "minute": 76,
+        "teamId": "COL",
+        "type": "normal",
+        "playerId": "p_col_9",
+        "playerName": "ダニエル・ムニョス",
+        "assistPlayerId": "p_col_17",
+        "assistPlayerName": "フアン・キンテーロ"
       }
     ]
   },
