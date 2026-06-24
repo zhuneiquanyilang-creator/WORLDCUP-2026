@@ -15730,7 +15730,7 @@
         "minute": 70,
         "teamId": "URU",
         "inName": "ダルウィン・ヌニェス",
-        "outName": "フェデリ��・ビニャス"
+        "outName": "フェデリコ・ビニャス"
       },
       {
         "minute": 70,
@@ -19170,7 +19170,7 @@
           "x": 54,
           "y": 50,
           "number": 8,
-          "name": "サミュエル・ムトゥサミ",
+          "name": "サミュエ��・ムトゥサミ",
           "role": "MF"
         },
         {
@@ -20851,6 +20851,18 @@
         "teamId": "SCO",
         "inName": "キーラン・ティアニー",
         "outName": "アンドリュー・ロバートソン"
+      },
+      {
+        "minute": 66,
+        "teamId": "BRA",
+        "inName": "ファビーニョ",
+        "outName": "カゼミーロ"
+      },
+      {
+        "minute": 66,
+        "teamId": "BRA",
+        "inName": "ガブリエウ・マルティネッリ",
+        "outName": "ルーカス・パケタ"
       }
     ],
     "bookings": [
