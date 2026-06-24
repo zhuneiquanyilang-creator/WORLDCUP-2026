@@ -6576,7 +6576,7 @@
           "x": 80,
           "y": 50,
           "number": 10,
-          "name": "キリアン・エンバペ",
+          "name": "キリア��・エンバペ",
           "role": "FW",
           "isCaptain": true
         }
@@ -20765,7 +20765,18 @@
       "home": 0,
       "away": 0
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 7,
+        "teamId": "BRA",
+        "type": "normal",
+        "playerId": "p_bra_18",
+        "playerName": "ヴィニシウス・ジュニオール",
+        "assistPlayerId": "p_bra_23",
+        "assistPlayerName": "ラヤン"
+      }
+    ]
   },
   "m005": {
     "matchId": "m005",
