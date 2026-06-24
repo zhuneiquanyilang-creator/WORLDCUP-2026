@@ -20509,6 +20509,15 @@
         "playerName": "スフィアン・ラヒミ",
         "assistPlayerId": "p_mar_9",
         "assistPlayerName": "シャディ・リアド"
+      },
+      {
+        "minute": 89,
+        "teamId": "MAR",
+        "type": "normal",
+        "playerId": "p_mar_24",
+        "playerName": "ジェシム・ヤシン",
+        "assistPlayerId": "p_mar_26",
+        "assistPlayerName": "スフィアン・ラヒミ"
       }
     ],
     "substitutions": [
