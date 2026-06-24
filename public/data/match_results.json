@@ -20464,7 +20464,7 @@
     },
     "score": {
       "home": 1,
-      "away": 1
+      "away": 2
     },
     "liveLabel": "Live",
     "goals": [
@@ -20492,6 +20492,16 @@
         "playerName": "ウィルソン・イシドール",
         "assistPlayerId": "p_hai_9",
         "assistPlayerName": "ジャン・ケヴィン・デュヴェルン"
+      },
+      {
+        "minute": 45,
+        "teamId": "MAR",
+        "type": "normal",
+        "addedTime": 1,
+        "playerId": "p_mar_13",
+        "playerName": "イスマエル・サイバリ",
+        "assistPlayerId": "p_mar_12",
+        "assistPlayerName": "アクラフ・ハキミ"
       }
     ]
   },
@@ -20790,7 +20800,7 @@
     },
     "score": {
       "home": 0,
-      "away": 2
+      "away": 1
     },
     "liveLabel": "Live",
     "goals": [
