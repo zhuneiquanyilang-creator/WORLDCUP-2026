@@ -11710,7 +11710,7 @@
       {
         "minute": 80,
         "teamId": "USA",
-        "inName": "オース���ン・トラスティ",
+        "inName": "オーストン・トラスティ",
         "outName": "アントニー・ロビンソン"
       },
       {
@@ -16437,7 +16437,7 @@
         },
         {
           "number": 15,
-          "name": "���ィリップ・ラインハルト"
+          "name": "フィリップ・ラインハルト"
         },
         {
           "number": 16,
@@ -19353,7 +19353,8 @@
     "score": {
       "home": 2,
       "away": 1
-    }
+    },
+    "liveLabel": "Full time"
   },
   "m012": {
     "matchId": "m012",
@@ -19361,7 +19362,8 @@
     "score": {
       "home": 3,
       "away": 1
-    }
+    },
+    "liveLabel": "Full time"
   },
   "m018": {
     "matchId": "m018",
