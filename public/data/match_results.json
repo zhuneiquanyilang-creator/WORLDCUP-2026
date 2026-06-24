@@ -15741,7 +15741,7 @@
       {
         "minute": 80,
         "teamId": "CPV",
-        "inName": "ヤニッ��・セメド",
+        "inName": "ヤニック・セメド",
         "outName": "ジャミロ・モンテイロ"
       },
       {
@@ -19202,7 +19202,7 @@
         },
         {
           "number": 7,
-          "name": "ナタ��エル・ムブク"
+          "name": "ナタナエル・ムブク"
         },
         {
           "number": 9,
@@ -20502,6 +20502,20 @@
         "playerName": "イスマエル・サイバリ",
         "assistPlayerId": "p_mar_12",
         "assistPlayerName": "アクラフ・ハキミ"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 67,
+        "teamId": "HAI",
+        "inName": "ドン・ディードソン・ルイシウス",
+        "outName": "ウィルソン・イシドール"
+      },
+      {
+        "minute": 67,
+        "teamId": "HAI",
+        "inName": "デュカン・ナゾン",
+        "outName": "ルベン・プロヴィデンス"
       }
     ]
   },
