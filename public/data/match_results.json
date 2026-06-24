@@ -18221,7 +18221,7 @@
   },
   "m069": {
     "matchId": "m069",
-    "status": "live",
+    "status": "finished",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -18594,7 +18594,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 1
+      "away": 0
     },
     "homeFormation": {
       "shape": "5-4-1",
