@@ -8427,7 +8427,7 @@
         "minute": 83,
         "teamId": "POR",
         "inName": "ゴンサロ・ラモス",
-        "outName": "ヴィティーニ���"
+        "outName": "ヴィティーニャ"
       },
       {
         "minute": 85,
@@ -20802,7 +20802,7 @@
       "home": 0,
       "away": 2
     },
-    "liveLabel": "Live",
+    "liveLabel": "Halftime",
     "goals": [
       {
         "minute": 7,
