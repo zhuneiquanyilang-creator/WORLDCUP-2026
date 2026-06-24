@@ -18911,6 +18911,14 @@
         "assistPlayerId": "p_cro_7",
         "assistPlayerName": "ヨシプ・スタニシッチ"
       }
+    ],
+    "bookings": [
+      {
+        "minute": 61,
+        "teamId": "PAN",
+        "playerName": "ヨエル・バルセナス",
+        "type": "Y"
+      }
     ]
   },
   "m064": {
