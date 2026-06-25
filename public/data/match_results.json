@@ -16144,7 +16144,7 @@
         "minute": 76,
         "teamId": "EGY",
         "inName": "マハムード・ハッサン（トレゼゲ）",
-        "outName": "オマル・マルムシ���"
+        "outName": "オマル・マルムシュ"
       },
       {
         "minute": 84,
@@ -17751,7 +17751,7 @@
       {
         "minute": 76,
         "teamId": "JOR",
-        "inName": "オ��・アル・ファフリ",
+        "inName": "オデ・アル・ファフリ",
         "outName": "マフムード・アル・マルディ"
       },
       {
@@ -22104,7 +22104,29 @@
         }
       ]
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "bookings": [
+      {
+        "minute": 43,
+        "teamId": "ECU",
+        "playerName": "ピエロ・インカピエ",
+        "type": "Y"
+      },
+      {
+        "minute": 44,
+        "teamId": "GER",
+        "playerName": "アレクサンダル・パヴロビッチ",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "GER",
+        "inName": "アンジェロ・シュティラー",
+        "outName": "アレクサンダル・パヴロビッチ"
+      }
+    ]
   },
   "m029": {
     "matchId": "m029",
