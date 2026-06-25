@@ -9381,7 +9381,7 @@
         },
         {
           "number": 20,
-          "name": "アジズベク・アモノフ"
+          "name": "��ジズベク・アモノフ"
         },
         {
           "number": 21,
@@ -20128,7 +20128,7 @@
       {
         "minute": 55,
         "teamId": "QAT",
-        "inName": "アハメド・アル・ガ��ヒ",
+        "inName": "アハメド・アル・ガネヒ",
         "outName": "ハッサン・アル・ハイドス"
       },
       {
@@ -21789,11 +21789,19 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 1,
+      "away": 1
+    }
   },
   "m029": {
     "matchId": "m029",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 0,
+      "away": 1
+    }
   },
   "m036": {
     "matchId": "m036",
