@@ -17550,7 +17550,7 @@
           "x": 8,
           "y": 50,
           "number": 23,
-          "name": "ルカ・ジダン",
+          "name": "ルカ・��ダン",
           "role": "GK"
         },
         {
@@ -20128,7 +20128,7 @@
       {
         "minute": 55,
         "teamId": "QAT",
-        "inName": "アハメド・アル・ガ��ヒ",
+        "inName": "アハメド・アル・ガネヒ",
         "outName": "ハッサン・アル・ハイドス"
       },
       {
@@ -22205,7 +22205,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 0,
       "away": 2
