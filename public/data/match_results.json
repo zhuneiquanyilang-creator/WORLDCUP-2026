@@ -14996,7 +14996,7 @@
           "x": 28,
           "y": 62.5,
           "number": 4,
-          "name": "ブラン���ン・メシェレ",
+          "name": "ブランドン・メシェレ",
           "role": "DF"
         },
         {
@@ -16486,7 +16486,7 @@
         "playerId": "p_arg_19",
         "playerName": "リオネル・メッシ",
         "assistPlayerId": "p_arg_6",
-        "assistPlayerName": "ファクンド・メディーナ"
+        "assistPlayerName": "ファクンド・��ディーナ"
       },
       {
         "minute": 90,
@@ -21789,7 +21789,7 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 2,
       "away": 1
@@ -22205,7 +22205,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 0,
       "away": 2
@@ -23206,7 +23206,15 @@
         }
       ]
     },
-    "liveLabel": "Live"
+    "liveLabel": "Live",
+    "bookings": [
+      {
+        "minute": 32,
+        "teamId": "SWE",
+        "playerName": "イサク・ヒエン",
+        "type": "Y"
+      }
+    ]
   },
   "m023": {
     "matchId": "m023",
