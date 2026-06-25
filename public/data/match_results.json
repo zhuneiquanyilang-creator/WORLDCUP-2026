@@ -13690,7 +13690,7 @@
         "type": "normal",
         "addedTime": 4,
         "playerId": "p_ger_25",
-        "playerName": "デニズ・ウンダフ",
+        "playerName": "デ��ズ・ウンダフ",
         "assistPlayerId": "p_ger_7",
         "assistPlayerName": "フェリックス・ヌメチャ"
       }
@@ -21308,9 +21308,20 @@
     },
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
-    "liveLabel": "Halftime"
+    "liveLabel": "Live",
+    "goals": [
+      {
+        "minute": 55,
+        "teamId": "MEX",
+        "type": "normal",
+        "playerId": "p_mex_8",
+        "playerName": "マテオ・チャベス",
+        "assistPlayerId": "p_mex_11",
+        "assistPlayerName": "ルイス・ロモ"
+      }
+    ]
   },
   "m006": {
     "matchId": "m006",
