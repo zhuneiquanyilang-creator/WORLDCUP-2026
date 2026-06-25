@@ -21789,7 +21789,7 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "live",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -22166,7 +22166,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "live",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 2
