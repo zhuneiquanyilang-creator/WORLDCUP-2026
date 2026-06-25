@@ -14927,7 +14927,7 @@
         "minute": 60,
         "teamId": "KSA",
         "inName": "アラ・アル・ヘジ",
-        "outName": "アブドゥ���エラ・アル・アムリ"
+        "outName": "アブドゥルエラ・アル・アムリ"
       },
       {
         "minute": 60,
@@ -20128,7 +20128,7 @@
       {
         "minute": 55,
         "teamId": "QAT",
-        "inName": "アハメド・アル・ガネヒ",
+        "inName": "アハメド・アル・ガ��ヒ",
         "outName": "ハッサン・アル・ハイドス"
       },
       {
@@ -21812,6 +21812,15 @@
         "playerName": "ニルソン・アングロ",
         "assistPlayerId": "p_ecu_16",
         "assistPlayerName": "ペドロ・ビテ"
+      },
+      {
+        "minute": 78,
+        "teamId": "ECU",
+        "type": "normal",
+        "playerId": "p_ecu_12",
+        "playerName": "ゴンサロ・プラタ",
+        "assistPlayerId": "p_ecu_25",
+        "assistPlayerName": "ケビン・ロドリゲス"
       }
     ],
     "homeFormation": {
@@ -22499,7 +22508,7 @@
       {
         "minute": 61,
         "teamId": "CUR",
-        "inName": "ジェレミー・アン���ニッセ",
+        "inName": "ジェレミー・アントニッセ",
         "outName": "ユルゲン・ロカディア"
       },
       {
