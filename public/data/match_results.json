@@ -13460,7 +13460,7 @@
         },
         {
           "number": 3,
-          "name": "ヴァ���デマール・アントン"
+          "name": "ヴァルデマール・アントン"
         },
         {
           "number": 8,
@@ -20188,7 +20188,8 @@
           "number": 2,
           "name": "アクラフ・ハキミ",
           "role": "DF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 28,
@@ -20825,7 +20826,8 @@
           "y": 83.33333333333334,
           "number": 7,
           "name": "ヴィニシウス・ジュニオール",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
