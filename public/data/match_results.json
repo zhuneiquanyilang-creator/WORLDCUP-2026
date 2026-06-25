@@ -21608,7 +21608,27 @@
       "home": 0,
       "away": 0
     },
-    "liveLabel": "Halftime"
+    "liveLabel": "Halftime",
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "KOR",
+        "inName": "キム・ジンギュ",
+        "outName": "ペク・スンホ"
+      },
+      {
+        "minute": 46,
+        "teamId": "KOR",
+        "inName": "イェンス・カストロプ",
+        "outName": "イ・テソク"
+      },
+      {
+        "minute": 46,
+        "teamId": "KOR",
+        "inName": "ソン・フンミン",
+        "outName": "ファン・ヒチャン"
+      }
+    ]
   },
   "m030": {
     "matchId": "m030",
