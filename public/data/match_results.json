@@ -1134,7 +1134,7 @@
       {
         "minute": 44,
         "teamId": "BIH",
-        "playerName": "エルメディン・デミ��ビッチ",
+        "playerName": "エルメディン・デミロビッチ",
         "type": "Y"
       },
       {
@@ -2551,7 +2551,7 @@
         },
         {
           "number": 7,
-          "name": "ジョヴァンニ・レイ���"
+          "name": "ジョヴァンニ・レイナ"
         },
         {
           "number": 9,
@@ -6409,7 +6409,7 @@
         "minute": 72,
         "teamId": "URU",
         "inName": "ニコラス・デ・ラ・クルス",
-        "outName": "マヌエル・ウガルテ"
+        "outName": "マヌエル・ウ���ルテ"
       },
       {
         "minute": 82,
@@ -21638,6 +21638,61 @@
         "teamId": "KOR",
         "inName": "ソン・フンミン",
         "outName": "ファン・ヒチャン"
+      },
+      {
+        "minute": 62,
+        "teamId": "ZAF",
+        "inName": "ツェパン・モレミ",
+        "outName": "オスウィン・アポリス"
+      },
+      {
+        "minute": 65,
+        "teamId": "KOR",
+        "inName": "パク・ジンソプ",
+        "outName": "キム・ミンジェ"
+      },
+      {
+        "minute": 74,
+        "teamId": "KOR",
+        "inName": "チョ・ギュソン",
+        "outName": "オ・ヒョンギュ"
+      },
+      {
+        "minute": 75,
+        "teamId": "ZAF",
+        "inName": "イクラーム・レイナーズ",
+        "outName": "タペロ・マセコ"
+      },
+      {
+        "minute": 80,
+        "teamId": "ZAF",
+        "inName": "ジェイデン・アダムス",
+        "outName": "レレボヒレ・モフォケン"
+      }
+    ],
+    "goals": [
+      {
+        "minute": 63,
+        "teamId": "ZAF",
+        "type": "normal",
+        "playerId": "p_zaf_20",
+        "playerName": "タペロ・マセコ",
+        "assistPlayerId": "p_zaf_26",
+        "assistPlayerName": "ツェパン・モレミ"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 72,
+        "teamId": "ZAF",
+        "playerName": "オーブリー・モディバ",
+        "type": "Y"
+      },
+      {
+        "minute": 78,
+        "teamId": "KOR",
+        "playerName": "チョ・ギュソン",
+        "type": "Y"
       }
     ]
   },
