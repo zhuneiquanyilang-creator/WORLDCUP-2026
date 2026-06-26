@@ -24186,7 +24186,11 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 0,
+      "away": 0
+    }
   },
   "m048": {
     "matchId": "m048",
