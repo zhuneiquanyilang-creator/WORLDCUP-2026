@@ -21015,7 +21015,7 @@
   },
   "m005": {
     "matchId": "m005",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -21415,7 +21415,7 @@
   },
   "m006": {
     "matchId": "m006",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -21789,7 +21789,7 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 1
@@ -22206,7 +22206,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 2
@@ -22596,7 +22596,7 @@
   },
   "m036": {
     "matchId": "m036",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 3
@@ -22994,7 +22994,7 @@
   },
   "m035": {
     "matchId": "m035",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
