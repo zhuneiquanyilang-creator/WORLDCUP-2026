@@ -17207,7 +17207,7 @@
           "x": 80,
           "y": 50,
           "number": 11,
-          "name": "ニコラス・ジャクソ��",
+          "name": "ニコラス・ジャクソン",
           "role": "FW"
         },
         {
@@ -20128,7 +20128,7 @@
       {
         "minute": 55,
         "teamId": "QAT",
-        "inName": "アハメド・アル・ガネヒ",
+        "inName": "アハメド・アル・ガ��ヒ",
         "outName": "ハッサン・アル・ハイドス"
       },
       {
@@ -24473,7 +24473,7 @@
         }
       ]
     },
-    "liveLabel": "Live",
+    "liveLabel": "Halftime",
     "goals": [
       {
         "minute": 7,
@@ -24818,7 +24818,7 @@
         }
       ]
     },
-    "liveLabel": "Live",
+    "liveLabel": "Halftime",
     "goals": [
       {
         "minute": 4,
