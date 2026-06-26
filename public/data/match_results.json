@@ -9070,7 +9070,7 @@
           "x": 54,
           "y": 87.5,
           "number": 2,
-          "name": "セサール・ブラ���クマン",
+          "name": "セサール・ブラックマン",
           "role": "MF"
         },
         {
@@ -24539,7 +24539,7 @@
     "matchId": "m054",
     "status": "live",
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "homeFormation": {
@@ -24832,7 +24832,7 @@
         }
       ]
     },
-    "liveLabel": "Halftime",
+    "liveLabel": "Live",
     "goals": [
       {
         "minute": 4,
@@ -24842,6 +24842,15 @@
         "playerName": "ハビブ・ディアラ",
         "assistPlayerId": "p_sen_5",
         "assistPlayerName": "アブドゥライ・セック"
+      },
+      {
+        "minute": 56,
+        "teamId": "SEN",
+        "type": "normal",
+        "playerId": "p_sen_21",
+        "playerName": "イスマイラ・サール",
+        "assistPlayerId": "p_sen_13",
+        "assistPlayerName": "ラミン・カマラ"
       }
     ],
     "bookings": [
@@ -24864,6 +24873,36 @@
         "teamId": "IRQ",
         "inName": "ジャラル・ハッサン",
         "outName": "アハメド・バシル"
+      },
+      {
+        "minute": 58,
+        "teamId": "SEN",
+        "inName": "パペ・ゲイェ",
+        "outName": "ハビブ・ディアラ"
+      },
+      {
+        "minute": 58,
+        "teamId": "SEN",
+        "inName": "イリマン・ンディアエ",
+        "outName": "ラミン・カマラ"
+      },
+      {
+        "minute": 58,
+        "teamId": "SEN",
+        "inName": "ニコラス・ジャクソン",
+        "outName": "イブラヒム・ンバイェ"
+      },
+      {
+        "minute": 58,
+        "teamId": "SEN",
+        "inName": "パテ・イスマイル・シス",
+        "outName": "アブドゥライ・セック"
+      },
+      {
+        "minute": 59,
+        "teamId": "IRQ",
+        "inName": "アフメド・アクンジ",
+        "outName": "アリ・ジャシム"
       }
     ]
   },
