@@ -7898,7 +7898,7 @@
         },
         {
           "number": 15,
-          "name": "イブラヒム・サアデ"
+          "name": "イブラ��ム・サアデ"
         },
         {
           "number": 17,
@@ -23250,6 +23250,12 @@
         "minute": 32,
         "teamId": "SWE",
         "playerName": "イサク・ヒエン",
+        "type": "Y"
+      },
+      {
+        "minute": 77,
+        "teamId": "JPN",
+        "playerName": "谷口 彰悟",
         "type": "Y"
       }
     ],
