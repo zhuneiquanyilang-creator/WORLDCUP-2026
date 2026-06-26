@@ -24178,7 +24178,7 @@
   },
   "m053": {
     "matchId": "m053",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 4
@@ -24473,7 +24473,7 @@
         }
       ]
     },
-    "liveLabel": "Live",
+    "liveLabel": "Full time",
     "goals": [
       {
         "minute": 7,
@@ -24601,7 +24601,7 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 5,
       "away": 0
@@ -24896,7 +24896,7 @@
         }
       ]
     },
-    "liveLabel": "Live",
+    "liveLabel": "Full time",
     "goals": [
       {
         "minute": 4,
