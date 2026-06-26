@@ -22979,7 +22979,7 @@
   },
   "m035": {
     "matchId": "m035",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 1
@@ -23274,7 +23274,7 @@
         }
       ]
     },
-    "liveLabel": "Live",
+    "liveLabel": "Full time",
     "bookings": [
       {
         "minute": 32,
