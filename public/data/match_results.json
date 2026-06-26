@@ -24593,7 +24593,7 @@
     "matchId": "m054",
     "status": "live",
     "score": {
-      "home": 4,
+      "home": 5,
       "away": 0
     },
     "homeFormation": {
@@ -24923,6 +24923,15 @@
         "playerName": "パペ・ゲイェ",
         "assistPlayerId": "p_sen_20",
         "assistPlayerName": "イリマン・ンディアエ"
+      },
+      {
+        "minute": 82,
+        "teamId": "SEN",
+        "type": "normal",
+        "playerId": "p_sen_12",
+        "playerName": "バラ・サポコ・ンディアエ",
+        "assistPlayerId": "p_sen_15",
+        "assistPlayerName": "パペ・ゲイェ"
       }
     ],
     "bookings": [
@@ -24936,6 +24945,12 @@
         "minute": 75,
         "teamId": "IRQ",
         "playerName": "アミル・アル・アンマリ",
+        "type": "Y"
+      },
+      {
+        "minute": 81,
+        "teamId": "SEN",
+        "playerName": "パペ・ゲイェ",
         "type": "Y"
       }
     ],
@@ -24993,6 +25008,12 @@
         "teamId": "IRQ",
         "inName": "ケビン・ヤコブ",
         "outName": "ジダン・イクバル"
+      },
+      {
+        "minute": 80,
+        "teamId": "SEN",
+        "inName": "アサン・ディアオ",
+        "outName": "イスマイラ・サール"
       }
     ]
   },
