@@ -5655,7 +5655,7 @@
       {
         "minute": 68,
         "teamId": "NZL",
-        "inName": "ベン・オー��ド",
+        "inName": "ベン・オールド",
         "outName": "リベラト・カカーチェ"
       },
       {
@@ -21789,7 +21789,7 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 2,
       "away": 1
@@ -22205,7 +22205,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 0,
       "away": 2
@@ -22932,7 +22932,7 @@
     "status": "live",
     "score": {
       "home": 1,
-      "away": 0
+      "away": 1
     },
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -23245,6 +23245,18 @@
         "teamId": "JPN",
         "inName": "谷口 彰悟",
         "outName": "板倉 滉"
+      },
+      {
+        "minute": 67,
+        "teamId": "JPN",
+        "inName": "小川 航基",
+        "outName": "上田 綺世"
+      },
+      {
+        "minute": 67,
+        "teamId": "JPN",
+        "inName": "伊東 純也",
+        "outName": "堂安 律"
       }
     ],
     "goals": [
