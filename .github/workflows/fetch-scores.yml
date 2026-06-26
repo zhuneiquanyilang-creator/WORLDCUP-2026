@@ -1,0 +1,48 @@
+name: Fetch live scores
+
+# Football-Data.org からスコア/ステータスを定期取得し、変更があれば
+# public/data/match_results.json をコミットして main に push する。
+# push されると deploy.yml が走り、GitHub Pages に自動反映される。
+#
+# 止めたいとき: Actions タブ → このワークフロー → "···" → "Disable workflow"。
+# 手動実行: Actions タブ → このワークフロー → "Run workflow" ボタン。
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-scores
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync results from Football-Data.org
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: node scripts/sync-results-ci.mjs
+
+      - name: Commit and push if changed
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          if git diff --quiet -- public/data/match_results.json; then
+            echo "No changes to match_results.json"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/match_results.json
+          git commit -m "auto: fetch live scores ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push origin HEAD:${{ github.ref_name }}
