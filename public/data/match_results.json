@@ -24473,7 +24473,7 @@
         }
       ]
     },
-    "liveLabel": "Halftime",
+    "liveLabel": "Live",
     "goals": [
       {
         "minute": 7,
@@ -24510,6 +24510,16 @@
         "playerName": "ウスマン・デンベレ",
         "assistPlayerId": "p_fra_17",
         "assistPlayerName": "オーレリアン・チュアメニ"
+      },
+      {
+        "minute": 90,
+        "teamId": "FRA",
+        "type": "normal",
+        "addedTime": 4,
+        "playerId": "p_fra_25",
+        "playerName": "デジレ・ドゥエ",
+        "assistPlayerId": "p_fra_24",
+        "assistPlayerName": "ブラッドリー・バルコラ"
       }
     ],
     "bookings": [
