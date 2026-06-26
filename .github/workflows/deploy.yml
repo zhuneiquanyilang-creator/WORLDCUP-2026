@@ -4,6 +4,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Fetch live scores ワークフロー (GitHub Actions による自動 push) は
+  # GITHUB_TOKEN 制約で deploy.yml の on:push を発火できないため、
+  # 完了イベントを workflow_run で受けて自動デプロイにつなぐ。
+  workflow_run:
+    workflows: ["Fetch live scores"]
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
