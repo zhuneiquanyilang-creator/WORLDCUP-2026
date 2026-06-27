@@ -24238,7 +24238,7 @@
   },
   "m053": {
     "matchId": "m053",
-    "status": "scheduled",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 4
@@ -24663,7 +24663,7 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "scheduled",
+    "status": "finished",
     "score": {
       "home": 5,
       "away": 0
@@ -27456,6 +27456,77 @@
         "playerName": "ニコラ・ヴラシッチ",
         "assistPlayerId": "p_cro_20",
         "assistPlayerName": "ルカ・モドリッチ"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 68,
+        "teamId": "CRO",
+        "playerName": "イヴァン・ペリシッチ",
+        "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "GHA",
+        "playerName": "コジョ・ペプラ・オポン",
+        "type": "Y",
+        "addedTime": 4
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "GHA",
+        "inName": "コジョ・ペプラ・オポン",
+        "outName": "ジョナス・アジェティ"
+      },
+      {
+        "minute": 46,
+        "teamId": "GHA",
+        "inName": "アブドゥル・ファタウ・イサハク",
+        "outName": "エリシャ・オウス"
+      },
+      {
+        "minute": 66,
+        "teamId": "CRO",
+        "inName": "イゴール・マタノビッチ",
+        "outName": "アンテ・ブディミル"
+      },
+      {
+        "minute": 71,
+        "teamId": "GHA",
+        "inName": "エルネスト・ヌアマー",
+        "outName": "ジョーダン・アユー"
+      },
+      {
+        "minute": 71,
+        "teamId": "GHA",
+        "inName": "ブランドン・トーマス・アサンテ",
+        "outName": "カマルディーン・スレマナ"
+      },
+      {
+        "minute": 78,
+        "teamId": "CRO",
+        "inName": "マリオ・パシャリッチ",
+        "outName": "マテオ・コヴァチッチ"
+      },
+      {
+        "minute": 85,
+        "teamId": "GHA",
+        "inName": "カレブ・イレンキ",
+        "outName": "クワシ・シボ"
+      },
+      {
+        "minute": 88,
+        "teamId": "CRO",
+        "inName": "ヨシュコ・グヴァルディオル",
+        "outName": "ニコラ・ヴラシッチ"
+      },
+      {
+        "minute": 88,
+        "teamId": "CRO",
+        "inName": "マルコ・パシャリッチ",
+        "outName": "マルティン・バトゥリナ"
       }
     ]
   },
