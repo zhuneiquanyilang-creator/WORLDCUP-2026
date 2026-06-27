@@ -28141,7 +28141,15 @@
           "name": "ディヨル・オルティクボエフ"
         }
       ]
-    }
+    },
+    "bookings": [
+      {
+        "minute": 21,
+        "teamId": "COD",
+        "playerName": "ノア・サディキ",
+        "type": "Y"
+      }
+    ]
   },
   "m060": {
     "matchId": "m060",
