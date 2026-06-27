@@ -24178,7 +24178,7 @@
   },
   "m053": {
     "matchId": "m053",
-    "status": "scheduled",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 4
@@ -24602,7 +24602,7 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "scheduled",
+    "status": "finished",
     "score": {
       "home": 5,
       "away": 0
@@ -25037,7 +25037,7 @@
   },
   "m048": {
     "matchId": "m048",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -25423,7 +25423,7 @@
   },
   "m047": {
     "matchId": "m047",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-1-4-1",
       "starting": [
