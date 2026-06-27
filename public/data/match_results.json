@@ -9307,7 +9307,7 @@
           "x": 28,
           "y": 83.33333333333334,
           "number": 5,
-          "name": "ルスタムジョン・アシュルマト��",
+          "name": "ルスタムジョン・アシュルマトフ",
           "role": "DF"
         },
         {
@@ -20183,7 +20183,7 @@
       {
         "minute": 63,
         "teamId": "BIH",
-        "inName": "��ニス・ハジカドゥニッチ",
+        "inName": "デニス・ハジカドゥニッチ",
         "outName": "ニコラ・カティッチ"
       },
       {
@@ -27408,6 +27408,15 @@
         "playerName": "ペタル・スチッチ",
         "assistPlayerId": "p_cro_14",
         "assistPlayerName": "マテオ・コヴァチッチ"
+      },
+      {
+        "minute": 73,
+        "teamId": "GHA",
+        "type": "normal",
+        "playerId": "p_gha_4",
+        "playerName": "デリック・ルカッセン",
+        "assistPlayerId": "p_gha_24",
+        "assistPlayerName": "エルネスト・ヌアマー"
       }
     ]
   },
