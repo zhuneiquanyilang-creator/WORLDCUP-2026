@@ -22,7 +22,6 @@ import type {
 } from "@/types/match";
 import type { LiveUpdate } from "@/types/live";
 import type { Player } from "@/types/player";
-import { loadMatchOverrides } from "@/utils/matchOverrides";
 import { loadMatchEdits, saveMatchEdits } from "@/utils/matchEdits";
 import styles from "./EditMatchesPage.module.css";
 
@@ -900,46 +899,6 @@ export function EditMatchesPage() {
     setTimeout(() => setSavedMsg(""), 3000);
   };
 
-  const handlePullFromLive = (match: Match) => {
-    const live = loadMatchOverrides()[match.id];
-    if (!live) {
-      setSavedMsg(`${match.id}: ライブ取得データがありません`);
-      setTimeout(() => setSavedMsg(""), 3000);
-      return;
-    }
-    setEdits((prev) => {
-      const cur = prev[match.id] ?? freshEditable();
-      const liveEdit = fromUpdate(live, match, playersByTeam);
-      // ライブに存在するフィールドだけ上書き。Football-Data.org の無料枠は
-      // formation / goals / bookings / substitutions を返さないので、それらは
-      // ライブに無いときは既存の編集内容 (matchEdits 由来) を保持する。
-      // ＝「↓ ライブ」を押してもスタメンが一瞬消える挙動を避ける。
-      const merged: Editable = { ...cur, passthrough: liveEdit.passthrough };
-      if (live.status) merged.status = liveEdit.status;
-      if (live.score) {
-        merged.scoreHome = liveEdit.scoreHome;
-        merged.scoreAway = liveEdit.scoreAway;
-      }
-      if (live.penaltyScore) {
-        merged.pkHome = liveEdit.pkHome;
-        merged.pkAway = liveEdit.pkAway;
-      }
-      if (live.goals && live.goals.length > 0) merged.goals = liveEdit.goals;
-      if (live.homeFormation) merged.homeFormation = liveEdit.homeFormation;
-      if (live.awayFormation) merged.awayFormation = liveEdit.awayFormation;
-      if (live.bookings && live.bookings.length > 0)
-        merged.bookings = liveEdit.bookings;
-      if (live.substitutions && live.substitutions.length > 0)
-        merged.substitutions = liveEdit.substitutions;
-      return {
-        ...prev,
-        [match.id]: padSubstitutions(merged, match),
-      };
-    });
-    setSavedMsg(`${match.id}: ライブ取得値を取り込みました (まだ未保存)`);
-    setTimeout(() => setSavedMsg(""), 3000);
-  };
-
   const handleExport = () => {
     const out: Record<string, LiveUpdate> = {};
     for (const m of allMatches) {
@@ -979,11 +938,10 @@ export function EditMatchesPage() {
         </Link>
       </div>
       <p className={styles.note}>
-        各試合に status / スコア / PK / <strong>得点者</strong> /{" "}
+        各試合に status / PK / <strong>得点者</strong> /{" "}
         <strong>フォーメーション・スタメン</strong> / <strong>カード</strong> /{" "}
         <strong>交代</strong>を入力できます。
-        <strong>スコア / ステータス / PK は GitHub Actions + ライブ取得から自動同期</strong>するので、「↓ ライブ」ボタンを押さなくても常に最新値が表示されます (手動で別の値を保存していればそれが優先)。
-        <strong>🔒 列のチェックを入れて保存</strong>すると、その試合の score/status/PK が Football-Data からの自動更新で上書きされなくなります (公式発表と外部 API が食い違うケース用)。
+        <strong>スコアは Football-Data から自動更新</strong>されるためこの画面では編集できません。手動で固定したい場合は <strong>🔒 列のチェックを入れて保存</strong>すると、その試合の score/status/PK が自動更新で上書きされなくなります (誤値や公式発表とのズレを保護)。スコアの値そのものを書き換えたい場合は <code>public/data/match_results.json</code> を直接編集して manualLock を立ててください。
         ベンチは「<strong>そのチームの全選手 − スタメン11名</strong>」を背番号順で自動算出します。
         保存先は <strong>matchEdits</strong> レイヤー (<code>localStorage["wc2026:matchEdits"]</code>) で、
         ライブ取得 (matchOverrides) とは別管理。
@@ -1044,9 +1002,8 @@ export function EditMatchesPage() {
               <th>ステージ</th>
               <th>対戦</th>
               <th>状態</th>
-              <th>スコア</th>
               <th>PK</th>
-              <th title="チェックすると Football-Data からの自動更新を停止し、ここで保存した score/status/PK を保護します。">🔒</th>
+              <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
               <th>得点者</th>
             </tr>
           </thead>
@@ -1093,27 +1050,6 @@ export function EditMatchesPage() {
                         <option value="live">live</option>
                         <option value="finished">finished</option>
                       </select>
-                    </td>
-                    <td className={styles.scoreCell}>
-                      <input
-                        type="number"
-                        className={styles.numInput}
-                        value={e.scoreHome}
-                        onChange={(ev) =>
-                          updateEdit(m.id, { scoreHome: ev.target.value })
-                        }
-                        min={0}
-                      />
-                      <span className={styles.dash}>-</span>
-                      <input
-                        type="number"
-                        className={styles.numInput}
-                        value={e.scoreAway}
-                        onChange={(ev) =>
-                          updateEdit(m.id, { scoreAway: ev.target.value })
-                        }
-                        min={0}
-                      />
                     </td>
                     <td className={styles.scoreCell}>
                       {isKo ? (
@@ -1165,19 +1101,11 @@ export function EditMatchesPage() {
                       >
                         {expanded ? "▲ 閉じる" : `▼ 編集 (${totalEvents})`}
                       </button>
-                      <button
-                        type="button"
-                        className={styles.pullBtn}
-                        onClick={() => handlePullFromLive(m)}
-                        title="ライブ取得から得点者/カード/交代/フォーメーションも含めて編集フォームにコピー (未保存)。スコア/ステータス/PK は常時自動同期されているのでこのボタンは不要です。"
-                      >
-                        ↓ ライブ
-                      </button>
                     </td>
                   </tr>
                   {expanded && (
                     <tr className={styles.expandedRow}>
-                      <td colSpan={8}>
+                      <td colSpan={7}>
                         <div className={styles.editorStack}>
                           <GoalEditor
                             match={m}
