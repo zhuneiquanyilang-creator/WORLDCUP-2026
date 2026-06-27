@@ -938,10 +938,10 @@ export function EditMatchesPage() {
         </Link>
       </div>
       <p className={styles.note}>
-        各試合に status / PK / <strong>得点者</strong> /{" "}
+        各試合に PK / <strong>得点者</strong> /{" "}
         <strong>フォーメーション・スタメン</strong> / <strong>カード</strong> /{" "}
         <strong>交代</strong>を入力できます。
-        <strong>スコアは Football-Data から自動更新</strong>されるためこの画面では編集できません。手動で固定したい場合は <strong>🔒 列のチェックを入れて保存</strong>すると、その試合の score/status/PK が自動更新で上書きされなくなります (誤値や公式発表とのズレを保護)。スコアの値そのものを書き換えたい場合は <code>public/data/match_results.json</code> を直接編集して manualLock を立ててください。
+        <strong>スコアと状態 (scheduled/live/finished) は Football-Data から自動更新</strong>されるためこの画面では編集できません。手動で固定したい場合は <strong>🔒 列のチェックを入れて保存</strong>すると、その試合の score/status/PK が自動更新で上書きされなくなります (誤値や公式発表とのズレを保護)。値そのものを書き換えたい場合は <code>public/data/match_results.json</code> を直接編集して manualLock を立ててください。
         ベンチは「<strong>そのチームの全選手 − スタメン11名</strong>」を背番号順で自動算出します。
         保存先は <strong>matchEdits</strong> レイヤー (<code>localStorage["wc2026:matchEdits"]</code>) で、
         ライブ取得 (matchOverrides) とは別管理。
@@ -1001,7 +1001,6 @@ export function EditMatchesPage() {
               <th>番号</th>
               <th>ステージ</th>
               <th>対戦</th>
-              <th>状態</th>
               <th>PK</th>
               <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
               <th>得点者</th>
@@ -1034,22 +1033,6 @@ export function EditMatchesPage() {
                     <td>{STAGE_LABEL[m.stage]}</td>
                     <td>
                       {home} <span className={styles.vs}>vs</span> {away}
-                    </td>
-                    <td>
-                      <select
-                        className={styles.input}
-                        value={e.status}
-                        onChange={(ev) =>
-                          updateEdit(m.id, {
-                            status: ev.target.value as MatchStatus | "",
-                          })
-                        }
-                      >
-                        <option value="">—</option>
-                        <option value="scheduled">scheduled</option>
-                        <option value="live">live</option>
-                        <option value="finished">finished</option>
-                      </select>
                     </td>
                     <td className={styles.scoreCell}>
                       {isKo ? (
@@ -1105,7 +1088,7 @@ export function EditMatchesPage() {
                   </tr>
                   {expanded && (
                     <tr className={styles.expandedRow}>
-                      <td colSpan={7}>
+                      <td colSpan={6}>
                         <div className={styles.editorStack}>
                           <GoalEditor
                             match={m}
