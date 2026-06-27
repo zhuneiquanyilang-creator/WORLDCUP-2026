@@ -25035,7 +25035,7 @@
   },
   "m048": {
     "matchId": "m048",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -25324,11 +25324,15 @@
           "name": "ボルハ・イグレシアス"
         }
       ]
+    },
+    "score": {
+      "home": 0,
+      "away": 0
     }
   },
   "m047": {
     "matchId": "m047",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-1-4-1",
       "starting": [
@@ -25618,6 +25622,10 @@
           "name": "モハメド・アブ・アル・シャマト"
         }
       ]
+    },
+    "score": {
+      "home": 0,
+      "away": 0
     }
   },
   "m042": {
