@@ -20146,7 +20146,7 @@
       {
         "minute": 72,
         "teamId": "QAT",
-        "inName": "ア��モエズ・アリ",
+        "inName": "アルモエズ・アリ",
         "outName": "カリム・ブディアフ"
       },
       {
@@ -24152,7 +24152,7 @@
         "minute": 84,
         "teamId": "AUS",
         "inName": "ポール・オコン・エングストラー",
-        "outName": "ジャクソン・アーヴァイン"
+        "outName": "ジャクソン・アー���ァイン"
       },
       {
         "minute": 84,
@@ -25757,6 +25757,18 @@
         "teamId": "KSA",
         "inName": "アブドラ・アル・ハムダン",
         "outName": "サレム・アル・ドサリ"
+      },
+      {
+        "minute": 71,
+        "teamId": "CPV",
+        "inName": "ラロス・ドゥアルテ",
+        "outName": "ジャミロ・モンテイロ"
+      },
+      {
+        "minute": 71,
+        "teamId": "CPV",
+        "inName": "ガリー・ロドリゲス",
+        "outName": "ライアン・メンデス"
       }
     ]
   },
