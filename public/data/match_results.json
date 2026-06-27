@@ -25035,7 +25035,7 @@
   },
   "m048": {
     "matchId": "m048",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -25328,11 +25328,12 @@
     "score": {
       "home": 0,
       "away": 0
-    }
+    },
+    "liveLabel": "Live"
   },
   "m047": {
     "matchId": "m047",
-    "status": "scheduled",
+    "status": "live",
     "homeFormation": {
       "shape": "4-1-4-1",
       "starting": [
@@ -25626,7 +25627,8 @@
     "score": {
       "home": 0,
       "away": 0
-    }
+    },
+    "liveLabel": "Live"
   },
   "m042": {
     "matchId": "m042",
