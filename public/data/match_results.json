@@ -19238,7 +19238,7 @@
         },
         {
           "number": 18,
-          "name": "シャルル・ピッケル"
+          "name": "���ャルル・ピッケル"
         },
         {
           "number": 19,
@@ -25371,6 +25371,12 @@
       }
     ],
     "bookings": [
+      {
+        "minute": 46,
+        "teamId": "ESP",
+        "playerName": "アレックス・バエナ",
+        "type": "Y"
+      },
       {
         "minute": 54,
         "teamId": "URU",
