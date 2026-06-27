@@ -1,7 +1,7 @@
 {
   "m001": {
     "matchId": "m001",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 0
@@ -416,7 +416,7 @@
   },
   "m002": {
     "matchId": "m002",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 1
@@ -810,7 +810,7 @@
   },
   "m007": {
     "matchId": "m007",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -1225,7 +1225,7 @@
   },
   "m008": {
     "matchId": "m008",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -1626,7 +1626,7 @@
   },
   "m013": {
     "matchId": "m013",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -2023,7 +2023,7 @@
   },
   "m014": {
     "matchId": "m014",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 1
@@ -2411,7 +2411,7 @@
   },
   "m019": {
     "matchId": "m019",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 4,
       "away": 1
@@ -2853,7 +2853,7 @@
   },
   "m020": {
     "matchId": "m020",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 0
@@ -3241,7 +3241,7 @@
   },
   "m025": {
     "matchId": "m025",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 7,
       "away": 1
@@ -3660,7 +3660,7 @@
   },
   "m026": {
     "matchId": "m026",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 0
@@ -4054,7 +4054,7 @@
   },
   "m031": {
     "matchId": "m031",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 2
@@ -4474,7 +4474,7 @@
   },
   "m032": {
     "matchId": "m032",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 5,
       "away": 1
@@ -4899,7 +4899,7 @@
   },
   "m037": {
     "matchId": "m037",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -5306,7 +5306,7 @@
   },
   "m038": {
     "matchId": "m038",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 2
@@ -5709,7 +5709,7 @@
   },
   "m043": {
     "matchId": "m043",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 0
@@ -6081,7 +6081,7 @@
   },
   "m044": {
     "matchId": "m044",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -6471,7 +6471,7 @@
   },
   "m049": {
     "matchId": "m049",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 3,
       "away": 1
@@ -6853,7 +6853,7 @@
   },
   "m050": {
     "matchId": "m050",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -7267,7 +7267,7 @@
   },
   "m055": {
     "matchId": "m055",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -7657,7 +7657,7 @@
   },
   "m056": {
     "matchId": "m056",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -8061,7 +8061,7 @@
   },
   "m061": {
     "matchId": "m061",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -8466,7 +8466,7 @@
   },
   "m067": {
     "matchId": "m067",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -8884,7 +8884,7 @@
   },
   "m068": {
     "matchId": "m068",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 0
@@ -9274,7 +9274,7 @@
   },
   "m062": {
     "matchId": "m062",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 3
@@ -9307,7 +9307,7 @@
           "x": 28,
           "y": 83.33333333333334,
           "number": 5,
-          "name": "ルスタムジョン・アシュルマトフ",
+          "name": "ルスタムジョン・アシュルマト��",
           "role": "DF"
         },
         {
@@ -9690,7 +9690,7 @@
   },
   "m003": {
     "matchId": "m003",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -10078,7 +10078,7 @@
   },
   "m009": {
     "matchId": "m009",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 4,
       "away": 1
@@ -10511,7 +10511,7 @@
   },
   "m010": {
     "matchId": "m010",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 6,
       "away": 0
@@ -10586,7 +10586,7 @@
           "x": 28,
           "y": 37.5,
           "number": 4,
-          "name": "アルフィー・ジョーン���",
+          "name": "アルフィー・ジョーンズ",
           "role": "DF"
         },
         {
@@ -10954,7 +10954,7 @@
   },
   "m004": {
     "matchId": "m004",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-1-4-1",
       "starting": [
@@ -11340,7 +11340,7 @@
   },
   "m021": {
     "matchId": "m021",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 0
@@ -11766,7 +11766,7 @@
   },
   "m015": {
     "matchId": "m015",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "5-4-1",
       "starting": [
@@ -12148,7 +12148,7 @@
   },
   "m016": {
     "matchId": "m016",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -12566,7 +12566,7 @@
   },
   "m022": {
     "matchId": "m022",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 1
@@ -12963,7 +12963,7 @@
   },
   "m033": {
     "matchId": "m033",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -13403,7 +13403,7 @@
   },
   "m027": {
     "matchId": "m027",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -13794,7 +13794,7 @@
   },
   "m028": {
     "matchId": "m028",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 0
@@ -14190,7 +14190,7 @@
   },
   "m034": {
     "matchId": "m034",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -14593,7 +14593,7 @@
   },
   "m045": {
     "matchId": "m045",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 4,
       "away": 0
@@ -14854,7 +14854,7 @@
         },
         {
           "number": 16,
-          "name": "ジヤード��アル・ジョハニ"
+          "name": "ジヤード・アル・ジョハニ"
         },
         {
           "number": 17,
@@ -15000,7 +15000,7 @@
   },
   "m039": {
     "matchId": "m039",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 0
@@ -15383,7 +15383,7 @@
   },
   "m046": {
     "matchId": "m046",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -15793,7 +15793,7 @@
   },
   "m040": {
     "matchId": "m040",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -16221,7 +16221,7 @@
   },
   "m057": {
     "matchId": "m057",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -16360,7 +16360,7 @@
         },
         {
           "number": 19,
-          "name": "ニコラス・オタメンデ��"
+          "name": "ニコラス・オタメンディ"
         },
         {
           "number": 21,
@@ -16630,7 +16630,7 @@
   },
   "m051": {
     "matchId": "m051",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 3,
       "away": 0
@@ -17031,7 +17031,7 @@
   },
   "m052": {
     "matchId": "m052",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -17440,7 +17440,7 @@
   },
   "m058": {
     "matchId": "m058",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -17846,7 +17846,7 @@
   },
   "m063": {
     "matchId": "m063",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -18266,7 +18266,7 @@
   },
   "m069": {
     "matchId": "m069",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -18638,7 +18638,7 @@
   },
   "m070": {
     "matchId": "m070",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 1
@@ -19014,7 +19014,7 @@
   },
   "m064": {
     "matchId": "m064",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -19397,7 +19397,7 @@
   },
   "m011": {
     "matchId": "m011",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 1
@@ -19809,7 +19809,7 @@
   },
   "m012": {
     "matchId": "m012",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 3,
       "away": 1
@@ -20183,7 +20183,7 @@
       {
         "minute": 63,
         "teamId": "BIH",
-        "inName": "デニス・ハジカドゥニッチ",
+        "inName": "��ニス・ハジカドゥニッチ",
         "outName": "ニコラ・カティッチ"
       },
       {
@@ -20221,7 +20221,7 @@
   },
   "m018": {
     "matchId": "m018",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -20652,7 +20652,7 @@
   },
   "m017": {
     "matchId": "m017",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -21067,7 +21067,7 @@
   },
   "m005": {
     "matchId": "m005",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -21468,7 +21468,7 @@
   },
   "m006": {
     "matchId": "m006",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -21843,7 +21843,7 @@
   },
   "m030": {
     "matchId": "m030",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 2,
       "away": 1
@@ -22261,7 +22261,7 @@
   },
   "m029": {
     "matchId": "m029",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 2
@@ -22652,7 +22652,7 @@
   },
   "m036": {
     "matchId": "m036",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 3
@@ -23051,7 +23051,7 @@
   },
   "m035": {
     "matchId": "m035",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -23454,7 +23454,7 @@
   },
   "m023": {
     "matchId": "m023",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 3,
       "away": 2
@@ -23871,7 +23871,7 @@
   },
   "m024": {
     "matchId": "m024",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 0,
       "away": 0
@@ -24238,7 +24238,7 @@
   },
   "m053": {
     "matchId": "m053",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 4
@@ -24663,7 +24663,7 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 5,
       "away": 0
@@ -25099,7 +25099,7 @@
   },
   "m048": {
     "matchId": "m048",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -25501,7 +25501,7 @@
   },
   "m047": {
     "matchId": "m047",
-    "status": "finished",
+    "status": "scheduled",
     "homeFormation": {
       "shape": "4-1-4-1",
       "starting": [
@@ -25892,7 +25892,7 @@
   },
   "m042": {
     "matchId": "m042",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 5
@@ -26318,7 +26318,7 @@
   },
   "m041": {
     "matchId": "m041",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 1
@@ -26732,7 +26732,7 @@
   },
   "m071": {
     "matchId": "m071",
-    "status": "live",
+    "status": "scheduled",
     "manualLock": false,
     "homeFormation": {
       "shape": "5-4-1",
@@ -27060,6 +27060,24 @@
         "teamId": "ENG",
         "inName": "ジェド・スペンス",
         "outName": "ジャレル・クアンサ"
+      },
+      {
+        "minute": 71,
+        "teamId": "PAN",
+        "inName": "アサリアス・ロンドーニョ",
+        "outName": "ヨエル・バルセナス"
+      },
+      {
+        "minute": 71,
+        "teamId": "PAN",
+        "inName": "イスマエル・ディアス",
+        "outName": "ホセ・ルイス・ロドリゲス"
+      },
+      {
+        "minute": 72,
+        "teamId": "ENG",
+        "inName": "エベレチ・エゼ",
+        "outName": "ジュード・ベリンガム"
       }
     ],
     "goals": [
@@ -27071,12 +27089,21 @@
         "playerName": "ジュード・ベリンガム",
         "assistPlayerId": "p_eng_23",
         "assistPlayerName": "ブカヨ・サカ"
+      },
+      {
+        "minute": 67,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_20",
+        "playerName": "ハリー・ケイン",
+        "assistPlayerId": "p_eng_19",
+        "assistPlayerName": "ジュード・ベリンガム"
       }
     ]
   },
   "m072": {
     "matchId": "m072",
-    "status": "live",
+    "status": "scheduled",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
