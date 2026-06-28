@@ -28658,6 +28658,13 @@
         "playerName": "ムサ・アル・タアマリ",
         "assistPlayerId": "p_jor_6",
         "assistPlayerName": "イフサン・ハダド"
+      },
+      {
+        "minute": 80,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_19",
+        "playerName": "リオネル・メッシ"
       }
     ],
     "bookings": [
@@ -28716,6 +28723,12 @@
         "teamId": "JOR",
         "inName": "アメル・ジャムース",
         "outName": "ニザール・アル・ラシュダン"
+      },
+      {
+        "minute": 82,
+        "teamId": "ARG",
+        "inName": "ホセ・マヌエル・ロペス",
+        "outName": "フリアン・アルバレス"
       }
     ]
   },
