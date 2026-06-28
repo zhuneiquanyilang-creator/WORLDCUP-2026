@@ -26734,7 +26734,7 @@
   },
   "m071": {
     "matchId": "m071",
-    "status": "finished",
+    "status": "scheduled",
     "manualLock": false,
     "homeFormation": {
       "shape": "5-4-1",
@@ -27136,7 +27136,7 @@
   },
   "m072": {
     "matchId": "m072",
-    "status": "finished",
+    "status": "scheduled",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -28704,6 +28704,12 @@
         "teamId": "ARG",
         "inName": "リオネル・メッシ",
         "outName": "ラウタロ・マルティネス"
+      },
+      {
+        "minute": 71,
+        "teamId": "ARG",
+        "inName": "バレンティン・バルコ",
+        "outName": "ジュリアーノ・シメオネ"
       }
     ]
   },
@@ -29073,6 +29079,24 @@
         "teamId": "AUT",
         "inName": "ケヴィン・ダンソ",
         "outName": "ダヴィド・アラバ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ALG",
+        "inName": "ラヤン・アイト・ヌーリ",
+        "outName": "ラフィク・ベルガリ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ALG",
+        "inName": "サミル・シェルギ",
+        "outName": "ジャウエン・ハジャム"
+      },
+      {
+        "minute": 71,
+        "teamId": "ALG",
+        "inName": "ジネディーヌ・ベライド",
+        "outName": "アミン・グイリ"
       }
     ]
   },
