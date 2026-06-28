@@ -27937,6 +27937,16 @@
         "playerName": "フィストン・マイェレ",
         "assistPlayerId": "p_cod_24",
         "assistPlayerName": "メシャック・エリア"
+      },
+      {
+        "minute": 90,
+        "teamId": "COD",
+        "type": "normal",
+        "addedTime": 1,
+        "playerId": "p_cod_23",
+        "playerName": "ヨアヌ・ウィサ",
+        "assistPlayerId": "p_cod_24",
+        "assistPlayerName": "メシャック・エリア"
       }
     ],
     "homeFormation": {
