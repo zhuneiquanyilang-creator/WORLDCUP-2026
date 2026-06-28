@@ -28544,7 +28544,8 @@
           "y": 83.33333333333334,
           "number": 11,
           "name": "ジオバニ・ロ・チェルソ",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -28806,7 +28807,8 @@
           "number": 7,
           "name": "リヤド・マフレズ",
           "role": "MF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
