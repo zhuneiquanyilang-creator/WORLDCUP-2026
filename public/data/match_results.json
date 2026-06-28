@@ -29136,6 +29136,20 @@
         "teamId": "ALG",
         "inName": "ジネディーヌ・ベライド",
         "outName": "アミン・グイリ"
+      },
+      {
+        "minute": 90,
+        "teamId": "ALG",
+        "inName": "ファレス・ゲジェミス",
+        "outName": "フセム・アワール",
+        "addedTime": 4
+      },
+      {
+        "minute": 90,
+        "teamId": "AUT",
+        "inName": "サーシャ・カライジッチ",
+        "outName": "フィリップ・ムウェネ",
+        "addedTime": 5
       }
     ]
   },
