@@ -4,7 +4,9 @@ import type { Match } from "@/types/match";
 import type { Team } from "@/types/team";
 import { matchNumber } from "@/utils/matchNumber";
 import { formatDateJa } from "@/utils/date";
+import { isLive } from "@/utils/matchTiming";
 import { TeamLink } from "@/components/common/TeamLink";
+import { LiveBadge } from "@/components/common/LiveBadge";
 import styles from "./BracketMatch.module.css";
 
 type Props = {
@@ -18,6 +20,7 @@ export function BracketMatch({ match, teamMap }: Props) {
   const num = matchNumber(match.id);
   // スコアが入っていれば status に依らず表示する (MatchCard と同じ理由)。
   const score = match.score ?? null;
+  const live = isLive(match);
   const navigate = useNavigate();
 
   const goToMatch = () => navigate(`/matches/${match.id}`);
@@ -38,6 +41,16 @@ export function BracketMatch({ match, teamMap }: Props) {
     >
       <div className={styles.head}>
         {num !== null && <span className={styles.number}>#{num}</span>}
+        {live &&
+          (match.note ? (
+            <LiveBadge
+              label={match.note}
+              variant="suspended"
+              className={styles.liveBadge}
+            />
+          ) : (
+            <LiveBadge label="LIVE" className={styles.liveBadge} />
+          ))}
         <span className={styles.date}>{formatDateJa(match.date)}</span>
       </div>
       <div className={styles.row}>

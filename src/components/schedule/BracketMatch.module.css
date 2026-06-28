@@ -44,6 +44,14 @@
   color: var(--color-text-muted);
 }
 
+/* ライブ中バッジ。ヘッダ行の #番号 と 日付 の間に挟む。
+   カード幅がタイトなのでデフォルトより若干小さくする。 */
+.liveBadge {
+  font-size: 0.6rem;
+  padding: 0.05rem 0.4rem;
+  letter-spacing: 0.04em;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
