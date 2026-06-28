@@ -28339,7 +28339,7 @@
   },
   "m060": {
     "matchId": "m060",
-    "status": "live",
+    "status": "finished",
     "manualLock": false,
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -29028,7 +29028,7 @@
     },
     "score": {
       "home": 3,
-      "away": 2
+      "away": 3
     },
     "bookings": [
       {
@@ -29072,6 +29072,26 @@
         "playerName": "リヤド・マフレズ",
         "assistPlayerId": "p_alg_14",
         "assistPlayerName": "フセム・アワール"
+      },
+      {
+        "minute": 90,
+        "teamId": "ALG",
+        "type": "normal",
+        "addedTime": 4,
+        "playerId": "p_alg_21",
+        "playerName": "リヤド・マフレズ",
+        "assistPlayerId": "p_alg_14",
+        "assistPlayerName": "フセム・アワール"
+      },
+      {
+        "minute": 90,
+        "teamId": "AUT",
+        "type": "normal",
+        "addedTime": 6,
+        "playerId": "p_aut_26",
+        "playerName": "サーシャ・カライジッチ",
+        "assistPlayerId": "p_aut_25",
+        "assistPlayerName": "ミヒャエル・グレゴリッチュ"
       }
     ],
     "substitutions": [
