@@ -27838,9 +27838,9 @@
     "status": "live",
     "score": {
       "home": 1,
-      "away": 1
+      "away": 0
     },
-    "manualLock": false,
+    "manualLock": true,
     "goals": [
       {
         "minute": 10,
