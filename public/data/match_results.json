@@ -28982,6 +28982,15 @@
         "type": "normal",
         "playerId": "p_alg_11",
         "playerName": "ラフィク・ベルガリ"
+      },
+      {
+        "minute": 55,
+        "teamId": "AUT",
+        "type": "normal",
+        "playerId": "p_aut_22",
+        "playerName": "マルセル・ザビッツァー",
+        "assistPlayerId": "p_aut_23",
+        "assistPlayerName": "コンラッド・ライマー"
       }
     ]
   },
