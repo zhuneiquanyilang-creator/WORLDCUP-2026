@@ -84,6 +84,14 @@
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.scoreLine {
+  display: block;
 }
 
 .dash {
@@ -98,10 +106,11 @@
 }
 
 .pk {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-gold);
-  margin-left: 0.25rem;
+  margin-top: 0.15rem;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 640px) {
@@ -152,7 +161,7 @@
   }
 
   .pk {
-    font-size: 0.78rem;
-    margin-left: 0.15rem;
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
   }
 }

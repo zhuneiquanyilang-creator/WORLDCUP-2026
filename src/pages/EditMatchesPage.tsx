@@ -18,6 +18,8 @@ import type {
   GoalType,
   Match,
   MatchStatus,
+  PkAttempt,
+  PkResult,
   Substitution,
 } from "@/types/match";
 import type { LiveUpdate } from "@/types/live";
@@ -76,6 +78,13 @@ type SubDraft = {
   outName?: string;
 };
 
+type PkDraft = {
+  teamId: string;
+  playerId: string;
+  playerName?: string;
+  result: PkResult;
+};
+
 /** 編集 UI が直接扱わないフィールド。save 時にそのまま LiveUpdate に書き戻して
  *  巻き込み消去を防ぐ。現状は liveLabel / stats のみ。 */
 type Passthrough = Pick<LiveUpdate, "liveLabel" | "stats">;
@@ -94,6 +103,8 @@ type Editable = {
   awayFormation: FormationDraft;
   bookings: BookingDraft[];
   substitutions: SubDraft[];
+  /** PK 戦の蹴った順序。配列の並び = 蹴順。 */
+  penaltyShootout: PkDraft[];
   passthrough: Passthrough;
 };
 
@@ -110,6 +121,7 @@ function freshEditable(): Editable {
     awayFormation: { shape: "", starters: [] },
     bookings: [],
     substitutions: [],
+    penaltyShootout: [],
     passthrough: {},
   };
 }
@@ -146,6 +158,11 @@ const BOOKING_TYPE_LABEL: Record<BookingType, string> = {
   Y2R: "🟨🟥 2枚目イエロー",
   R: "🟥 一発レッド",
   YR: "🟨→🟥 イエロー後レッド",
+};
+
+const PK_RESULT_LABEL: Record<PkResult, string> = {
+  scored: "⚽ 成功",
+  missed: "✕ 失敗",
 };
 
 /** shape 入力フィールドのサジェスト用候補。 */
@@ -360,6 +377,40 @@ function subToDraft(
   };
 }
 
+function pkToDraft(
+  a: PkAttempt,
+  playersByTeam: Map<string, Player[]>
+): PkDraft {
+  const arr = playersByTeam.get(a.teamId) ?? [];
+  const p = a.playerId
+    ? arr.find((x) => x.id === a.playerId)
+    : a.playerName
+      ? arr.find((x) => x.name === a.playerName)
+      : undefined;
+  return {
+    teamId: a.teamId,
+    playerId: p?.id ?? a.playerId ?? "",
+    playerName: a.playerName,
+    result: a.result,
+  };
+}
+
+function draftToPk(
+  d: PkDraft,
+  playerMap: Map<string, Player>
+): PkAttempt | null {
+  if (!d.teamId) return null;
+  const p = d.playerId ? playerMap.get(d.playerId) : undefined;
+  const out: PkAttempt = { teamId: d.teamId, result: d.result };
+  if (p) {
+    out.playerId = p.id;
+    out.playerName = p.name;
+  } else if (d.playerName) {
+    out.playerName = d.playerName;
+  }
+  return out;
+}
+
 function draftToSub(
   d: SubDraft,
   playerMap: Map<string, Player>
@@ -452,6 +503,9 @@ function fromUpdate(
   e.substitutions = (u.substitutions ?? []).map((s) =>
     subToDraft(s, playersByTeam)
   );
+  e.penaltyShootout = (u.penaltyShootout ?? []).map((a) =>
+    pkToDraft(a, playersByTeam)
+  );
   return e;
 }
 
@@ -520,6 +574,12 @@ function toUpdate(
     .sort((a, b) => a.minute - b.minute);
   if (subs.length > 0) u.substitutions = subs;
 
+  // PK 戦は配列の並び順がそのまま蹴順なのでソートしない。
+  const pks = e.penaltyShootout
+    .map((d) => draftToPk(d, playerMap))
+    .filter((a): a is PkAttempt => a !== null);
+  if (pks.length > 0) u.penaltyShootout = pks;
+
   const p = e.passthrough;
   if (p.liveLabel !== undefined) u.liveLabel = p.liveLabel;
   if (p.stats) u.stats = p.stats;
@@ -528,6 +588,7 @@ function toUpdate(
     !u.status &&
     !u.score &&
     !u.penaltyScore &&
+    !u.penaltyShootout &&
     !u.goals &&
     !u.bookings &&
     !u.substitutions &&
@@ -878,6 +939,61 @@ export function EditMatchesPage() {
     });
   };
 
+  const updatePk = (
+    matchId: string,
+    idx: number,
+    patch: Partial<PkDraft>
+  ) => {
+    setEdits((prev) => {
+      const cur = prev[matchId] ?? freshEditable();
+      const pks = [...cur.penaltyShootout];
+      pks[idx] = { ...pks[idx], ...patch };
+      return { ...prev, [matchId]: { ...cur, penaltyShootout: pks } };
+    });
+  };
+
+  const addPk = (match: Match) => {
+    setEdits((prev) => {
+      const cur = prev[match.id] ?? freshEditable();
+      // 既存の蹴った順から次のチームを推定 (ホーム → アウェイ → ホーム...)。
+      // 最初の 1 本目はホーム側をデフォルトにする (UI で簡単に切替可)。
+      const last = cur.penaltyShootout[cur.penaltyShootout.length - 1];
+      const nextTeamId = last
+        ? last.teamId === match.homeTeamId
+          ? match.awayTeamId
+          : match.homeTeamId
+        : match.homeTeamId;
+      const pks = [
+        ...cur.penaltyShootout,
+        {
+          teamId: nextTeamId,
+          playerId: "",
+          result: "scored" as PkResult,
+        },
+      ];
+      return { ...prev, [match.id]: { ...cur, penaltyShootout: pks } };
+    });
+  };
+
+  const removePk = (matchId: string, idx: number) => {
+    setEdits((prev) => {
+      const cur = prev[matchId] ?? freshEditable();
+      const pks = cur.penaltyShootout.filter((_, i) => i !== idx);
+      return { ...prev, [matchId]: { ...cur, penaltyShootout: pks } };
+    });
+  };
+
+  const movePk = (matchId: string, idx: number, dir: -1 | 1) => {
+    setEdits((prev) => {
+      const cur = prev[matchId] ?? freshEditable();
+      const pks = [...cur.penaltyShootout];
+      const j = idx + dir;
+      if (j < 0 || j >= pks.length) return prev;
+      [pks[idx], pks[j]] = [pks[j], pks[idx]];
+      return { ...prev, [matchId]: { ...cur, penaltyShootout: pks } };
+    });
+  };
+
   const handleSave = () => {
     const next: Record<string, LiveUpdate> = {};
     for (const m of allMatches) {
@@ -1167,6 +1283,21 @@ export function EditMatchesPage() {
                             onAdd={() => addSub(m)}
                             onRemove={(idx) => removeSub(m.id, idx)}
                           />
+                          {isKo && (
+                            <PkShootoutEditor
+                              match={m}
+                              pks={e.penaltyShootout}
+                              homeTeamName={home}
+                              awayTeamName={away}
+                              playersByTeam={playersByTeam}
+                              onUpdate={(idx, patch) =>
+                                updatePk(m.id, idx, patch)
+                              }
+                              onAdd={() => addPk(m)}
+                              onRemove={(idx) => removePk(m.id, idx)}
+                              onMove={(idx, dir) => movePk(m.id, idx, dir)}
+                            />
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -1820,6 +1951,197 @@ function BookingEditor({
                       className={styles.removeGoalBtn}
                       onClick={() => onRemove(i)}
                       aria-label="このカードを削除"
+                    >
+                      ✕
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
+
+type PkShootoutEditorProps = {
+  match: Match;
+  pks: PkDraft[];
+  homeTeamName: string;
+  awayTeamName: string;
+  playersByTeam: Map<string, Player[]>;
+  onUpdate: (idx: number, patch: Partial<PkDraft>) => void;
+  onAdd: () => void;
+  onRemove: (idx: number) => void;
+  onMove: (idx: number, dir: -1 | 1) => void;
+};
+
+function PkShootoutEditor({
+  match,
+  pks,
+  homeTeamName,
+  awayTeamName,
+  playersByTeam,
+  onUpdate,
+  onAdd,
+  onRemove,
+  onMove,
+}: PkShootoutEditorProps) {
+  // 配列順 = 蹴順。ホーム/アウェイの成功数を逐次集計して、各行に「PK 進行表」
+  // を出して入力ミスを目視確認しやすくする (例: "2-1" で迎える 4 本目)。
+  let homeScored = 0;
+  let awayScored = 0;
+  const runningScores = pks.map((d) => {
+    if (d.result === "scored") {
+      if (d.teamId === match.homeTeamId) homeScored++;
+      else if (d.teamId === match.awayTeamId) awayScored++;
+    }
+    return { home: homeScored, away: awayScored };
+  });
+
+  return (
+    <div className={styles.goalEditor}>
+      <div className={styles.goalEditorHead}>
+        <span className={styles.goalEditorTitle}>
+          PK 戦 (蹴順)
+          {pks.length > 0 && (
+            <span style={{ marginLeft: "0.6rem", fontSize: "0.85rem", color: "var(--color-text-muted)" }}>
+              現在 {homeScored} - {awayScored}
+            </span>
+          )}
+        </span>
+        <button type="button" className={styles.addGoalBtn} onClick={onAdd}>
+          + PK を追加
+        </button>
+      </div>
+      {pks.length === 0 ? (
+        <p className={styles.goalEmpty}>
+          まだ PK が入っていません。同点で PK 戦に入ったら蹴られた順に追加してください。
+        </p>
+      ) : (
+        <table className={styles.goalTable}>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>チーム</th>
+              <th>選手</th>
+              <th>結果</th>
+              <th>進行</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {pks.map((d, i) => {
+              const arr =
+                d.teamId === match.homeTeamId
+                  ? (playersByTeam.get(match.homeTeamId) ?? [])
+                  : d.teamId === match.awayTeamId
+                    ? (playersByTeam.get(match.awayTeamId) ?? [])
+                    : [];
+              const sorted = [...arr].sort(
+                (a, b) => (a.number ?? 999) - (b.number ?? 999)
+              );
+              const selectedExists =
+                d.playerId && sorted.some((p) => p.id === d.playerId);
+              const rs = runningScores[i];
+              return (
+                <tr key={i}>
+                  <td style={{ textAlign: "center", fontWeight: 700 }}>
+                    {i + 1}
+                  </td>
+                  <td>
+                    <select
+                      className={styles.input}
+                      value={d.teamId}
+                      onChange={(ev) =>
+                        onUpdate(i, {
+                          teamId: ev.target.value,
+                          playerId: "",
+                          playerName: undefined,
+                        })
+                      }
+                    >
+                      <option value={match.homeTeamId}>{homeTeamName}</option>
+                      <option value={match.awayTeamId}>{awayTeamName}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      className={styles.input}
+                      value={d.playerId}
+                      onChange={(ev) => {
+                        const pid = ev.target.value;
+                        const p = sorted.find((x) => x.id === pid);
+                        onUpdate(i, {
+                          playerId: pid,
+                          playerName: p?.name ?? d.playerName,
+                        });
+                      }}
+                    >
+                      <option value="">
+                        {d.playerName
+                          ? `— 選択 — (現在: ${d.playerName})`
+                          : "— 選択 —"}
+                      </option>
+                      {sorted.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.number != null ? `#${p.number} ` : ""}
+                          {p.name}
+                        </option>
+                      ))}
+                      {d.playerId && !selectedExists && (
+                        <option value={d.playerId}>{d.playerId} (不明)</option>
+                      )}
+                    </select>
+                  </td>
+                  <td>
+                    <select
+                      className={styles.input}
+                      value={d.result}
+                      onChange={(ev) =>
+                        onUpdate(i, { result: ev.target.value as PkResult })
+                      }
+                    >
+                      {(["scored", "missed"] as PkResult[]).map((r) => (
+                        <option key={r} value={r}>
+                          {PK_RESULT_LABEL[r]}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td style={{ textAlign: "center", fontWeight: 700, fontVariantNumeric: "tabular-nums" }}>
+                    {rs.home} - {rs.away}
+                  </td>
+                  <td style={{ whiteSpace: "nowrap" }}>
+                    <button
+                      type="button"
+                      className={styles.removeGoalBtn}
+                      onClick={() => onMove(i, -1)}
+                      disabled={i === 0}
+                      aria-label="この PK を 1 つ前へ"
+                      title="1 つ前へ"
+                      style={{ marginRight: "0.2rem" }}
+                    >
+                      ↑
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.removeGoalBtn}
+                      onClick={() => onMove(i, 1)}
+                      disabled={i === pks.length - 1}
+                      aria-label="この PK を 1 つ後ろへ"
+                      title="1 つ後ろへ"
+                      style={{ marginRight: "0.2rem" }}
+                    >
+                      ↓
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.removeGoalBtn}
+                      onClick={() => onRemove(i)}
+                      aria-label="この PK を削除"
+                      title="削除"
                     >
                       ✕
                     </button>

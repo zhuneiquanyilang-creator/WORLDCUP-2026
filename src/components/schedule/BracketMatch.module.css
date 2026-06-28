@@ -77,3 +77,10 @@ a.team:hover {
   min-width: 1rem;
   text-align: right;
 }
+
+.pk {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-gold, #b8860b);
+  margin-left: 0.05rem;
+}

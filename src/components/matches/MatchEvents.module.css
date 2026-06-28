@@ -186,6 +186,47 @@
   color: var(--color-text-muted);
 }
 
+.pkSection {
+  margin-top: 0.75rem;
+}
+
+.pkHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+  padding: 0.35rem 0;
+}
+
+.pkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pkOrder {
+  display: inline-block;
+  background: var(--color-primary-dark);
+  color: var(--color-gold);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.05rem 0.45rem;
+  line-height: 1.4;
+  min-width: 1.4rem;
+  text-align: center;
+}
+
+.pkRunning {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.1rem;
+  letter-spacing: 0.04em;
+}
+
 @media (max-width: 640px) {
   .section {
     padding: 0.85rem 0.55rem;
@@ -285,5 +326,15 @@
 
   .halftimeBlock {
     gap: 0.2rem;
+  }
+
+  .pkOrder {
+    font-size: 0.65rem;
+    padding: 0.04rem 0.35rem;
+    min-width: 1.1rem;
+  }
+
+  .pkRunning {
+    font-size: 0.65rem;
   }
 }

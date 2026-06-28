@@ -47,7 +47,12 @@ export function BracketMatch({ match, teamMap }: Props) {
           fallbackId={match.homeTeamId}
           className={styles.team}
         />
-        <span className={styles.score}>{score ? score.home : ""}</span>
+        <span className={styles.score}>
+          {score ? score.home : ""}
+          {match.penaltyScore && (
+            <span className={styles.pk}> ({match.penaltyScore.home})</span>
+          )}
+        </span>
       </div>
       <div className={styles.row}>
         <TeamLink
@@ -56,7 +61,12 @@ export function BracketMatch({ match, teamMap }: Props) {
           fallbackId={match.awayTeamId}
           className={styles.team}
         />
-        <span className={styles.score}>{score ? score.away : ""}</span>
+        <span className={styles.score}>
+          {score ? score.away : ""}
+          {match.penaltyScore && (
+            <span className={styles.pk}> ({match.penaltyScore.away})</span>
+          )}
+        </span>
       </div>
     </div>
   );

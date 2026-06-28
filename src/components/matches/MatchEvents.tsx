@@ -1,5 +1,11 @@
 import { useMemo } from "react";
-import type { Match, Goal, Booking, Substitution } from "@/types/match";
+import type {
+  Match,
+  Goal,
+  Booking,
+  PkAttempt,
+  Substitution,
+} from "@/types/match";
 import type { Player } from "@/types/player";
 import type { Team } from "@/types/team";
 import { eventSortKey, formatMinute } from "@/utils/eventMinute";
@@ -16,7 +22,11 @@ type EventItem =
   | { kind: "booking"; minute: number; addedTime?: number; teamId: string; data: Booking }
   | { kind: "sub"; minute: number; addedTime?: number; teamId: string; data: Substitution };
 
-type RenderItem = EventItem | { kind: "halftime" };
+type RenderItem =
+  | EventItem
+  | { kind: "halftime" }
+  | { kind: "fulltime" }
+  | { kind: "match-end" };
 
 function bookingIcon(type: Booking["type"]): { icon: string; label: string } {
   switch (type) {
@@ -85,11 +95,30 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
 
   const renderItems = useMemo<RenderItem[]>(() => {
     const list: RenderItem[] = [];
+
+    // 延長戦に入った試合か判定:
+    //  - 91 分以降のイベントが既にある
+    //  - PK 決着 (penaltyScore がある) → 延長で同点 → PK
+    //  - ライブラベルが "extra time" / "penalty" を含む
+    const ll = (match.liveLabel ?? "").toLowerCase();
+    const wentToExtraTime =
+      events.some((e) => e.minute > 90) ||
+      !!match.penaltyScore ||
+      (match.penaltyShootout?.length ?? 0) > 0 ||
+      ll.includes("extra time") ||
+      ll.includes("penalty");
+
     let htInserted = false;
+    let ftInserted = false; // 後半終了ディバイダー
     for (const ev of events) {
       if (!htInserted && ev.minute > 45) {
         list.push({ kind: "halftime" });
         htInserted = true;
+      }
+      // 延長戦に入った試合では minute>90 のイベント直前に「後半終了」を挿入
+      if (!ftInserted && wentToExtraTime && ev.minute > 90) {
+        list.push({ kind: "fulltime" });
+        ftInserted = true;
       }
       list.push(ev);
     }
@@ -109,7 +138,6 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
     //
     // finished の自動付与はしない (前半のみゴールの試合で末尾に出てしまうため)。
     if (!htInserted && match.status === "live") {
-      const ll = (match.liveLabel ?? "").toLowerCase();
       const labelPastHalftime =
         ll.includes("halftime") ||
         ll.includes("half time") ||
@@ -124,8 +152,30 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
         list.push({ kind: "halftime" });
       }
     }
+
+    // 「後半終了」フォールバック: 延長戦に入ったがまだ minute>90 のイベントが
+    // 無い (= 延長開始直後にゴール等が出ていない) ときは末尾に挿入。
+    if (!ftInserted && wentToExtraTime) {
+      list.push({ kind: "fulltime" });
+    }
+
+    // 「試合終了」をイベントリスト末尾に挿入する条件:
+    //   - status === "finished" であり
+    //   - PK 戦が無い (= 90 分で決着 or 延長で決着)
+    // PK 戦に入った試合の「試合終了」は PkShootoutSection の後ろに別途描画する。
+    const hasPk = (match.penaltyShootout?.length ?? 0) > 0;
+    if (match.status === "finished" && !hasPk) {
+      list.push({ kind: "match-end" });
+    }
     return list;
-  }, [events, match.status, match.liveLabel, match.date]);
+  }, [
+    events,
+    match.status,
+    match.liveLabel,
+    match.date,
+    match.penaltyScore,
+    match.penaltyShootout,
+  ]);
 
   if (renderItems.length === 0) {
     return (
@@ -150,13 +200,23 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
       </div>
       <ol className={styles.timeline}>
         {renderItems.map((item, i) => {
-          if (item.kind === "halftime") {
+          if (
+            item.kind === "halftime" ||
+            item.kind === "fulltime" ||
+            item.kind === "match-end"
+          ) {
+            const label =
+              item.kind === "halftime"
+                ? "ハーフタイム"
+                : item.kind === "fulltime"
+                  ? "後半終了"
+                  : "試合終了";
             return (
-              <li key={`ht-${i}`} className={styles.halftimeRow}>
+              <li key={`${item.kind}-${i}`} className={styles.halftimeRow}>
                 <span className={styles.halftimeLine} aria-hidden />
                 <span className={styles.halftimeBlock}>
-                  <span className={styles.halftimeLabel}>ハーフタイム</span>
-                  {match.note && (
+                  <span className={styles.halftimeLabel}>{label}</span>
+                  {item.kind === "halftime" && match.note && (
                     <span className={styles.halftimeNote}>{match.note}</span>
                   )}
                 </span>
@@ -187,7 +247,111 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
           );
         })}
       </ol>
+      {match.penaltyShootout && match.penaltyShootout.length > 0 && (
+        <>
+          <Divider label="延長戦終了" />
+          <PkShootoutSection
+            attempts={match.penaltyShootout}
+            homeTeamId={homeTeamId}
+            awayTeamId={match.awayTeamId}
+            playerMap={playerMap}
+          />
+          {match.status === "finished" && <Divider label="試合終了" />}
+        </>
+      )}
     </section>
+  );
+}
+
+function Divider({ label }: { label: string }) {
+  return (
+    <div className={styles.halftimeRow}>
+      <span className={styles.halftimeLine} aria-hidden />
+      <span className={styles.halftimeBlock}>
+        <span className={styles.halftimeLabel}>{label}</span>
+      </span>
+      <span className={styles.halftimeLine} aria-hidden />
+    </div>
+  );
+}
+
+function PkShootoutSection({
+  attempts,
+  homeTeamId,
+  awayTeamId,
+  playerMap,
+}: {
+  attempts: PkAttempt[];
+  homeTeamId: string;
+  awayTeamId: string;
+  playerMap: Map<string, Player>;
+}) {
+  // 配列順 = 蹴順。ホーム/アウェイの成功本数を逐次集計して各行に並走スコアを出す。
+  let homeScored = 0;
+  let awayScored = 0;
+  const rows = attempts.map((a, i) => {
+    if (a.result === "scored") {
+      if (a.teamId === homeTeamId) homeScored++;
+      else if (a.teamId === awayTeamId) awayScored++;
+    }
+    const shooter = resolveName(a.playerId, a.playerName, playerMap);
+    return {
+      order: i + 1,
+      isHome: a.teamId === homeTeamId,
+      shooter,
+      result: a.result,
+      running: { home: homeScored, away: awayScored },
+    };
+  });
+
+  return (
+    <div className={styles.pkSection}>
+      <div className={styles.pkHeader}>
+        <span className={styles.halftimeLine} aria-hidden />
+        <span className={styles.halftimeBlock}>
+          <span className={styles.halftimeLabel}>PK 戦</span>
+        </span>
+        <span className={styles.halftimeLine} aria-hidden />
+      </div>
+      <ol className={styles.pkList}>
+        {rows.map((r) => {
+          const ok = r.result === "scored";
+          return (
+            <li
+              key={r.order}
+              className={r.isHome ? styles.rowHome : styles.rowAway}
+            >
+              <div className={styles.side}>
+                {r.isHome && (
+                  <div className={`${styles.event} ${styles.alignRight}`}>
+                    <span className={styles.icon}>{ok ? "⚽" : "✕"}</span>
+                    <span className={styles.text}>
+                      <span className={styles.name}>{r.shooter}</span>
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className={styles.minute}>
+                <span className={styles.pkOrder}>{r.order}</span>
+                <span className={styles.pkRunning}>
+                  {r.running.home}-{r.running.away}
+                </span>
+              </div>
+              <div className={styles.side}>
+                {!r.isHome && (
+                  <div className={`${styles.event} ${styles.alignLeft}`}>
+                    <span className={styles.icon}>{ok ? "⚽" : "✕"}</span>
+                    <span className={styles.text}>
+                      <span className={styles.name}>{r.shooter}</span>
+                    </span>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 }
 

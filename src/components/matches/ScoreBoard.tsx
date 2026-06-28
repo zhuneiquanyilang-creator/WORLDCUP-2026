@@ -54,15 +54,16 @@ export function ScoreBoard({ match, homeTeam, awayTeam }: Props) {
         </div>
         <div className={styles.score}>
           {score ? (
-            <span>
-              {score.home} <span className={styles.dash}>-</span> {score.away}
+            <>
+              <div className={styles.scoreLine}>
+                {score.home} <span className={styles.dash}>-</span> {score.away}
+              </div>
               {match.penaltyScore && (
-                <span className={styles.pk}>
-                  {" "}
-                  (PK {match.penaltyScore.home}-{match.penaltyScore.away})
-                </span>
+                <div className={styles.pk}>
+                  PK {match.penaltyScore.home}-{match.penaltyScore.away}
+                </div>
               )}
-            </span>
+            </>
           ) : (
             <span className={styles.vs}>VS</span>
           )}

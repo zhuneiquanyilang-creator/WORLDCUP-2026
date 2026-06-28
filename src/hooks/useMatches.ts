@@ -25,6 +25,7 @@ function applyUpdate(m: Match, u: LiveUpdate): Match {
     ...(u.liveLabel ? { liveLabel: u.liveLabel } : {}),
     ...(u.score ? { score: u.score } : {}),
     ...(u.penaltyScore ? { penaltyScore: u.penaltyScore } : {}),
+    ...(u.penaltyShootout ? { penaltyShootout: u.penaltyShootout } : {}),
     ...(u.goals ? { goals: u.goals } : {}),
     ...(u.bookings ? { bookings: u.bookings } : {}),
     ...(u.substitutions ? { substitutions: u.substitutions } : {}),

@@ -68,21 +68,38 @@
   padding-right: 0.7rem;
 }
 
-/* 「]」型の進出線
-   上端 (25%) から下端 (75%) まで縦線、上下に短い水平線を持つ枠線。
-   border-left を消すことで「]」だけが描画される */
-.pair::after {
-  content: "";
+/* 「]」型の進出線を上下半分に分けて描画する。
+   勝者が確定した側だけ赤くなぞるため div で分割。
+   - branchTop:    上カードの中心 (25%) → ペア中央 (50%) を結ぶ「Γ」
+   - branchBottom: ペア中央 (50%) → 下カードの中心 (75%) を結ぶ「L」
+   いずれも .pair の右端に張り付き、上下で 50% を共有する。 */
+.branchTop,
+.branchBottom {
   position: absolute;
   right: 0;
-  top: 25%;
-  bottom: 25%;
   width: 0.5rem;
-  border: 2px solid var(--color-bracket-line, var(--color-border));
-  border-left: none;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-right: 2px solid var(--color-bracket-line, var(--color-border));
   pointer-events: none;
+}
+
+.branchTop {
+  top: 25%;
+  height: 25%;
+  border-top: 2px solid var(--color-bracket-line, var(--color-border));
+  border-top-right-radius: 4px;
+}
+
+.branchBottom {
+  top: 50%;
+  height: 25%;
+  border-bottom: 2px solid var(--color-bracket-line, var(--color-border));
+  border-bottom-right-radius: 4px;
+}
+
+/* 勝者が確定した側のブランチを赤で塗りつぶす */
+.branchWinner {
+  border-color: var(--color-danger, #d93535);
+  z-index: 2; /* 反対側 (gray) と重なっても勝ち側が前面 */
 }
 
 /* 次列へ伸びる水平線（ペア中央 = 50% から右へ） */
@@ -95,6 +112,12 @@
   border-top: 2px solid var(--color-bracket-line, var(--color-border));
   pointer-events: none;
   z-index: 1;
+}
+
+/* ペア内のどちらかが勝者確定 → 次の試合への水平線も赤くする */
+.pairAdvanced::before {
+  border-top-color: var(--color-danger, #d93535);
+  z-index: 3;
 }
 
 /* 万一カードが 1 枚だけ残った場合 (データ不足等) のフォールバック。線は引かない */
@@ -145,6 +168,11 @@
   width: 3rem; /* 線の右端 = .finalCards 左から 2rem */
   border-top: 2px solid var(--color-bracket-line, var(--color-border));
   pointer-events: none;
+}
+
+/* SF が 1 試合でも決着したら SF→決勝の連結線も赤くする */
+.finalCardsAdvanced::before {
+  border-top-color: var(--color-danger, #d93535);
 }
 
 /* 決勝カードを連結線の右端 (2rem) に揃えて絶対配置 */

@@ -48,6 +48,19 @@ export type Substitution = {
   outName: string;
 };
 
+/** scored = 成功 (ネットを揺らした) / missed = 失敗 (GK セーブ or 枠外) */
+export type PkResult = "scored" | "missed";
+
+/** PK 戦の 1 本分。配列の並び順 = 蹴った順序。 */
+export type PkAttempt = {
+  teamId: string;
+  /** players.json の選手 ID */
+  playerId?: string;
+  /** 表示名 (playerId が無い場合のフォールバック) */
+  playerName?: string;
+  result: PkResult;
+};
+
 export type FormationSpot = {
   /** ピッチ縦軸 (0-100): 0=自陣GK側, 100=攻撃方向 */
   x: number;
@@ -105,6 +118,9 @@ export type Match = {
   score?: { home: number; away: number };
   /** PK決着のスコア (KO戦のみ)。`score` は90分+延長の最終、`penaltyScore` は PK の最終本数。 */
   penaltyScore?: { home: number; away: number };
+  /** PK 戦の蹴った順番。FD 無料枠では取得できないため `/edit/matches` で
+   *  手入力する。配列の並び順 = ホーム/アウェイ交互の実際の蹴順。 */
+  penaltyShootout?: PkAttempt[];
   goals?: Goal[];
   bookings?: Booking[];
   substitutions?: Substitution[];

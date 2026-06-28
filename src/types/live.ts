@@ -4,6 +4,7 @@ import type {
   Goal,
   MatchStats,
   MatchStatus,
+  PkAttempt,
   Substitution,
 } from "./match";
 
@@ -18,6 +19,10 @@ export type LiveUpdate = {
   score?: { home: number; away: number };
   /** PK 決着の本数 (KO 戦のみ)。`score` は90分+延長の最終スコア。 */
   penaltyScore?: { home: number; away: number };
+  /** PK 戦の蹴った順番。`/edit/matches` の PkShootoutEditor で手入力。
+   *  Football-Data / Sofascore の無料枠では取得できないため自動更新の
+   *  対象外 (= GitHub Actions の sync-results-ci がこのフィールドを触らない)。 */
+  penaltyShootout?: PkAttempt[];
   /** 表示用の現在進行情報（例: "45+2'" / "HT" / "FT" / "ライブ"） */
   liveLabel?: string;
   goals?: Goal[];

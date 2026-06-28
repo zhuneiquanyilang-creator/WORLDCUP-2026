@@ -61,7 +61,8 @@ export function useAutoSyncResults() {
           !!cleaned.awayFormation ||
           (cleaned.goals?.length ?? 0) > 0 ||
           (cleaned.bookings?.length ?? 0) > 0 ||
-          (cleaned.substitutions?.length ?? 0) > 0;
+          (cleaned.substitutions?.length ?? 0) > 0 ||
+          (cleaned.penaltyShootout?.length ?? 0) > 0;
         if (hasResult || hasContent) toSync[id] = cleaned;
       }
       // matchEdits に同期対象が 1 つも無いときは POST しない。
