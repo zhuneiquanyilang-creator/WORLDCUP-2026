@@ -27907,6 +27907,15 @@
         "type": "penalty",
         "playerId": "p_cod_23",
         "playerName": "ヨアヌ・ウィサ"
+      },
+      {
+        "minute": 79,
+        "teamId": "COD",
+        "type": "normal",
+        "playerId": "p_cod_26",
+        "playerName": "フィストン・マイェレ",
+        "assistPlayerId": "p_cod_24",
+        "assistPlayerName": "メシャック・エリア"
       }
     ],
     "homeFormation": {
