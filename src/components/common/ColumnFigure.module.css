@@ -51,3 +51,46 @@
 .credit a:hover {
   color: var(--color-primary);
 }
+
+/* ===== スマホ (≤640px) 用調整 =====
+ *  - figure 上下の余白を詰める (本文中の画像が縦に大きく場所を取らないように)
+ *  - sizeXs/Sm/Md の画像最大幅をビューポート幅に追従させる (画面に窮屈に
+ *    収まらず、余白も自然に残るよう「viewport - 本文 padding」を上限にする)
+ *  - キャプションと出典のフォントを 1 段詰めて読み物的な可読性を維持
+ *  - 行頭/行末でリンクが切れるのを避けるため、credit は word-break で揃える
+ */
+@media (max-width: 640px) {
+  .figure {
+    margin: 1rem 0;
+  }
+
+  /* viewport 100% から左右の本文 padding (合計 1.7rem 程度) を引いた値を上限に。
+     480px の sizeMd は実質「画面幅いっぱい」になり、本文と並んで自然に収まる。 */
+  .sizeXs .image,
+  .sizeSm .image,
+  .sizeMd .image,
+  .sizeLg .image {
+    max-width: calc(100vw - 1.7rem);
+  }
+
+  /* sizeXs は元のサイズ (160px) のままで十分小さいので、両方の上限のうち
+     小さい方を採用 (= 160px) するため min() で固定する。スマホでも 160px は守る。 */
+  .sizeXs .image {
+    max-width: min(160px, calc(100vw - 1.7rem));
+  }
+
+  .caption {
+    margin-top: 0.45rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .credit {
+    margin-top: 0.25rem;
+    font-size: 0.66rem;
+    line-height: 1.4;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    padding: 0 0.2rem;
+  }
+}
