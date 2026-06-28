@@ -24238,7 +24238,7 @@
   },
   "m053": {
     "matchId": "m053",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 1,
       "away": 4
@@ -24663,7 +24663,7 @@
   },
   "m054": {
     "matchId": "m054",
-    "status": "finished",
+    "status": "scheduled",
     "score": {
       "home": 5,
       "away": 0
@@ -26322,7 +26322,7 @@
     "status": "finished",
     "score": {
       "home": 1,
-      "away": 1
+      "away": 2
     },
     "manualLock": false,
     "goals": [
