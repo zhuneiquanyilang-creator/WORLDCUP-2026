@@ -29886,6 +29886,16 @@
         "playerName": "カゼミーロ",
         "assistPlayerId": "p_bra_12",
         "assistPlayerName": "ガブリエウ・マガリャンイス"
+      },
+      {
+        "minute": 90,
+        "teamId": "BRA",
+        "type": "normal",
+        "addedTime": 6,
+        "playerId": "p_bra_20",
+        "playerName": "ガブリエウ・マルティネッリ",
+        "assistPlayerId": "p_bra_16",
+        "assistPlayerName": "ブルーノ・ギマランイス"
       }
     ],
     "substitutions": [
