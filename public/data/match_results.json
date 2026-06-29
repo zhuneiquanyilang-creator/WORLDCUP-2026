@@ -30266,6 +30266,14 @@
         "assistPlayerId": "p_par_15",
         "assistPlayerName": "マティアス・ガラルサ"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "GER",
+        "inName": "レオン・ゴレツカ",
+        "outName": "フェリックス・ヌメチャ"
+      }
     ]
   },
   "m075": {
