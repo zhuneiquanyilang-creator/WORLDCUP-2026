@@ -29866,6 +29866,14 @@
         "playerId": "p_jpn_16",
         "playerName": "佐野 海舟"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "BRA",
+        "inName": "エンドリッキ",
+        "outName": "ルーカス・パケタ"
+      }
     ]
   },
   "m074": {
