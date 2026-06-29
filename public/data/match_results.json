@@ -29924,6 +29924,13 @@
         "teamId": "JPN",
         "inName": "田中 碧",
         "outName": "鎌田 大地"
+      },
+      {
+        "minute": 90,
+        "teamId": "BRA",
+        "inName": "ファビーニョ",
+        "outName": "カゼミーロ",
+        "addedTime": 3
       }
     ]
   },
