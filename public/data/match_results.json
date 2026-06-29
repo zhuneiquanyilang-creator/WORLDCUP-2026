@@ -30265,6 +30265,15 @@
         "playerName": "フリオ・エンシソ",
         "assistPlayerId": "p_par_15",
         "assistPlayerName": "マティアス・ガラルサ"
+      },
+      {
+        "minute": 54,
+        "teamId": "GER",
+        "type": "normal",
+        "playerId": "p_ger_23",
+        "playerName": "カイ・ハヴァーツ",
+        "assistPlayerId": "p_ger_19",
+        "assistPlayerName": "レオン・ゴレツカ"
       }
     ],
     "substitutions": [
