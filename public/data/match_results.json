@@ -30276,6 +30276,15 @@
         "playerName": "カイ・ハヴァーツ",
         "assistPlayerId": "p_ger_22",
         "assistPlayerName": "フロリアン・ヴィルツ"
+      },
+      {
+        "minute": 102,
+        "teamId": "GER",
+        "type": "normal",
+        "playerId": "p_ger_10",
+        "playerName": "ヨナタン・ター",
+        "assistPlayerId": "p_ger_5",
+        "assistPlayerName": "ナサニエル・ブラウン"
       }
     ],
     "substitutions": [
