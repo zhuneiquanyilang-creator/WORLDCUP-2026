@@ -30332,6 +30332,18 @@
         "teamId": "PAR",
         "inName": "ブライアン・オヘダ",
         "outName": "フアン・カセレス"
+      },
+      {
+        "minute": 110,
+        "teamId": "GER",
+        "inName": "マリック・チャウ",
+        "outName": "アントニオ・リュディガー"
+      },
+      {
+        "minute": 110,
+        "teamId": "GER",
+        "inName": "ナディエム・アミリ",
+        "outName": "フロリアン・ヴィルツ"
       }
     ],
     "bookings": [
