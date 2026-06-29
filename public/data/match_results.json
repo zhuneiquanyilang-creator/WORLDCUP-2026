@@ -30255,7 +30255,18 @@
     "score": {
       "home": 0,
       "away": 1
-    }
+    },
+    "goals": [
+      {
+        "minute": 42,
+        "teamId": "PAR",
+        "type": "normal",
+        "playerId": "p_par_20",
+        "playerName": "フリオ・エンシソ",
+        "assistPlayerId": "p_par_15",
+        "assistPlayerName": "マティアス・ガラルサ"
+      }
+    ]
   },
   "m075": {
     "matchId": "m075",
