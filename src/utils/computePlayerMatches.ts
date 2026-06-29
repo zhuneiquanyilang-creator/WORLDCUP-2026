@@ -64,8 +64,8 @@ function nameMatchesPlayer(player: Player, name: string | undefined): boolean {
  *  - ベンチ入りで出番なし → 0 分 (status: bench)
  *  - フォーメーション・ベンチが未入力の試合 → "unknown" (出場 1 にカウントしない)
  *
- * レッドカード退場 (R / Y2R) は出場時間に厳密反映していない (アディショナルタイム
- * の処理が複雑なため近似誤差は許容する)。
+ * レッドカード退場 (R / Y2R / YR) を受けた選手はその時刻で出場終了とみなす。
+ * 交代 out との両方がある稀ケースでは早い方を採用 (= 実際にピッチを離れた時刻)。
  */
 export function computePlayerMatches(
   player: Player,
@@ -119,21 +119,39 @@ export function computePlayerMatches(
     const subIn = subs.find((s) => nameMatchesPlayer(player, s.inName));
     const subOut = subs.find((s) => nameMatchesPlayer(player, s.outName));
 
+    // 本人のレッドカード退場時刻 (R / Y2R / YR のうち最も早いもの)。
+    // 出場終了の上限として subOut と比較し、早い方を採用する。
+    const redCard = (m.bookings ?? [])
+      .filter(
+        (b) =>
+          b.teamId === player.teamId &&
+          b.playerName === player.name &&
+          b.type !== "Y"
+      )
+      .sort((a, b) => a.minute - b.minute)[0];
+    const redOutMinute = redCard?.minute ?? null;
+
     const matchEnd = matchEndMinute(m);
     let status: PlayerAppearanceStatus = "unknown";
     let startMinute: number | null = null;
     let endMinute: number | null = null;
     let minutes = 0;
 
+    // 出場終了時刻 = 交代 out / レッドカード / 試合終了 のうち最も早いもの。
+    const earliestEnd = (...vals: (number | null | undefined)[]): number => {
+      const nums = vals.filter((v): v is number => typeof v === "number");
+      return nums.length === 0 ? matchEnd : Math.min(...nums);
+    };
+
     if (inStarting) {
       status = "starter";
       startMinute = 0;
-      endMinute = subOut ? subOut.minute : matchEnd;
+      endMinute = earliestEnd(subOut?.minute, redOutMinute, matchEnd);
       minutes = Math.max(0, endMinute - startMinute);
     } else if (subIn) {
       status = "sub-on";
       startMinute = subIn.minute;
-      endMinute = subOut ? subOut.minute : matchEnd;
+      endMinute = earliestEnd(subOut?.minute, redOutMinute, matchEnd);
       minutes = Math.max(0, endMinute - startMinute);
     } else if (inBench) {
       status = "bench";
