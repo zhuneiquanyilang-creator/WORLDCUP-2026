@@ -7,6 +7,6 @@
  *   "Extra time 2nd" / "Penalty" / "Live" / "Full time" / "Scheduled"
  */
 export function liveBadgeLabel(liveLabel?: string): string {
-  if (liveLabel === "Halftime") return "ハーフタイム";
+  if (liveLabel === "Halftime") return "HT";
   return "LIVE";
 }
