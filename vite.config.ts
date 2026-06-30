@@ -611,10 +611,28 @@ async function runPeriodicCatchup(apiKey: string) {
       const update: Record<string, unknown> = { matchId: localId };
       if (status) update.status = status;
       const ft = fx.score?.fullTime;
-      if (typeof ft?.home === "number" && typeof ft?.away === "number") {
-        update.score = { home: ft.home, away: ft.away };
-      }
       const pk = fx.score?.penalties;
+      // PK 戦進行中、FD は fullTime に PK 本数を加算した「累計」を返す
+      // (例: 真の FT 1-1 + PK 2-3 → fullTime = 3-4 で返る)。
+      // duration === "PENALTY_SHOOTOUT" かつ未確定 (FINISHED 以外) のとき
+      // fullTime - penalties で真の FT に補正。FINISHED 後は FD が直すのでそのまま。
+      const inShootout = fx.score?.duration === "PENALTY_SHOOTOUT";
+      const isLive = fx.status !== "FINISHED" && fx.status !== "AWARDED";
+      if (typeof ft?.home === "number" && typeof ft?.away === "number") {
+        if (
+          inShootout &&
+          isLive &&
+          typeof pk?.home === "number" &&
+          typeof pk?.away === "number"
+        ) {
+          update.score = {
+            home: ft.home - pk.home,
+            away: ft.away - pk.away,
+          };
+        } else {
+          update.score = { home: ft.home, away: ft.away };
+        }
+      }
       if (typeof pk?.home === "number" && typeof pk?.away === "number") {
         update.penaltyScore = { home: pk.home, away: pk.away };
       }

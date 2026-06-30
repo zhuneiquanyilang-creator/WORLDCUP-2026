@@ -1146,6 +1146,7 @@ export function EditMatchesPage() {
               <th>番号</th>
               <th>ステージ</th>
               <th>対戦</th>
+              <th>スコア</th>
               <th>PK</th>
               <th>状態</th>
               <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
@@ -1179,6 +1180,29 @@ export function EditMatchesPage() {
                     <td>{STAGE_LABEL[m.stage]}</td>
                     <td>
                       {home} <span className={styles.vs}>vs</span> {away}
+                    </td>
+                    <td className={styles.scoreCell}>
+                      <input
+                        type="number"
+                        className={styles.numInput}
+                        value={e.scoreHome}
+                        onChange={(ev) =>
+                          updateEdit(m.id, { scoreHome: ev.target.value })
+                        }
+                        min={0}
+                        aria-label="score home"
+                      />
+                      <span className={styles.dash}>-</span>
+                      <input
+                        type="number"
+                        className={styles.numInput}
+                        value={e.scoreAway}
+                        onChange={(ev) =>
+                          updateEdit(m.id, { scoreAway: ev.target.value })
+                        }
+                        min={0}
+                        aria-label="score away"
+                      />
                     </td>
                     <td className={styles.scoreCell}>
                       {isKo ? (

@@ -147,7 +147,7 @@ const HORIZONTAL_LAYOUT: PitchLayout = {
   pitchW: 160,
   pitchH: 100,
   maxWidth: 900,
-  nameSize: 2.5,
+  nameSize: 2.25,
   homePos: horizontalHomePos,
   awayPos: horizontalAwayPos,
 };
@@ -176,7 +176,7 @@ const VERTICAL_LAYOUT: PitchLayout = {
   pitchW: 100,
   pitchH: 160,
   maxWidth: 440,
-  nameSize: 2.25,
+  nameSize: 1.95,
   homePos: verticalHomePos,
   awayPos: verticalAwayPos,
 };
@@ -219,6 +219,26 @@ export function CombinedFormation({
       if (typeof p.shortName === "string" && p.shortName.length > 0) {
         m.set(p.name, p.shortName);
       }
+    }
+    return m;
+  }, [playerMap, awayTeamId]);
+  // チーム別に name → position (GK/DF/MF/FW) のルックアップを作る。
+  // ベンチ表示で選手名の横にポジションバッジを出すために使う。
+  const homePositions = useMemo(() => {
+    if (!playerMap) return undefined;
+    const m = new Map<string, string>();
+    for (const p of playerMap.values()) {
+      if (p.teamId !== homeTeamId) continue;
+      m.set(p.name, p.position);
+    }
+    return m;
+  }, [playerMap, homeTeamId]);
+  const awayPositions = useMemo(() => {
+    if (!playerMap) return undefined;
+    const m = new Map<string, string>();
+    for (const p of playerMap.values()) {
+      if (p.teamId !== awayTeamId) continue;
+      m.set(p.name, p.position);
     }
     return m;
   }, [playerMap, awayTeamId]);
@@ -401,11 +421,13 @@ export function CombinedFormation({
         <BenchList
           title={`${homeTeam?.name ?? homeLabel ?? "ホーム"}ベンチ`}
           items={homeProcessed?.bench}
+          positions={homePositions}
           onPlayerClick={(name, number) => goPlayer(homeTeamId, name, number)}
         />
         <BenchList
           title={`${awayTeam?.name ?? awayLabel ?? "アウェイ"}ベンチ`}
           items={awayProcessed?.bench}
+          positions={awayPositions}
           onPlayerClick={(name, number) => goPlayer(awayTeamId, name, number)}
         />
       </div>
@@ -740,10 +762,12 @@ function SpotName({
 function BenchList({
   title,
   items,
+  positions,
   onPlayerClick,
 }: {
   title: string;
   items: BenchWithSub[] | undefined;
+  positions?: Map<string, string>;
   onPlayerClick?: (name: string, number: number | undefined) => void;
 }) {
   if (!items || items.length === 0) return <div className={styles.benchCol} />;
@@ -785,6 +809,11 @@ function BenchList({
                   aria-label={p.isMvp ? "MVP" : undefined}
                 >
                   {p.number}
+                </span>
+              )}
+              {positions?.get(p.name) && (
+                <span className={styles.benchPos} title="ポジション">
+                  {positions.get(p.name)}
                 </span>
               )}
               <span className={styles.benchName}>
