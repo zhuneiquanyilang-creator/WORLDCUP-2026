@@ -45,16 +45,6 @@ function pairUp<T>(arr: T[]): T[][] {
   return out;
 }
 
-/** 試合が確定 (status="finished" かつ勝者が決まっている) かを判定。
- *  延長同点 → penaltyScore で決まったかも確認する (resolveMatchTeams と同じロジック)。 */
-function hasWinner(m: Match | undefined): boolean {
-  if (!m || m.status !== "finished" || !m.score) return false;
-  const { home, away } = m.score;
-  if (home !== away) return true;
-  if (m.penaltyScore && m.penaltyScore.home !== m.penaltyScore.away)
-    return true;
-  return false;
-}
 
 const COLUMNS: { title: string; stage: Match["stage"]; order: number[] }[] = [
   { title: "ラウンド32", stage: "round32", order: R32_ORDER },
@@ -87,32 +77,12 @@ function BracketColumn({
               </div>
             );
           }
-          // 上 (pair[0]) / 下 (pair[1]) で勝者が決まった側だけ赤で塗る。
-          // どちらか 1 試合でも確定していれば「次の試合へ進出」の水平線も赤。
-          const topWon = hasWinner(pair[0]);
-          const bottomWon = hasWinner(pair[1]);
-          const eitherWon = topWon || bottomWon;
           return (
-            <div
-              key={i}
-              className={`${styles.pair} ${
-                eitherWon ? styles.pairAdvanced : ""
-              }`}
-            >
+            <div key={i} className={styles.pair}>
               <BracketMatch match={pair[0]} teamMap={teamMap} />
               <BracketMatch match={pair[1]} teamMap={teamMap} />
-              <div
-                className={`${styles.branchTop} ${
-                  topWon ? styles.branchWinner : ""
-                }`}
-                aria-hidden
-              />
-              <div
-                className={`${styles.branchBottom} ${
-                  bottomWon ? styles.branchWinner : ""
-                }`}
-                aria-hidden
-              />
+              <div className={styles.branchTop} aria-hidden />
+              <div className={styles.branchBottom} aria-hidden />
             </div>
           );
         })}
@@ -128,10 +98,6 @@ export function BracketView({ matches, teamMap }: Props) {
   const third = matches.find(
     (m) => m.stage === "third" && matchNumber(m.id) === THIRD_NUM
   );
-
-  // SF が 1 試合でも確定したら SF→決勝の連結線を赤くする
-  const sfMatches = pickByOrder(matches, "semi", SF_ORDER);
-  const anySfDecided = sfMatches.some((m) => hasWinner(m));
 
   return (
     <div>
@@ -152,11 +118,7 @@ export function BracketView({ matches, teamMap }: Props) {
           <div className={styles.columnTitle}>
             <span className={styles.finalTitleBadge}>決勝</span>
           </div>
-          <div
-            className={`${styles.cards} ${styles.finalCards} ${
-              anySfDecided ? styles.finalCardsAdvanced : ""
-            }`}
-          >
+          <div className={`${styles.cards} ${styles.finalCards}`}>
             {fin && (
               <div className={styles.finalCardWrap}>
                 <BracketMatch match={fin} teamMap={teamMap} />
