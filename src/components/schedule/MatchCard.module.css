@@ -98,12 +98,23 @@
 .score {
   min-width: 70px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .scoreValue {
   font-weight: 700;
   font-size: 1.4rem;
   color: var(--color-primary);
+}
+
+.pk {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-top: 0.1rem;
+  letter-spacing: 0.04em;
 }
 
 .vs {
@@ -163,5 +174,8 @@
   }
   .scoreValue {
     font-size: 1.2rem;
+  }
+  .pk {
+    font-size: 0.9rem;
   }
 }

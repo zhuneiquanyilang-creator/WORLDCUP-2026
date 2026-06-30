@@ -43,16 +43,71 @@
 }
 
 .colMd {
-  width: 22%;
+  width: 14%;
+}
+
+.colDate {
+  width: 16%;
 }
 
 .colOpp {
-  width: 48%;
+  width: 36%;
+}
+
+.colResult {
+  width: 10%;
+  text-align: center !important;
 }
 
 .colScore {
-  width: 30%;
+  width: 24%;
   text-align: right !important;
+}
+
+.date {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.resultCell {
+  text-align: center;
+}
+
+.resultWin {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background-color: #d4edda;
+  color: #155724;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.resultLoss {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background-color: #f8d7da;
+  color: #721c24;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.resultDraw {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background-color: #fff3cd;
+  color: #856404;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .md {
@@ -122,15 +177,27 @@
   }
 
   .table {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
   }
 
   .table th,
   .table td {
-    padding: 0.5rem 0.4rem;
+    padding: 0.4rem 0.3rem;
   }
 
   .score {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .date {
+    font-size: 0.72rem;
+  }
+
+  .resultWin,
+  .resultLoss,
+  .resultDraw {
+    font-size: 0.78rem;
+    min-width: 1.4rem;
+    padding: 0.08rem 0.3rem;
   }
 }

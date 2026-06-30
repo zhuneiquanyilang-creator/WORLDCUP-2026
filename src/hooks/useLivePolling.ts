@@ -44,7 +44,9 @@ export function useLivePolling(matches: Match[] | undefined) {
     if (!list || list.length === 0) return;
     const now = Date.now();
 
-    const targets = list.filter((m) => shouldPoll(m, now));
+    // manualLock=true の試合は手動値を保護するため polling 自体をスキップ。
+    // (useMatches 側でも live レイヤーをスキップするが、ここで弾けば API 呼び出し節約。)
+    const targets = list.filter((m) => shouldPoll(m, now) && !m.manualLock);
     if (targets.length === 0) return;
 
     tickRunningRef.current = true;

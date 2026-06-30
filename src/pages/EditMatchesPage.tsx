@@ -1128,6 +1128,7 @@ export function EditMatchesPage() {
               <th>ステージ</th>
               <th>対戦</th>
               <th>PK</th>
+              <th>状態</th>
               <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
               <th>得点者</th>
             </tr>
@@ -1188,6 +1189,22 @@ export function EditMatchesPage() {
                       ) : (
                         <span className={styles.pkNa}>—</span>
                       )}
+                    </td>
+                    <td>
+                      <select
+                        value={e.status}
+                        onChange={(ev) =>
+                          updateEdit(m.id, {
+                            status: ev.target.value as Editable["status"],
+                          })
+                        }
+                        aria-label={`${m.id} の試合ステータス`}
+                      >
+                        <option value="">(未設定)</option>
+                        <option value="scheduled">scheduled</option>
+                        <option value="live">live</option>
+                        <option value="finished">finished</option>
+                      </select>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <input

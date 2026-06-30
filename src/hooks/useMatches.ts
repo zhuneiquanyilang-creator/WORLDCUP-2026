@@ -33,6 +33,7 @@ function applyUpdate(m: Match, u: LiveUpdate): Match {
     ...(u.awayFormation ? { awayFormation: u.awayFormation } : {}),
     ...(u.stats ? { stats: u.stats } : {}),
     ...(u.note !== undefined ? { note: u.note } : {}),
+    ...(u.manualLock !== undefined ? { manualLock: u.manualLock } : {}),
   };
 }
 
@@ -97,7 +98,11 @@ export function useMatches() {
       const manualR = manualEdits[m.id];
       if (manualR) next = applyUpdate(next, manualR);
       const liveR = liveOverrides[m.id];
-      if (liveR) next = applyUpdate(next, liveR);
+      // manualLock=true なら live レイヤーをスキップして手動編集値を優先表示する。
+      // (matchEdits / file のどちらかで lock されていれば適用)
+      const locked =
+        manualR?.manualLock === true || fileR?.manualLock === true;
+      if (liveR && !locked) next = applyUpdate(next, liveR);
       return next;
     });
     const data =

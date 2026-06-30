@@ -76,9 +76,16 @@ export function MatchCard({ match, teamMap }: Props) {
 
         <div className={styles.score}>
           {hasScore ? (
-            <span className={styles.scoreValue}>
-              {match.score!.home} - {match.score!.away}
-            </span>
+            <>
+              <span className={styles.scoreValue}>
+                {match.score!.home} - {match.score!.away}
+              </span>
+              {match.penaltyScore && (
+                <span className={styles.pk}>
+                  PK {match.penaltyScore.home}-{match.penaltyScore.away}
+                </span>
+              )}
+            </>
           ) : (
             <span className={styles.vs}>VS</span>
           )}

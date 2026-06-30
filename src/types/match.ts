@@ -134,4 +134,7 @@ export type Match = {
   /** 試合の特記事項テロップ (例: "中断中")。試合経過のハーフタイム表示直下に
    *  小さな赤バッジで描画される。値があるあいだだけ表示。 */
   note?: string;
+  /** true なら FD/live polling の自動更新を抑止し、手動編集値を優先表示する。
+   *  `/edit/matches` で設定し、match_results.json と localStorage の両方に伝播する。 */
+  manualLock?: boolean;
 };

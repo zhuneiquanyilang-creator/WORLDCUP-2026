@@ -13,6 +13,7 @@ import { useMatches } from "@/hooks/useMatches";
 import { useTeams } from "@/hooks/useTeams";
 import { Flag } from "@/components/common/Flag";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
+import { formatDateJa } from "@/utils/date";
 import type { Match, MatchStage } from "@/types/match";
 import type { Team } from "@/types/team";
 import styles from "./TeamResults.module.css";
@@ -81,6 +82,25 @@ function ResultRow({ match: m, teamId, label, teamMap }: RowProps) {
       : m.penaltyScore!.home
     : null;
 
+  // 勝敗判定 (PK 決着なら PK スコアで判定、それ以外は90分+延長のスコアで判定)
+  let result: "win" | "loss" | "draw" | null = null;
+  if (showScore) {
+    if (own! > opp!) result = "win";
+    else if (own! < opp!) result = "loss";
+    else if (showPk) result = ownPk! > oppPk! ? "win" : "loss";
+    else result = "draw";
+  }
+  const resultLabel =
+    result === "win" ? "勝" : result === "loss" ? "負" : result === "draw" ? "分" : "—";
+  const resultClass =
+    result === "win"
+      ? styles.resultWin
+      : result === "loss"
+        ? styles.resultLoss
+        : result === "draw"
+          ? styles.resultDraw
+          : styles.empty;
+
   return (
     <tr key={m.id}>
       <td className={styles.md}>
@@ -88,6 +108,7 @@ function ResultRow({ match: m, teamId, label, teamMap }: RowProps) {
           {label}
         </Link>
       </td>
+      <td className={styles.date}>{formatDateJa(m.date)}</td>
       <td className={styles.opp}>
         {opponent ? (
           <Link to={`/teams/${opponent.id}`} className={styles.oppLink}>
@@ -97,6 +118,9 @@ function ResultRow({ match: m, teamId, label, teamMap }: RowProps) {
         ) : (
           <span>{oppId}</span>
         )}
+      </td>
+      <td className={styles.resultCell}>
+        <span className={resultClass}>{resultLabel}</span>
       </td>
       <td className={styles.score}>
         {showScore ? (
@@ -186,7 +210,9 @@ export function TeamResults({ teamId }: Props) {
         <thead>
           <tr>
             <th className={styles.colMd}>節</th>
+            <th className={styles.colDate}>日付</th>
             <th className={styles.colOpp}>対戦国</th>
+            <th className={styles.colResult}>結果</th>
             <th className={styles.colScore}>スコア</th>
           </tr>
         </thead>

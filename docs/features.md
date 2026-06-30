@@ -245,6 +245,15 @@ Windows 等で Unicode 国旗絵文字が正しく描画されないため、`co
 - **公開サイト訪問者が `/edit/matches` を開いた場合**: 公開サイトの localStorage (localhost とは別オリジン) に書かれるだけで file は書き換わらない (dev エンドポイントが本番にはない)。ローカル表示の変更にのみ留まる。
 - 本番ビルドでは書き込みエンドポイントが存在しないので、`useAutoSyncResults` の fetch は警告だけ出して何もしない。
 
+**KO 戦 PK 突入時の運用 (2026-06-30 確立)**: Football-Data の `score.fullTime` は PK 進行中に不安定値 (4-4 / 5-6 等) を返すため、`score` (regular FT) を ET 終了値で固定し PK は手動入力する。手順:
+
+1. 該当試合の `match_results.json` に `score` を ET 終了時の値で直接書き込む (通常は同点、例: 1-1)
+2. 同エントリに `manualLock: true` を設定 (live polling / periodic-catchup / GH Actions すべてが該当試合を skip するようになる)
+3. `/edit/matches` の対象行で `manualLock` チェック + `状態` ドロップダウン (scheduled/live/finished) + `PK` 欄を更新 → 「手動編集として保存」で matchEdits に永続化 → auto-sync が file に伝播
+4. PK が進むごとに `/edit/matches` の PK 欄を更新 → 保存。試合終了時は `状態` を `finished` に変更 → 保存 (試合経過の末尾に自動で「試合終了」divider が表示される)
+
+`manualLock=true` は該当試合のみに作用し、他試合のライブ反映には影響しない (useLivePolling / useMatches で per-match に判定)。`/edit/matches` には score 入力欄が無いため、regular score の修正は match_results.json を直接編集する運用。
+
 書き込みエンドポイントは `vite.config.ts` の `matchResultsWriter` プラグイン (`apply: "serve"`) で実装。merge モード書き込みなので、複数試合を同時並行で確定しても既存の他試合データを消さない。
 
 **自動 git push**: dev サーバーが `match_results.json` を書き換えると、30 秒デバウンスで `git add public/data/match_results.json && git commit -m "auto: ..." && git push origin HEAD` を自動実行する。`git commit -- public/data/match_results.json` のようにパスを明示するため、他のファイルの未 commit 変更は巻き込まない。GitHub Desktop バンドル版 git を絶対パスでフォールバック検出するので、git CLI が PATH に無い環境でも動く。`AUTO_PUSH_RESULTS=0` 環境変数で無効化可。git push が失敗 (認証エラー等) した場合は `[auto-push] git push failed: ...` がサーバーログに出るだけで他の動作には影響しない。
