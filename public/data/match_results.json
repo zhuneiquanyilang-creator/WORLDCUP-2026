@@ -30442,7 +30442,7 @@
   },
   "m075": {
     "matchId": "m075",
-    "status": "live",
+    "status": "finished",
     "manualLock": false,
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -30735,8 +30735,12 @@
       ]
     },
     "score": {
-      "home": 0,
-      "away": 0
+      "home": 4,
+      "away": 4
+    },
+    "penaltyScore": {
+      "home": 3,
+      "away": 3
     }
   },
   "m078": {
