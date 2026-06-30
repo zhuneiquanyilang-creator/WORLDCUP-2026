@@ -30443,7 +30443,7 @@
   "m075": {
     "matchId": "m075",
     "status": "finished",
-    "manualLock": true,
+    "manualLock": false,
     "homeFormation": {
       "shape": "3-4-2-1",
       "starting": [
@@ -30735,8 +30735,8 @@
       ]
     },
     "score": {
-      "home": 3,
-      "away": 4
+      "home": 1,
+      "away": 1
     },
     "penaltyScore": {
       "home": 3,
