@@ -31656,6 +31656,18 @@
         "teamId": "FRA",
         "inName": "テオ・エルナンデス",
         "outName": "リュカ・ディニュ"
+      },
+      {
+        "minute": 82,
+        "teamId": "SWE",
+        "inName": "マティアス・スヴァンベリ",
+        "outName": "ダニエル・スヴェンソン"
+      },
+      {
+        "minute": 82,
+        "teamId": "SWE",
+        "inName": "ベンジャミン・ニグレン",
+        "outName": "ヤシン・アヤリ"
       }
     ]
   },
