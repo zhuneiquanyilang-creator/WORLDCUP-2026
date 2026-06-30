@@ -31300,7 +31300,7 @@
   "m077": {
     "matchId": "m077",
     "status": "live",
-    "manualLock": false,
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -31592,7 +31592,7 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     }
   },
