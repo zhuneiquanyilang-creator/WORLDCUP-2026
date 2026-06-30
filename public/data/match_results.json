@@ -30441,7 +30441,7 @@
   },
   "m075": {
     "matchId": "m075",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -30732,6 +30732,10 @@
           "name": "アナス・サラー・エディン"
         }
       ]
+    },
+    "score": {
+      "home": 0,
+      "away": 0
     }
   },
   "m078": {
