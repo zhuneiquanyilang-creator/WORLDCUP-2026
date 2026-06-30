@@ -31594,7 +31594,7 @@
       ]
     },
     "score": {
-      "home": 2,
+      "home": 3,
       "away": 0
     },
     "goals": [
@@ -31650,6 +31650,12 @@
         "teamId": "FRA",
         "inName": "マロ・ギュスト",
         "outName": "ジュール・クンデ"
+      },
+      {
+        "minute": 78,
+        "teamId": "FRA",
+        "inName": "テオ・エルナンデス",
+        "outName": "リュカ・ディニュ"
       }
     ]
   },
