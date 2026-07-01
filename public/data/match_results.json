@@ -32420,12 +32420,6 @@
     ],
     "bookings": [
       {
-        "minute": 19,
-        "teamId": "ENG",
-        "playerName": "デクラン・ライス",
-        "type": "Y"
-      },
-      {
         "minute": 28,
         "teamId": "COD",
         "playerName": "ノア・サディキ",
