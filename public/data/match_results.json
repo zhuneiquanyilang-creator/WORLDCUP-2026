@@ -32434,6 +32434,15 @@
         "playerName": "ハリー・ケイン",
         "assistPlayerId": "p_eng_25",
         "assistPlayerName": "アンソニー・ゴードン"
+      },
+      {
+        "minute": 86,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_20",
+        "playerName": "ハリー・ケイン",
+        "assistPlayerId": "p_eng_25",
+        "assistPlayerName": "アンソニー・ゴードン"
       }
     ],
     "bookings": [
@@ -32486,6 +32495,18 @@
         "teamId": "COD",
         "inName": "エド・カイェンベ",
         "outName": "ンガラエル・ムカウ"
+      },
+      {
+        "minute": 89,
+        "teamId": "COD",
+        "inName": "ヨリス・カイェンベ",
+        "outName": "アルトゥール・マスアク"
+      },
+      {
+        "minute": 89,
+        "teamId": "COD",
+        "inName": "フィストン・マイェレ",
+        "outName": "ヨアヌ・ウィサ"
       }
     ]
   },
