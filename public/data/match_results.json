@@ -30443,7 +30443,8 @@
         "playerName": "ホセ・カナレ"
       }
     ],
-    "liveLabel": "Full time"
+    "liveLabel": "Full time",
+    "note": ""
   },
   "m075": {
     "matchId": "m075",
@@ -30907,7 +30908,8 @@
         "assistPlayerName": "ケムスディン・タルビ"
       }
     ],
-    "liveLabel": "Full time"
+    "liveLabel": "Full time",
+    "note": ""
   },
   "m078": {
     "matchId": "m078",
@@ -31989,7 +31991,8 @@
           "name": "ヤイマル・メディナ"
         }
       ]
-    }
+    },
+    "liveLabel": "1st half"
   },
   "m080": {
     "matchId": "m080",
