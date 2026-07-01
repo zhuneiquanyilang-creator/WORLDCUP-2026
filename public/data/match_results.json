@@ -32059,6 +32059,30 @@
         "teamId": "MEX",
         "inName": "サンティアゴ・ヒメネス",
         "outName": "ラウール・ヒメネス"
+      },
+      {
+        "minute": 79,
+        "teamId": "ECU",
+        "inName": "ホルディ・カイセド",
+        "outName": "ジョン・イェボア"
+      },
+      {
+        "minute": 79,
+        "teamId": "ECU",
+        "inName": "ケンドリ・パエス",
+        "outName": "ニルソン・アングロ"
+      },
+      {
+        "minute": 80,
+        "teamId": "MEX",
+        "inName": "イスラエル・レジェス",
+        "outName": "ロベルト・アルバラード"
+      },
+      {
+        "minute": 80,
+        "teamId": "MEX",
+        "inName": "オルベリン・ピネダ",
+        "outName": "フリアン・キニョネス"
       }
     ]
   },
