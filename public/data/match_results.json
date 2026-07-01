@@ -32866,6 +32866,18 @@
         "teamId": "BEL",
         "inName": "トーマス・ムニエ",
         "outName": "マキシム・デ・カイパー"
+      },
+      {
+        "minute": 93,
+        "teamId": "SEN",
+        "inName": "ニコラス・ジャクソン",
+        "outName": "イスマイル・ヤコブス"
+      },
+      {
+        "minute": 93,
+        "teamId": "SEN",
+        "inName": "エル・アジ・マリック・ディウフ",
+        "outName": "サディオ・マネ"
       }
     ],
     "goals": [
