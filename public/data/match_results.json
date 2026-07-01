@@ -31697,12 +31697,12 @@
   "m079": {
     "matchId": "m079",
     "status": "live",
-    "note": "遅延",
+    "note": "",
     "score": {
       "home": 0,
       "away": 0
     },
-    "manualLock": true,
+    "manualLock": false,
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
