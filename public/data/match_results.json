@@ -32522,7 +32522,7 @@
     "matchId": "m082",
     "status": "live",
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 2
     },
     "note": "",
@@ -32860,6 +32860,12 @@
         "teamId": "SEN",
         "inName": "イブラヒム・ンバイェ",
         "outName": "ハビブ・ディアラ"
+      },
+      {
+        "minute": 78,
+        "teamId": "BEL",
+        "inName": "トーマス・ムニエ",
+        "outName": "マキシム・デ・カイパー"
       }
     ],
     "goals": [
@@ -32887,6 +32893,15 @@
         "playerName": "ロメル・ルカク",
         "assistPlayerId": "p_bel_8",
         "assistPlayerName": "トーマス・ムニエ"
+      },
+      {
+        "minute": 89,
+        "teamId": "BEL",
+        "type": "normal",
+        "playerId": "p_bel_15",
+        "playerName": "ユーリ・ティーレマンス",
+        "assistPlayerId": "p_bel_22",
+        "assistPlayerName": "レアンドロ・トロサール"
       }
     ],
     "bookings": [
