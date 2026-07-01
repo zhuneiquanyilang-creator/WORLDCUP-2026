@@ -32926,6 +32926,14 @@
         "playerName": "ユーリ・ティーレマンス",
         "assistPlayerId": "p_bel_22",
         "assistPlayerName": "レアンドロ・トロサール"
+      },
+      {
+        "minute": 120,
+        "teamId": "BEL",
+        "type": "penalty",
+        "addedTime": 5,
+        "playerId": "p_bel_15",
+        "playerName": "ユーリ・ティーレマンス"
       }
     ],
     "bookings": [
