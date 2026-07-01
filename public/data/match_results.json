@@ -31301,8 +31301,8 @@
   },
   "m077": {
     "matchId": "m077",
-    "status": "scheduled",
-    "manualLock": true,
+    "status": "finished",
+    "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -31688,7 +31688,8 @@
         "outName": "アレクサンデル・イサク"
       }
     ],
-    "note": "遅延"
+    "note": "",
+    "liveLabel": "Full time"
   },
   "m079": {
     "matchId": "m079",
