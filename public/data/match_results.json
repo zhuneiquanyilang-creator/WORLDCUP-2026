@@ -31384,7 +31384,8 @@
           "number": 10,
           "name": "キリアン・エンバペ",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         }
       ],
       "bench": [
