@@ -168,7 +168,11 @@ function runGit(gitBin: string, args: string[], cwd: string): Promise<{ code: nu
 // 「deploy 中に次の push が来る → concurrency: cancel-in-progress で古い deploy が
 //  キャンセルされる → GitHub Actions を無駄に消費」というパターンが頻発する。
 // ライブ中のスコア更新は 1〜2 分遅れる可能性があるが、cancel 頻発を抑える方が優先。
-const AUTO_PUSH_DEBOUNCE_MS = 90_000;
+// deploy.yml の concurrency は cancel-in-progress: false (キャンセルせず順番待ち)
+// なので、push が短時間に何回も入ると deploy キューが積み上がり反映が遅れる。
+// deploy 自体が build+deploy で 2-3 分かかるため、debounce は 5 分に設定して
+// キューが溢れないようにする。ライブ中のスコア反映は 5 分弱の遅延で妥協。
+const AUTO_PUSH_DEBOUNCE_MS = 300_000;
 let pushTimer: NodeJS.Timeout | null = null;
 let isPushing = false;
 async function schedulePush() {
