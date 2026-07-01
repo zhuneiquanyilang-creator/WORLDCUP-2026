@@ -19,7 +19,10 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # false にすると新しい deploy が来ても古いのを cancel せず順番に待つ。
+  # true だと auto-push が短時間に複数走った時に "Canceling since a higher
+  # priority waiting request for pages exists" で古い deploy が全部失敗する。
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -28,7 +31,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
       - run: npm ci
       # GitHub Pages のサブパス (/<repo>/) を base に設定してビルド
