@@ -145,9 +145,17 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
         ll.includes("second half") ||
         ll.includes("extra time") ||
         ll.includes("penalty");
+      // liveLabel が明示的に "1st half" や "scheduled" 等の「前半以前」を示すときは
+      // 時間ベースのフォールバックを無効化する。中断・再開等で KO からの実時間が
+      // 60 分を超えていても、liveLabel で "1st half" と分かっているなら HT 未到達。
+      const labelBeforeHalftime =
+        ll.includes("1st half") || ll.includes("first half");
       const koMs = new Date(match.date).getTime();
       const elapsedMin = (Date.now() - koMs) / 60_000;
-      const timePastHalftime = Number.isFinite(elapsedMin) && elapsedMin > 60;
+      const timePastHalftime =
+        !labelBeforeHalftime &&
+        Number.isFinite(elapsedMin) &&
+        elapsedMin > 60;
       if (labelPastHalftime || timePastHalftime) {
         list.push({ kind: "halftime" });
       }
