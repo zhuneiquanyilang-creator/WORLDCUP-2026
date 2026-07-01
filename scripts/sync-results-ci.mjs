@@ -103,10 +103,23 @@ async function main() {
       update.penaltyScore = { home: pk.home, away: pk.away };
     }
 
+    // SUSPENDED (悪天候・安全上等) を検知したら note="中断中" を自動セット、
+    // IN_PLAY / LIVE / PAUSED (通常進行 or HT) に戻ったら note="" で明示クリア。
+    if (fx.status === "SUSPENDED") {
+      update.status = "live"; // 表示上はライブ扱いを維持
+      update.note = "中断中";
+    } else if (
+      fx.status === "IN_PLAY" ||
+      fx.status === "LIVE" ||
+      fx.status === "PAUSED"
+    ) {
+      update.note = "";
+    }
+
     const prev = existing[matchId] ?? {};
     // manualLock: true なら手動値を保護するため自動更新スキップ。
     // /edit/matches で確定したスコア (Football-Data と食い違っているケース等)
-    // を Actions による上書きから守る。
+    // を Actions による上書きから守る。note (中断中 等) も同様に保護される。
     if (prev.manualLock === true) {
       unchanged++;
       continue;
@@ -116,7 +129,8 @@ async function main() {
       JSON.stringify(prev.score) === JSON.stringify(update.score);
     const samePk =
       JSON.stringify(prev.penaltyScore) === JSON.stringify(update.penaltyScore);
-    if (sameStatus && sameScore && samePk) {
+    const sameNote = (prev.note ?? "") === (update.note ?? "");
+    if (sameStatus && sameScore && samePk && sameNote) {
       unchanged++;
       continue;
     }

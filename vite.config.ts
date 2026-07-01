@@ -637,10 +637,26 @@ async function runPeriodicCatchup(apiKey: string) {
         update.penaltyScore = { home: pk.home, away: pk.away };
       }
 
+      // SUSPENDED (悪天候・安全上等) を検知したら note="中断中" を自動セット、
+      // IN_PLAY / LIVE / PAUSED (通常進行 or HT) に戻ったら note="" で明示クリア。
+      // これで中断 → 再開の自動追従が periodic-catchup で完結する。
+      if (fx.status === "SUSPENDED") {
+        update.status = "live"; // 表示上はライブ扱いを維持
+        update.note = "中断中";
+      } else if (
+        fx.status === "IN_PLAY" ||
+        fx.status === "LIVE" ||
+        fx.status === "PAUSED"
+      ) {
+        update.note = "";
+      }
+
       const prev = results[localId] ?? {};
       // manualLock: true なら手動値を保護するため自動更新スキップ。
       // 公式発表と Football-Data が食い違うケース (例: 誤入力スコアが
       // しばらく直らない) を `/edit/matches` の保存で固定するための機構。
+      // note (中断中 等のテロップ) も手動値を優先するため、ロック中は FD の
+      // SUSPENDED / IN_PLAY 判定に追従しない (ロック中はずっと固定表示)。
       if (prev.manualLock === true) continue;
       const sameStatus = prev.status === update.status;
       const sameScore =
@@ -648,7 +664,8 @@ async function runPeriodicCatchup(apiKey: string) {
       const samePk =
         JSON.stringify(prev.penaltyScore) ===
         JSON.stringify(update.penaltyScore);
-      if (sameStatus && sameScore && samePk) continue;
+      const sameNote = (prev.note ?? "") === (update.note ?? "");
+      if (sameStatus && sameScore && samePk && sameNote) continue;
 
       results[localId] = { ...prev, ...update };
       count++;

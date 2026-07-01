@@ -161,6 +161,10 @@ type Editable = {
   /** チェックすると periodic-catchup / GitHub Actions が score/status/PK を
    *  自動更新しなくなる。Football-Data が公式と食い違うケース用の手動保護。 */
   manualLock: boolean;
+  /** 試合の特記事項テロップ (例: "中断中")。設定するとライブ中に琥珀色バッジで
+   *  表示される。空文字を保存すると明示的にクリア扱い。manualLock=true のときのみ
+   *  matchEdits に書き込まれる (FD の note 自動更新と競合させないため)。 */
+  note: string;
   goals: GoalDraft[];
   homeFormation: FormationDraft;
   awayFormation: FormationDraft;
@@ -179,6 +183,7 @@ function freshEditable(): Editable {
     pkHome: "",
     pkAway: "",
     manualLock: false,
+    note: "",
     goals: [],
     homeFormation: { shape: "", starters: [] },
     awayFormation: { shape: "", starters: [] },
@@ -556,6 +561,7 @@ function fromUpdate(
   e.pkHome = u.penaltyScore ? String(u.penaltyScore.home) : "";
   e.pkAway = u.penaltyScore ? String(u.penaltyScore.away) : "";
   e.manualLock = u.manualLock === true;
+  e.note = u.note ?? "";
   e.goals = (u.goals ?? []).map(goalToDraft);
 
   const homePlayers = playersByTeam.get(match.homeTeamId) ?? [];
@@ -604,6 +610,9 @@ function toUpdate(
       if (Number.isFinite(h) && Number.isFinite(a))
         u.penaltyScore = { home: h, away: a };
     }
+    // note は空文字も書き出す (明示クリア用)。"中断中" を入れれば琥珀バッジ表示、
+    // 空にすれば file の note を "" で上書き → LiveBadge が通常表示に戻る。
+    u.note = e.note;
   }
   // manualLock は常に出力 (true でも false でも)。field-level merge で
   // 既存値を確実に上書きできるようにするため。"true → false" でロック解除
@@ -789,12 +798,14 @@ export function EditMatchesPage() {
         const inScoreA = m.score ? String(m.score.away) : "";
         const inPkH = m.penaltyScore ? String(m.penaltyScore.home) : "";
         const inPkA = m.penaltyScore ? String(m.penaltyScore.away) : "";
+        const inNote = m.note ?? "";
         if (
           cur.status === inPhase &&
           cur.scoreHome === inScoreH &&
           cur.scoreAway === inScoreA &&
           cur.pkHome === inPkH &&
-          cur.pkAway === inPkA
+          cur.pkAway === inPkA &&
+          cur.note === inNote
         )
           continue;
         next[m.id] = {
@@ -804,6 +815,7 @@ export function EditMatchesPage() {
           scoreAway: inScoreA,
           pkHome: inPkH,
           pkAway: inPkA,
+          note: inNote,
         };
         changed = true;
       }
@@ -1215,6 +1227,7 @@ export function EditMatchesPage() {
               <th>スコア</th>
               <th>PK</th>
               <th>状態</th>
+              <th title="ライブ中に琥珀色バッジで表示されるテロップ (例: 中断中)。空欄で解除。">テロップ</th>
               <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
               <th>得点者</th>
             </tr>
@@ -1353,6 +1366,20 @@ export function EditMatchesPage() {
                         <option value="extra-time">延長戦</option>
                         <option value="finished">finished</option>
                       </select>
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={e.note}
+                        onChange={(ev) =>
+                          updateEdit(m.id, { note: ev.target.value })
+                        }
+                        placeholder="例: 中断中"
+                        maxLength={12}
+                        style={{ width: "6rem" }}
+                        aria-label={`${m.id} のテロップ`}
+                        title="ライブ中に琥珀色バッジで表示されます (例: 中断中)。空欄にすると解除。manualLock=true 必須。"
+                      />
                     </td>
                     <td style={{ textAlign: "center" }}>
                       <input

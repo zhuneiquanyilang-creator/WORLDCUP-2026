@@ -222,6 +222,21 @@ export class FootballDataLiveSource implements LiveSource {
     const status = mapStatus(fx.status);
     if (status) update.status = status;
 
+    // SUSPENDED (悪天候・安全上等の長期中断) を FD が返した場合は note="中断中" を
+    // 立てて琥珀色バッジを自動表示。IN_PLAY / LIVE / PAUSED (通常進行 or HT)
+    // に戻った場合は note="" で明示クリアして通常の LIVE バッジに戻す。
+    // これで中断 → 再開の自動追従が polling で完結する。
+    if (fx.status === "SUSPENDED") {
+      update.status = "live"; // 表示上はライブ扱いを維持
+      update.note = "中断中";
+    } else if (
+      fx.status === "IN_PLAY" ||
+      fx.status === "LIVE" ||
+      fx.status === "PAUSED"
+    ) {
+      update.note = "";
+    }
+
     const ft = fx.score?.fullTime;
     const pk = fx.score?.penalties;
     // PK 戦進行中、FD は fullTime に PK 本数を加算した「累計」を返す
