@@ -2,6 +2,7 @@ import type { Match, MatchStatus } from "@/types/match";
 import type { LiveUpdate } from "@/types/live";
 import type { LiveSource } from "./liveSource";
 import { dataUrl } from "@/utils/dataUrl";
+import { loadMatchOverrides } from "@/utils/matchOverrides";
 
 /**
  * Football-Data.org v4 を使ったライブソース。
@@ -170,25 +171,30 @@ function mapStatus(s: FdMatch["status"]): MatchStatus | undefined {
 
 function statusLabel(
   s: FdMatch["status"],
-  _minute?: number | null,
-  duration?: string
+  _minute: number | null | undefined,
+  duration: string | undefined,
+  prevLabel: string | undefined
 ): string {
   // 方針: FD が「明示的に判別できる状態」だけラベルを付ける。前半/後半の
-  // 区別は FD からは取れない (IN_PLAY だけで minute は不安定) ので、
-  // REGULAR 進行中は **空文字** を返して UI に何も出さない。
+  // 区別は FD からは取れないので、HT を **一度でも観測したら** 以降の
+  // IN_PLAY REGULAR は "2nd half" として扱う (prevLabel を確認)。
   //   - PAUSED (ほぼハーフタイム) → "Halftime"
   //   - IN_PLAY + EXTRA_TIME → "Extra time"
   //   - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"
-  //   - IN_PLAY + REGULAR → ""  (前半/後半どちらか判別不可能なので空)
+  //   - IN_PLAY + REGULAR → HT 経験済みなら "2nd half"、未経験なら ""
   //   - FINISHED → "Full time"
   //   - それ以外 → ""
-  // 経過分数から 1st/2nd half を推測するのはやめた (中断・時計不整合で誤動作するため)。
+  const prevPastHalftime =
+    prevLabel === "Halftime" ||
+    prevLabel === "2nd half" ||
+    prevLabel === "Extra time" ||
+    prevLabel === "Penalty";
   if (s === "PAUSED") return "Halftime";
   if (s === "FINISHED") return "Full time";
   if (s === "IN_PLAY" || s === "LIVE") {
     if (duration === "EXTRA_TIME") return "Extra time";
     if (duration === "PENALTY_SHOOTOUT") return "Penalty";
-    return "";
+    return prevPastHalftime ? "2nd half" : "";
   }
   return "";
 }
@@ -267,10 +273,17 @@ export class FootballDataLiveSource implements LiveSource {
       update.penaltyScore = { home: pk.home, away: pk.away };
     }
 
+    // 「HT を一度観測したら以降の IN_PLAY は 2nd half」用に prev の liveLabel
+    // を live layer (matchOverrides) と base の Match から拾って渡す。
+    // matchOverrides 側が優先 (最新の観測が反映されている)。
+    const overrides = loadMatchOverrides();
+    const prevLabel =
+      overrides[match.id]?.liveLabel ?? match.liveLabel ?? undefined;
     update.liveLabel = statusLabel(
       fx.status,
       fx.minute ?? undefined,
-      fx.score?.duration
+      fx.score?.duration,
+      prevLabel
     );
 
     return update;

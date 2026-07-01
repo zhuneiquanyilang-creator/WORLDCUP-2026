@@ -32440,6 +32440,20 @@
         "playerName": "ノア・サディキ",
         "type": "Y"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 61,
+        "teamId": "ENG",
+        "inName": "ブカヨ・サカ",
+        "outName": "ノニ・マドゥエケ"
+      },
+      {
+        "minute": 61,
+        "teamId": "ENG",
+        "inName": "アンソニー・ゴードン",
+        "outName": "マーカス・ラッシュフォード"
+      }
     ]
   },
   "m082": {

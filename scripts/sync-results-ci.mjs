@@ -116,23 +116,30 @@ async function main() {
       update.note = "";
     }
 
-    // liveLabel: FD の状態から一意に判別できるものだけ書き込む。
-    // 公開サイト訪問者にも HT/延長/PK の表示を出せるようにする。
-    // - PAUSED → "Halftime"、IN_PLAY + EXTRA_TIME → "Extra time"
-    // - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"、IN_PLAY + REGULAR → ""
+    const prev = existing[matchId] ?? {};
+
+    // liveLabel: FD の状態から書き込む。公開サイトも HT/後半/延長/PK を表示できるように。
+    // 「HT を一度でも観測したら以降の IN_PLAY REGULAR は "2nd half"」方式で前半/後半を追跡する。
+    // - PAUSED → "Halftime"
+    // - IN_PLAY + EXTRA_TIME → "Extra time"
+    // - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"
+    // - IN_PLAY + REGULAR → HT 経験済みなら "2nd half"、未経験なら ""
     // - FINISHED → "" (試合終了で HT ラベルをクリア)
     // SCHEDULED/TIMED/POSTPONED/SUSPENDED は現状値を保持。
+    const prevPastHalftime =
+      prev.liveLabel === "Halftime" ||
+      prev.liveLabel === "2nd half" ||
+      prev.liveLabel === "Extra time" ||
+      prev.liveLabel === "Penalty";
     if (fx.status === "PAUSED") {
       update.liveLabel = "Halftime";
     } else if (fx.status === "IN_PLAY" || fx.status === "LIVE") {
       if (fx.score?.duration === "EXTRA_TIME") update.liveLabel = "Extra time";
       else if (fx.score?.duration === "PENALTY_SHOOTOUT") update.liveLabel = "Penalty";
-      else update.liveLabel = "";
+      else update.liveLabel = prevPastHalftime ? "2nd half" : "";
     } else if (fx.status === "FINISHED" || fx.status === "AWARDED") {
       update.liveLabel = "";
     }
-
-    const prev = existing[matchId] ?? {};
     // manualLock: true なら手動値を保護するため自動更新スキップ。
     // /edit/matches で確定したスコア (Football-Data と食い違っているケース等)
     // を Actions による上書きから守る。note (中断中 等) も同様に保護される。
