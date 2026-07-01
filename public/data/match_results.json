@@ -32118,9 +32118,9 @@
   },
   "m080": {
     "matchId": "m080",
-    "status": "live",
-    "manualLock": false,
-    "liveLabel": "",
+    "status": "finished",
+    "manualLock": true,
+    "liveLabel": "Full time",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
