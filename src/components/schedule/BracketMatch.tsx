@@ -24,11 +24,13 @@ export function BracketMatch({ match, teamMap }: Props) {
   const live = isLive(match);
   const navigate = useNavigate();
 
-  // 敗者側を薄く表示するための判定。試合が finished かつ勝敗が決まっている時のみ。
+  // 敗者側を薄く表示するための判定。
+  // 条件: status === "finished" **かつ** live 枠外 (二重チェック)。
+  // → ライブ中 (KO 〜 KO+135/180 分) は絶対に薄くしない。試合終了後のみ薄化。
   // 90 分同点で PK 決着した場合は penaltyScore の勝者を敗者判定に使う。
   let homeLost = false;
   let awayLost = false;
-  if (match.status === "finished" && score) {
+  if (match.status === "finished" && !live && score) {
     if (score.home > score.away) awayLost = true;
     else if (score.away > score.home) homeLost = true;
     else if (match.penaltyScore) {
