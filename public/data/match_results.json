@@ -32022,6 +32022,20 @@
         "type": "Y",
         "addedTime": 2
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "ECU",
+        "inName": "ヤイマル・メディナ",
+        "outName": "ホエル・オルドニェス"
+      },
+      {
+        "minute": 46,
+        "teamId": "ECU",
+        "inName": "アンヘロ・プレシアド",
+        "outName": "アラン・フランコ"
+      }
     ]
   },
   "m080": {
