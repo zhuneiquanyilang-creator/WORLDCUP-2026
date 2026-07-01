@@ -32420,6 +32420,12 @@
     ],
     "bookings": [
       {
+        "minute": 19,
+        "teamId": "ENG",
+        "playerName": "ジュード・ベリンガム",
+        "type": "Y"
+      },
+      {
         "minute": 28,
         "teamId": "COD",
         "playerName": "ノア・サディキ",
