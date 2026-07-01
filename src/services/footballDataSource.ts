@@ -170,25 +170,27 @@ function mapStatus(s: FdMatch["status"]): MatchStatus | undefined {
 
 function statusLabel(
   s: FdMatch["status"],
-  minute?: number | null,
+  _minute?: number | null,
   duration?: string
 ): string {
+  // 方針: FD が「明示的に判別できる状態」だけラベルを付ける。前半/後半の
+  // 区別は FD からは取れない (IN_PLAY だけで minute は不安定) ので、
+  // REGULAR 進行中は **空文字** を返して UI に何も出さない。
+  //   - PAUSED (ほぼハーフタイム) → "Halftime"
+  //   - IN_PLAY + EXTRA_TIME → "Extra time"
+  //   - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"
+  //   - IN_PLAY + REGULAR → ""  (前半/後半どちらか判別不可能なので空)
+  //   - FINISHED → "Full time"
+  //   - それ以外 → ""
+  // 経過分数から 1st/2nd half を推測するのはやめた (中断・時計不整合で誤動作するため)。
   if (s === "PAUSED") return "Halftime";
   if (s === "FINISHED") return "Full time";
   if (s === "IN_PLAY" || s === "LIVE") {
-    if (duration === "EXTRA_TIME") {
-      if (typeof minute === "number" && minute > 105) return "Extra time 2nd";
-      return "Extra time 1st";
-    }
+    if (duration === "EXTRA_TIME") return "Extra time";
     if (duration === "PENALTY_SHOOTOUT") return "Penalty";
-    // REGULAR (= 1st/2nd half + ロスタイム)
-    if (typeof minute === "number" && minute > 0) {
-      return minute > 45 ? "2nd half" : "1st half";
-    }
-    return "Live";
+    return "";
   }
-  if (s === "SCHEDULED" || s === "TIMED") return "Scheduled";
-  return String(s);
+  return "";
 }
 
 // --- LiveSource 実装 ---------------------------------------------------------

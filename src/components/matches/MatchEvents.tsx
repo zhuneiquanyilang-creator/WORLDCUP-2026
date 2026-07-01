@@ -122,21 +122,16 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
       }
       list.push(ev);
     }
-    // ライブ取得で「ハーフタイム以降」と分かっているときは、末尾にもハーフタイム
+    // ライブ取得で「ハーフタイム以降」と分かっているときのみ、末尾にハーフタイム
     // ディバイダーを置く (まだ後半イベントが入っておらずループ内で挿入されない場合)。
     //
-    // 主判定: API の liveLabel が halftime/2nd half/extra time/penalty を含む。
-    //   Football-Data.org の PAUSED → "Halftime"、IN_PLAY + minute>45 → "2nd half"
-    //   が footballDataSource.ts で設定される。
+    // 判定基準は **liveLabel のみ** (FD の PAUSED → "Halftime" 等)。
+    // KO 時刻からの経過分数によるフォールバックは廃止した。理由: 中断や FD 側
+    // 時計ズレで実時間が 60 分超えても実際は前半なケース (例: m079) があり、
+    // 誤って HT divider が表示される事故があったため。FD が状態を返せない
+    // 場合はディバイダー無しで無地表示のままにする方が安全。
     //
-    // フォールバック: liveLabel が "Live" (= FD が minute を返さなかった IN_PLAY)
-    //   のとき、後半開始直後に HT divider が一瞬消える事象があった。KO 時刻からの
-    //   実経過時間が **60 分超** なら「1st half + ロスタイム + HT 休憩」を確実に
-    //   過ぎているので HT として扱う。50 分閾値だと前半ロスタイム中に誤発火する
-    //   ため不可。60 分は (45 + 7 stoppage + 15 break ≈ 67 分) より短いが、
-    //   ロスタイム実時間 7 分は稀なので実用上問題なし。
-    //
-    // finished の自動付与はしない (前半のみゴールの試合で末尾に出てしまうため)。
+    // finished の自動付与もしない (前半のみゴールの試合で末尾に出てしまうため)。
     if (!htInserted && match.status === "live") {
       const labelPastHalftime =
         ll.includes("halftime") ||
@@ -145,18 +140,7 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
         ll.includes("second half") ||
         ll.includes("extra time") ||
         ll.includes("penalty");
-      // liveLabel が明示的に "1st half" や "scheduled" 等の「前半以前」を示すときは
-      // 時間ベースのフォールバックを無効化する。中断・再開等で KO からの実時間が
-      // 60 分を超えていても、liveLabel で "1st half" と分かっているなら HT 未到達。
-      const labelBeforeHalftime =
-        ll.includes("1st half") || ll.includes("first half");
-      const koMs = new Date(match.date).getTime();
-      const elapsedMin = (Date.now() - koMs) / 60_000;
-      const timePastHalftime =
-        !labelBeforeHalftime &&
-        Number.isFinite(elapsedMin) &&
-        elapsedMin > 60;
-      if (labelPastHalftime || timePastHalftime) {
+      if (labelPastHalftime) {
         list.push({ kind: "halftime" });
       }
     }
@@ -180,7 +164,6 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
     events,
     match.status,
     match.liveLabel,
-    match.date,
     match.penaltyScore,
     match.penaltyShootout,
   ]);

@@ -31702,7 +31702,7 @@
       "home": 2,
       "away": 0
     },
-    "manualLock": true,
+    "manualLock": false,
     "liveLabel": "1st half",
     "homeFormation": {
       "shape": "4-3-3",
