@@ -32035,6 +32035,18 @@
         "teamId": "ECU",
         "inName": "アンヘロ・プレシアド",
         "outName": "アラン・フランコ"
+      },
+      {
+        "minute": 59,
+        "teamId": "MEX",
+        "inName": "ブライアン・グティエレス",
+        "outName": "ヒルベルト・モラ"
+      },
+      {
+        "minute": 59,
+        "teamId": "ECU",
+        "inName": "ケビン・ロドリゲス",
+        "outName": "エネル・バレンシア"
       }
     ]
   },
