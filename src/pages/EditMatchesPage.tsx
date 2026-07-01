@@ -1229,7 +1229,6 @@ export function EditMatchesPage() {
               <th>状態</th>
               <th title="ライブ中に琥珀色バッジで表示されるテロップ (例: 中断中)。空欄で解除。">テロップ</th>
               <th title="チェックすると Football-Data からの自動更新を停止し、現状の score/status/PK を保護します。">🔒</th>
-              <th>得点者</th>
             </tr>
           </thead>
           <tbody>
@@ -1258,7 +1257,19 @@ export function EditMatchesPage() {
                     </td>
                     <td>{STAGE_LABEL[m.stage]}</td>
                     <td>
-                      {home} <span className={styles.vs}>vs</span> {away}
+                      <div>
+                        {home} <span className={styles.vs}>vs</span> {away}
+                      </div>
+                      <button
+                        type="button"
+                        className={styles.expandBtn}
+                        onClick={() =>
+                          setExpandedId(expanded ? null : m.id)
+                        }
+                        style={{ marginTop: "0.3rem" }}
+                      >
+                        {expanded ? "▲ 閉じる" : `▼ 編集 (${totalEvents})`}
+                      </button>
                     </td>
                     <td className={styles.scoreCell}>
                       <input
@@ -1392,21 +1403,10 @@ export function EditMatchesPage() {
                         title="チェック中: Football-Data からの自動更新を停止し、ここで保存したスコア/状態/PK を保護します。"
                       />
                     </td>
-                    <td className={styles.actionCell}>
-                      <button
-                        type="button"
-                        className={styles.expandBtn}
-                        onClick={() =>
-                          setExpandedId(expanded ? null : m.id)
-                        }
-                      >
-                        {expanded ? "▲ 閉じる" : `▼ 編集 (${totalEvents})`}
-                      </button>
-                    </td>
                   </tr>
                   {expanded && (
                     <tr className={styles.expandedRow}>
-                      <td colSpan={6}>
+                      <td colSpan={8}>
                         <div className={styles.editorStack}>
                           <GoalEditor
                             match={m}
