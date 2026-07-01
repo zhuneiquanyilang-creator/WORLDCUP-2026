@@ -31699,7 +31699,7 @@
     "status": "live",
     "note": "",
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
     "manualLock": true,
@@ -31993,7 +31993,18 @@
           "name": "ヤイマル・メディナ"
         }
       ]
-    }
+    },
+    "goals": [
+      {
+        "minute": 22,
+        "teamId": "MEX",
+        "type": "normal",
+        "playerId": "p_mex_22",
+        "playerName": "フリアン・キニョネス",
+        "assistPlayerId": "p_mex_26",
+        "assistPlayerName": "ロベルト・アルバラード"
+      }
+    ]
   },
   "m080": {
     "matchId": "m080",
