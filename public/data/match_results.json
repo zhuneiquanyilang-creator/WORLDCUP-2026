@@ -32120,7 +32120,7 @@
     "matchId": "m080",
     "status": "live",
     "manualLock": false,
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -32453,6 +32453,12 @@
         "teamId": "ENG",
         "inName": "アンソニー・ゴードン",
         "outName": "マーカス・ラッシュフォード"
+      },
+      {
+        "minute": 64,
+        "teamId": "COD",
+        "inName": "メシャック・エリア",
+        "outName": "ナタナエル・ムブク"
       }
     ]
   },
