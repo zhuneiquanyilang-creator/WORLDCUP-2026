@@ -32817,7 +32817,15 @@
           "name": "エル・アジ・マリック・ディウフ"
         }
       ]
-    }
+    },
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "BEL",
+        "inName": "ロメル・ルカク",
+        "outName": "シャルル・デケテラーレ"
+      }
+    ]
   },
   "m081": {
     "matchId": "m081",
