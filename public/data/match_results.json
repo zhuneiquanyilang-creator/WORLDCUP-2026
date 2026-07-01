@@ -32425,6 +32425,15 @@
         "playerName": "ブライアン・チペンガ",
         "assistPlayerId": "p_cod_10",
         "assistPlayerName": "シャンセル・ムベンバ"
+      },
+      {
+        "minute": 75,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_20",
+        "playerName": "ハリー・ケイン",
+        "assistPlayerId": "p_eng_25",
+        "assistPlayerName": "アンソニー・ゴードン"
       }
     ],
     "bookings": [
@@ -32459,6 +32468,24 @@
         "teamId": "COD",
         "inName": "メシャック・エリア",
         "outName": "ナタナエル・ムブク"
+      },
+      {
+        "minute": 71,
+        "teamId": "ENG",
+        "inName": "エベレチ・エゼ",
+        "outName": "ジェド・スペンス"
+      },
+      {
+        "minute": 76,
+        "teamId": "COD",
+        "inName": "テオ・ボンゴンダ",
+        "outName": "ブライアン・チペンガ"
+      },
+      {
+        "minute": 76,
+        "teamId": "COD",
+        "inName": "エド・カイェンベ",
+        "outName": "ンガラエル・ムカウ"
       }
     ]
   },
