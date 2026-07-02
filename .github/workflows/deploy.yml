@@ -19,10 +19,13 @@ permissions:
 
 concurrency:
   group: pages
-  # false にすると新しい deploy が来ても古いのを cancel せず順番に待つ。
-  # true だと auto-push が短時間に複数走った時に "Canceling since a higher
-  # priority waiting request for pages exists" で古い deploy が全部失敗する。
-  cancel-in-progress: false
+  # true にすると新しい push が来た時点で古い deploy をキャンセルする。
+  # false にすると queue で待つが、古い deploy が新しい deploy の後に実行されて
+  # 公開サイトを古い内容で上書きしてしまうケースが発生する
+  # (例: 20:58 push A → build 待機、20:59 push B → build 完了 → deploy B 完了、
+  #      その後 A の deploy が完了して B の内容を A の古い内容で上書き)。
+  # cancel エラー表示は出るが、確実に最新の sha が公開サイトに残るためには true 必須。
+  cancel-in-progress: true
 
 jobs:
   build:
