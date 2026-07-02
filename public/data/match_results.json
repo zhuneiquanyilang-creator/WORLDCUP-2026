@@ -33349,8 +33349,8 @@
   },
   "m084": {
     "matchId": "m084",
-    "status": "live",
-    "manualLock": false,
+    "status": "finished",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -33675,7 +33675,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "Full time",
     "substitutions": [
       {
         "minute": 46,
