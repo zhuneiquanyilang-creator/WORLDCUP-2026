@@ -33704,6 +33704,14 @@
         "inName": "フェラン・トーレス",
         "outName": "アレックス・バエナ"
       }
+    ],
+    "bookings": [
+      {
+        "minute": 83,
+        "teamId": "AUT",
+        "playerName": "シュテファン・ポッシュ",
+        "type": "Y"
+      }
     ]
   },
   "m083": {
