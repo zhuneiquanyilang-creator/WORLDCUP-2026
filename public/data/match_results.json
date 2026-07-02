@@ -33279,6 +33279,18 @@
         "teamId": "BIH",
         "inName": "エスミル・バイラクタレビッチ",
         "outName": "エディン・ジェコ"
+      },
+      {
+        "minute": 75,
+        "teamId": "BIH",
+        "inName": "ハリス・タバコビッチ",
+        "outName": "セアド・コラシナツ"
+      },
+      {
+        "minute": 75,
+        "teamId": "BIH",
+        "inName": "アマル・メミッチ",
+        "outName": "ニコラ・カティッチ"
       }
     ],
     "bookings": [
