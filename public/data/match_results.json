@@ -33657,7 +33657,21 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "2nd half"
+    "liveLabel": "2nd half",
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "AUT",
+        "inName": "カーニー・チュクエメカ",
+        "outName": "ニコラス・サイヴァルト"
+      },
+      {
+        "minute": 46,
+        "teamId": "AUT",
+        "inName": "フロリアン・グリリッチュ",
+        "outName": "ザヴェル・シュラガー"
+      }
+    ]
   },
   "m083": {
     "matchId": "m083",
