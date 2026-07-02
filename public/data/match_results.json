@@ -34049,7 +34049,15 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "1st half",
+    "bookings": [
+      {
+        "minute": 17,
+        "teamId": "POR",
+        "playerName": "ルベン・ディアス",
+        "type": "Y"
+      }
+    ]
   },
   "m085": {
     "matchId": "m085",
