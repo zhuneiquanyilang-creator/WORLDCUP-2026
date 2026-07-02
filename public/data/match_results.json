@@ -32953,7 +32953,7 @@
   },
   "m081": {
     "matchId": "m081",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "3-4-2-1",
@@ -33244,7 +33244,13 @@
           "name": "エルミン・マフミッチ"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "Halftime"
   },
   "m084": {
     "matchId": "m084",
