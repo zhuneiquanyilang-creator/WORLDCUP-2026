@@ -33250,7 +33250,16 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime"
+    "liveLabel": "Halftime",
+    "goals": [
+      {
+        "minute": 45,
+        "teamId": "USA",
+        "type": "normal",
+        "playerId": "p_usa_23",
+        "playerName": "フォラリン・バログン"
+      }
+    ]
   },
   "m084": {
     "matchId": "m084",
