@@ -119,6 +119,15 @@ export function computePlayerMatches(
     const subIn = subs.find((s) => nameMatchesPlayer(player, s.inName));
     const subOut = subs.find((s) => nameMatchesPlayer(player, s.outName));
 
+    // ハーフタイム交代の丸め: minute=46 (後半開始直前の交代記録) はサッカーの
+    // 慣例で「前半 45 分終了時の交代」= 出場時間 45 分として扱う。
+    // 先発 → 46' で出た選手は "先発→45'" (45 分出場) / 46' から出た選手は
+    // "45'〜" (45 分出場) と表示させるための丸め。
+    const htNormalize = (min: number | undefined): number | undefined =>
+      min === 46 ? 45 : min;
+    const subOutMinute = htNormalize(subOut?.minute);
+    const subInMinute = htNormalize(subIn?.minute);
+
     // 本人のレッドカード退場時刻 (R / Y2R / YR のうち最も早いもの)。
     // 出場終了の上限として subOut と比較し、早い方を採用する。
     const redCard = (m.bookings ?? [])
@@ -146,12 +155,12 @@ export function computePlayerMatches(
     if (inStarting) {
       status = "starter";
       startMinute = 0;
-      endMinute = earliestEnd(subOut?.minute, redOutMinute, matchEnd);
+      endMinute = earliestEnd(subOutMinute, redOutMinute, matchEnd);
       minutes = Math.max(0, endMinute - startMinute);
     } else if (subIn) {
       status = "sub-on";
-      startMinute = subIn.minute;
-      endMinute = earliestEnd(subOut?.minute, redOutMinute, matchEnd);
+      startMinute = subInMinute ?? subIn.minute;
+      endMinute = earliestEnd(subOutMinute, redOutMinute, matchEnd);
       minutes = Math.max(0, endMinute - startMinute);
     } else if (inBench) {
       status = "bench";
