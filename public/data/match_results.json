@@ -33349,7 +33349,7 @@
   },
   "m084": {
     "matchId": "m084",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -33655,7 +33655,9 @@
     "score": {
       "home": 1,
       "away": 0
-    }
+    },
+    "note": "",
+    "liveLabel": "Halftime"
   },
   "m083": {
     "matchId": "m083",
