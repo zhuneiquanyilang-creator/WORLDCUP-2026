@@ -33662,7 +33662,7 @@
       }
     ],
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "note": "",
@@ -33691,6 +33691,18 @@
         "teamId": "AUT",
         "inName": "マルコ・アルナウトビッチ",
         "outName": "ミヒャエル・グレゴリッチュ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ESP",
+        "inName": "ミケル・メリーノ",
+        "outName": "ダニ・オルモ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ESP",
+        "inName": "フェラン・トーレス",
+        "outName": "アレックス・バエナ"
       }
     ]
   },
