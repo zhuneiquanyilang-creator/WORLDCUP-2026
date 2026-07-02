@@ -33671,7 +33671,7 @@
       }
     ],
     "score": {
-      "home": 2,
+      "home": 3,
       "away": 0
     },
     "note": "",
@@ -33724,6 +33724,20 @@
         "teamId": "ESP",
         "inName": "ガビ",
         "outName": "ラミン・ヤマル"
+      },
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "inName": "マルク・プビル",
+        "outName": "エメリク・ラポルテ",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "inName": "ファビアン・ルイス",
+        "outName": "ペドリ",
+        "addedTime": 3
       }
     ],
     "bookings": [
