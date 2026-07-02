@@ -33640,7 +33640,18 @@
           "name": "アレッサンドロ・シェプフ"
         }
       ]
-    }
+    },
+    "goals": [
+      {
+        "minute": 36,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_23",
+        "playerName": "ミケル・オヤルサバル",
+        "assistPlayerId": "p_esp_11",
+        "assistPlayerName": "マルク・ククレジャ"
+      }
+    ]
   },
   "m083": {
     "matchId": "m083",
