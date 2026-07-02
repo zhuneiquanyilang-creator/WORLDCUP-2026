@@ -33659,6 +33659,15 @@
         "playerName": "ペドロ・ポロ",
         "assistPlayerId": "p_esp_12",
         "assistPlayerName": "アレックス・バエナ"
+      },
+      {
+        "minute": 89,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_23",
+        "playerName": "ミケル・オヤルサバル",
+        "assistPlayerId": "p_esp_11",
+        "assistPlayerName": "マルク・ククレジャ"
       }
     ],
     "score": {
@@ -33703,6 +33712,12 @@
         "teamId": "ESP",
         "inName": "フェラン・トーレス",
         "outName": "アレックス・バエナ"
+      },
+      {
+        "minute": 85,
+        "teamId": "AUT",
+        "inName": "アレクサンダー・プラス",
+        "outName": "シュテファン・ポッシュ"
       },
       {
         "minute": 86,
