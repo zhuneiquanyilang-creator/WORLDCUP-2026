@@ -33670,6 +33670,18 @@
         "teamId": "AUT",
         "inName": "フロリアン・グリリッチュ",
         "outName": "ザヴェル・シュラガー"
+      },
+      {
+        "minute": 60,
+        "teamId": "AUT",
+        "inName": "サーシャ・カライジッチ",
+        "outName": "ロマーノ・シュミット"
+      },
+      {
+        "minute": 60,
+        "teamId": "AUT",
+        "inName": "マルコ・アルナウトビッチ",
+        "outName": "ミヒャエル・グレゴリッチュ"
       }
     ]
   },
