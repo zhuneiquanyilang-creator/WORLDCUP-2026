@@ -33651,7 +33651,11 @@
         "assistPlayerId": "p_esp_11",
         "assistPlayerName": "マルク・ククレジャ"
       }
-    ]
+    ],
+    "score": {
+      "home": 1,
+      "away": 0
+    }
   },
   "m083": {
     "matchId": "m083",
