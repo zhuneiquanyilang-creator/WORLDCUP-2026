@@ -32579,7 +32579,8 @@
           "number": 8,
           "name": "ユーリ・ティーレマンス",
           "role": "MF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -33258,6 +33259,26 @@
         "type": "normal",
         "playerId": "p_usa_23",
         "playerName": "フォラリン・バログン"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 51,
+        "teamId": "BIH",
+        "inName": "ベンヤミン・タヒロビッチ",
+        "outName": "イヴァン・シュニッチ"
+      },
+      {
+        "minute": 51,
+        "teamId": "BIH",
+        "inName": "エルミン・マフミッチ",
+        "outName": "アルミン・ギゴビッチ"
+      },
+      {
+        "minute": 51,
+        "teamId": "BIH",
+        "inName": "エスミル・バイラクタレビッチ",
+        "outName": "エディン・ジェコ"
       }
     ]
   },
