@@ -677,7 +677,7 @@ async function runPeriodicCatchup(apiKey: string) {
       } else if (fx.status === "IN_PLAY" || fx.status === "LIVE") {
         if (fx.score?.duration === "EXTRA_TIME") update.liveLabel = "Extra time";
         else if (fx.score?.duration === "PENALTY_SHOOTOUT") update.liveLabel = "Penalty";
-        else update.liveLabel = prevPastHalftime ? "2nd half" : "";
+        else update.liveLabel = prevPastHalftime ? "2nd half" : "1st half";
       } else if (fx.status === "FINISHED" || fx.status === "AWARDED") {
         update.liveLabel = "";
       }
