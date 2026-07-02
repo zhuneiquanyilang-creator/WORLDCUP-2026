@@ -33650,6 +33650,15 @@
         "playerName": "ミケル・オヤルサバル",
         "assistPlayerId": "p_esp_11",
         "assistPlayerName": "マルク・ククレジャ"
+      },
+      {
+        "minute": 66,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_10",
+        "playerName": "ペドロ・ポロ",
+        "assistPlayerId": "p_esp_12",
+        "assistPlayerName": "アレックス・バエナ"
       }
     ],
     "score": {
