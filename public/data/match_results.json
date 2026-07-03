@@ -34898,6 +34898,18 @@
         "teamId": "AUS",
         "inName": "カイ・トレウィン",
         "outName": "ジョーダン・ボス"
+      },
+      {
+        "minute": 67,
+        "teamId": "EGY",
+        "inName": "ハイセム・ハッサン",
+        "outName": "モスタファ・ジコ"
+      },
+      {
+        "minute": 67,
+        "teamId": "EGY",
+        "inName": "ホッサム・アブデルマギド",
+        "outName": "ハムディ・ファティ"
       }
     ]
   },
