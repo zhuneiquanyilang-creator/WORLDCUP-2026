@@ -34565,13 +34565,10 @@
   },
   "m088": {
     "matchId": "m088",
-    "status": "live",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
+    "status": "scheduled",
+    "manualLock": true,
     "note": "",
-    "liveLabel": "Halftime"
+    "liveLabel": ""
   },
   "m086": {
     "matchId": "m086",
@@ -34579,7 +34576,13 @@
   },
   "m087": {
     "matchId": "m087",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "note": "",
+    "liveLabel": "Halftime"
   },
   "m089": {
     "matchId": "m089",
