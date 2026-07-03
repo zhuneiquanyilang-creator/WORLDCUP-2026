@@ -34065,6 +34065,17 @@
         "inName": "イゴール・マタノビッチ",
         "outName": "アンテ・ブディミル"
       }
+    ],
+    "goals": [
+      {
+        "minute": 53,
+        "teamId": "CRO",
+        "type": "normal",
+        "playerId": "p_cro_24",
+        "playerName": "イヴァン・ペリシッチ",
+        "assistPlayerId": "p_cro_7",
+        "assistPlayerName": "ヨシプ・スタニシッチ"
+      }
     ]
   },
   "m085": {
