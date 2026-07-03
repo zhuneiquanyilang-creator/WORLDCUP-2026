@@ -34057,6 +34057,14 @@
         "playerName": "ルベン・ディアス",
         "type": "Y"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "CRO",
+        "inName": "イゴール・マタノビッチ",
+        "outName": "アンテ・ブディミル"
+      }
     ]
   },
   "m085": {
