@@ -34045,7 +34045,7 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 1
     },
     "note": "",
@@ -34094,6 +34094,12 @@
         "teamId": "POR",
         "inName": "ゴンサロ・ラモス",
         "outName": "ジョアン・カンセロ"
+      },
+      {
+        "minute": 68,
+        "teamId": "CRO",
+        "inName": "マリオ・パシャリッチ",
+        "outName": "マルティン・バトゥリナ"
       }
     ],
     "goals": [
