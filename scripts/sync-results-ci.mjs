@@ -129,10 +129,24 @@ async function main() {
     const prevPastHalftime =
       prev.liveLabel === "Halftime" ||
       prev.liveLabel === "2nd half" ||
+      prev.liveLabel === "End of 2nd half" ||
       prev.liveLabel === "Extra time" ||
+      prev.liveLabel === "End of extra time" ||
       prev.liveLabel === "Penalty";
     if (fx.status === "PAUSED") {
-      update.liveLabel = "Halftime";
+      if (
+        prev.liveLabel === "Extra time" ||
+        prev.liveLabel === "End of extra time"
+      ) {
+        update.liveLabel = "End of extra time";
+      } else if (
+        prev.liveLabel === "2nd half" ||
+        prev.liveLabel === "End of 2nd half"
+      ) {
+        update.liveLabel = "End of 2nd half";
+      } else {
+        update.liveLabel = "Halftime";
+      }
     } else if (fx.status === "IN_PLAY" || fx.status === "LIVE") {
       if (fx.score?.duration === "EXTRA_TIME") update.liveLabel = "Extra time";
       else if (fx.score?.duration === "PENALTY_SHOOTOUT") update.liveLabel = "Penalty";

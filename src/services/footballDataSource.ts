@@ -178,7 +178,10 @@ function statusLabel(
   // 方針: FD が「明示的に判別できる状態」だけラベルを付ける。前半/後半の
   // 区別は FD からは取れないので、HT を **一度でも観測したら** 以降の
   // IN_PLAY REGULAR は "2nd half"、未観測なら "1st half" として扱う。
-  //   - PAUSED (ほぼハーフタイム) → "Halftime"
+  //   - PAUSED (直前状態で切り分け):
+  //     - prev="2nd half" → "End of 2nd half" (後半終了、延長戦前)
+  //     - prev="Extra time" → "End of extra time" (延長終了、PK 前)
+  //     - それ以外 → "Halftime" (通常のハーフタイム)
   //   - IN_PLAY + EXTRA_TIME → "Extra time"
   //   - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"
   //   - IN_PLAY + REGULAR → HT 経験済みなら "2nd half"、未経験なら "1st half"
@@ -187,9 +190,17 @@ function statusLabel(
   const prevPastHalftime =
     prevLabel === "Halftime" ||
     prevLabel === "2nd half" ||
+    prevLabel === "End of 2nd half" ||
     prevLabel === "Extra time" ||
+    prevLabel === "End of extra time" ||
     prevLabel === "Penalty";
-  if (s === "PAUSED") return "Halftime";
+  if (s === "PAUSED") {
+    if (prevLabel === "Extra time" || prevLabel === "End of extra time")
+      return "End of extra time";
+    if (prevLabel === "2nd half" || prevLabel === "End of 2nd half")
+      return "End of 2nd half";
+    return "Halftime";
+  }
   if (s === "FINISHED") return "Full time";
   if (s === "IN_PLAY" || s === "LIVE") {
     if (duration === "EXTRA_TIME") return "Extra time";

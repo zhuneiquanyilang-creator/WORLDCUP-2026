@@ -670,10 +670,28 @@ async function runPeriodicCatchup(apiKey: string) {
       const prevPastHalftime =
         prev.liveLabel === "Halftime" ||
         prev.liveLabel === "2nd half" ||
+        prev.liveLabel === "End of 2nd half" ||
         prev.liveLabel === "Extra time" ||
+        prev.liveLabel === "End of extra time" ||
         prev.liveLabel === "Penalty";
       if (fx.status === "PAUSED") {
-        update.liveLabel = "Halftime";
+        // PAUSED の意味は直前状態で切り分け:
+        // 後半中 → PAUSED = 後半終了 (延長戦前休憩)
+        // 延長中 → PAUSED = 延長終了 (PK 前休憩)
+        // それ以外 (前半など) → 通常の Halftime
+        if (
+          prev.liveLabel === "Extra time" ||
+          prev.liveLabel === "End of extra time"
+        ) {
+          update.liveLabel = "End of extra time";
+        } else if (
+          prev.liveLabel === "2nd half" ||
+          prev.liveLabel === "End of 2nd half"
+        ) {
+          update.liveLabel = "End of 2nd half";
+        } else {
+          update.liveLabel = "Halftime";
+        }
       } else if (fx.status === "IN_PLAY" || fx.status === "LIVE") {
         if (fx.score?.duration === "EXTRA_TIME") update.liveLabel = "Extra time";
         else if (fx.score?.duration === "PENALTY_SHOOTOUT") update.liveLabel = "Penalty";

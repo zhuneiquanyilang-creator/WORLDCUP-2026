@@ -10,7 +10,9 @@ export function liveBadgeLabel(liveLabel?: string): string {
   if (liveLabel === "Halftime") return "HT";
   if (liveLabel === "1st half") return "前半";
   if (liveLabel === "2nd half") return "後半";
+  if (liveLabel === "End of 2nd half") return "後半終了";
   if (liveLabel === "Extra time") return "延長";
+  if (liveLabel === "End of extra time") return "延長終了";
   if (liveLabel === "Penalty") return "PK";
   return "LIVE";
 }
