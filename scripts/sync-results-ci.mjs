@@ -77,14 +77,38 @@ async function main() {
     const status = mapStatus(fx.status);
     if (status) update.status = status;
     const ft = fx.score?.fullTime;
+    const rt = fx.score?.regularTime;
+    const et = fx.score?.extraTime;
     const pk = fx.score?.penalties;
-    // PK 戦進行中、FD は fullTime に PK 本数を加算した「累計」を返す
-    // (例: 真の FT 1-1 + PK 2-3 → fullTime = 3-4 で返る)。
-    // duration === "PENALTY_SHOOTOUT" かつ未確定 (FINISHED 以外) のとき
-    // fullTime - penalties で真の FT に補正。FINISHED 後は FD が直すのでそのまま。
+    // FD の score フィールドの意味:
+    //   regularTime = 90 分終了時のスコア (信頼できる)
+    //   extraTime = 延長で加算された得点
+    //   fullTime = regularTime + extraTime + PK 得点数 (PK 戦後は PK 込みで返る)
+    //   penalties = FD 独自集計だが値が誤ることあり (m087 で 4-4 を返した実績)
+    // 表示スコア = regularTime + extraTime、PK 得点 = fullTime - regularTime - extraTime
+    // regularTime 未提供時のみ旧ロジック (fullTime - penalties) にフォールバック。
     const inShootout = fx.score?.duration === "PENALTY_SHOOTOUT";
-    const isLive = fx.status !== "FINISHED" && fx.status !== "AWARDED";
-    if (typeof ft?.home === "number" && typeof ft?.away === "number") {
+    if (typeof rt?.home === "number" && typeof rt?.away === "number") {
+      const etH = typeof et?.home === "number" ? et.home : 0;
+      const etA = typeof et?.away === "number" ? et.away : 0;
+      update.score = { home: rt.home + etH, away: rt.away + etA };
+      if (
+        inShootout &&
+        typeof ft?.home === "number" &&
+        typeof ft?.away === "number"
+      ) {
+        update.penaltyScore = {
+          home: ft.home - rt.home - etH,
+          away: ft.away - rt.away - etA,
+        };
+      } else if (
+        typeof pk?.home === "number" &&
+        typeof pk?.away === "number"
+      ) {
+        update.penaltyScore = { home: pk.home, away: pk.away };
+      }
+    } else if (typeof ft?.home === "number" && typeof ft?.away === "number") {
+      const isLive = fx.status !== "FINISHED" && fx.status !== "AWARDED";
       if (
         inShootout &&
         isLive &&
@@ -98,9 +122,9 @@ async function main() {
       } else {
         update.score = { home: ft.home, away: ft.away };
       }
-    }
-    if (typeof pk?.home === "number" && typeof pk?.away === "number") {
-      update.penaltyScore = { home: pk.home, away: pk.away };
+      if (typeof pk?.home === "number" && typeof pk?.away === "number") {
+        update.penaltyScore = { home: pk.home, away: pk.away };
+      }
     }
 
     // SUSPENDED (悪天候・安全上等) を検知したら note="中断中" を自動セット、

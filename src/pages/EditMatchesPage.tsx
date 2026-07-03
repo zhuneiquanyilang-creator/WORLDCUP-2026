@@ -1049,17 +1049,17 @@ export function EditMatchesPage() {
     });
   };
 
-  const addPk = (match: Match) => {
+  const addPk = (match: Match, firstTeamIdIfEmpty?: string) => {
     setEdits((prev) => {
       const cur = prev[match.id] ?? freshEditable();
       // 既存の蹴った順から次のチームを推定 (ホーム → アウェイ → ホーム...)。
-      // 最初の 1 本目はホーム側をデフォルトにする (UI で簡単に切替可)。
+      // 空の場合は先攻選択を反映 (未指定ならホームがデフォルト)。
       const last = cur.penaltyShootout[cur.penaltyShootout.length - 1];
       const nextTeamId = last
         ? last.teamId === match.homeTeamId
           ? match.awayTeamId
           : match.homeTeamId
-        : match.homeTeamId;
+        : (firstTeamIdIfEmpty ?? match.homeTeamId);
       const pks = [
         ...cur.penaltyShootout,
         {
@@ -1485,7 +1485,9 @@ export function EditMatchesPage() {
                               onUpdate={(idx, patch) =>
                                 updatePk(m.id, idx, patch)
                               }
-                              onAdd={() => addPk(m)}
+                              onAdd={(firstTeamIdIfEmpty) =>
+                                addPk(m, firstTeamIdIfEmpty)
+                              }
                               onRemove={(idx) => removePk(m.id, idx)}
                               onMove={(idx, dir) => movePk(m.id, idx, dir)}
                             />
@@ -2164,7 +2166,7 @@ type PkShootoutEditorProps = {
   awayTeamName: string;
   playersByTeam: Map<string, Player[]>;
   onUpdate: (idx: number, patch: Partial<PkDraft>) => void;
-  onAdd: () => void;
+  onAdd: (firstTeamIdIfEmpty?: string) => void;
   onRemove: (idx: number) => void;
   onMove: (idx: number, dir: -1 | 1) => void;
 };
@@ -2180,6 +2182,18 @@ function PkShootoutEditor({
   onRemove,
   onMove,
 }: PkShootoutEditorProps) {
+  // 先攻選択: pks 空の状態で「先攻」を選ばせ、それを最初の PK 追加時に使う。
+  // pks が既にあるときは pks[0].teamId が先攻扱いなので UI からは変更不可
+  // (順番を変えたいときは PK エントリ側で teamId を編集する)。
+  const initialFirst = pks[0]?.teamId ?? match.homeTeamId;
+  const [firstTeamId, setFirstTeamId] = useState(initialFirst);
+  // pks[0] が変わったら (別セッション読み込み等) 追従
+  useEffect(() => {
+    if (pks[0]?.teamId && pks[0].teamId !== firstTeamId) {
+      setFirstTeamId(pks[0].teamId);
+    }
+  }, [pks, firstTeamId]);
+
   // 配列順 = 蹴順。ホーム/アウェイの成功数を逐次集計して、各行に「PK 進行表」
   // を出して入力ミスを目視確認しやすくする (例: "2-1" で迎える 4 本目)。
   let homeScored = 0;
@@ -2192,6 +2206,8 @@ function PkShootoutEditor({
     return { home: homeScored, away: awayScored };
   });
 
+  const isEmpty = pks.length === 0;
+
   return (
     <div className={styles.goalEditor}>
       <div className={styles.goalEditorHead}>
@@ -2203,13 +2219,43 @@ function PkShootoutEditor({
             </span>
           )}
         </span>
-        <button type="button" className={styles.addGoalBtn} onClick={onAdd}>
+        <button
+          type="button"
+          className={styles.addGoalBtn}
+          onClick={() => onAdd(isEmpty ? firstTeamId : undefined)}
+        >
           + PK を追加
         </button>
       </div>
-      {pks.length === 0 ? (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          margin: "0.3rem 0 0.5rem",
+          fontSize: "0.85rem",
+        }}
+      >
+        <label htmlFor={`pk-first-${match.id}`}>先攻:</label>
+        <select
+          id={`pk-first-${match.id}`}
+          className={styles.input}
+          value={firstTeamId}
+          onChange={(ev) => setFirstTeamId(ev.target.value)}
+          disabled={!isEmpty}
+          title={
+            isEmpty
+              ? "PK を追加すると 1 本目はこのチームになります"
+              : "PK が既に入力されているため変更できません (先攻を変えたい場合は全 PK を削除してください)"
+          }
+        >
+          <option value={match.homeTeamId}>{homeTeamName}</option>
+          <option value={match.awayTeamId}>{awayTeamName}</option>
+        </select>
+      </div>
+      {isEmpty ? (
         <p className={styles.goalEmpty}>
-          まだ PK が入っていません。同点で PK 戦に入ったら蹴られた順に追加してください。
+          「先攻」を選んでから「+ PK を追加」で蹴られた順に PK を入力してください。
         </p>
       ) : (
         <table className={styles.goalTable}>

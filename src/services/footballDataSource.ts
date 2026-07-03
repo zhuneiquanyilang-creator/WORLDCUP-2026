@@ -71,6 +71,7 @@ type FdMatch = {
     duration?: string;
     fullTime?: FdScoreSide;
     halfTime?: FdScoreSide;
+    regularTime?: FdScoreSide;
     extraTime?: FdScoreSide;
     penalties?: FdScoreSide;
   };
@@ -274,15 +275,40 @@ export class FootballDataLiveSource implements LiveSource {
     }
 
     const ft = fx.score?.fullTime;
+    const rt = fx.score?.regularTime;
+    const et = fx.score?.extraTime;
     const pk = fx.score?.penalties;
-    // PK 戦進行中、FD は fullTime に PK 本数を加算した「累計」を返す
-    // (例: 真の FT 1-1 + PK 2-3 が観測されると fullTime = 3-4 として返ってくる)。
-    // duration === "PENALTY_SHOOTOUT" かつ未確定 (FINISHED 以外) のとき
-    // fullTime - penalties で真の FT に補正する。
-    // FINISHED 後は FD が fullTime を正しい FT に戻すのでそのまま採用。
+    // FD の各フィールドの意味と癖:
+    //   regularTime = 90 分終了時のスコア (最も信頼できる)
+    //   extraTime = 延長で加算された得点
+    //   fullTime = regularTime + extraTime + PK 得点数 (PK 戦後は PK 込みで返る)
+    //   penalties = FD 独自集計 (本試合では 4-4 と誤った値を返した実績あり、信頼低)
+    // 表示スコアは regularTime + extraTime。PK 得点は fullTime - regularTime - extraTime で算出。
+    // regularTime が無い古い試合は旧ロジック (fullTime - penalties) にフォールバック。
     const inShootout = fx.score?.duration === "PENALTY_SHOOTOUT";
-    const isLive = fx.status !== "FINISHED" && fx.status !== "AWARDED";
-    if (typeof ft?.home === "number" && typeof ft?.away === "number") {
+    if (typeof rt?.home === "number" && typeof rt?.away === "number") {
+      const etH = typeof et?.home === "number" ? et.home : 0;
+      const etA = typeof et?.away === "number" ? et.away : 0;
+      update.score = { home: rt.home + etH, away: rt.away + etA };
+      if (
+        inShootout &&
+        typeof ft?.home === "number" &&
+        typeof ft?.away === "number"
+      ) {
+        // PK 得点 = fullTime - (regularTime + extraTime)
+        update.penaltyScore = {
+          home: ft.home - rt.home - etH,
+          away: ft.away - rt.away - etA,
+        };
+      } else if (
+        typeof pk?.home === "number" &&
+        typeof pk?.away === "number"
+      ) {
+        update.penaltyScore = { home: pk.home, away: pk.away };
+      }
+    } else if (typeof ft?.home === "number" && typeof ft?.away === "number") {
+      // regularTime 未提供のフォールバック (古い FD 応答想定)
+      const isLive = fx.status !== "FINISHED" && fx.status !== "AWARDED";
       if (
         inShootout &&
         isLive &&
@@ -296,9 +322,9 @@ export class FootballDataLiveSource implements LiveSource {
       } else {
         update.score = { home: ft.home, away: ft.away };
       }
-    }
-    if (typeof pk?.home === "number" && typeof pk?.away === "number") {
-      update.penaltyScore = { home: pk.home, away: pk.away };
+      if (typeof pk?.home === "number" && typeof pk?.away === "number") {
+        update.penaltyScore = { home: pk.home, away: pk.away };
+      }
     }
 
     // 「HT を一度観測したら以降の IN_PLAY は 2nd half」用に prev の liveLabel
