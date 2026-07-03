@@ -126,31 +126,55 @@ async function main() {
     // - IN_PLAY + REGULAR → HT 経験済みなら "2nd half"、未経験なら ""
     // - FINISHED → "" (試合終了で HT ラベルをクリア)
     // SCHEDULED/TIMED/POSTPONED/SUSPENDED は現状値を保持。
+    // 内部ラベル遷移:
+    //   1st half → Halftime → 2nd half → Pre extra time (HT) →
+    //   Extra time 1st → Extra time break (HT) → Extra time 2nd →
+    //   End of extra time → Penalty
     const prevPastHalftime =
       prev.liveLabel === "Halftime" ||
       prev.liveLabel === "2nd half" ||
+      prev.liveLabel === "Pre extra time" ||
       prev.liveLabel === "End of 2nd half" ||
       prev.liveLabel === "Extra time" ||
+      prev.liveLabel === "Extra time 1st" ||
+      prev.liveLabel === "Extra time break" ||
+      prev.liveLabel === "Extra time 2nd" ||
       prev.liveLabel === "End of extra time" ||
       prev.liveLabel === "Penalty";
     if (fx.status === "PAUSED") {
-      if (
-        prev.liveLabel === "Extra time" ||
-        prev.liveLabel === "End of extra time"
-      ) {
+      // duration=EXTRA_TIME なら延長中の中断 → ET 系ラベルに強制 (prev スタック対策)
+      if (fx.score?.duration === "EXTRA_TIME") {
+        if (
+          prev.liveLabel === "Extra time 2nd" ||
+          prev.liveLabel === "End of extra time"
+        ) {
+          update.liveLabel = "End of extra time";
+        } else {
+          update.liveLabel = "Extra time break";
+        }
+      } else if (fx.score?.duration === "PENALTY_SHOOTOUT") {
         update.liveLabel = "End of extra time";
       } else if (
         prev.liveLabel === "2nd half" ||
+        prev.liveLabel === "Pre extra time" ||
         prev.liveLabel === "End of 2nd half"
       ) {
-        update.liveLabel = "End of 2nd half";
+        update.liveLabel = "Pre extra time";
       } else {
         update.liveLabel = "Halftime";
       }
     } else if (fx.status === "IN_PLAY" || fx.status === "LIVE") {
-      if (fx.score?.duration === "EXTRA_TIME") update.liveLabel = "Extra time";
-      else if (fx.score?.duration === "PENALTY_SHOOTOUT") update.liveLabel = "Penalty";
-      else update.liveLabel = prevPastHalftime ? "2nd half" : "1st half";
+      if (fx.score?.duration === "PENALTY_SHOOTOUT") {
+        update.liveLabel = "Penalty";
+      } else if (fx.score?.duration === "EXTRA_TIME") {
+        if (prev.liveLabel === "Extra time break" || prev.liveLabel === "Extra time 2nd") {
+          update.liveLabel = "Extra time 2nd";
+        } else {
+          update.liveLabel = "Extra time 1st";
+        }
+      } else {
+        update.liveLabel = prevPastHalftime ? "2nd half" : "1st half";
+      }
     } else if (fx.status === "FINISHED" || fx.status === "AWARDED") {
       update.liveLabel = "";
     }

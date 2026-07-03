@@ -175,36 +175,53 @@ function statusLabel(
   duration: string | undefined,
   prevLabel: string | undefined
 ): string {
-  // 方針: FD が「明示的に判別できる状態」だけラベルを付ける。前半/後半の
-  // 区別は FD からは取れないので、HT を **一度でも観測したら** 以降の
-  // IN_PLAY REGULAR は "2nd half"、未観測なら "1st half" として扱う。
-  //   - PAUSED (直前状態で切り分け):
-  //     - prev="2nd half" → "End of 2nd half" (後半終了、延長戦前)
-  //     - prev="Extra time" → "End of extra time" (延長終了、PK 前)
-  //     - それ以外 → "Halftime" (通常のハーフタイム)
-  //   - IN_PLAY + EXTRA_TIME → "Extra time"
-  //   - IN_PLAY + PENALTY_SHOOTOUT → "Penalty"
-  //   - IN_PLAY + REGULAR → HT 経験済みなら "2nd half"、未経験なら "1st half"
-  //   - FINISHED → "Full time"
-  //   - それ以外 → ""
+  // 方針: FD の status/duration から遷移を計算。前半/後半・延長前後の区別は
+  // FD から直接取れないので **prev の内部ラベル** から状態遷移する。
+  // 内部ラベル遷移:
+  //   1st half → Halftime → 2nd half → Pre extra time (=HT表示) →
+  //   Extra time 1st → Extra time break (=HT表示) → Extra time 2nd →
+  //   End of extra time → Penalty → (Full time)
   const prevPastHalftime =
     prevLabel === "Halftime" ||
     prevLabel === "2nd half" ||
+    prevLabel === "Pre extra time" ||
     prevLabel === "End of 2nd half" ||
     prevLabel === "Extra time" ||
+    prevLabel === "Extra time 1st" ||
+    prevLabel === "Extra time break" ||
+    prevLabel === "Extra time 2nd" ||
     prevLabel === "End of extra time" ||
     prevLabel === "Penalty";
   if (s === "PAUSED") {
-    if (prevLabel === "Extra time" || prevLabel === "End of extra time")
-      return "End of extra time";
-    if (prevLabel === "2nd half" || prevLabel === "End of 2nd half")
-      return "End of 2nd half";
+    // FD の duration が EXTRA_TIME なら試合は延長中 → 通常 HT に落とさず ET 系へ強制。
+    // prev がスタック (例: "Halftime" のまま延長入り時に取り逃した) してもこれで補正。
+    if (duration === "EXTRA_TIME") {
+      if (prevLabel === "Extra time 2nd" || prevLabel === "End of extra time")
+        return "End of extra time";
+      return "Extra time break";
+    }
+    if (duration === "PENALTY_SHOOTOUT") return "End of extra time";
+    // duration=REGULAR (or 空): 通常の HT 遷移。
+    if (
+      prevLabel === "2nd half" ||
+      prevLabel === "Pre extra time" ||
+      prevLabel === "End of 2nd half"
+    )
+      return "Pre extra time";
     return "Halftime";
   }
   if (s === "FINISHED") return "Full time";
   if (s === "IN_PLAY" || s === "LIVE") {
-    if (duration === "EXTRA_TIME") return "Extra time";
     if (duration === "PENALTY_SHOOTOUT") return "Penalty";
+    if (duration === "EXTRA_TIME") {
+      // ET 中の細分化: prev の Extra time 系ラベルで前後半を追跡
+      if (prevLabel === "Extra time break") return "Extra time 2nd";
+      if (prevLabel === "Extra time 2nd") return "Extra time 2nd";
+      if (prevLabel === "Extra time 1st") return "Extra time 1st";
+      // 初回突入 (直前が Pre extra time / Halftime / 2nd half など)
+      return "Extra time 1st";
+    }
+    // REGULAR: HT 経験済なら後半、未経験なら前半
     return prevPastHalftime ? "2nd half" : "1st half";
   }
   return "";

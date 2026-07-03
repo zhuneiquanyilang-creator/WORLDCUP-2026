@@ -26,6 +26,7 @@ type RenderItem =
   | EventItem
   | { kind: "halftime" }
   | { kind: "fulltime" }
+  | { kind: "extra-end" }
   | { kind: "match-end" };
 
 function bookingIcon(type: Booking["type"]): { icon: string; label: string } {
@@ -151,6 +152,19 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
       list.push({ kind: "fulltime" });
     }
 
+    // 「延長終了」divider: PK 戦に入る試合で、延長イベントの末尾に挿入する。
+    // 検知条件: penaltyScore / penaltyShootout がある、または liveLabel が
+    // "end of extra time" / "penalty" を含む (= PK 突入時 or 直前)。
+    // PkShootoutSection の直前で「延長 → PK」の区切りを視覚化する。
+    const willGoToPk =
+      !!match.penaltyScore ||
+      (match.penaltyShootout?.length ?? 0) > 0 ||
+      ll.includes("penalty") ||
+      ll.includes("end of extra time");
+    if (willGoToPk) {
+      list.push({ kind: "extra-end" });
+    }
+
     // 「試合終了」をイベントリスト末尾に挿入する条件:
     //   - status === "finished" であり
     //   - PK 戦が無い (= 90 分で決着 or 延長で決着)
@@ -194,6 +208,7 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
           if (
             item.kind === "halftime" ||
             item.kind === "fulltime" ||
+            item.kind === "extra-end" ||
             item.kind === "match-end"
           ) {
             const label =
@@ -201,7 +216,9 @@ export function MatchEvents({ match, teamMap, playerMap }: Props) {
                 ? "ハーフタイム"
                 : item.kind === "fulltime"
                   ? "後半終了"
-                  : "試合終了";
+                  : item.kind === "extra-end"
+                    ? "延長終了"
+                    : "試合終了";
             return (
               <li key={`${item.kind}-${i}`} className={styles.halftimeRow}>
                 <span className={styles.halftimeLine} aria-hidden />
