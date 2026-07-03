@@ -1703,7 +1703,24 @@
     "firstAppearance": "1982",
     "lastAppearance": "2014",
     "appearanceCount": 5,
-    "pastResults": [],
+    "pastResults": [
+      {
+        "year": 1982,
+        "result": "1次リーグ敗退"
+      },
+      {
+        "year": 1986,
+        "result": "1次リーグ敗退"
+      },
+      {
+        "year": 2010,
+        "result": "1次リーグ敗退"
+      },
+      {
+        "year": 2014,
+        "result": "ベスト16"
+      }
+    ],
     "coach": {
       "name": "ヴラディミール・ペトコビッチ",
       "nationality": "ボスニア・ヘルツェゴビナ / スイス"
