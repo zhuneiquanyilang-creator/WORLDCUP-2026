@@ -34582,7 +34582,7 @@
       "away": 1
     },
     "note": "",
-    "liveLabel": "Extra time break",
+    "liveLabel": "Halftime",
     "manualLock": false,
     "goals": [
       {
@@ -34946,6 +34946,19 @@
         "teamId": "EGY",
         "inName": "ハムザ・アブデルカリム",
         "outName": "オマル・マルムシュ"
+      },
+      {
+        "minute": 119,
+        "teamId": "AUS",
+        "inName": "マシュー・ライアン",
+        "outName": "パトリック・ビーチ"
+      },
+      {
+        "minute": 120,
+        "teamId": "EGY",
+        "inName": "マハムード・サベル",
+        "outName": "マルワン・アッティア",
+        "addedTime": 1
       }
     ],
     "bookings": [
@@ -34954,8 +34967,18 @@
         "teamId": "EGY",
         "playerName": "ハイセム・ハッサン",
         "type": "Y"
+      },
+      {
+        "minute": 120,
+        "teamId": "EGY",
+        "playerName": "ヤセル・イブラヒム",
+        "type": "Y"
       }
-    ]
+    ],
+    "penaltyScore": {
+      "home": 0,
+      "away": 0
+    }
   },
   "m089": {
     "matchId": "m089",
