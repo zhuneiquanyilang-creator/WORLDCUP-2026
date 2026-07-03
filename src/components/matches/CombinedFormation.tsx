@@ -10,7 +10,6 @@ import {
   type SpotWithSub,
   type BenchWithSub,
 } from "@/utils/applySubs";
-import { formatMinute } from "@/utils/eventMinute";
 import { spreadFormationLayers } from "@/utils/formation";
 import styles from "./CombinedFormation.module.css";
 
@@ -693,7 +692,7 @@ function SpotBody({
             fontWeight={800}
             fill="#fff"
           >
-            ↓{formatMinute(spot.subbedOutAt!, spot.subbedOutAddedTime)}&apos;
+            ↓{spot.subbedOutAt}&apos;
           </text>
         </g>
       )}
@@ -844,7 +843,7 @@ function BenchList({
               )}
               {p.subbedInAt !== undefined && (
                 <span className={styles.inBadge}>
-                  ↑ {formatMinute(p.subbedInAt, p.subbedInAddedTime)}&apos;
+                  ↑ {p.subbedInAt}&apos;
                 </span>
               )}
             </li>
