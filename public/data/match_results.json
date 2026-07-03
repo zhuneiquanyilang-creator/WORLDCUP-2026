@@ -33752,8 +33752,8 @@
   },
   "m083": {
     "matchId": "m083",
-    "status": "live",
-    "manualLock": false,
+    "status": "finished",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
@@ -34049,7 +34049,7 @@
       "away": 2
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "Full time",
     "bookings": [
       {
         "minute": 17,
