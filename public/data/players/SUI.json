@@ -121,7 +121,7 @@
   },
   {
     "id": "p_sui_22",
-    "name": "ダン・ンドイエ",
+    "name": "ダン・エンドイエ",
     "teamId": "SUI",
     "position": "FW",
     "birthDate": "2000-10-25",
@@ -129,7 +129,7 @@
     "goals": 0,
     "assists": 0,
     "number": 11,
-    "shortName": "ンドイエ"
+    "shortName": "エンドイエ"
   },
   {
     "id": "p_sui_2",
@@ -217,7 +217,7 @@
   },
   {
     "id": "p_sui_24",
-    "name": "ノア・オカフォル",
+    "name": "ノア・オカフォー",
     "teamId": "SUI",
     "position": "FW",
     "birthDate": "2000-05-24",
@@ -225,7 +225,7 @@
     "goals": 0,
     "assists": 0,
     "number": 19,
-    "shortName": "オカフォル"
+    "shortName": "オカフォー"
   },
   {
     "id": "p_sui_14",
