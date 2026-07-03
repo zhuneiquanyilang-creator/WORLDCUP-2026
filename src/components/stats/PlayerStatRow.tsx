@@ -11,9 +11,21 @@ type Props = {
   team: Team | undefined;
   value: number;
   metric: string;
+  /** 補足数値 (例: PK による得点数)。0 なら括弧ごと非表示。 */
+  subValue?: number;
+  /** subValue の前に付けるラベル (例: "PK")。 */
+  subLabel?: string;
 };
 
-export function PlayerStatRow({ rank, player, team, value, metric }: Props) {
+export function PlayerStatRow({
+  rank,
+  player,
+  team,
+  value,
+  metric,
+  subValue,
+  subLabel,
+}: Props) {
   return (
     <tr>
       <td className={styles.rank}>{rank}</td>
@@ -35,6 +47,11 @@ export function PlayerStatRow({ rank, player, team, value, metric }: Props) {
       </td>
       <td className={styles.value}>
         {value}
+        {typeof subValue === "number" && subValue > 0 && (
+          <span className={styles.subValue}>
+            ({subLabel ? `${subLabel} ` : ""}{subValue})
+          </span>
+        )}
         <span className={styles.metric}>{metric}</span>
       </td>
     </tr>

@@ -4,6 +4,8 @@ import type { Player } from "@/types/player";
 export type PlayerStats = {
   goals: number;
   assists: number;
+  /** PK による得点数 (goals の内数)。ゴールランキングの補足表示用。 */
+  penaltyGoals: number;
 };
 
 /**
@@ -21,7 +23,7 @@ export function computePlayerStats(
 ): Map<string, PlayerStats> {
   const stats = new Map<string, PlayerStats>();
   for (const p of players) {
-    stats.set(p.id, { goals: 0, assists: 0 });
+    stats.set(p.id, { goals: 0, assists: 0, penaltyGoals: 0 });
   }
 
   const nameToId = new Map<string, string>();
@@ -47,7 +49,11 @@ export function computePlayerStats(
     for (const g of m.goals) {
       if (g.type !== "own") {
         const scorerId = resolve(g.playerId, g.playerName);
-        if (scorerId) stats.get(scorerId)!.goals++;
+        if (scorerId) {
+          const s = stats.get(scorerId)!;
+          s.goals++;
+          if (g.type === "penalty") s.penaltyGoals++;
+        }
       }
       const assistId = resolve(g.assistPlayerId, g.assistPlayerName);
       if (assistId) stats.get(assistId)!.assists++;

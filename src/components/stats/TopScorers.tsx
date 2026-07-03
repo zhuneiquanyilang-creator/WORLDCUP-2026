@@ -32,6 +32,7 @@ export function TopScorers({ players, teamMap, limit }: Props) {
       <h2 className={styles.heading}>
         <span className={styles.icon}>⚽</span> 得点ランキング
       </h2>
+      <p className={styles.note}>※ 括弧内は PK による得点数</p>
       {sorted.length === 0 ? (
         <p className={styles.empty}>まだ得点はありません</p>
       ) : (
@@ -53,6 +54,7 @@ export function TopScorers({ players, teamMap, limit }: Props) {
               team={teamMap.get(p.teamId)}
               value={p.goals}
               metric="G"
+              subValue={p.penaltyGoals}
             />
           ))}
         </tbody>

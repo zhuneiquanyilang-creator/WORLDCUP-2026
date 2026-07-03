@@ -40,6 +40,7 @@ export function StatsPage() {
         ...p,
         goals: s?.goals ?? 0,
         assists: s?.assists ?? 0,
+        penaltyGoals: s?.penaltyGoals ?? 0,
       };
     });
   }, [playersRes, matchesRes]);

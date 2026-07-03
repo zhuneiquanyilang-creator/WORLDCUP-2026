@@ -50,6 +50,14 @@
   font-size: 0.95rem;
 }
 
+/* 表の上に置く添え書き (例: ※ 括弧内は PK による得点数)。控えめグレー。 */
+.note {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
 @media (max-width: 640px) {
   .card {
     padding: 0.85rem 0.65rem;

@@ -7,6 +7,8 @@ export type Player = {
   position: Position;
   goals: number;
   assists: number;
+  /** PK による得点数 (goals の内数)。ゴールランキングで `4 (PK 1)` のように補足表示する。 */
+  penaltyGoals?: number;
   /** 背番号 (代表チームでの公式番号)。Sofascore の shirtNumber と突合して得点者を特定 */
   number?: number;
   /** ISO 8601 date (YYYY-MM-DD) */

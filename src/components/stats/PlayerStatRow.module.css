@@ -62,6 +62,15 @@
   font-weight: 500;
 }
 
+/* PK 得点数の補足表示 (例: 4 (PK 1) G)。控えめな金色。 */
+.subValue {
+  font-size: 0.75rem;
+  color: var(--color-gold, #b8860b);
+  margin-left: 0.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 @media (max-width: 640px) {
   .rank {
     width: 1.8rem;
@@ -99,6 +108,11 @@
   }
 
   .metric {
+    font-size: 0.62rem;
+    margin-left: 0.15rem;
+  }
+
+  .subValue {
     font-size: 0.62rem;
     margin-left: 0.15rem;
   }
