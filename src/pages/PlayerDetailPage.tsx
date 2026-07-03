@@ -322,17 +322,31 @@ export function PlayerDetailPage() {
                           : "—"}
                       </td>
                       <td className={styles.cardsCell}>
-                        {a.bookings.length === 0
+                        {a.bookings.length === 0 && a.ownGoals === 0
                           ? "—"
-                          : a.bookings.map((b, i) => (
-                              <span key={i} className={styles.cardItem}>
-                                {BOOKING_LABEL[b.type]}
-                                <span className={styles.cardMinute}>
-                                  {b.minute}
-                                  {b.addedTime ? `+${b.addedTime}` : ""}'
-                                </span>
-                              </span>
-                            ))}
+                          : (
+                              <>
+                                {a.bookings.map((b, i) => (
+                                  <span key={`b${i}`} className={styles.cardItem}>
+                                    {BOOKING_LABEL[b.type]}
+                                    <span className={styles.cardMinute}>
+                                      {b.minute}
+                                      {b.addedTime ? `+${b.addedTime}` : ""}'
+                                    </span>
+                                  </span>
+                                ))}
+                                {Array.from({ length: a.ownGoals }, (_, i) => (
+                                  <span
+                                    key={`og${i}`}
+                                    className={styles.ownGoalBadge}
+                                    title="オウンゴール"
+                                    aria-label="オウンゴール"
+                                  >
+                                    ⚽
+                                  </span>
+                                ))}
+                              </>
+                            )}
                       </td>
                     </tr>
                   );

@@ -89,6 +89,23 @@
   line-height: 1.3;
 }
 
+/* オウンゴール専用: フォーメーション画面の .ownGoalBadge と同系統の
+   赤ピル形バッジ。試合経過画面では他イベントアイコンより少し目立たせるため
+   通常より大きめサイズにする。 */
+.iconOwn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dc2626;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -278,6 +295,11 @@
   .icon {
     font-size: 0.9rem;
     line-height: 1.2;
+  }
+
+  .iconOwn {
+    font-size: 0.95rem;
+    padding: 0.12rem 0.4rem;
   }
 
   .text {

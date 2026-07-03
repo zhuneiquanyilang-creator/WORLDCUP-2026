@@ -376,9 +376,15 @@ function EventContent({
       ? resolveName(g.assistPlayerId, g.assistPlayerName, playerMap)
       : undefined;
     const badge = goalTypeBadge(g.type);
+    const isOwn = g.type === "own";
     return (
       <div className={`${styles.event} ${alignClass}`}>
-        <span className={styles.icon}>⚽</span>
+        <span
+          className={`${styles.icon} ${isOwn ? styles.iconOwn : ""}`}
+          aria-label={isOwn ? "オウンゴール" : undefined}
+        >
+          ⚽
+        </span>
         <span className={styles.text}>
           <span className={styles.name}>
             {scorer} {badge}

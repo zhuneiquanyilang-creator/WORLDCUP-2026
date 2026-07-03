@@ -34,6 +34,8 @@ export type PlayerMatchAppearance = {
   // 個人スタッツ
   goals: number;
   assists: number;
+  /** この試合で自分が入れたオウンゴール数 (相手チームに credit されるので goals には含めない)。 */
+  ownGoals: number;
   bookings: { minute: number; addedTime?: number; type: BookingType }[];
 };
 
@@ -172,20 +174,31 @@ export function computePlayerMatches(
       status = "unknown";
     }
 
-    // 個人ゴール・アシスト集計
+    // 個人ゴール・アシスト・オウンゴール集計。
+    // オウンゴール (type="own") は Goal.teamId が「得点クレジット側 (= 相手チーム)」
+    // で、playerId/playerName が「実際に自陣ゴールに入れた自チームの選手」。
     let goals = 0;
     let assists = 0;
+    let ownGoals = 0;
     for (const g of m.goals ?? []) {
-      if (g.teamId !== player.teamId && g.type !== "own") continue;
-      if (g.type !== "own") {
-        if (
-          g.playerId === player.id ||
-          (!g.playerId && g.playerName === player.name)
-        )
-          goals++;
+      if (g.type === "own") {
+        // 自チームに帰属する OG (相手にクレジット、自分が playerId 一致) をカウント
+        if (g.teamId !== player.teamId) {
+          if (
+            g.playerId === player.id ||
+            (!g.playerId && g.playerName === player.name)
+          ) {
+            ownGoals++;
+          }
+        }
+        continue; // OG はアシスト対象外
       }
-      // アシストは自分のチームに対するゴールでのみ計上 (OG にアシストは付かない)
-      if (g.type === "own") continue;
+      if (g.teamId !== player.teamId) continue;
+      if (
+        g.playerId === player.id ||
+        (!g.playerId && g.playerName === player.name)
+      )
+        goals++;
       if (
         g.assistPlayerId === player.id ||
         (!g.assistPlayerId && g.assistPlayerName === player.name)
@@ -224,6 +237,7 @@ export function computePlayerMatches(
       minutes,
       goals,
       assists,
+      ownGoals,
       bookings,
     });
   }
