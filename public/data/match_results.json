@@ -34928,6 +34928,18 @@
         "teamId": "EGY",
         "inName": "マハムード・ハッサン（トレゼゲ）",
         "outName": "カリム・ハフェズ"
+      },
+      {
+        "minute": 91,
+        "teamId": "AUS",
+        "inName": "ポール・オコン・エングストラー",
+        "outName": "エイデン・オニール"
+      },
+      {
+        "minute": 91,
+        "teamId": "AUS",
+        "inName": "アワー・マビル",
+        "outName": "コナー・メットカーフ"
       }
     ]
   },
