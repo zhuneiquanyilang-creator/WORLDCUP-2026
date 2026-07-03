@@ -34105,6 +34105,13 @@
         "playerName": "イヴァン・ペリシッチ",
         "assistPlayerId": "p_cro_7",
         "assistPlayerName": "ヨシプ・スタニシッチ"
+      },
+      {
+        "minute": 68,
+        "teamId": "POR",
+        "type": "penalty",
+        "playerId": "p_por_20",
+        "playerName": "クリスティアーノ・ロナウド"
       }
     ]
   },
