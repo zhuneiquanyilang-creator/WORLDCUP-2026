@@ -34897,12 +34897,12 @@
     "matchId": "m087",
     "status": "finished",
     "score": {
-      "home": 3,
-      "away": 5
+      "home": 1,
+      "away": 1
     },
     "note": "",
-    "liveLabel": "",
-    "manualLock": false,
+    "liveLabel": "Full time",
+    "manualLock": true,
     "goals": [
       {
         "minute": 13,
@@ -35295,7 +35295,7 @@
       }
     ],
     "penaltyScore": {
-      "home": 4,
+      "home": 2,
       "away": 4
     },
     "penaltyShootout": [
