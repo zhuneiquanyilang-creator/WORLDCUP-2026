@@ -33833,7 +33833,8 @@
           "number": 7,
           "name": "クリスティアーノ・ロナウド",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         }
       ],
       "bench": [
