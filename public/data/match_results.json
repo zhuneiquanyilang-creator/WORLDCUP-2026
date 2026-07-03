@@ -34046,7 +34046,7 @@
     },
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
     "note": "",
     "liveLabel": "2nd half",
@@ -34055,6 +34055,12 @@
         "minute": 17,
         "teamId": "POR",
         "playerName": "ルベン・ディアス",
+        "type": "Y"
+      },
+      {
+        "minute": 60,
+        "teamId": "CRO",
+        "playerName": "ルカ・モドリッチ",
         "type": "Y"
       }
     ],
