@@ -34113,6 +34113,13 @@
         "inName": "ヨシュコ・グヴァルディオル",
         "outName": "ニコラ・ヴラシッチ",
         "addedTime": 2
+      },
+      {
+        "minute": 90,
+        "teamId": "CRO",
+        "inName": "アンドレイ・クラマリッチ",
+        "outName": "マテオ・コヴァチッチ",
+        "addedTime": 6
       }
     ],
     "goals": [
@@ -34131,6 +34138,16 @@
         "type": "penalty",
         "playerId": "p_por_20",
         "playerName": "クリスティアーノ・ロナウド"
+      },
+      {
+        "minute": 90,
+        "teamId": "POR",
+        "type": "normal",
+        "addedTime": 4,
+        "playerId": "p_por_26",
+        "playerName": "ゴンサロ・ラモス",
+        "assistPlayerId": "p_por_24",
+        "assistPlayerName": "ラファエル・レオン"
       }
     ]
   },
