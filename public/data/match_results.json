@@ -34491,6 +34491,12 @@
         "teamId": "ALG",
         "playerName": "ファレス・シャイビ",
         "type": "Y"
+      },
+      {
+        "minute": 72,
+        "teamId": "ALG",
+        "playerName": "ヒシャム・ブダウィ",
+        "type": "Y"
       }
     ],
     "substitutions": [
@@ -34505,6 +34511,30 @@
         "teamId": "ALG",
         "inName": "ジャウエン・ハジャム",
         "outName": "フセム・アワール"
+      },
+      {
+        "minute": 70,
+        "teamId": "SUI",
+        "inName": "ファビアン・リーダー",
+        "outName": "ヨハン・マンザンビ"
+      },
+      {
+        "minute": 70,
+        "teamId": "SUI",
+        "inName": "ノア・オカフォル",
+        "outName": "ルベン・バルガス"
+      },
+      {
+        "minute": 71,
+        "teamId": "ALG",
+        "inName": "アニス・ハジ・ムサ",
+        "outName": "リヤド・マフレズ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ALG",
+        "inName": "ヒシャム・ブダウィ",
+        "outName": "ナビル・ベンタレブ"
       }
     ]
   },
