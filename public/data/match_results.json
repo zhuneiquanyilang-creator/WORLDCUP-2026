@@ -34910,6 +34910,18 @@
         "teamId": "EGY",
         "inName": "ホッサム・アブデルマギド",
         "outName": "ハムディ・ファティ"
+      },
+      {
+        "minute": 74,
+        "teamId": "AUS",
+        "inName": "アイディン・フルスティッチ",
+        "outName": "クリスチャン・ヴォルパート"
+      },
+      {
+        "minute": 74,
+        "teamId": "AUS",
+        "inName": "モハメド・トゥーレ",
+        "outName": "ネストリ・イランクンダ"
       }
     ]
   },
