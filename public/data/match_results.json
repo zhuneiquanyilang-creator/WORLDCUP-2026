@@ -34547,6 +34547,18 @@
         "teamId": "SUI",
         "inName": "ゼキ・アムドゥニ",
         "outName": "ブレール・エンボロ"
+      },
+      {
+        "minute": 88,
+        "teamId": "SUI",
+        "inName": "ミシェル・アエビシャー",
+        "outName": "ダン・エンドイエ"
+      },
+      {
+        "minute": 88,
+        "teamId": "SUI",
+        "inName": "シルヴァン・ヴィドマー",
+        "outName": "デニス・ザカリア"
       }
     ]
   },
