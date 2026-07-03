@@ -34458,7 +34458,18 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "1st half",
+    "goals": [
+      {
+        "minute": 10,
+        "teamId": "SUI",
+        "type": "normal",
+        "playerId": "p_sui_26",
+        "playerName": "ブレール・エンボロ",
+        "assistPlayerId": "p_sui_19",
+        "assistPlayerName": "ヨハン・マンザンビ"
+      }
+    ]
   },
   "m088": {
     "matchId": "m088",
