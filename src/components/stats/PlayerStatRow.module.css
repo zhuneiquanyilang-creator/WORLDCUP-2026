@@ -17,6 +17,13 @@
 .name {
   font-weight: 600;
   line-height: 1.25;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.name:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .position {

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Player } from "@/types/player";
 import type { Team } from "@/types/team";
 import { Flag } from "@/components/common/Flag";
@@ -17,7 +18,9 @@ export function PlayerStatRow({ rank, player, team, value, metric }: Props) {
     <tr>
       <td className={styles.rank}>{rank}</td>
       <td className={styles.player}>
-        <span className={styles.name}>{player.name}</span>
+        <Link to={`/players/${player.id}`} className={styles.name}>
+          {player.name}
+        </Link>
         <span className={styles.position}>{player.position}</span>
       </td>
       <td className={styles.team}>
