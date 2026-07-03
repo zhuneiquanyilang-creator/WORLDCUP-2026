@@ -34492,6 +34492,20 @@
         "playerName": "ファレス・シャイビ",
         "type": "Y"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 59,
+        "teamId": "ALG",
+        "inName": "アミン・グイリ",
+        "outName": "ラミズ・ゼルキ"
+      },
+      {
+        "minute": 59,
+        "teamId": "ALG",
+        "inName": "ジャウエン・ハジャム",
+        "outName": "フセム・アワール"
+      }
     ]
   },
   "m088": {
