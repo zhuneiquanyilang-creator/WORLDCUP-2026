@@ -1179,7 +1179,7 @@
   {
     "id": "m087",
     "stage": "round32",
-    "date": "2026-07-03T20:30:00-05:00",
+    "date": "2026-07-03T13:00:00-05:00",
     "venue": "ダラス・スタジアム（アメリカ）",
     "homeTeamId": "AUS",
     "awayTeamId": "EGY",
@@ -1193,7 +1193,7 @@
   {
     "id": "m088",
     "stage": "round32",
-    "date": "2026-07-03T13:00:00-05:00",
+    "date": "2026-07-03T20:30:00-05:00",
     "venue": "カンザスシティ・スタジアム（アメリカ）",
     "homeTeamId": "COL",
     "awayTeamId": "GHA",
@@ -1300,8 +1300,8 @@
     "venue": "アトランタ・スタジアム（アメリカ）",
     "homeTeamId": "W86",
     "homeTeamLabel": "86試合勝者",
-    "awayTeamId": "W88",
-    "awayTeamLabel": "88試合勝者",
+    "awayTeamId": "W87",
+    "awayTeamLabel": "87試合勝者",
     "status": "scheduled",
     "broadcasters": [
       "dazn"
@@ -1314,8 +1314,8 @@
     "venue": "BCプレイス（カナダ）",
     "homeTeamId": "W85",
     "homeTeamLabel": "85試合勝者",
-    "awayTeamId": "W87",
-    "awayTeamLabel": "87試合勝者",
+    "awayTeamId": "W88",
+    "awayTeamLabel": "88試合勝者",
     "status": "scheduled",
     "broadcasters": [
       "nhk-g",
