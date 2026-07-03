@@ -5960,8 +5960,16 @@
           "name": "ストピラ"
         },
         {
+          "number": 4,
+          "name": "ロベルト・ロペス"
+        },
+        {
           "number": 5,
           "name": "ローガン・コスタ"
+        },
+        {
+          "number": 6,
+          "name": "ケビン・レニーニ"
         },
         {
           "number": 8,
@@ -15642,8 +15650,16 @@
           "name": "ストピラ"
         },
         {
+          "number": 4,
+          "name": "ロベルト・ロペス"
+        },
+        {
           "number": 5,
           "name": "ローガン・コスタ"
+        },
+        {
+          "number": 6,
+          "name": "ケビン・レニーニ"
         },
         {
           "number": 7,
@@ -15736,7 +15752,7 @@
         "teamId": "CPV",
         "type": "normal",
         "playerId": "p_cpv_13",
-        "playerName": "ケビン・ピナ"
+        "playerName": "ケビン・レニーニ"
       },
       {
         "minute": 44,
@@ -25623,8 +25639,16 @@
           "name": "ストピラ"
         },
         {
+          "number": 4,
+          "name": "ロベルト・ロペス"
+        },
+        {
           "number": 5,
           "name": "ローガン・コスタ"
+        },
+        {
+          "number": 6,
+          "name": "ケビン・レニーニ"
         },
         {
           "number": 7,
@@ -34740,7 +34764,7 @@
           "x": 28,
           "y": 37.5,
           "number": 4,
-          "name": "ピコ",
+          "name": "ロベルト・ロペス",
           "role": "DF"
         },
         {
@@ -34811,6 +34835,10 @@
           "name": "ローガン・コスタ"
         },
         {
+          "number": 6,
+          "name": "ケビン・レニーニ"
+        },
+        {
           "number": 8,
           "name": "ジョアン・パウロ"
         },
@@ -34869,12 +34897,12 @@
     "matchId": "m087",
     "status": "finished",
     "score": {
-      "home": 1,
-      "away": 1
+      "home": 3,
+      "away": 5
     },
     "note": "",
-    "liveLabel": "Full time",
-    "manualLock": true,
+    "liveLabel": "",
+    "manualLock": false,
     "goals": [
       {
         "minute": 13,
@@ -35267,7 +35295,7 @@
       }
     ],
     "penaltyScore": {
-      "home": 2,
+      "home": 4,
       "away": 4
     },
     "penaltyShootout": [
