@@ -34576,13 +34576,13 @@
   },
   "m087": {
     "matchId": "m087",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 1
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "",
     "manualLock": false,
     "goals": [
       {
