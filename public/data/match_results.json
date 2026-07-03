@@ -34576,13 +34576,13 @@
   },
   "m087": {
     "matchId": "m087",
-    "status": "finished",
+    "status": "live",
     "score": {
       "home": 1,
       "away": 1
     },
     "note": "",
-    "liveLabel": "",
+    "liveLabel": "Penalty",
     "manualLock": false,
     "goals": [
       {
@@ -34976,8 +34976,8 @@
       }
     ],
     "penaltyScore": {
-      "home": 0,
-      "away": 0
+      "home": 1,
+      "away": 1
     }
   },
   "m089": {
