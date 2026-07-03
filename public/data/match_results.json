@@ -34469,6 +34469,14 @@
         "assistPlayerId": "p_sui_19",
         "assistPlayerName": "ヨハン・マンザンビ"
       }
+    ],
+    "bookings": [
+      {
+        "minute": 36,
+        "teamId": "ALG",
+        "playerName": "ファレス・シャイビ",
+        "type": "Y"
+      }
     ]
   },
   "m088": {
