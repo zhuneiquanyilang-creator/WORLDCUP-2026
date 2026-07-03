@@ -34593,6 +34593,13 @@
         "playerName": "エマム・アシュール",
         "assistPlayerId": "p_egy_4",
         "assistPlayerName": "カリム・ハフェズ"
+      },
+      {
+        "minute": 55,
+        "teamId": "AUS",
+        "type": "own",
+        "playerId": "p_egy_9",
+        "playerName": "モハメド・ハニー"
       }
     ],
     "homeFormation": {
