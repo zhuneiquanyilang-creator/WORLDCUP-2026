@@ -34576,14 +34576,14 @@
   },
   "m087": {
     "matchId": "m087",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 1
     },
     "note": "",
-    "liveLabel": "Penalty",
-    "manualLock": false,
+    "liveLabel": "Full time",
+    "manualLock": true,
     "goals": [
       {
         "minute": 13,
@@ -34976,9 +34976,59 @@
       }
     ],
     "penaltyScore": {
-      "home": 1,
-      "away": 1
-    }
+      "home": 2,
+      "away": 4
+    },
+    "penaltyShootout": [
+      {
+        "teamId": "AUS",
+        "result": "missed",
+        "playerId": "p_aus_12",
+        "playerName": "ハリー・ソウター"
+      },
+      {
+        "teamId": "EGY",
+        "result": "scored",
+        "playerId": "p_egy_14",
+        "playerName": "マハムード・サベル"
+      },
+      {
+        "teamId": "AUS",
+        "result": "scored",
+        "playerId": "p_aus_19",
+        "playerName": "ジャクソン・アーヴァイン"
+      },
+      {
+        "teamId": "EGY",
+        "result": "scored",
+        "playerId": "p_egy_10",
+        "playerName": "ラミー・ラビア"
+      },
+      {
+        "teamId": "AUS",
+        "result": "scored",
+        "playerId": "p_aus_22",
+        "playerName": "アワー・マビル"
+      },
+      {
+        "teamId": "EGY",
+        "result": "scored",
+        "playerId": "p_egy_24",
+        "playerName": "モハメド・サラー"
+      },
+      {
+        "teamId": "AUS",
+        "result": "missed",
+        "playerId": "p_aus_6",
+        "playerName": "ルーカス・ヘリントン"
+      },
+      {
+        "teamId": "EGY",
+        "result": "scored",
+        "playerId": "p_egy_6",
+        "playerName": "ホッサム・アブデルマギド"
+      }
+    ]
   },
   "m089": {
     "matchId": "m089",
