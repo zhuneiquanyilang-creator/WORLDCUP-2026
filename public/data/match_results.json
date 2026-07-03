@@ -34250,7 +34250,8 @@
           "y": 50,
           "number": 7,
           "name": "ブレール・エンボロ",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
