@@ -34070,6 +34070,30 @@
         "teamId": "CRO",
         "inName": "イゴール・マタノビッチ",
         "outName": "アンテ・ブディミル"
+      },
+      {
+        "minute": 62,
+        "teamId": "POR",
+        "inName": "フランシスコ・コンセイソン",
+        "outName": "ペドロ・ネト"
+      },
+      {
+        "minute": 62,
+        "teamId": "POR",
+        "inName": "ベルナルド・シルバ",
+        "outName": "ヴィティーニャ"
+      },
+      {
+        "minute": 62,
+        "teamId": "POR",
+        "inName": "ネルソン・セメド",
+        "outName": "ブルーノ・フェルナンデス"
+      },
+      {
+        "minute": 62,
+        "teamId": "POR",
+        "inName": "ゴンサロ・ラモス",
+        "outName": "ジョアン・カンセロ"
       }
     ],
     "goals": [
