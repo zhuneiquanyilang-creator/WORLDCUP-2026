@@ -34045,7 +34045,7 @@
       ]
     },
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 1
     },
     "note": "",
@@ -34062,6 +34062,13 @@
         "teamId": "CRO",
         "playerName": "ルカ・モドリッチ",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "CRO",
+        "playerName": "イヴァン・ペリシッチ",
+        "type": "Y",
+        "addedTime": 8
       }
     ],
     "substitutions": [
