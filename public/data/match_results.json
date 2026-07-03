@@ -34106,6 +34106,13 @@
         "teamId": "POR",
         "inName": "ルベン・ネヴェス",
         "outName": "クリスティアーノ・ロナウド"
+      },
+      {
+        "minute": 90,
+        "teamId": "CRO",
+        "inName": "ヨシュコ・グヴァルディオル",
+        "outName": "ニコラ・ヴラシッチ",
+        "addedTime": 2
       }
     ],
     "goals": [
