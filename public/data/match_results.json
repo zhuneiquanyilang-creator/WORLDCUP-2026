@@ -34468,6 +34468,13 @@
         "playerName": "ブレール・エンボロ",
         "assistPlayerId": "p_sui_19",
         "assistPlayerName": "ヨハン・マンザンビ"
+      },
+      {
+        "minute": 46,
+        "teamId": "SUI",
+        "type": "normal",
+        "playerId": "p_sui_22",
+        "playerName": "ダン・ンドイエ"
       }
     ],
     "bookings": [
