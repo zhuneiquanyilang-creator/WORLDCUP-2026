@@ -36301,6 +36301,16 @@
         "playerName": "アゼディン・ウナヒ",
         "assistPlayerId": "p_mar_20",
         "assistPlayerName": "ブライム・ディアス"
+      },
+      {
+        "minute": 90,
+        "teamId": "MAR",
+        "type": "normal",
+        "addedTime": 8,
+        "playerId": "p_mar_26",
+        "playerName": "スフィアン・ラヒミ",
+        "assistPlayerId": "p_mar_20",
+        "assistPlayerName": "ブライム・ディアス"
       }
     ]
   },
