@@ -842,7 +842,7 @@
           "x": 8,
           "y": 50,
           "number": 16,
-          "name": "デイン・セント・クレア",
+          "name": "マクシム・クレポー",
           "role": "GK"
         },
         {
@@ -921,7 +921,7 @@
       "bench": [
         {
           "number": 1,
-          "name": "マクシム・クレポー"
+          "name": "デイン・セント・クレア"
         },
         {
           "number": 3,
@@ -10604,7 +10604,7 @@
           "x": 8,
           "y": 50,
           "number": 16,
-          "name": "デイン・セント・クレア",
+          "name": "マクシム・クレポー",
           "role": "GK"
         },
         {
@@ -10683,7 +10683,7 @@
       "bench": [
         {
           "number": 1,
-          "name": "マクシム・クレポー"
+          "name": "デイン・セント・クレア"
         },
         {
           "number": 3,
@@ -19631,7 +19631,7 @@
           "x": 8,
           "y": 50,
           "number": 16,
-          "name": "デイン・セント・クレア",
+          "name": "マクシム・クレポー",
           "role": "GK"
         },
         {
@@ -19709,7 +19709,7 @@
       "bench": [
         {
           "number": 1,
-          "name": "マクシム・クレポー"
+          "name": "デイン・セント・クレア"
         },
         {
           "number": 3,
@@ -29383,7 +29383,7 @@
           "x": 8,
           "y": 50,
           "number": 16,
-          "name": "デイン・セント・クレア",
+          "name": "マクシム・クレポー",
           "role": "GK"
         },
         {
@@ -29462,7 +29462,7 @@
       "bench": [
         {
           "number": 1,
-          "name": "マクシム・クレポー"
+          "name": "デイン・セント・クレア"
         },
         {
           "number": 3,
@@ -35872,14 +35872,14 @@
   },
   "m089": {
     "matchId": "m089",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 0,
-      "away": 2
+      "away": 3
     },
     "note": "",
-    "liveLabel": "2nd half",
-    "manualLock": false,
+    "liveLabel": "Full time",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -35887,7 +35887,7 @@
           "x": 8,
           "y": 50,
           "number": 16,
-          "name": "デイン・セント・クレア",
+          "name": "マクシム・クレポー",
           "role": "GK"
         },
         {
@@ -35965,7 +35965,7 @@
       "bench": [
         {
           "number": 1,
-          "name": "マクシム・クレポー"
+          "name": "デイン・セント・クレア"
         },
         {
           "number": 3,
