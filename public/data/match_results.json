@@ -36641,6 +36641,15 @@
         "inName": "デジレ・ドゥエ",
         "outName": "ブラッドリー・バルコラ"
       }
+    ],
+    "goals": [
+      {
+        "minute": 70,
+        "teamId": "FRA",
+        "type": "penalty",
+        "playerId": "p_fra_18",
+        "playerName": "キリアン・エンバペ"
+      }
     ]
   },
   "m091": {
