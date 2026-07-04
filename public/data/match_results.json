@@ -34596,7 +34596,397 @@
     "score": {
       "home": 1,
       "away": 0
-    }
+    },
+    "goals": [
+      {
+        "minute": 14,
+        "teamId": "COL",
+        "type": "normal",
+        "playerId": "p_col_14",
+        "playerName": "ジョン・アリアス",
+        "assistPlayerId": "p_col_22",
+        "assistPlayerName": "ルイス・ディアス"
+      }
+    ],
+    "homeFormation": {
+      "shape": "4-3-3",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 12,
+          "name": "カミーロ・バルガス",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 2,
+          "name": "ダニエル・ムニョス",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 23,
+          "name": "ダビンソン・サンチェス",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 3,
+          "name": "ジョン・ルクミ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 17,
+          "name": "ホアン・モヒカ",
+          "role": "DF"
+        },
+        {
+          "x": 54,
+          "y": 16.666666666666664,
+          "number": 14,
+          "name": "グスタボ・プエルタ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 50,
+          "number": 16,
+          "name": "ジェフェルソン・レルマ",
+          "role": "MF"
+        },
+        {
+          "x": 54,
+          "y": 83.33333333333334,
+          "number": 11,
+          "name": "ジョン・アリアス",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 16.666666666666664,
+          "number": 10,
+          "name": "ハメス・ロドリゲス",
+          "role": "FW",
+          "isCaptain": true
+        },
+        {
+          "x": 80,
+          "y": 50,
+          "number": 9,
+          "name": "ジョン・コルドバ",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 83.33333333333334,
+          "number": 7,
+          "name": "ルイス・ディアス",
+          "role": "FW",
+          "isMvp": true
+        }
+      ],
+      "bench": [
+        {
+          "number": 1,
+          "name": "ダビド・オスピナ"
+        },
+        {
+          "number": 4,
+          "name": "サンティアゴ・アリアス"
+        },
+        {
+          "number": 5,
+          "name": "ケビン・カスターニョ"
+        },
+        {
+          "number": 6,
+          "name": "リチャード・リオス"
+        },
+        {
+          "number": 8,
+          "name": "ホルヘ・カラスカル"
+        },
+        {
+          "number": 13,
+          "name": "ジェリー・ミナ"
+        },
+        {
+          "number": 15,
+          "name": "フアン・ポルティージャ"
+        },
+        {
+          "number": 18,
+          "name": "ウィリエル・ディッタ"
+        },
+        {
+          "number": 19,
+          "name": "クチョ・エルナンデス"
+        },
+        {
+          "number": 20,
+          "name": "フアン・キンテーロ"
+        },
+        {
+          "number": 21,
+          "name": "ハミントン・カンパス"
+        },
+        {
+          "number": 22,
+          "name": "デイベル・マチャド"
+        },
+        {
+          "number": 24,
+          "name": "アルバロ・モンテーロ"
+        },
+        {
+          "number": 25,
+          "name": "ルイス・スアレス"
+        },
+        {
+          "number": 26,
+          "name": "カルロス・ゴメス"
+        }
+      ]
+    },
+    "awayFormation": {
+      "shape": "4-1-2-3",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 1,
+          "name": "ローレンス・アティ・ジギ",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 26,
+          "name": "マーヴィン・セナヤ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 23,
+          "name": "デリック・ルカッセン",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 18,
+          "name": "ジェローム・オポク",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 14,
+          "name": "ギデオン・メンサー",
+          "role": "DF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 50,
+          "number": 5,
+          "name": "トーマス・パーティ",
+          "role": "MF"
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 25,
+          "number": 3,
+          "name": "カレブ・イレンキ",
+          "role": "MF"
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 75,
+          "number": 8,
+          "name": "クワシ・シボ",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 16.666666666666664,
+          "number": 19,
+          "name": "イニャキ・ウィリアムス",
+          "role": "FW"
+        },
+        {
+          "x": 80,
+          "y": 50,
+          "number": 9,
+          "name": "ジョーダン・アユー",
+          "role": "FW",
+          "isCaptain": true
+        },
+        {
+          "x": 80,
+          "y": 83.33333333333334,
+          "number": 11,
+          "name": "アントワーヌ・セメンヨ",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 2,
+          "name": "アリドゥ・セイドゥ"
+        },
+        {
+          "number": 4,
+          "name": "ジョナス・アジェティ"
+        },
+        {
+          "number": 6,
+          "name": "アブドゥル・ムミン"
+        },
+        {
+          "number": 7,
+          "name": "アブドゥル・ファタウ・イサハク"
+        },
+        {
+          "number": 10,
+          "name": "ブランドン・トーマス・アサンテ"
+        },
+        {
+          "number": 12,
+          "name": "ジョセフ・アナング"
+        },
+        {
+          "number": 13,
+          "name": "クリストファー・ボンス・バー"
+        },
+        {
+          "number": 15,
+          "name": "エリシャ・オウス"
+        },
+        {
+          "number": 16,
+          "name": "ベンジャミン・アサレ"
+        },
+        {
+          "number": 17,
+          "name": "アブドゥル・ラフマン・ババ"
+        },
+        {
+          "number": 20,
+          "name": "オーガスティン・ボアクィエ"
+        },
+        {
+          "number": 21,
+          "name": "コジョ・ペプラ・オポン"
+        },
+        {
+          "number": 22,
+          "name": "カマルディーン・スレマナ"
+        },
+        {
+          "number": 24,
+          "name": "エルネスト・ヌアマー"
+        },
+        {
+          "number": 25,
+          "name": "プリンス・クワベナ・アドゥ"
+        }
+      ]
+    },
+    "bookings": [
+      {
+        "minute": 12,
+        "teamId": "COL",
+        "playerName": "ジョン・アリアス",
+        "type": "Y"
+      },
+      {
+        "minute": 49,
+        "teamId": "GHA",
+        "playerName": "カレブ・イレンキ",
+        "type": "Y"
+      },
+      {
+        "minute": 66,
+        "teamId": "GHA",
+        "playerName": "アブドゥル・ファタウ・イサハク",
+        "type": "Y"
+      },
+      {
+        "minute": 76,
+        "teamId": "GHA",
+        "playerName": "アリドゥ・セイドゥ",
+        "type": "Y"
+      },
+      {
+        "minute": 78,
+        "teamId": "COL",
+        "playerName": "リチャード・リオス",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 8,
+        "teamId": "COL",
+        "inName": "ルイス・スアレス",
+        "outName": "ジョン・コルドバ"
+      },
+      {
+        "minute": 13,
+        "teamId": "GHA",
+        "inName": "アリドゥ・セイドゥ",
+        "outName": "マーヴィン・セナヤ"
+      },
+      {
+        "minute": 46,
+        "teamId": "COL",
+        "inName": "リチャード・リオス",
+        "outName": "ハメス・ロドリゲス"
+      },
+      {
+        "minute": 62,
+        "teamId": "GHA",
+        "inName": "エリシャ・オウス",
+        "outName": "クワシ・シボ"
+      },
+      {
+        "minute": 62,
+        "teamId": "GHA",
+        "inName": "アブドゥル・ファタウ・イサハク",
+        "outName": "イニャキ・ウィリアムス"
+      },
+      {
+        "minute": 72,
+        "teamId": "COL",
+        "inName": "フアン・キンテーロ",
+        "outName": "ジョン・アリアス"
+      },
+      {
+        "minute": 79,
+        "teamId": "GHA",
+        "inName": "エルネスト・ヌアマー",
+        "outName": "カレブ・イレンキ"
+      },
+      {
+        "minute": 79,
+        "teamId": "GHA",
+        "inName": "プリンス・クワベナ・アドゥ",
+        "outName": "ジョーダン・アユー"
+      },
+      {
+        "minute": 90,
+        "teamId": "COL",
+        "inName": "ハミントン・カンパス",
+        "outName": "ルイス・ディアス"
+      }
+    ]
   },
   "m086": {
     "matchId": "m086",
@@ -34674,7 +35064,8 @@
           "number": 10,
           "name": "リオネル・メッシ",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 80,
@@ -35260,7 +35651,8 @@
           "number": 10,
           "name": "モハメド・サラー",
           "role": "MF",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
