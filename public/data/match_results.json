@@ -36268,6 +36268,15 @@
         "playerName": "アゼディン・ウナヒ",
         "assistPlayerId": "p_mar_12",
         "assistPlayerName": "アクラフ・ハキミ"
+      },
+      {
+        "minute": 82,
+        "teamId": "MAR",
+        "type": "normal",
+        "playerId": "p_mar_18",
+        "playerName": "アゼディン・ウナヒ",
+        "assistPlayerId": "p_mar_20",
+        "assistPlayerName": "ブライム・ディアス"
       }
     ]
   },
