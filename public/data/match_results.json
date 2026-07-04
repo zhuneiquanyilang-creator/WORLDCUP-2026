@@ -36188,6 +36188,18 @@
         "teamId": "CAN",
         "playerName": "リッチー・ラリア",
         "type": "Y"
+      },
+      {
+        "minute": 43,
+        "teamId": "CAN",
+        "playerName": "ジョナサン・デイヴィッド",
+        "type": "Y"
+      },
+      {
+        "minute": 45,
+        "teamId": "MAR",
+        "playerName": "アゼディン・ウナヒ",
+        "type": "Y"
       }
     ],
     "substitutions": [
