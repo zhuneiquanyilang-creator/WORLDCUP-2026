@@ -36640,6 +36640,18 @@
         "teamId": "FRA",
         "inName": "デジレ・ドゥエ",
         "outName": "ブラッドリー・バルコラ"
+      },
+      {
+        "minute": 71,
+        "teamId": "PAR",
+        "inName": "マウリシオ・マガリャエス・プラド",
+        "outName": "グスタボ・ゴメス"
+      },
+      {
+        "minute": 71,
+        "teamId": "PAR",
+        "inName": "ガブリエル・アバロス",
+        "outName": "ミゲル・アルミロン"
       }
     ],
     "goals": [
