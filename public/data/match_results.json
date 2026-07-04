@@ -36620,6 +36620,12 @@
         "teamId": "FRA",
         "playerName": "ブラッドリー・バルコラ",
         "type": "Y"
+      },
+      {
+        "minute": 81,
+        "teamId": "FRA",
+        "playerName": "マヌ・コネ",
+        "type": "Y"
       }
     ],
     "substitutions": [
