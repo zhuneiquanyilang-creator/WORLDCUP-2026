@@ -36176,6 +36176,18 @@
         "teamId": "MAR",
         "playerName": "レドゥアン・ハルハル",
         "type": "Y"
+      },
+      {
+        "minute": 40,
+        "teamId": "MAR",
+        "playerName": "アクラフ・ハキミ",
+        "type": "Y"
+      },
+      {
+        "minute": 40,
+        "teamId": "CAN",
+        "playerName": "リッチー・ラリア",
+        "type": "Y"
       }
     ],
     "substitutions": [
