@@ -36200,6 +36200,13 @@
         "teamId": "MAR",
         "playerName": "アゼディン・ウナヒ",
         "type": "Y"
+      },
+      {
+        "minute": 45,
+        "teamId": "MAR",
+        "playerName": "ビラル・エル・ハヌス",
+        "type": "Y",
+        "addedTime": 6
       }
     ],
     "substitutions": [
