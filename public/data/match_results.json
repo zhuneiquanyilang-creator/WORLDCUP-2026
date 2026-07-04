@@ -36626,6 +36626,13 @@
         "teamId": "FRA",
         "playerName": "マヌ・コネ",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "FRA",
+        "playerName": "マイケル・オリーセ",
+        "type": "Y",
+        "addedTime": 7
       }
     ],
     "substitutions": [
