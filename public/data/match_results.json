@@ -36316,14 +36316,14 @@
   },
   "m090": {
     "matchId": "m090",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 0,
       "away": 1
     },
     "note": "",
-    "liveLabel": "2nd half",
-    "manualLock": false,
+    "liveLabel": "Full time",
+    "manualLock": true,
     "homeFormation": {
       "shape": "5-4-1",
       "starting": [
