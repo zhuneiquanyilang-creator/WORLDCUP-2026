@@ -36626,8 +36626,20 @@
       {
         "minute": 58,
         "teamId": "PAR",
-        "inName": "オマール・アルデレテ",
-        "outName": "ホセ・カナレ"
+        "inName": "ホセ・カナレ",
+        "outName": "オマール・アルデレテ"
+      },
+      {
+        "minute": 61,
+        "teamId": "PAR",
+        "inName": "グスタボ・カバジェロ",
+        "outName": "フリオ・エンシソ"
+      },
+      {
+        "minute": 61,
+        "teamId": "FRA",
+        "inName": "デジレ・ドゥエ",
+        "outName": "ブラッドリー・バルコラ"
       }
     ]
   },
