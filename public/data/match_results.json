@@ -36245,6 +36245,18 @@
         "teamId": "CAN",
         "inName": "サイル・ラリン",
         "outName": "タニ・オルワセイ"
+      },
+      {
+        "minute": 79,
+        "teamId": "CAN",
+        "inName": "プロミス・デイヴィッド",
+        "outName": "アリ・アーメド"
+      },
+      {
+        "minute": 79,
+        "teamId": "CAN",
+        "inName": "ジェイコブ・シャッフェルバーグ",
+        "outName": "リッチー・ラリア"
       }
     ],
     "goals": [
