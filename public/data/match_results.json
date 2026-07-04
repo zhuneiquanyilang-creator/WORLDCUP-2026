@@ -34901,7 +34901,126 @@
       "home": 3,
       "away": 2
     },
-    "note": ""
+    "note": "",
+    "goals": [
+      {
+        "minute": 29,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_19",
+        "playerName": "リオネル・メッシ",
+        "assistPlayerId": "p_arg_10",
+        "assistPlayerName": "リサンドロ・マルティネス"
+      },
+      {
+        "minute": 59,
+        "teamId": "CPV",
+        "type": "normal",
+        "playerId": "p_cpv_14",
+        "playerName": "デロイ・ドゥアルテ",
+        "assistPlayerId": "p_cpv_21",
+        "assistPlayerName": "ライアン・メンデス"
+      },
+      {
+        "minute": 92,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_10",
+        "playerName": "リサンドロ・マルティネス",
+        "assistPlayerId": "p_arg_18",
+        "assistPlayerName": "アレクシス・マクアリスター"
+      },
+      {
+        "minute": 103,
+        "teamId": "CPV",
+        "type": "normal",
+        "playerId": "p_cpv_10",
+        "playerName": "シドニー・カブラル"
+      },
+      {
+        "minute": 111,
+        "teamId": "ARG",
+        "type": "own",
+        "playerId": "p_cpv_4",
+        "playerName": "ディニー・ボルジェス"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 68,
+        "teamId": "CPV",
+        "playerName": "ケビン・レニーニ",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 63,
+        "teamId": "ARG",
+        "inName": "エセキエル・パラシオス",
+        "outName": "ティアゴ・アルマーダ"
+      },
+      {
+        "minute": 63,
+        "teamId": "ARG",
+        "inName": "フリアン・アルバレス",
+        "outName": "ラウタロ・マルティネス"
+      },
+      {
+        "minute": 67,
+        "teamId": "CPV",
+        "inName": "ジャミロ・モンテイロ",
+        "outName": "ラロス・ドゥアルテ"
+      },
+      {
+        "minute": 67,
+        "teamId": "CPV",
+        "inName": "ダイロン・リブラメント",
+        "outName": "ヌーノ・ダ・コスタ"
+      },
+      {
+        "minute": 80,
+        "teamId": "CPV",
+        "inName": "エリオ・バレラ",
+        "outName": "ライアン・メンデス"
+      },
+      {
+        "minute": 80,
+        "teamId": "CPV",
+        "inName": "ウィリー・セメド",
+        "outName": "ジョバネ・カブラル"
+      },
+      {
+        "minute": 84,
+        "teamId": "ARG",
+        "inName": "レアンドロ・パレデス",
+        "outName": "ロドリゴ・デ・パウル"
+      },
+      {
+        "minute": 85,
+        "teamId": "ARG",
+        "inName": "ニコラス・タグリアフィコ",
+        "outName": "ファクンド・メディーナ"
+      },
+      {
+        "minute": 100,
+        "teamId": "CPV",
+        "inName": "ヤニック・セメド",
+        "outName": "ケビン・レニーニ"
+      },
+      {
+        "minute": 100,
+        "teamId": "CPV",
+        "inName": "ベンシモル",
+        "outName": "デロイ・ドゥアルテ"
+      },
+      {
+        "minute": 104,
+        "teamId": "ARG",
+        "inName": "ゴンサロ・モンティエル",
+        "outName": "ナウエル・モリーナ"
+      }
+    ]
   },
   "m087": {
     "matchId": "m087",
