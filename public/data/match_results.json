@@ -36322,7 +36322,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "2nd half",
     "manualLock": false,
     "homeFormation": {
       "shape": "5-4-1",
@@ -36613,7 +36613,15 @@
           "name": "マクサンス・ラクロワ"
         }
       ]
-    }
+    },
+    "bookings": [
+      {
+        "minute": 19,
+        "teamId": "FRA",
+        "playerName": "ブラッドリー・バルコラ",
+        "type": "Y"
+      }
+    ]
   },
   "m091": {
     "matchId": "m091",
