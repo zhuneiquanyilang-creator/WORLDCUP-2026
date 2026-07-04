@@ -35878,7 +35878,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "2nd half",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-4-2",
@@ -36221,6 +36221,17 @@
         "teamId": "MAR",
         "inName": "スフィアン・ラヒミ",
         "outName": "イスマエル・サイバリ"
+      }
+    ],
+    "goals": [
+      {
+        "minute": 50,
+        "teamId": "MAR",
+        "type": "normal",
+        "playerId": "p_mar_18",
+        "playerName": "アゼディン・ウナヒ",
+        "assistPlayerId": "p_mar_12",
+        "assistPlayerName": "アクラフ・ハキミ"
       }
     ]
   },
