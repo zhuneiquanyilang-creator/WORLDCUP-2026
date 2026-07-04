@@ -35872,7 +35872,13 @@
   },
   "m089": {
     "matchId": "m089",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m090": {
     "matchId": "m090",
