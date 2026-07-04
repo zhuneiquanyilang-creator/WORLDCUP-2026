@@ -36221,6 +36221,18 @@
         "teamId": "MAR",
         "inName": "スフィアン・ラヒミ",
         "outName": "イスマエル・サイバリ"
+      },
+      {
+        "minute": 63,
+        "teamId": "MAR",
+        "inName": "ソフィアン・アムラバト",
+        "outName": "アイユーブ・ブアディ"
+      },
+      {
+        "minute": 63,
+        "teamId": "MAR",
+        "inName": "ケムスディン・タルビ",
+        "outName": "ビラル・エル・ハヌス"
       }
     ],
     "goals": [
