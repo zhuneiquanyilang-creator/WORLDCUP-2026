@@ -50,11 +50,20 @@ export function generateFormation(
   const layerCount = parts.length;
   let cursor = 1;
 
+  // 5-4-1 は 1 トップが最前線に張り付く一方 DF/MF ラインが自陣寄りに残って
+  // 全体的に間延びして見える。DF と MF だけ少しだけ前線寄りに上げて調整する。
+  const raiseBackLines = formationStr === "5-4-1";
+
   parts.forEach((count, layerIdx) => {
-    const x =
+    let x =
       layerCount === 1
         ? (X_MIN + X_MAX) / 2
         : X_MIN + (layerIdx / (layerCount - 1)) * (X_MAX - X_MIN);
+    if (raiseBackLines) {
+      if (layerIdx === 0) x += 6;
+      else if (layerIdx === 1) x += 12;
+      else x += 6;
+    }
 
     for (let i = 0; i < count; i++) {
       const p = players[cursor];
