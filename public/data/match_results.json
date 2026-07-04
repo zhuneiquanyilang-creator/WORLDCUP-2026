@@ -34589,15 +34589,19 @@
   },
   "m088": {
     "matchId": "m088",
-    "status": "scheduled",
+    "status": "finished",
     "manualLock": true,
     "note": "",
-    "liveLabel": ""
+    "liveLabel": "Full time",
+    "score": {
+      "home": 1,
+      "away": 0
+    }
   },
   "m086": {
     "matchId": "m086",
-    "status": "scheduled",
-    "manualLock": false,
+    "status": "finished",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-4-2",
       "starting": [
@@ -34891,7 +34895,13 @@
           "name": "エリオ・バレラ"
         }
       ]
-    }
+    },
+    "liveLabel": "Full time",
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "note": ""
   },
   "m087": {
     "matchId": "m087",
