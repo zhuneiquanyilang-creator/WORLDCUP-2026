@@ -35875,7 +35875,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 1
+      "away": 2
     },
     "note": "",
     "liveLabel": "2nd half",
@@ -36257,6 +36257,30 @@
         "teamId": "CAN",
         "inName": "ジェイコブ・シャッフェルバーグ",
         "outName": "リッチー・ラリア"
+      },
+      {
+        "minute": 87,
+        "teamId": "MAR",
+        "inName": "マルワン・サーダン",
+        "outName": "イッサ・ディオプ"
+      },
+      {
+        "minute": 87,
+        "teamId": "MAR",
+        "inName": "サミル・エル・ムラベ",
+        "outName": "アゼディン・ウナヒ"
+      },
+      {
+        "minute": 88,
+        "teamId": "CAN",
+        "inName": "ジョナサン・オソリオ",
+        "outName": "ニコ・シグル"
+      },
+      {
+        "minute": 88,
+        "teamId": "CAN",
+        "inName": "マルセロ・フローレス",
+        "outName": "タジョン・ブキャナン"
       }
     ],
     "goals": [
