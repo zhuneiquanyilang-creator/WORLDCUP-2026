@@ -36169,7 +36169,23 @@
           "name": "アナス・サラー・エディン"
         }
       ]
-    }
+    },
+    "bookings": [
+      {
+        "minute": 20,
+        "teamId": "MAR",
+        "playerName": "レドゥアン・ハルハル",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 22,
+        "teamId": "MAR",
+        "inName": "スフィアン・ラヒミ",
+        "outName": "イスマエル・サイバリ"
+      }
+    ]
   },
   "m090": {
     "matchId": "m090",
