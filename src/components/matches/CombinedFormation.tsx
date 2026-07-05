@@ -56,6 +56,39 @@ function resolveDisplayName(
   return surnameOf(name);
 }
 
+/** formation 内の starting / bench の name を、可能なら (teamId, number) で
+ *  players.json のマスタから現在名に置換した新しい FormationData を返す。
+ *
+ *  ねらい: ユーザーが `public/data/players/{TEAM}.json` で選手名を書き換えたら、
+ *  同期スクリプトを待たずにフォーメーション画面に即反映させる。
+ *  背番号が一致するマスタ選手が居ない場合は保存されている name をそのまま使う
+ *  (同姓同名や欠番の historical データを壊さない)。 */
+function resolveFormationNames(
+  formation: FormationData | undefined,
+  teamId: string,
+  playerMap: Map<string, Player> | undefined
+): FormationData | undefined {
+  if (!formation || !playerMap) return formation;
+  const byNumber = new Map<number, string>();
+  for (const p of playerMap.values()) {
+    if (p.teamId !== teamId) continue;
+    if (typeof p.number === "number") byNumber.set(p.number, p.name);
+  }
+  if (byNumber.size === 0) return formation;
+  const remap = <T extends { number?: number; name: string }>(arr: T[]): T[] =>
+    arr.map((spot) => {
+      if (typeof spot.number !== "number") return spot;
+      const master = byNumber.get(spot.number);
+      if (!master || master === spot.name) return spot;
+      return { ...spot, name: master };
+    });
+  return {
+    ...formation,
+    starting: remap(formation.starting),
+    bench: formation.bench ? remap(formation.bench) : formation.bench,
+  };
+}
+
 /** (teamId, 名前, 背番号) から playerMap を引いて選手 ID を返す。
  *  名前完全一致を優先、見つからなければ背番号一致でフォールバック。 */
 function findPlayerId(
@@ -254,15 +287,26 @@ export function CombinedFormation({
     if (id) navigate(`/players/${id}`);
   };
 
+  // 選手名を players.json マスタから (teamId, number) で解決して現在名に置換する。
+  // sync-player-names.mjs のバッチ書き込みを待たずに、fetch 後の render 時点で
+  // 名前変更を反映させる runtime レイヤ。
+  const homeResolvedFormation = useMemo(
+    () => resolveFormationNames(homeFormation, homeTeamId, playerMap),
+    [homeFormation, homeTeamId, playerMap]
+  );
+  const awayResolvedFormation = useMemo(
+    () => resolveFormationNames(awayFormation, awayTeamId, playerMap),
+    [awayFormation, awayTeamId, playerMap]
+  );
   // 層 x 間隔の調整 (= ピッチ上の名前ラベル重なり防止)。
   // 4-2-3-1 等の AM/ST が y=50 で揃うケースで前方を押し出す。
   const homeSpreadFormation = useMemo(
-    () => (homeFormation ? spreadFormationLayers(homeFormation) : undefined),
-    [homeFormation]
+    () => (homeResolvedFormation ? spreadFormationLayers(homeResolvedFormation) : undefined),
+    [homeResolvedFormation]
   );
   const awaySpreadFormation = useMemo(
-    () => (awayFormation ? spreadFormationLayers(awayFormation) : undefined),
-    [awayFormation]
+    () => (awayResolvedFormation ? spreadFormationLayers(awayResolvedFormation) : undefined),
+    [awayResolvedFormation]
   );
   const homeProcessed = useMemo(
     () =>
