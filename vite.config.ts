@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { spawn } from "node:child_process";
+// @ts-expect-error scripts/*.mjs は tsconfig の include 対象外
+import { syncPlayerNames } from "./scripts/sync-player-names.mjs";
 
 const RESULTS_PATH = path.resolve(__dirname, "public/data/match_results.json");
 const RESULTS_REL = "public/data/match_results.json";
@@ -536,6 +538,75 @@ function startupCatchup(apiKey: string): Plugin {
 }
 
 /**
+ * players/*.json (選手マスタ) の変更を監視し、変更があれば
+ * match_results.json 内の選手名 (goals / bookings / substitutions /
+ * homeFormation / awayFormation の starting + bench) を自動で同期する。
+ *
+ * 想定シナリオ: ユーザーが `public/data/players/JPN.json` で
+ * "佐野 海舟" → "佐野海舟" のように名前を書き換えると、
+ * 過去試合の match_results.json の該当箇所も自動で追随して更新される。
+ *
+ * 同期ロジックの詳細は `scripts/sync-player-names.mjs` を参照:
+ *   - goals: playerId / assistPlayerId で選手を特定して現在名に置換
+ *   - formation: (teamId, number) で特定して置換 (starting / bench 両方)
+ *   - bookings / substitutions: 上記の rename map (旧名→新名) を team-scoped に
+ *     適用 (勝手な推測はしない)
+ *
+ * 起動時に 1 回走らせ、その後 players/*.json 変更を 500ms デバウンスで検知して
+ * 再実行する。書き込みが発生したら schedulePush() で自動 commit/push。
+ */
+function syncPlayerNamesWatcher(): Plugin {
+  return {
+    name: "sync-player-names-watcher",
+    apply: "serve",
+    configureServer(server) {
+      const playersDir = path.resolve(__dirname, "public/data/players");
+
+      const runSync = () => {
+        try {
+          const { changed, changeSummary } = syncPlayerNames({
+            baseDir: __dirname,
+          });
+          if (changed > 0) {
+            console.log(
+              `[sync-player-names] ${changed} 件の選手名を更新しました:`
+            );
+            for (const line of changeSummary.slice(0, 20)) {
+              console.log(`  ${line}`);
+            }
+            if (changeSummary.length > 20) {
+              console.log(`  ... 他 ${changeSummary.length - 20} 件`);
+            }
+            schedulePush();
+          }
+        } catch (e) {
+          console.warn(
+            `[sync-player-names] failed: ${e instanceof Error ? e.message : String(e)}`
+          );
+        }
+      };
+
+      let debounceTimer: NodeJS.Timeout | null = null;
+      const scheduleSync = () => {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(runSync, 500);
+      };
+
+      server.watcher.on("change", (file) => {
+        const abs = path.resolve(file);
+        if (!abs.startsWith(playersDir)) return;
+        if (!abs.endsWith(".json")) return;
+        scheduleSync();
+      });
+
+      // 起動時に 1 回同期 (players.json が手動で編集されたまま dev サーバーが
+      // 落ちていた場合をキャッチアップする)
+      server.httpServer?.once("listening", () => runSync());
+    },
+  };
+}
+
+/**
  * 周期 catchup: `/competitions/WC/matches` を 1 リクエストで取得し、
  * status / score / penaltyScore に差分があるものだけ match_results.json
  * に書き込む。goals / formations / cards / bookings は触らないので、
@@ -1040,6 +1111,7 @@ export default defineConfig(({ mode }) => {
       react(),
       matchResultsWriter(),
       startupCatchup(env.VITE_FOOTBALL_DATA_KEY ?? ""),
+      syncPlayerNamesWatcher(),
     ],
     resolve: {
       alias: {
