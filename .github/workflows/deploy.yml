@@ -28,7 +28,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # workflow_run で発火した場合、fetch-scores が実際に commit していないなら
+  # deploy 不要なので、ここで sha を比較して skip 判定する。
+  # push / workflow_dispatch 起因の場合は無条件で deploy する。
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.decide.outputs.should_deploy }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: decide
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            START="${{ github.event.workflow_run.head_sha }}"
+            CURRENT=$(git rev-parse HEAD)
+            if [ "$START" = "$CURRENT" ]; then
+              echo "should_deploy=false" >> $GITHUB_OUTPUT
+              echo "::notice::Fetch live scores made no commit (HEAD unchanged); skipping deploy"
+            else
+              echo "should_deploy=true" >> $GITHUB_OUTPUT
+              echo "Fetch live scores advanced HEAD from $START to $CURRENT"
+            fi
+          else
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+          fi
+
   build:
+    needs: check
+    if: needs.check.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
