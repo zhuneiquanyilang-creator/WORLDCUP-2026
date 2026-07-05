@@ -37038,6 +37038,15 @@
         "playerName": "アーリング・ブラウト・ハーランド",
         "assistPlayerId": "p_nor_16",
         "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
+      },
+      {
+        "minute": 90,
+        "teamId": "NOR",
+        "type": "normal",
+        "playerId": "p_nor_24",
+        "playerName": "アーリング・ブラウト・ハーランド",
+        "assistPlayerId": "p_nor_16",
+        "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
       }
     ]
   },
