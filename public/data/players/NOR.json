@@ -1,15 +1,15 @@
 [
   {
     "id": "p_nor_1",
-    "name": "エリアン・ニュラン",
+    "name": "エリアン・ニーラン",
     "teamId": "NOR",
     "position": "GK",
     "birthDate": "1990-09-10",
-    "club": "セビリア（スペイン）",
+    "club": "セビージャ（スペイン）",
     "goals": 0,
     "assists": 0,
     "number": 1,
-    "shortName": "ニュラン"
+    "shortName": "ニーラン"
   },
   {
     "id": "p_nor_18",
