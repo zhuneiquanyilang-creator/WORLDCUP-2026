@@ -37003,6 +37003,18 @@
         "teamId": "BRA",
         "inName": "エンドリッキ",
         "outName": "マテウス・クーニャ"
+      },
+      {
+        "minute": 68,
+        "teamId": "BRA",
+        "inName": "ネイマール・ジュニオール",
+        "outName": "ガブリエウ・マルティネッリ"
+      },
+      {
+        "minute": 68,
+        "teamId": "BRA",
+        "inName": "ダニーロ (ボタフォゴ)",
+        "outName": "ラヤン"
       }
     ]
   },
