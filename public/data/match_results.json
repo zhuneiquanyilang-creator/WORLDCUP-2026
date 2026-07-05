@@ -36693,7 +36693,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "2nd half",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-1-2-3",
@@ -36984,7 +36984,21 @@
           "name": "ヘンリク・ファルヘナー"
         }
       ]
-    }
+    },
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "NOR",
+        "inName": "アンドレアス・レーデルゴール・シェルデルップ",
+        "outName": "アレクサンデル・セルロート"
+      },
+      {
+        "minute": 46,
+        "teamId": "NOR",
+        "inName": "オスカー・ボブ",
+        "outName": "アントニオ・ヌサ"
+      }
+    ]
   },
   "m092": {
     "matchId": "m092",
