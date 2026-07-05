@@ -36687,13 +36687,13 @@
   },
   "m091": {
     "matchId": "m091",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 2
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-1-2-3",
