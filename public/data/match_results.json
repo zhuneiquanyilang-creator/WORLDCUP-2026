@@ -773,7 +773,7 @@
         "minute": 63,
         "teamId": "CZE",
         "inName": "トマーシュ・ホリー",
-        "outName": "ルカーシュ・プロヴァド"
+        "outName": "ルカーシュ・プロヴォド"
       },
       {
         "minute": 69,
@@ -2007,7 +2007,7 @@
         "minute": 80,
         "teamId": "MAR",
         "inName": "アユベ・アマイムニ",
-        "outName": "ビラル・エル・ハヌス"
+        "outName": "ビラル・エル・カヌス"
       },
       {
         "minute": 80,
@@ -12149,7 +12149,7 @@
         "minute": 84,
         "teamId": "MAR",
         "inName": "ケムスディン・タルビ",
-        "outName": "ビラル・エル・ハヌス"
+        "outName": "ビラル・エル・カヌス"
       },
       {
         "minute": 84,
@@ -19829,7 +19829,7 @@
       {
         "minute": 80,
         "teamId": "SUI",
-        "inName": "ダン・ンドイエ",
+        "inName": "ダン・エンドイエ",
         "outName": "ルベン・バルガス"
       },
       {
@@ -22667,7 +22667,7 @@
       {
         "minute": 67,
         "teamId": "CIV",
-        "inName": "エリー・ワヒ",
+        "inName": "エリー・ワイ",
         "outName": "ヤン・ディオマンデ"
       },
       {
@@ -28754,7 +28754,7 @@
       {
         "minute": 60,
         "teamId": "ARG",
-        "inName": "アレクシス・マク・アリスター",
+        "inName": "アレクシス・マクアリスター",
         "outName": "ニコ・パス"
       },
       {
@@ -30862,7 +30862,7 @@
         "minute": 86,
         "teamId": "MAR",
         "inName": "スフィアン・ラヒミ",
-        "outName": "ビラル・エル・ハヌス"
+        "outName": "ビラル・エル・カヌス"
       },
       {
         "minute": 110,
@@ -36239,7 +36239,7 @@
         "minute": 63,
         "teamId": "MAR",
         "inName": "ケムスディン・タルビ",
-        "outName": "ビラル・エル・ハヌス"
+        "outName": "ビラル・エル・カヌス"
       },
       {
         "minute": 63,
@@ -37027,6 +37027,13 @@
         "teamId": "BRA",
         "inName": "エデルソン",
         "outName": "ブルーノ・ギマランイス"
+      },
+      {
+        "minute": 90,
+        "teamId": "NOR",
+        "inName": "レオ・スキリ・エスティゴール",
+        "outName": "ダヴィド・メラー・ウォルフ",
+        "addedTime": 5
       }
     ],
     "goals": [
@@ -37047,6 +37054,15 @@
         "playerName": "アーリング・ブラウト・ハーランド",
         "assistPlayerId": "p_nor_16",
         "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 90,
+        "teamId": "BRA",
+        "playerName": "ネイマール・ジュニオール",
+        "type": "Y",
+        "addedTime": 6
       }
     ]
   },
