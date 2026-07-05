@@ -21,6 +21,7 @@ PC が起動していない時間帯でもスコアが反映されるよう、`.
 - **触るフィールド**: `status` / `score` / `penaltyScore` の 3 つだけ。`goals` / `bookings` / `substitutions` / `homeFormation` / `awayFormation` / `note` などの**手入力データは field-level merge で保護**する (`{ ...prev, ...update }`)。
 - **コミット**: 差分があれば `github-actions[bot]` 名義で `public/data/match_results.json` だけを add → commit → push (他ファイルは巻き込まない)。
 - **デプロイ連鎖**: `deploy.yml` 側の `workflow_run` トリガーが "Fetch live scores" の完了イベントを受けて自動デプロイする。GitHub Actions が `GITHUB_TOKEN` で push したコミットは `on: push` を発火させない仕様の対策。
+- **空振り deploy の skip**: `workflow_run` は fetch-scores が commit しなくても completed で発火するため、そのままだと 10 分毎に deploy が空回りする。`deploy.yml` の `check` ジョブが `workflow_run.head_sha` (fetch-scores 開始時 HEAD) と現在の main HEAD を比較し、同じなら build/deploy を skip、違うなら実行する。push / workflow_dispatch 起因なら無条件で実行。
 - **オン/オフ**: Actions タブ → "Fetch live scores" → "Disable workflow" で停止、再有効化も同じメニュー。手動実行は同画面の "Run workflow" ボタン。
 - **dev サーバーの startup-catchup / auto-push との関係**: dev サーバー起動時の単発キャッチアップと AUTO_PUSH (`features.md` 参照) はそのまま並存。両者は同じ `match_results.json` を field-level merge で書き換えるので衝突しない (最終的に勝つのは最後に push した側、競合したら次回 cron で再同期される)。
 
