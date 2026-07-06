@@ -37885,6 +37885,18 @@
         "playerName": "ベルナルド・シルバ",
         "type": "Y"
       }
+    ],
+    "goals": [
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "type": "normal",
+        "addedTime": 1,
+        "playerId": "p_esp_12",
+        "playerName": "アレックス・バエナ",
+        "assistPlayerId": "p_esp_22",
+        "assistPlayerName": "フェラン・トーレス"
+      }
     ]
   },
   "m094": {
