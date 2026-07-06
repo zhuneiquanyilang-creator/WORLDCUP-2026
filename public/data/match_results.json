@@ -37876,6 +37876,13 @@
         "teamId": "ESP",
         "inName": "ミケル・メリーノ",
         "outName": "ダニ・オルモ"
+      },
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "inName": "ボルハ・イグレシアス",
+        "outName": "ミケル・オヤルサバル",
+        "addedTime": 8
       }
     ],
     "bookings": [
@@ -37891,6 +37898,13 @@
         "playerName": "レナト・ヴェイガ",
         "type": "Y",
         "addedTime": 4
+      },
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "playerName": "フェラン・トーレス",
+        "type": "Y",
+        "addedTime": 9
       }
     ],
     "goals": [
