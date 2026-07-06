@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import type { Match } from "@/types/match";
 import type { Team } from "@/types/team";
 import { matchNumber } from "@/utils/matchNumber";
@@ -57,14 +58,16 @@ function BracketColumn({
   title,
   matches,
   teamMap,
+  innerRef,
 }: {
   title: string;
   matches: Match[];
   teamMap: Map<string, Team>;
+  innerRef?: React.Ref<HTMLDivElement>;
 }) {
   const pairs = pairUp(matches);
   return (
-    <div className={styles.column}>
+    <div className={styles.column} ref={innerRef}>
       <div className={styles.columnTitle}>{title}</div>
       <div className={styles.cards}>
         {pairs.map((pair, i) => {
@@ -99,15 +102,33 @@ export function BracketView({ matches, teamMap }: Props) {
     (m) => m.stage === "third" && matchNumber(m.id) === THIRD_NUM
   );
 
+  // スマホ (≤640px) で開いたときの初期スクロール位置を R16 (左から 2 番目の列) に
+  // 合わせる。PC は横一覧できるので触らない。
+  const bracketRef = useRef<HTMLDivElement>(null);
+  const r16Ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      const bracket = bracketRef.current;
+      const r16 = r16Ref.current;
+      if (bracket && r16) {
+        // R16 列の左端が bracket の可視領域の左端に来るようにスクロール。
+        // 列間 gap (0.75rem = 12px) 分だけ引いて、R16 タイトルが端に張り付かない
+        // 少しの余白を残す。
+        bracket.scrollLeft = r16.offsetLeft - 12;
+      }
+    }
+  }, []);
+
   return (
     <div>
-      <div className={styles.bracket}>
-        {COLUMNS.map((col) => (
+      <div className={styles.bracket} ref={bracketRef}>
+        {COLUMNS.map((col, i) => (
           <BracketColumn
             key={col.title}
             title={col.title}
             matches={pickByOrder(matches, col.stage, col.order)}
             teamMap={teamMap}
+            innerRef={i === 1 ? r16Ref : undefined}
           />
         ))}
 
