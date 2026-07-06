@@ -37396,6 +37396,12 @@
         "teamId": "ENG",
         "playerName": "ジャレル・クアンサ",
         "type": "R"
+      },
+      {
+        "minute": 68,
+        "teamId": "ENG",
+        "playerName": "マルク・グエイ",
+        "type": "Y"
       }
     ],
     "goals": [
@@ -37430,6 +37436,13 @@
         "type": "penalty",
         "playerId": "p_eng_20",
         "playerName": "ハリー・ケイン"
+      },
+      {
+        "minute": 69,
+        "teamId": "MEX",
+        "type": "penalty",
+        "playerId": "p_mex_20",
+        "playerName": "ラウール・ヒメネス"
       }
     ],
     "substitutions": [
