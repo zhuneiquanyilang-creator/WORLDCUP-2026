@@ -37418,6 +37418,14 @@
         "playerId": "p_mex_22",
         "playerName": "フリアン・キニョネス"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "MEX",
+        "inName": "エドソン・アルバレス",
+        "outName": "セサル・モンテス"
+      }
     ]
   },
   "m093": {
