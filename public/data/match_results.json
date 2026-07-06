@@ -37864,6 +37864,18 @@
         "teamId": "POR",
         "inName": "フランシスコ・コンセイソン",
         "outName": "ペドロ・ネト"
+      },
+      {
+        "minute": 85,
+        "teamId": "ESP",
+        "inName": "ファビアン・ルイス",
+        "outName": "ペドリ"
+      },
+      {
+        "minute": 85,
+        "teamId": "ESP",
+        "inName": "ミケル・メリーノ",
+        "outName": "ダニ・オルモ"
       }
     ]
   },
