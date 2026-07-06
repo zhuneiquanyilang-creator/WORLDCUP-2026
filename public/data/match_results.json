@@ -37423,6 +37423,13 @@
         "type": "normal",
         "playerId": "p_mex_22",
         "playerName": "フリアン・キニョネス"
+      },
+      {
+        "minute": 60,
+        "teamId": "ENG",
+        "type": "penalty",
+        "playerId": "p_eng_20",
+        "playerName": "ハリー・ケイン"
       }
     ],
     "substitutions": [
@@ -37437,6 +37444,18 @@
         "teamId": "ENG",
         "inName": "ジョン・ストーンズ",
         "outName": "ブカヨ・サカ"
+      },
+      {
+        "minute": 62,
+        "teamId": "MEX",
+        "inName": "サンティアゴ・ヒメネス",
+        "outName": "ヒルベルト・モラ"
+      },
+      {
+        "minute": 62,
+        "teamId": "MEX",
+        "inName": "ブライアン・グティエレス",
+        "outName": "ルイス・ロモ"
       }
     ]
   },
