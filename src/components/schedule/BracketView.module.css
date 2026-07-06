@@ -184,17 +184,17 @@
   transform: translateY(-50%);
 }
 
-/* 優勝チーム欄: 決勝カードの真上、SF→決勝連結線 (top:50%) より少し上に配置。
-   決勝カードの中心 (top:50%) との距離感を 3rem 空けて、finalCardWrap の
-   `transform: translateY(-50%)` と重ならないようにする。 */
+/* 優勝チーム欄: 決勝カードのすぐ上に配置。決勝カードは top:50% + translateY(-50%)
+   で中央揃えなので、その上端 (≒ 50% - 2rem) の少し上にくるよう bottom で
+   アンカーする。gap 0.4rem 空けて決勝カードと接近させつつ被らないように。 */
 .championWrap {
   position: absolute;
-  top: calc(50% - 6rem);
+  bottom: calc(50% + 2.2rem);
   left: 2rem;
   right: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
 .championLabel {
