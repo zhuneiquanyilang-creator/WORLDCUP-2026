@@ -37533,7 +37533,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
     "note": "",
     "liveLabel": "2nd half",
@@ -37884,6 +37884,13 @@
         "teamId": "POR",
         "playerName": "ベルナルド・シルバ",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "POR",
+        "playerName": "レナト・ヴェイガ",
+        "type": "Y",
+        "addedTime": 4
       }
     ],
     "goals": [
