@@ -37410,6 +37410,13 @@
         "playerName": "ジュード・ベリンガム",
         "assistPlayerId": "p_eng_20",
         "assistPlayerName": "ハリー・ケイン"
+      },
+      {
+        "minute": 42,
+        "teamId": "MEX",
+        "type": "normal",
+        "playerId": "p_mex_22",
+        "playerName": "フリアン・キニョネス"
       }
     ]
   },
