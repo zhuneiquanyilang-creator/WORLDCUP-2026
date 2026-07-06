@@ -37852,6 +37852,18 @@
         "teamId": "ESP",
         "inName": "フェラン・トーレス",
         "outName": "アレックス・バエナ"
+      },
+      {
+        "minute": 83,
+        "teamId": "POR",
+        "inName": "ベルナルド・シルバ",
+        "outName": "ヴィティーニャ"
+      },
+      {
+        "minute": 83,
+        "teamId": "POR",
+        "inName": "フランシスコ・コンセイソン",
+        "outName": "ペドロ・ネト"
       }
     ]
   },
