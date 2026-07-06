@@ -37827,7 +37827,15 @@
           "name": "ボルハ・イグレシアス"
         }
       ]
-    }
+    },
+    "substitutions": [
+      {
+        "minute": 56,
+        "teamId": "POR",
+        "inName": "ネルソン・セメド",
+        "outName": "ヌノ・メンデス"
+      }
+    ]
   },
   "m094": {
     "matchId": "m094",
