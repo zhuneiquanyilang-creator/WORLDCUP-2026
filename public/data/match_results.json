@@ -37402,6 +37402,18 @@
         "teamId": "ENG",
         "playerName": "マルク・グエイ",
         "type": "Y"
+      },
+      {
+        "minute": 71,
+        "teamId": "MEX",
+        "playerName": "ホルヘ・サンチェス",
+        "type": "Y"
+      },
+      {
+        "minute": 72,
+        "teamId": "ENG",
+        "playerName": "ニコ・オライリー",
+        "type": "Y"
       }
     ],
     "goals": [
@@ -37469,6 +37481,18 @@
         "teamId": "MEX",
         "inName": "ブライアン・グティエレス",
         "outName": "ルイス・ロモ"
+      },
+      {
+        "minute": 75,
+        "teamId": "ENG",
+        "inName": "ダニエル・バーン",
+        "outName": "エリオット・アンダーソン"
+      },
+      {
+        "minute": 75,
+        "teamId": "ENG",
+        "inName": "ジェド・スペンス",
+        "outName": "ニコ・オライリー"
       }
     ]
   },
