@@ -37414,6 +37414,20 @@
         "teamId": "ENG",
         "playerName": "ニコ・オライリー",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "MEX",
+        "playerName": "ヨハン・バスケス",
+        "type": "Y",
+        "addedTime": 8
+      },
+      {
+        "minute": 90,
+        "teamId": "ENG",
+        "playerName": "ジョーダン・ヘンダーソン",
+        "type": "Y",
+        "addedTime": 8
       }
     ],
     "goals": [
