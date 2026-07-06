@@ -36924,7 +36924,8 @@
           "y": 50,
           "number": 9,
           "name": "アーリング・ブラウト・ハーランド",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         },
         {
           "x": 80,
@@ -37112,7 +37113,8 @@
           "y": 37.5,
           "number": 3,
           "name": "セサル・モンテス",
-          "role": "DF"
+          "role": "DF",
+          "isCaptain": true
         },
         {
           "x": 28,
@@ -37298,7 +37300,8 @@
           "y": 50,
           "number": 10,
           "name": "ジュード・ベリンガム",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -37312,7 +37315,8 @@
           "y": 50,
           "number": 9,
           "name": "ハリー・ケイン",
-          "role": "FW"
+          "role": "FW",
+          "isCaptain": true
         }
       ],
       "bench": [
