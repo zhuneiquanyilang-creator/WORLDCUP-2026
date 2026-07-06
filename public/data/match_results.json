@@ -37391,6 +37391,26 @@
         "playerName": "デクラン・ライス",
         "type": "Y"
       }
+    ],
+    "goals": [
+      {
+        "minute": 36,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_19",
+        "playerName": "ジュード・ベリンガム",
+        "assistPlayerId": "p_eng_23",
+        "assistPlayerName": "ブカヨ・サカ"
+      },
+      {
+        "minute": 38,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_19",
+        "playerName": "ジュード・ベリンガム",
+        "assistPlayerId": "p_eng_20",
+        "assistPlayerName": "ハリー・ケイン"
+      }
     ]
   },
   "m093": {
