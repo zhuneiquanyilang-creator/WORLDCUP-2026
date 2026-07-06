@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { Match } from "@/types/match";
 import type { Team } from "@/types/team";
 import { matchNumber } from "@/utils/matchNumber";
+import { Flag } from "@/components/common/Flag";
 import { BracketMatch } from "./BracketMatch";
 import styles from "./BracketView.module.css";
 
@@ -44,6 +45,20 @@ function pairUp<T>(arr: T[]): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += 2) out.push(arr.slice(i, i + 2));
   return out;
+}
+
+/** 決勝が確定していれば勝者のチーム ID を返す。未確定なら undefined。 */
+function championTeamId(finalMatch: Match | undefined): string | undefined {
+  if (!finalMatch || finalMatch.status !== "finished") return undefined;
+  const s = finalMatch.score;
+  if (!s) return undefined;
+  if (s.home > s.away) return finalMatch.homeTeamId;
+  if (s.home < s.away) return finalMatch.awayTeamId;
+  const pk = finalMatch.penaltyScore;
+  if (!pk) return undefined;
+  if (pk.home > pk.away) return finalMatch.homeTeamId;
+  if (pk.home < pk.away) return finalMatch.awayTeamId;
+  return undefined;
 }
 
 
@@ -140,6 +155,23 @@ export function BracketView({ matches, teamMap }: Props) {
             <span className={styles.finalTitleBadge}>決勝</span>
           </div>
           <div className={`${styles.cards} ${styles.finalCards}`}>
+            {/* 優勝チーム欄: 決勝が終わるまで空。決着したら勝者を自動表示。 */}
+            <div className={styles.championWrap}>
+              <div className={styles.championLabel}>優勝</div>
+              <div className={styles.championBox}>
+                {(() => {
+                  const champId = championTeamId(fin);
+                  const champTeam = champId ? teamMap.get(champId) : undefined;
+                  if (!champTeam) return <span className={styles.championPending} aria-hidden />;
+                  return (
+                    <>
+                      <Flag isoCode={champTeam.isoCode} size={22} alt={champTeam.name} />
+                      <span className={styles.championName}>{champTeam.name}</span>
+                    </>
+                  );
+                })()}
+              </div>
+            </div>
             {fin && (
               <div className={styles.finalCardWrap}>
                 <BracketMatch match={fin} teamMap={teamMap} />

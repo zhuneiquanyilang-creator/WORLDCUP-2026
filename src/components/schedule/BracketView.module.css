@@ -184,6 +184,53 @@
   transform: translateY(-50%);
 }
 
+/* 優勝チーム欄: 決勝カードの真上、SF→決勝連結線 (top:50%) より少し上に配置。
+   決勝カードの中心 (top:50%) との距離感を 3rem 空けて、finalCardWrap の
+   `transform: translateY(-50%)` と重ならないようにする。 */
+.championWrap {
+  position: absolute;
+  top: calc(50% - 6rem);
+  left: 2rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.championLabel {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  text-align: center;
+  letter-spacing: 0.15em;
+}
+
+.championBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary-dark);
+  color: #fff;
+  border: 2px solid var(--color-gold);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  min-height: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.championName {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* 未確定時は空のバッジ (縦幅だけ確保するプレースホルダー) */
+.championPending {
+  display: block;
+  width: 100%;
+  min-height: 1.2rem;
+}
+
 /* 3位決定戦は決勝カードの少し下、横位置も決勝カードに揃える */
 .thirdWrap {
   display: flex;
