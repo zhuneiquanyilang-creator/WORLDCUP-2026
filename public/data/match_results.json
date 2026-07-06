@@ -37530,13 +37530,13 @@
   },
   "m093": {
     "matchId": "m093",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 0,
       "away": 1
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
