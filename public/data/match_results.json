@@ -37088,7 +37088,7 @@
   },
   "m092": {
     "matchId": "m092",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-3-3",
@@ -37377,7 +37377,13 @@
           "name": "ジェド・スペンス"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m093": {
     "matchId": "m093",
