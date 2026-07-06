@@ -37834,6 +37834,18 @@
         "teamId": "POR",
         "inName": "ネルソン・セメド",
         "outName": "ヌノ・メンデス"
+      },
+      {
+        "minute": 72,
+        "teamId": "POR",
+        "inName": "ディオゴ・ダロト",
+        "outName": "ジョアン・カンセロ"
+      },
+      {
+        "minute": 72,
+        "teamId": "POR",
+        "inName": "ラファエル・レオン",
+        "outName": "ジョアン・フェリックス"
       }
     ]
   },
