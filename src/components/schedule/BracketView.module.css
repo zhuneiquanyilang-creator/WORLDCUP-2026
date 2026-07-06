@@ -189,7 +189,7 @@
    アンカーする。gap 0.4rem 空けて決勝カードと接近させつつ被らないように。 */
 .championWrap {
   position: absolute;
-  bottom: calc(50% + 2.2rem);
+  bottom: calc(50% + 3.5rem);
   left: 2rem;
   right: 0.5rem;
   display: flex;
