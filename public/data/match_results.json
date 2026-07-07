@@ -38684,6 +38684,16 @@
         "playerName": "リオネル・メッシ",
         "assistPlayerId": "p_arg_4",
         "assistPlayerName": "ゴンサロ・モンティエル"
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "type": "normal",
+        "addedTime": 2,
+        "playerId": "p_arg_17",
+        "playerName": "エンソ・フェルナンデス",
+        "assistPlayerId": "p_arg_24",
+        "assistPlayerName": "ラウタロ・マルティネス"
       }
     ],
     "substitutions": [
@@ -38722,6 +38732,20 @@
         "teamId": "EGY",
         "inName": "オマル・マルムシュ",
         "outName": "モスタファ・ジコ"
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "inName": "ファクンド・メディーナ",
+        "outName": "フリアン・アルバレス",
+        "addedTime": 5
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "inName": "ニコラス・オタメンディ",
+        "outName": "クリスティアン・ロメロ",
+        "addedTime": 5
       }
     ],
     "bookings": [
