@@ -48,8 +48,9 @@ export type Substitution = {
   outName: string;
 };
 
-/** scored = 成功 (ネットを揺らした) / missed = 失敗 (GK セーブ or 枠外) */
-export type PkResult = "scored" | "missed";
+/** scored = 成功 (ネットを揺らした) / missed = 失敗 (GK セーブ or 枠外)
+ *  "" = 未確定 (キッカー登録済みだが結果未入力 = 進行中の 1 本の仮置き) */
+export type PkResult = "" | "scored" | "missed";
 
 /** PK 戦の 1 本分。配列の並び順 = 蹴った順序。 */
 export type PkAttempt = {

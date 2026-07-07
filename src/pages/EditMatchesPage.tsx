@@ -237,6 +237,7 @@ const BOOKING_TYPE_LABEL: Record<BookingType, string> = {
 };
 
 const PK_RESULT_LABEL: Record<PkResult, string> = {
+  "": "(未定)",
   scored: "⚽ 成功",
   missed: "✕ 失敗",
 };
@@ -1073,7 +1074,7 @@ export function EditMatchesPage() {
         {
           teamId: nextTeamId,
           playerId: "",
-          result: "scored" as PkResult,
+          result: "" as PkResult,
         },
       ];
       return { ...prev, [match.id]: { ...cur, penaltyShootout: pks } };
@@ -2351,7 +2352,7 @@ function PkShootoutEditor({
                         onUpdate(i, { result: ev.target.value as PkResult })
                       }
                     >
-                      {(["scored", "missed"] as PkResult[]).map((r) => (
+                      {(["", "scored", "missed"] as PkResult[]).map((r) => (
                         <option key={r} value={r}>
                           {PK_RESULT_LABEL[r]}
                         </option>

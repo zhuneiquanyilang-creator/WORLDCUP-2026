@@ -259,6 +259,14 @@
   line-height: 1;
 }
 
+/* 未確定 (キッカー登録済み・結果未入力): 中黒でグレー表示 */
+.pkPending {
+  color: #999;
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 @media (max-width: 640px) {
   .section {
     padding: 0.85rem 0.55rem;

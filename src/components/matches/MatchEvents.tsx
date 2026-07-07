@@ -318,6 +318,7 @@ function PkShootoutSection({
       </div>
       <ol className={styles.pkList}>
         {rows.map((r, i) => {
+          const pending = !r.result;
           const ok = r.result === "scored";
           return (
             <li
@@ -329,10 +330,14 @@ function PkShootoutSection({
                   <div className={`${styles.event} ${styles.alignRight}`}>
                     <span
                       className={`${styles.icon} ${
-                        ok ? styles.pkScored : styles.pkMissed
+                        pending
+                          ? styles.pkPending
+                          : ok
+                            ? styles.pkScored
+                            : styles.pkMissed
                       }`}
                     >
-                      {ok ? "○" : "×"}
+                      {pending ? "・" : ok ? "○" : "×"}
                     </span>
                     <span className={styles.text}>
                       <span className={styles.name}>{r.shooter}</span>
@@ -351,10 +356,14 @@ function PkShootoutSection({
                   <div className={`${styles.event} ${styles.alignLeft}`}>
                     <span
                       className={`${styles.icon} ${
-                        ok ? styles.pkScored : styles.pkMissed
+                        pending
+                          ? styles.pkPending
+                          : ok
+                            ? styles.pkScored
+                            : styles.pkMissed
                       }`}
                     >
-                      {ok ? "○" : "×"}
+                      {pending ? "・" : ok ? "○" : "×"}
                     </span>
                     <span className={styles.text}>
                       <span className={styles.name}>{r.shooter}</span>
