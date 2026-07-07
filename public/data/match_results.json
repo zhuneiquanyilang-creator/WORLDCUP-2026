@@ -39026,7 +39026,23 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime"
+    "liveLabel": "2nd half",
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "SUI",
+        "inName": "ジブリル・ソウ",
+        "outName": "アルドン・ヤシャリ"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 51,
+        "teamId": "SUI",
+        "playerName": "グラニト・ジャカ",
+        "type": "Y"
+      }
+    ]
   },
   "m097": {
     "matchId": "m097",
