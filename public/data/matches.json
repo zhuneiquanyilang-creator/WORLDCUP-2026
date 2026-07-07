@@ -1312,10 +1312,8 @@
     "stage": "quarter",
     "date": "2026-07-09T16:00:00-04:00",
     "venue": "ボストン・スタジアム（アメリカ）",
-    "homeTeamId": "W90",
-    "homeTeamLabel": "90試合勝者",
-    "awayTeamId": "W89",
-    "awayTeamLabel": "89試合勝者",
+    "homeTeamId": "FRA",
+    "awayTeamId": "MAR",
     "status": "scheduled",
     "broadcasters": [
       "dazn"
@@ -1326,10 +1324,8 @@
     "stage": "quarter",
     "date": "2026-07-11T17:00:00-04:00",
     "venue": "マイアミ・スタジアム（アメリカ）",
-    "homeTeamId": "W91",
-    "homeTeamLabel": "91試合勝者",
-    "awayTeamId": "W92",
-    "awayTeamLabel": "92試合勝者",
+    "homeTeamId": "NOR",
+    "awayTeamId": "ENG",
     "status": "scheduled",
     "broadcasters": [
       "nhk-g",
@@ -1342,10 +1338,8 @@
     "stage": "quarter",
     "date": "2026-07-10T12:00:00-07:00",
     "venue": "ロサンゼルス・スタジアム（アメリカ）",
-    "homeTeamId": "W93",
-    "homeTeamLabel": "93試合勝者",
-    "awayTeamId": "W94",
-    "awayTeamLabel": "94試合勝者",
+    "homeTeamId": "ESP",
+    "awayTeamId": "BEL",
     "status": "scheduled",
     "broadcasters": [
       "fuji",
@@ -1357,10 +1351,8 @@
     "stage": "quarter",
     "date": "2026-07-11T20:00:00-05:00",
     "venue": "カンザスシティ・スタジアム（アメリカ）",
-    "homeTeamId": "W95",
-    "homeTeamLabel": "95試合勝者",
-    "awayTeamId": "W96",
-    "awayTeamLabel": "96試合勝者",
+    "homeTeamId": "ARG",
+    "awayTeamId": "SUI",
     "status": "scheduled",
     "broadcasters": [
       "dazn"
