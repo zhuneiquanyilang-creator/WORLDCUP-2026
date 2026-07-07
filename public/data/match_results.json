@@ -38665,6 +38665,18 @@
         "teamId": "EGY",
         "inName": "ホッサム・アブデルマギド",
         "outName": "エマム・アシュール"
+      },
+      {
+        "minute": 66,
+        "teamId": "ARG",
+        "inName": "ニコラス・ゴンサレス",
+        "outName": "ニコラス・タグリアフィコ"
+      },
+      {
+        "minute": 66,
+        "teamId": "ARG",
+        "inName": "ラウタロ・マルティネス",
+        "outName": "ロドリゴ・デ・パウル"
       }
     ]
   },
