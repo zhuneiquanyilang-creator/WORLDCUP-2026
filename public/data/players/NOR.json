@@ -37,7 +37,7 @@
   },
   {
     "id": "p_nor_8",
-    "name": "レオ・スキリ・エスティゴール",
+    "name": "レオ・エスティゴール",
     "teamId": "NOR",
     "position": "DF",
     "birthDate": "1999-11-28",
@@ -85,7 +85,7 @@
   },
   {
     "id": "p_nor_21",
-    "name": "サンデル・ガード・ボーリン・ベルゲ",
+    "name": "サンデル・ベルゲ",
     "teamId": "NOR",
     "position": "MF",
     "birthDate": "1998-02-14",
@@ -97,7 +97,7 @@
   },
   {
     "id": "p_nor_24",
-    "name": "アーリング・ブラウト・ハーランド",
+    "name": "アーリング・ハーランド",
     "teamId": "NOR",
     "position": "FW",
     "birthDate": "2000-07-21",
@@ -181,7 +181,7 @@
   },
   {
     "id": "p_nor_7",
-    "name": "マルクス・ホルムグレン・ペデルセン",
+    "name": "マルクス・ペデルセン",
     "teamId": "NOR",
     "position": "DF",
     "birthDate": "2000-07-16",
@@ -241,7 +241,7 @@
   },
   {
     "id": "p_nor_16",
-    "name": "アンドレアス・レーデルゴール・シェルデルップ",
+    "name": "アンドレアス・シェルデルップ",
     "teamId": "NOR",
     "position": "MF",
     "birthDate": "2004-06-01",
