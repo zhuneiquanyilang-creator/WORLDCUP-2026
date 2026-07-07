@@ -38731,7 +38731,7 @@
   "m096": {
     "matchId": "m096",
     "status": "live",
-    "manualLock": true,
+    "manualLock": false,
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
