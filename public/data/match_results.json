@@ -38353,7 +38353,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
     "note": "",
     "liveLabel": "1st half",
@@ -38647,7 +38647,18 @@
           "name": "モハメド・アラー"
         }
       ]
-    }
+    },
+    "goals": [
+      {
+        "minute": 15,
+        "teamId": "EGY",
+        "type": "normal",
+        "playerId": "p_egy_8",
+        "playerName": "ヤセル・イブラヒム",
+        "assistPlayerId": "p_egy_18",
+        "assistPlayerName": "マルワン・アッティア"
+      }
+    ]
   },
   "m096": {
     "matchId": "m096",
