@@ -7114,11 +7114,19 @@
         },
         {
           "number": 4,
-          "name": "レオ・スキリ・エスティゴール"
+          "name": "レオ・エスティゴール"
         },
         {
           "number": 6,
           "name": "パトリック・ベルグ"
+        },
+        {
+          "number": 8,
+          "name": "サンデル・ベルゲ"
+        },
+        {
+          "number": 9,
+          "name": "アーリング・ハーランド"
         },
         {
           "number": 11,
@@ -7138,7 +7146,7 @@
         },
         {
           "number": 16,
-          "name": "マルクス・ホルムグレン・ペデルセン"
+          "name": "マルクス・ペデルセン"
         },
         {
           "number": 18,
@@ -7150,7 +7158,7 @@
         },
         {
           "number": 21,
-          "name": "アンドレアス・レーデルゴール・シェルデルップ"
+          "name": "アンドレアス・シェルデルップ"
         },
         {
           "number": 22,
@@ -7180,7 +7188,7 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_11",
         "assistPlayerName": "ダヴィド・メラー・ウォルフ"
       },
@@ -7198,14 +7206,14 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド"
+        "playerName": "アーリング・ハーランド"
       },
       {
         "minute": 76,
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_8",
-        "playerName": "レオ・スキリ・エスティゴール",
+        "playerName": "レオ・エスティゴール",
         "assistPlayerId": "p_nor_23",
         "assistPlayerName": "マルティン・ウーデゴール"
       },
@@ -17175,11 +17183,19 @@
         },
         {
           "number": 4,
-          "name": "レオ・スキリ・エスティゴール"
+          "name": "レオ・エスティゴール"
         },
         {
           "number": 6,
           "name": "パトリック・ベルグ"
+        },
+        {
+          "number": 8,
+          "name": "サンデル・ベルゲ"
+        },
+        {
+          "number": 9,
+          "name": "アーリング・ハーランド"
         },
         {
           "number": 11,
@@ -17199,7 +17215,7 @@
         },
         {
           "number": 16,
-          "name": "マルクス・ホルムグレン・ペデルセン"
+          "name": "マルクス・ペデルセン"
         },
         {
           "number": 18,
@@ -17211,7 +17227,7 @@
         },
         {
           "number": 21,
-          "name": "アンドレアス・レーデルゴール・シェルデルップ"
+          "name": "アンドレアス・シェルデルップ"
         },
         {
           "number": 22,
@@ -17449,14 +17465,14 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_7",
-        "playerName": "マルクス・ホルムグレン・ペデルセン"
+        "playerName": "マルクス・ペデルセン"
       },
       {
         "minute": 48,
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_23",
         "assistPlayerName": "マルティン・ウーデゴール"
       },
@@ -17474,7 +17490,7 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_13",
         "assistPlayerName": "パトリック・ベルグ"
       },
@@ -24395,6 +24411,10 @@
           "name": "クリストフェル・アイエル"
         },
         {
+          "number": 4,
+          "name": "レオ・エスティゴール"
+        },
+        {
           "number": 5,
           "name": "ダヴィド・メラー・ウォルフ"
         },
@@ -24404,11 +24424,11 @@
         },
         {
           "number": 8,
-          "name": "サンデル・ガード・ボーリン・ベルゲ"
+          "name": "サンデル・ベルゲ"
         },
         {
           "number": 9,
-          "name": "アーリング・ブラウト・ハーランド"
+          "name": "アーリング・ハーランド"
         },
         {
           "number": 10,
@@ -24420,7 +24440,7 @@
         },
         {
           "number": 16,
-          "name": "マルクス・ホルムグレン・ペデルセン"
+          "name": "マルクス・ペデルセン"
         },
         {
           "number": 17,
@@ -24429,6 +24449,10 @@
         {
           "number": 20,
           "name": "アントニオ・ヌサ"
+        },
+        {
+          "number": 21,
+          "name": "アンドレアス・シェルデルップ"
         },
         {
           "number": 23,
@@ -24617,7 +24641,7 @@
         "playerId": "p_nor_17",
         "playerName": "セロニアス・アースゴール",
         "assistPlayerId": "p_nor_16",
-        "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
+        "assistPlayerName": "アンドレアス・シェルデルップ"
       },
       {
         "minute": 32,
@@ -31214,7 +31238,15 @@
         },
         {
           "number": 4,
-          "name": "レオ・スキリ・エスティゴール"
+          "name": "レオ・エスティゴール"
+        },
+        {
+          "number": 8,
+          "name": "サンデル・ベルゲ"
+        },
+        {
+          "number": 9,
+          "name": "アーリング・ハーランド"
         },
         {
           "number": 11,
@@ -31237,6 +31269,10 @@
           "name": "フレドリク・ビェルカン"
         },
         {
+          "number": 16,
+          "name": "マルクス・ペデルセン"
+        },
+        {
           "number": 18,
           "name": "クリスティアン・トルストヴェット"
         },
@@ -31246,7 +31282,7 @@
         },
         {
           "number": 21,
-          "name": "アンドレアス・レーデルゴール・シェルデルップ"
+          "name": "アンドレアス・シェルデルップ"
         },
         {
           "number": 22,
@@ -31298,7 +31334,7 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_13",
         "assistPlayerName": "パトリック・ベルグ"
       }
@@ -36942,7 +36978,15 @@
         },
         {
           "number": 4,
-          "name": "レオ・スキリ・エスティゴール"
+          "name": "レオ・エスティゴール"
+        },
+        {
+          "number": 8,
+          "name": "サンデル・ベルゲ"
+        },
+        {
+          "number": 9,
+          "name": "アーリング・ハーランド"
         },
         {
           "number": 11,
@@ -36966,7 +37010,7 @@
         },
         {
           "number": 16,
-          "name": "マルクス・ホルムグレン・ペデルセン"
+          "name": "マルクス・ペデルセン"
         },
         {
           "number": 18,
@@ -36978,7 +37022,7 @@
         },
         {
           "number": 21,
-          "name": "アンドレアス・レーデルゴール・シェルデルップ"
+          "name": "アンドレアス・シェルデルップ"
         },
         {
           "number": 22,
@@ -37055,18 +37099,18 @@
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_16",
-        "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
+        "assistPlayerName": "アンドレアス・シェルデルップ"
       },
       {
         "minute": 90,
         "teamId": "NOR",
         "type": "normal",
         "playerId": "p_nor_24",
-        "playerName": "アーリング・ブラウト・ハーランド",
+        "playerName": "アーリング・ハーランド",
         "assistPlayerId": "p_nor_16",
-        "assistPlayerName": "アンドレアス・レーデルゴール・シェルデルップ"
+        "assistPlayerName": "アンドレアス・シェルデルップ"
       },
       {
         "minute": 90,
