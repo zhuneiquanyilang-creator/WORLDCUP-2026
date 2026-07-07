@@ -38352,7 +38352,7 @@
     "matchId": "m095",
     "status": "live",
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 2
     },
     "note": "",
@@ -38675,6 +38675,15 @@
         "playerName": "クリスティアン・ロメロ",
         "assistPlayerId": "p_arg_19",
         "assistPlayerName": "リオネル・メッシ"
+      },
+      {
+        "minute": 84,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_19",
+        "playerName": "リオネル・メッシ",
+        "assistPlayerId": "p_arg_4",
+        "assistPlayerName": "ゴンサロ・モンティエル"
       }
     ],
     "substitutions": [
