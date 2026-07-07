@@ -87,6 +87,21 @@ export function syncPlayerNames({ baseDir = process.cwd() } = {}) {
           }
         }
       }
+      // ベンチから「starting と背番号が重複するエントリ」を除去する。
+      // 想定: ブラウザに旧選手名が残ったまま /edit/matches で保存すると、
+      // EditMatchesPage の bench 計算 (name-based exclude) が旧名と新マスタ名の
+      // 不一致で starter を除外し損ねてしまう → 同一選手がベンチにも残る。
+      if (Array.isArray(f.starting) && Array.isArray(f.bench)) {
+        const starterNums = new Set(
+          f.starting.map((s) => s.number).filter((n) => n != null)
+        );
+        const before = f.bench.length;
+        f.bench = f.bench.filter((b) => b.number == null || !starterNums.has(b.number));
+        if (f.bench.length !== before) {
+          changeSummary.push(`${matchId} ${side}: bench 重複 ${before - f.bench.length} 件除去`);
+          changed++;
+        }
+      }
     }
 
     // 3b. goals / assists を playerId で更新
@@ -129,14 +144,39 @@ export function syncPlayerNames({ baseDir = process.cwd() } = {}) {
       squadByTeam.set(teamId, names);
     }
 
-    // Fuzzy fallback: rename map になく、かつ現在のスカッドにも存在しない名前を、
-    // スカッド内で最も近い名前 (Levenshtein 距離 <= 2) に置換する。
-    // 想定シナリオ: 誰かがマスタで名前を更新 → 別ルート (/edit/matches 手動編集 or
-    // 過去 sync) でフォーメーションだけ既に新名になっている → subs/bookings は
-    // 旧名のまま → 今回の sync では rename map が空。この fuzzy で拾う。
+    // Head-and-tail token match:
+    // 中黒 (・) で分割した先頭トークン (名) と末尾トークン (姓) がスカッド内の
+    // 誰かと完全一致するなら、その候補に置換する。
+    // 想定シナリオ:
+    //   旧: "アンドレアス・レーデルゴール・シェルデルップ"
+    //   新: "アンドレアス・シェルデルップ"
+    //   → 先頭 "アンドレアス" と末尾 "シェルデルップ" が一致するので新に置換。
+    // これは Levenshtein では距離 7 で拾えないケースを補う。
+    const tokensOf = (name) => name.split(/[・·]/).filter(Boolean);
+    const headTailMatch = (teamId, name) => {
+      const squad = squadByTeam.get(teamId);
+      if (!squad || squad.has(name)) return name;
+      const parts = tokensOf(name);
+      if (parts.length < 2) return name;
+      const head = parts[0];
+      const tail = parts[parts.length - 1];
+      const candidates = [];
+      for (const c of squad) {
+        const cp = tokensOf(c);
+        if (cp.length < 1) continue;
+        if (cp[0] === head && cp[cp.length - 1] === tail) candidates.push(c);
+      }
+      // 一意に決まる場合のみ採用 (同じ姓+名の別選手が居たら曖昧なので触らない)
+      if (candidates.length === 1) return candidates[0];
+      return name;
+    };
+
+    // Fuzzy fallback: rename map / head-tail いずれでも決まらないケースを
+    // Levenshtein 距離 <= 2 でスカッド内候補に置換する。誤検知防止のため
+    // 2 番手候補と 2 以上の差がある場合のみ採用する。
     const fuzzyMatch = (teamId, name) => {
       const squad = squadByTeam.get(teamId);
-      if (!squad || squad.has(name)) return name; // 既にスカッドに存在 → そのまま
+      if (!squad || squad.has(name)) return name;
       let best = null;
       let bestDist = Infinity;
       let secondDist = Infinity;
@@ -150,7 +190,6 @@ export function syncPlayerNames({ baseDir = process.cwd() } = {}) {
           secondDist = d;
         }
       }
-      // 距離 <= 2 かつ 2 番手と 2 以上の差がある場合のみ採用 (誤検知防止)
       if (best && bestDist <= 2 && secondDist - bestDist >= 2) return best;
       return name;
     };
@@ -159,7 +198,9 @@ export function syncPlayerNames({ baseDir = process.cwd() } = {}) {
     const applyMap = (teamId, name) => {
       const m = renameByTeam.get(teamId);
       if (m && m.has(name)) return m.get(name);
-      // rename map で見つからない場合、スカッドに対する fuzzy 一致で救済
+      // rename map で見つからない場合、先頭/末尾トークン一致 → fuzzy の順に救済
+      const ht = headTailMatch(teamId, name);
+      if (ht !== name) return ht;
       return fuzzyMatch(teamId, name);
     };
 
