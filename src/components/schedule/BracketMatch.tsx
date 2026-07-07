@@ -13,9 +13,13 @@ import styles from "./BracketMatch.module.css";
 type Props = {
   match: Match;
   teamMap: Map<string, Team>;
+  /** ホバー中カードの両チームの過去試合ならこのカードもハイライト対象 */
+  highlighted?: boolean;
+  /** マウス onEnter/Leave をトーナメント表側の state に反映するコールバック */
+  onHoverMatch?: (id: string | null) => void;
 };
 
-export function BracketMatch({ match, teamMap }: Props) {
+export function BracketMatch({ match, teamMap, highlighted, onHoverMatch }: Props) {
   const home = teamMap.get(match.homeTeamId);
   const away = teamMap.get(match.awayTeamId);
   const num = matchNumber(match.id);
@@ -49,9 +53,11 @@ export function BracketMatch({ match, teamMap }: Props) {
 
   return (
     <div
-      className={styles.card}
+      className={`${styles.card} ${highlighted ? styles.cardHighlighted : ""}`}
       onClick={goToMatch}
       onKeyDown={onKey}
+      onMouseEnter={onHoverMatch ? () => onHoverMatch(match.id) : undefined}
+      onMouseLeave={onHoverMatch ? () => onHoverMatch(null) : undefined}
       role="link"
       tabIndex={0}
     >

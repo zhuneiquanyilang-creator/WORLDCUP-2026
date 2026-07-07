@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Match } from "@/types/match";
 import type { Team } from "@/types/team";
 import { matchNumber } from "@/utils/matchNumber";
@@ -74,13 +74,18 @@ function BracketColumn({
   matches,
   teamMap,
   innerRef,
+  highlightedMatchIds,
+  onHoverMatch,
 }: {
   title: string;
   matches: Match[];
   teamMap: Map<string, Team>;
   innerRef?: React.Ref<HTMLDivElement>;
+  highlightedMatchIds: Set<string>;
+  onHoverMatch: (id: string | null) => void;
 }) {
   const pairs = pairUp(matches);
+  const isHl = (id: string) => highlightedMatchIds.has(id);
   return (
     <div className={styles.column} ref={innerRef}>
       <div className={styles.columnTitle}>{title}</div>
@@ -90,15 +95,36 @@ function BracketColumn({
             return (
               <div key={i} className={styles.pairSingle}>
                 {pair.map((m) => (
-                  <BracketMatch key={m.id} match={m} teamMap={teamMap} />
+                  <BracketMatch
+                    key={m.id}
+                    match={m}
+                    teamMap={teamMap}
+                    highlighted={isHl(m.id)}
+                    onHoverMatch={onHoverMatch}
+                  />
                 ))}
               </div>
             );
           }
+          // pair 内のいずれかがハイライト中ならその pair 全体 (接続線含む) をハイライト
+          const pairHl = isHl(pair[0].id) || isHl(pair[1].id);
           return (
-            <div key={i} className={styles.pair}>
-              <BracketMatch match={pair[0]} teamMap={teamMap} />
-              <BracketMatch match={pair[1]} teamMap={teamMap} />
+            <div
+              key={i}
+              className={`${styles.pair} ${pairHl ? styles.pairHighlighted : ""}`}
+            >
+              <BracketMatch
+                match={pair[0]}
+                teamMap={teamMap}
+                highlighted={isHl(pair[0].id)}
+                onHoverMatch={onHoverMatch}
+              />
+              <BracketMatch
+                match={pair[1]}
+                teamMap={teamMap}
+                highlighted={isHl(pair[1].id)}
+                onHoverMatch={onHoverMatch}
+              />
               <div className={styles.branchTop} aria-hidden />
               <div className={styles.branchBottom} aria-hidden />
             </div>
@@ -134,6 +160,25 @@ export function BracketView({ matches, teamMap }: Props) {
     }
   }, []);
 
+  // ホバー中カードから、そのカードで対戦する両チームの過去試合カードと接続線を
+  // まとめてハイライトする。プレースホルダー ID (W89, GA1 等 = 未確定) は除外して、
+  // 実チーム ID だけを追跡対象にする。
+  const [hoveredMatchId, setHoveredMatchId] = useState<string | null>(null);
+  const highlightedMatchIds = useMemo(() => {
+    if (!hoveredMatchId) return new Set<string>();
+    const target = matches.find((m) => m.id === hoveredMatchId);
+    if (!target) return new Set<string>();
+    const teams = new Set<string>();
+    if (teamMap.has(target.homeTeamId)) teams.add(target.homeTeamId);
+    if (teamMap.has(target.awayTeamId)) teams.add(target.awayTeamId);
+    if (teams.size === 0) return new Set<string>();
+    const set = new Set<string>();
+    for (const m of matches) {
+      if (teams.has(m.homeTeamId) || teams.has(m.awayTeamId)) set.add(m.id);
+    }
+    return set;
+  }, [hoveredMatchId, matches, teamMap]);
+
   return (
     <div>
       <div className={styles.bracket} ref={bracketRef}>
@@ -144,6 +189,8 @@ export function BracketView({ matches, teamMap }: Props) {
             matches={pickByOrder(matches, col.stage, col.order)}
             teamMap={teamMap}
             innerRef={i === 1 ? r16Ref : undefined}
+            highlightedMatchIds={highlightedMatchIds}
+            onHoverMatch={setHoveredMatchId}
           />
         ))}
 

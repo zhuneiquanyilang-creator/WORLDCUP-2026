@@ -120,6 +120,20 @@
   z-index: 3;
 }
 
+/* ホバー中カードの両チームが通ってきた経路にあるペアの進出線 (「]」型 + 次列
+   への水平線) を accent 色に切り替える。.pairAdvanced (赤) より優先度を高くして
+   ハイライト中は勝者確定線も accent で塗り替える。 */
+.pairHighlighted .branchTop,
+.pairHighlighted .branchBottom {
+  border-color: var(--color-accent);
+  z-index: 4;
+}
+
+.pairHighlighted::before {
+  border-top-color: var(--color-accent);
+  z-index: 5;
+}
+
 /* 万一カードが 1 枚だけ残った場合 (データ不足等) のフォールバック。線は引かない */
 .pairSingle {
   position: relative;

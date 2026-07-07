@@ -23,6 +23,14 @@
   outline-offset: 2px;
 }
 
+/* ホバー中カードで対戦する両チームが過去に通ってきた経路のカードをハイライト。
+   accent 系の色で目立たせる。ホバー自体のスタイル (.card:hover) はそのまま。 */
+.cardHighlighted {
+  border-color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
 .head {
   display: flex;
   justify-content: space-between;
