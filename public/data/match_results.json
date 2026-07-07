@@ -38730,8 +38730,8 @@
   },
   "m096": {
     "matchId": "m096",
-    "status": "live",
-    "manualLock": false,
+    "status": "finished",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -39027,7 +39027,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Extra time 2nd",
+    "liveLabel": "Full time",
     "substitutions": [
       {
         "minute": 46,
@@ -39128,7 +39128,73 @@
         "playerName": "ミロ・ムハイム",
         "type": "Y"
       }
-    ]
+    ],
+    "penaltyShootout": [
+      {
+        "teamId": "COL",
+        "result": "scored",
+        "playerId": "p_col_17",
+        "playerName": "フアン・キンテーロ"
+      },
+      {
+        "teamId": "SUI",
+        "result": "scored",
+        "playerId": "p_sui_21",
+        "playerName": "グラニト・ジャカ"
+      },
+      {
+        "teamId": "COL",
+        "result": "missed",
+        "playerId": "p_col_6",
+        "playerName": "ダビンソン・サンチェス"
+      },
+      {
+        "teamId": "SUI",
+        "result": "scored",
+        "playerId": "p_sui_20",
+        "playerName": "ファビアン・リーダー"
+      },
+      {
+        "teamId": "COL",
+        "result": "scored",
+        "playerId": "p_col_15",
+        "playerName": "ハミントン・カンパス"
+      },
+      {
+        "teamId": "SUI",
+        "result": "missed",
+        "playerId": "p_sui_11",
+        "playerName": "マヌエル・アカンジ"
+      },
+      {
+        "teamId": "COL",
+        "result": "missed",
+        "playerId": "p_col_23",
+        "playerName": "クチョ・エルナンデス"
+      },
+      {
+        "teamId": "SUI",
+        "result": "scored",
+        "playerId": "p_sui_25",
+        "playerName": "セドリック・イッテン"
+      },
+      {
+        "teamId": "COL",
+        "result": "scored",
+        "playerId": "p_col_22",
+        "playerName": "ルイス・ディアス"
+      },
+      {
+        "teamId": "SUI",
+        "result": "scored",
+        "playerId": "p_sui_18",
+        "playerName": "ルベン・バルガス"
+      }
+    ],
+    "penaltyScore": {
+      "home": 4,
+      "away": 3
+    }
   },
   "m097": {
     "matchId": "m097",
