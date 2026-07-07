@@ -37926,7 +37926,7 @@
   },
   "m094": {
     "matchId": "m094",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-1-2-3",
@@ -38217,7 +38217,13 @@
           "name": "マティアス・フェルナンデス・パルド"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 1,
+      "away": 3
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m095": {
     "matchId": "m095",
