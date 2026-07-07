@@ -39052,6 +39052,18 @@
         "teamId": "SUI",
         "inName": "ミロ・ムハイム",
         "outName": "リカルド・ロドリゲス"
+      },
+      {
+        "minute": 82,
+        "teamId": "COL",
+        "inName": "リチャード・リオス",
+        "outName": "ジェフェルソン・レルマ"
+      },
+      {
+        "minute": 82,
+        "teamId": "COL",
+        "inName": "クチョ・エルナンデス",
+        "outName": "ルイス・スアレス"
       }
     ],
     "bookings": [
