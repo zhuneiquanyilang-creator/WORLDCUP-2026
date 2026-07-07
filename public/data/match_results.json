@@ -39034,6 +39034,18 @@
         "teamId": "SUI",
         "inName": "ジブリル・ソウ",
         "outName": "アルドン・ヤシャリ"
+      },
+      {
+        "minute": 66,
+        "teamId": "COL",
+        "inName": "フアン・キンテーロ",
+        "outName": "ハメス・ロドリゲス"
+      },
+      {
+        "minute": 66,
+        "teamId": "COL",
+        "inName": "ハミントン・カンパス",
+        "outName": "ジョン・アリアス"
       }
     ],
     "bookings": [
