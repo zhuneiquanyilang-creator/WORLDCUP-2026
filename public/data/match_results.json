@@ -38352,7 +38352,7 @@
     "matchId": "m095",
     "status": "live",
     "score": {
-      "home": 2,
+      "home": 3,
       "away": 2
     },
     "note": "",
@@ -38700,7 +38700,7 @@
       {
         "minute": 46,
         "teamId": "EGY",
-        "inName": "ホッサム・アブデルマギド",
+        "inName": "ハムディ・ファティ",
         "outName": "エマム・アシュール"
       },
       {
@@ -38746,6 +38746,13 @@
         "inName": "ニコラス・オタメンディ",
         "outName": "クリスティアン・ロメロ",
         "addedTime": 5
+      },
+      {
+        "minute": 90,
+        "teamId": "EGY",
+        "inName": "タレク・アラー",
+        "outName": "モハナド・ラシーン",
+        "addedTime": 6
       }
     ],
     "bookings": [
@@ -38754,6 +38761,27 @@
         "teamId": "EGY",
         "playerName": "モスタファ・ジコ",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "EGY",
+        "playerName": "アーメド・ファトゥー",
+        "type": "Y",
+        "addedTime": 4
+      },
+      {
+        "minute": 90,
+        "teamId": "EGY",
+        "playerName": "モスタファ・ショベイル",
+        "type": "Y",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "EGY",
+        "playerName": "マルワン・アッティア",
+        "type": "Y",
+        "addedTime": 8
       }
     ]
   },
