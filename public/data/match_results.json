@@ -38686,6 +38686,18 @@
         "teamId": "ARG",
         "inName": "ラウタロ・マルティネス",
         "outName": "ロドリゴ・デ・パウル"
+      },
+      {
+        "minute": 73,
+        "teamId": "ARG",
+        "inName": "ゴンサロ・モンティエル",
+        "outName": "ナウエル・モリーナ"
+      },
+      {
+        "minute": 74,
+        "teamId": "EGY",
+        "inName": "マハムード・ハッサン（トレゼゲ）",
+        "outName": "ハイセム・ハッサン"
       }
     ],
     "bookings": [
