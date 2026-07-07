@@ -38350,13 +38350,13 @@
   },
   "m095": {
     "matchId": "m095",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 3,
       "away": 2
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-4-2",
