@@ -39115,6 +39115,12 @@
         "teamId": "COL",
         "playerName": "ダビンソン・サンチェス",
         "type": "Y"
+      },
+      {
+        "minute": 105,
+        "teamId": "SUI",
+        "playerName": "ミロ・ムハイム",
+        "type": "Y"
       }
     ]
   },
