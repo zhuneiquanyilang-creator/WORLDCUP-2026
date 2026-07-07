@@ -34,6 +34,19 @@ const SF_ORDER = [101, 102];
 const FINAL_NUM = 104;
 const THIRD_NUM = 103;
 
+// ホバー時にどの段階までを「過去 (経路)」として扱うかの序列。
+// hovered.stage より rank が小さいものだけがハイライト対象になる。
+const STAGE_RANK: Record<Match["stage"], number> = {
+  test: 0,
+  group: 0,
+  round32: 1,
+  round16: 2,
+  quarter: 3,
+  semi: 4,
+  third: 5,
+  final: 5,
+};
+
 function pickByOrder(matches: Match[], stage: Match["stage"], order: number[]): Match[] {
   const stageMatches = matches.filter((m) => m.stage === stage);
   return order
@@ -74,18 +87,23 @@ function BracketColumn({
   matches,
   teamMap,
   innerRef,
-  highlightedMatchIds,
+  highlightedCardIds,
+  highlightedPathIds,
   onHoverMatch,
 }: {
   title: string;
   matches: Match[];
   teamMap: Map<string, Team>;
   innerRef?: React.Ref<HTMLDivElement>;
-  highlightedMatchIds: Set<string>;
+  /** カード自体をハイライトする対象 (hovered 段階以前の全カード) */
+  highlightedCardIds: Set<string>;
+  /** pair 接続線をハイライトする対象 (hovered より前の段階のカードのみ) */
+  highlightedPathIds: Set<string>;
   onHoverMatch: (id: string | null) => void;
 }) {
   const pairs = pairUp(matches);
-  const isHl = (id: string) => highlightedMatchIds.has(id);
+  const isCardHl = (id: string) => highlightedCardIds.has(id);
+  const isPathHl = (id: string) => highlightedPathIds.has(id);
   return (
     <div className={styles.column} ref={innerRef}>
       <div className={styles.columnTitle}>{title}</div>
@@ -99,15 +117,16 @@ function BracketColumn({
                     key={m.id}
                     match={m}
                     teamMap={teamMap}
-                    highlighted={isHl(m.id)}
+                    highlighted={isCardHl(m.id)}
                     onHoverMatch={onHoverMatch}
                   />
                 ))}
               </div>
             );
           }
-          // pair 内のいずれかがハイライト中ならその pair 全体 (接続線含む) をハイライト
-          const pairHl = isHl(pair[0].id) || isHl(pair[1].id);
+          // pair 接続線は「その先」ではないため、hovered より前の段階の pair のみ
+          // ハイライトする (= highlightedPathIds に該当するカードを持つ pair)。
+          const pairHl = isPathHl(pair[0].id) || isPathHl(pair[1].id);
           return (
             <div
               key={i}
@@ -116,13 +135,13 @@ function BracketColumn({
               <BracketMatch
                 match={pair[0]}
                 teamMap={teamMap}
-                highlighted={isHl(pair[0].id)}
+                highlighted={isCardHl(pair[0].id)}
                 onHoverMatch={onHoverMatch}
               />
               <BracketMatch
                 match={pair[1]}
                 teamMap={teamMap}
-                highlighted={isHl(pair[1].id)}
+                highlighted={isCardHl(pair[1].id)}
                 onHoverMatch={onHoverMatch}
               />
               <div className={styles.branchTop} aria-hidden />
@@ -160,23 +179,33 @@ export function BracketView({ matches, teamMap }: Props) {
     }
   }, []);
 
-  // ホバー中カードから、そのカードで対戦する両チームの過去試合カードと接続線を
-  // まとめてハイライトする。プレースホルダー ID (W89, GA1 等 = 未確定) は除外して、
-  // 実チーム ID だけを追跡対象にする。
+  // ホバー中カードから、そのカードで対戦する両チームが「そこに至るまで」に通って
+  // きた過去試合カード + 接続線をハイライトする。プレースホルダー ID (W89, GA1 等 =
+  // 未確定) は除外して、実チーム ID だけを追跡対象にする。
+  // hovered の stage より先のカードは「まだ勝ち抜いていない未来」として無視する。
   const [hoveredMatchId, setHoveredMatchId] = useState<string | null>(null);
-  const highlightedMatchIds = useMemo(() => {
-    if (!hoveredMatchId) return new Set<string>();
+  const { cardIds, pathIds } = useMemo(() => {
+    const empty = { cardIds: new Set<string>(), pathIds: new Set<string>() };
+    if (!hoveredMatchId) return empty;
     const target = matches.find((m) => m.id === hoveredMatchId);
-    if (!target) return new Set<string>();
+    if (!target) return empty;
     const teams = new Set<string>();
     if (teamMap.has(target.homeTeamId)) teams.add(target.homeTeamId);
     if (teamMap.has(target.awayTeamId)) teams.add(target.awayTeamId);
-    if (teams.size === 0) return new Set<string>();
-    const set = new Set<string>();
+    if (teams.size === 0) return empty;
+    const targetRank = STAGE_RANK[target.stage] ?? 0;
+    const cardIds = new Set<string>();
+    const pathIds = new Set<string>();
     for (const m of matches) {
-      if (teams.has(m.homeTeamId) || teams.has(m.awayTeamId)) set.add(m.id);
+      if (!teams.has(m.homeTeamId) && !teams.has(m.awayTeamId)) continue;
+      const rank = STAGE_RANK[m.stage] ?? 0;
+      if (rank > targetRank) continue; // 先の段階は無視
+      cardIds.add(m.id);
+      // pair 接続線 (「]」 + 次列への水平線) は「その先」を明るくしないため、
+      // hovered と同じ段階の pair は除外する。過去段階のペアだけを highlight する。
+      if (rank < targetRank) pathIds.add(m.id);
     }
-    return set;
+    return { cardIds, pathIds };
   }, [hoveredMatchId, matches, teamMap]);
 
   return (
@@ -189,7 +218,8 @@ export function BracketView({ matches, teamMap }: Props) {
             matches={pickByOrder(matches, col.stage, col.order)}
             teamMap={teamMap}
             innerRef={i === 1 ? r16Ref : undefined}
-            highlightedMatchIds={highlightedMatchIds}
+            highlightedCardIds={cardIds}
+            highlightedPathIds={pathIds}
             onHoverMatch={setHoveredMatchId}
           />
         ))}
