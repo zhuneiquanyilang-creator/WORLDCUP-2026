@@ -39042,6 +39042,18 @@
         "teamId": "SUI",
         "playerName": "グラニト・ジャカ",
         "type": "Y"
+      },
+      {
+        "minute": 59,
+        "teamId": "SUI",
+        "playerName": "デニス・ザカリア",
+        "type": "Y"
+      },
+      {
+        "minute": 60,
+        "teamId": "COL",
+        "playerName": "ルイス・スアレス",
+        "type": "Y"
       }
     ]
   },
