@@ -102,6 +102,7 @@ type Phase =
   | "halftime"
   | "second-half"
   | "extra-time"
+  | "extra-time-second"
   | "finished";
 
 /** Phase → (status, liveLabel) を返す。"" のときは両方 undefined。 */
@@ -120,6 +121,8 @@ function phaseToStatusLabel(phase: Phase): {
       return { status: "live", liveLabel: "2nd half" };
     case "extra-time":
       return { status: "live", liveLabel: "Extra time 1st" };
+    case "extra-time-second":
+      return { status: "live", liveLabel: "Extra time 2nd" };
     case "finished":
       return { status: "finished", liveLabel: "Full time" };
     case "":
@@ -140,6 +143,8 @@ function inferPhase(
   if (status === "live") {
     const ll = (liveLabel ?? "").toLowerCase();
     if (ll.includes("halftime") || ll.includes("half time")) return "halftime";
+    if (ll.includes("extra time 2nd") || ll.includes("extra time break"))
+      return "extra-time-second";
     if (ll.includes("extra time") || ll.includes("penalty"))
       return "extra-time";
     if (ll.includes("2nd half") || ll.includes("second half"))
@@ -1374,7 +1379,8 @@ export function EditMatchesPage() {
                         <option value="first-half">前半</option>
                         <option value="halftime">ハーフタイム</option>
                         <option value="second-half">後半</option>
-                        <option value="extra-time">延長戦</option>
+                        <option value="extra-time">延長前半</option>
+                        <option value="extra-time-second">延長後半</option>
                         <option value="finished">finished</option>
                       </select>
                     </td>
