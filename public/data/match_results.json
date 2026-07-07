@@ -38222,7 +38222,131 @@
       "home": 1,
       "away": 4
     },
-    "liveLabel": ""
+    "liveLabel": "",
+    "goals": [
+      {
+        "minute": 9,
+        "teamId": "BEL",
+        "type": "normal",
+        "playerId": "p_bel_21",
+        "playerName": "シャルル・デケテラーレ",
+        "assistPlayerId": "p_bel_14",
+        "assistPlayerName": "ニコラス・ラスキン"
+      },
+      {
+        "minute": 31,
+        "teamId": "USA",
+        "type": "normal",
+        "playerId": "p_usa_16",
+        "playerName": "マリク・ティルマン"
+      },
+      {
+        "minute": 33,
+        "teamId": "BEL",
+        "type": "normal",
+        "playerId": "p_bel_21",
+        "playerName": "シャルル・デケテラーレ",
+        "assistPlayerId": "p_bel_22",
+        "assistPlayerName": "レアンドロ・トロサール"
+      },
+      {
+        "minute": 57,
+        "teamId": "BEL",
+        "type": "normal",
+        "playerId": "p_bel_13",
+        "playerName": "ハンス・ヴァナケン",
+        "assistPlayerId": "p_bel_21",
+        "assistPlayerName": "シャルル・デケテラーレ"
+      },
+      {
+        "minute": 90,
+        "teamId": "BEL",
+        "type": "normal",
+        "addedTime": 3,
+        "playerId": "p_bel_19",
+        "playerName": "ロメル・ルカク",
+        "assistPlayerId": "p_bel_13",
+        "assistPlayerName": "ハンス・ヴァナケン"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 35,
+        "teamId": "USA",
+        "playerName": "ウェストン・マッケニー",
+        "type": "Y"
+      },
+      {
+        "minute": 69,
+        "teamId": "USA",
+        "playerName": "マリク・ティルマン",
+        "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 21,
+        "teamId": "BEL",
+        "inName": "ハンス・ヴァナケン",
+        "outName": "アマドゥ・オナナ"
+      },
+      {
+        "minute": 46,
+        "teamId": "USA",
+        "inName": "ジョヴァンニ・レイナ",
+        "outName": "セルジーニョ・デスト"
+      },
+      {
+        "minute": 59,
+        "teamId": "USA",
+        "inName": "セバスチャン・バーハルター",
+        "outName": "クリスチャン・プリシッチ"
+      },
+      {
+        "minute": 67,
+        "teamId": "BEL",
+        "inName": "ジェレミー・ドク",
+        "outName": "ドディ・ルケバキオ"
+      },
+      {
+        "minute": 67,
+        "teamId": "BEL",
+        "inName": "ロメル・ルカク",
+        "outName": "シャルル・デケテラーレ"
+      },
+      {
+        "minute": 72,
+        "teamId": "USA",
+        "inName": "リカルド・ペピ",
+        "outName": "タイラー・アダムズ"
+      },
+      {
+        "minute": 89,
+        "teamId": "BEL",
+        "inName": "アレクシス・サーレマーケルス",
+        "outName": "ニコラス・ラスキン"
+      },
+      {
+        "minute": 89,
+        "teamId": "BEL",
+        "inName": "アクセル・ヴィツェル",
+        "outName": "レアンドロ・トロサール"
+      },
+      {
+        "minute": 90,
+        "teamId": "USA",
+        "inName": "マックス・アーフステン",
+        "outName": "アントニー・ロビンソン",
+        "addedTime": 2
+      },
+      {
+        "minute": 90,
+        "teamId": "USA",
+        "inName": "ハジ・ライト",
+        "outName": "フォラリン・バログン",
+        "addedTime": 2
+      }
+    ]
   },
   "m095": {
     "matchId": "m095",
