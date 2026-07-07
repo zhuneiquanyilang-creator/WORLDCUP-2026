@@ -38729,7 +38729,7 @@
   },
   "m096": {
     "matchId": "m096",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-3-3",
@@ -39020,7 +39020,13 @@
           "name": "カルロス・ゴメス"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m097": {
     "matchId": "m097",
