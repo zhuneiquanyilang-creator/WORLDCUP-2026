@@ -38658,6 +38658,14 @@
         "assistPlayerId": "p_egy_18",
         "assistPlayerName": "マルワン・アッティア"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "EGY",
+        "inName": "ホッサム・アブデルマギド",
+        "outName": "エマム・アシュール"
+      }
     ]
   },
   "m096": {
