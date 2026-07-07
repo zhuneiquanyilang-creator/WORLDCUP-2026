@@ -38657,6 +38657,15 @@
         "playerName": "ヤセル・イブラヒム",
         "assistPlayerId": "p_egy_18",
         "assistPlayerName": "マルワン・アッティア"
+      },
+      {
+        "minute": 67,
+        "teamId": "EGY",
+        "type": "normal",
+        "playerId": "p_egy_15",
+        "playerName": "モスタファ・ジコ",
+        "assistPlayerId": "p_egy_23",
+        "assistPlayerName": "ハイセム・ハッサン"
       }
     ],
     "substitutions": [
@@ -38677,6 +38686,14 @@
         "teamId": "ARG",
         "inName": "ラウタロ・マルティネス",
         "outName": "ロドリゴ・デ・パウル"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 61,
+        "teamId": "EGY",
+        "playerName": "モスタファ・ジコ",
+        "type": "Y"
       }
     ]
   },
