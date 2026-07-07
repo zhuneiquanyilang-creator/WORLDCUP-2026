@@ -39046,6 +39046,12 @@
         "teamId": "COL",
         "inName": "ハミントン・カンパス",
         "outName": "ジョン・アリアス"
+      },
+      {
+        "minute": 71,
+        "teamId": "SUI",
+        "inName": "ミロ・ムハイム",
+        "outName": "リカルド・ロドリゲス"
       }
     ],
     "bookings": [
