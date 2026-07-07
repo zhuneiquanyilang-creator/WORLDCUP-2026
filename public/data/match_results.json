@@ -38731,7 +38731,7 @@
   "m096": {
     "matchId": "m096",
     "status": "live",
-    "manualLock": false,
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -39027,7 +39027,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "Halftime",
     "substitutions": [
       {
         "minute": 46,
@@ -39076,6 +39076,13 @@
         "teamId": "SUI",
         "inName": "セドリック・イッテン",
         "outName": "ブレール・エンボロ"
+      },
+      {
+        "minute": 90,
+        "teamId": "SUI",
+        "inName": "ルベン・バルガス",
+        "outName": "ダン・エンドイエ",
+        "addedTime": 1
       }
     ],
     "bookings": [
