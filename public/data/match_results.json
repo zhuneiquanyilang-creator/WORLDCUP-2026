@@ -39064,6 +39064,18 @@
         "teamId": "COL",
         "inName": "クチョ・エルナンデス",
         "outName": "ルイス・スアレス"
+      },
+      {
+        "minute": 87,
+        "teamId": "SUI",
+        "inName": "シルヴァン・ヴィドマー",
+        "outName": "デニス・ザカリア"
+      },
+      {
+        "minute": 87,
+        "teamId": "SUI",
+        "inName": "セドリック・イッテン",
+        "outName": "ブレール・エンボロ"
       }
     ],
     "bookings": [
