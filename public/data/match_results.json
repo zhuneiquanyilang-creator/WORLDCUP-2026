@@ -38731,7 +38731,7 @@
   "m096": {
     "matchId": "m096",
     "status": "finished",
-    "manualLock": true,
+    "manualLock": false,
     "homeFormation": {
       "shape": "4-3-3",
       "starting": [
@@ -38740,7 +38740,8 @@
           "y": 50,
           "number": 1,
           "name": "グレゴール・コベル",
-          "role": "GK"
+          "role": "GK",
+          "isMvp": true
         },
         {
           "x": 28,
@@ -39027,7 +39028,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Full time",
+    "liveLabel": "",
     "substitutions": [
       {
         "minute": 46,
