@@ -71,20 +71,20 @@ export function SchedulePage() {
     }
   }, [stage, group]);
 
-  // matches が初回ロードされた時点で「今日」に該当試合が無ければ、直近で
+  // 現在の day (URL クエリ or default=今日) に該当試合が無ければ、直近で
   // 終了した試合があった日 (= 今日以前で status="finished" の試合を持つ最大日) に
   // 落とす。それも無ければ (大会前など) "all" にフォールバック。
   // rest day (試合と試合の間の休息日) に空欄で何も見えない事故を防ぎつつ、
   // 直近試合日の結果一覧が自然に開く挙動にする。
-  // URL クエリで day が明示されている場合はユーザの選択なので触らない。
+  // day === "all" のときはユーザが明示的に全試合表示を選んでいるので触らない。
   useEffect(() => {
     if (dayInitRef.current) return;
     if (matchesRes.status !== "ready") return;
     dayInitRef.current = true;
-    if (params.get("day")) return;
+    if (day === "all") return;
+    const hasMatchOnDay = matchesRes.data.some((m) => dayKey(m.date) === day);
+    if (hasMatchOnDay) return;
     const today = dayKey(new Date().toISOString());
-    const hasToday = matchesRes.data.some((m) => dayKey(m.date) === today);
-    if (hasToday) return;
     const latestFinishedDay = matchesRes.data
       .filter((m) => m.status === "finished")
       .map((m) => dayKey(m.date))
