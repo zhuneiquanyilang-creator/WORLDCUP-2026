@@ -39535,6 +39535,18 @@
         "teamId": "FRA",
         "inName": "ワレン・ザイール・エメリ",
         "outName": "マヌ・コネ"
+      },
+      {
+        "minute": 74,
+        "teamId": "MAR",
+        "inName": "ザカリア・エル・ワディ",
+        "outName": "アナス・サラー・エディン"
+      },
+      {
+        "minute": 74,
+        "teamId": "MAR",
+        "inName": "ジェシム・ヤシン",
+        "outName": "ブライム・ディアス"
       }
     ],
     "bookings": [
