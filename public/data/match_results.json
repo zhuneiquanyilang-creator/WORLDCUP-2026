@@ -39547,6 +39547,18 @@
         "teamId": "MAR",
         "inName": "ジェシム・ヤシン",
         "outName": "ブライム・ディアス"
+      },
+      {
+        "minute": 78,
+        "teamId": "FRA",
+        "inName": "ブラッドリー・バルコラ",
+        "outName": "デジレ・ドゥエ"
+      },
+      {
+        "minute": 78,
+        "teamId": "FRA",
+        "inName": "ジャン・フィリップ・マテタ",
+        "outName": "キリアン・エンバペ"
       }
     ],
     "bookings": [
