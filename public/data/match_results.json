@@ -39492,7 +39492,7 @@
       ]
     },
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "note": "",
@@ -39529,6 +39529,12 @@
         "teamId": "MAR",
         "inName": "スフィアン・ラヒミ",
         "outName": "ビラル・エル・カヌス"
+      },
+      {
+        "minute": 71,
+        "teamId": "FRA",
+        "inName": "ワレン・ザイール・エメリ",
+        "outName": "マヌ・コネ"
       }
     ],
     "bookings": [
