@@ -39492,11 +39492,44 @@
       ]
     },
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
     "note": "",
-    "liveLabel": "2nd half"
+    "liveLabel": "2nd half",
+    "goals": [
+      {
+        "minute": 60,
+        "teamId": "FRA",
+        "type": "normal",
+        "playerId": "p_fra_18",
+        "playerName": "キリアン・エンバペ",
+        "assistPlayerId": "p_fra_25",
+        "assistPlayerName": "デジレ・ドゥエ"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 62,
+        "teamId": "MAR",
+        "inName": "ソフィアン・アムラバト",
+        "outName": "アイユーブ・ブアディ"
+      },
+      {
+        "minute": 62,
+        "teamId": "MAR",
+        "inName": "スフィアン・ラヒミ",
+        "outName": "ビラル・エル・カヌス"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 63,
+        "teamId": "MAR",
+        "playerName": "イッサ・ディオプ",
+        "type": "Y"
+      }
+    ]
   },
   "m099": {
     "matchId": "m099",
