@@ -39506,6 +39506,15 @@
         "playerName": "キリアン・エンバペ",
         "assistPlayerId": "p_fra_25",
         "assistPlayerName": "デジレ・ドゥエ"
+      },
+      {
+        "minute": 66,
+        "teamId": "FRA",
+        "type": "normal",
+        "playerId": "p_fra_23",
+        "playerName": "ウスマン・デンベレ",
+        "assistPlayerId": "p_fra_18",
+        "assistPlayerName": "キリアン・エンバペ"
       }
     ],
     "substitutions": [
