@@ -39890,6 +39890,15 @@
         "type": "normal",
         "playerId": "p_esp_15",
         "playerName": "ファビアン・ルイス"
+      },
+      {
+        "minute": 41,
+        "teamId": "BEL",
+        "type": "normal",
+        "playerId": "p_bel_21",
+        "playerName": "シャルル・デケテラーレ",
+        "assistPlayerId": "p_bel_11",
+        "assistPlayerName": "ティモシー・カスターニュ"
       }
     ]
   },
