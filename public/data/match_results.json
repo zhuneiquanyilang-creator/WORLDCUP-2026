@@ -39882,7 +39882,16 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "1st half",
+    "goals": [
+      {
+        "minute": 30,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_15",
+        "playerName": "ファビアン・ルイス"
+      }
+    ]
   },
   "m098": {
     "matchId": "m098",
