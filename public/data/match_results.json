@@ -39585,7 +39585,7 @@
   },
   "m099": {
     "matchId": "m099",
-    "status": "live",
+    "status": "finished",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -39878,11 +39878,11 @@
       ]
     },
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 1
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "goals": [
       {
         "minute": 30,
