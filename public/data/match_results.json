@@ -39906,11 +39906,11 @@
     "matchId": "m098",
     "status": "live",
     "score": {
-      "home": 2,
-      "away": 1
+      "home": 1,
+      "away": 2
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "Extra time break"
   },
   "m100": {
     "matchId": "m100",
