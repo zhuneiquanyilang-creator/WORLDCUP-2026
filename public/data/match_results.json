@@ -39904,17 +39904,23 @@
   },
   "m098": {
     "matchId": "m098",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 2
     },
     "note": "",
-    "liveLabel": "Extra time break"
+    "liveLabel": ""
   },
   "m100": {
     "matchId": "m100",
-    "status": "scheduled"
+    "status": "live",
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m101": {
     "matchId": "m101",
