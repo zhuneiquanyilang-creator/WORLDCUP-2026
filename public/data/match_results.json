@@ -39914,13 +39914,13 @@
   },
   "m100": {
     "matchId": "m100",
-    "status": "live",
+    "status": "finished",
     "score": {
-      "home": 0,
-      "away": 0
+      "home": 3,
+      "away": 1
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": ""
   },
   "m101": {
     "matchId": "m101",
