@@ -39645,7 +39645,8 @@
           "y": 16.666666666666664,
           "number": 19,
           "name": "ラミン・ヤマル",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -40237,7 +40238,8 @@
           "y": 50,
           "number": 10,
           "name": "ジュード・ベリンガム",
-          "role": "MF"
+          "role": "MF",
+          "isMvp": true
         },
         {
           "x": 62.666666666666664,
@@ -40526,7 +40528,8 @@
           "y": 75,
           "number": 9,
           "name": "フリアン・アルバレス",
-          "role": "FW"
+          "role": "FW",
+          "isMvp": true
         }
       ],
       "bench": [
@@ -40767,6 +40770,81 @@
         "teamId": "ARG",
         "playerName": "ホセ・マヌエル・ロペス",
         "type": "Y"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 78,
+        "teamId": "ARG",
+        "inName": "ニコラス・ゴンサレス",
+        "outName": "ニコラス・タグリアフィコ"
+      },
+      {
+        "minute": 85,
+        "teamId": "ARG",
+        "inName": "ゴンサロ・モンティエル",
+        "outName": "ナウエル・モリーナ"
+      },
+      {
+        "minute": 85,
+        "teamId": "ARG",
+        "inName": "ラウタロ・マルティネス",
+        "outName": "ロドリゴ・デ・パウル"
+      },
+      {
+        "minute": 86,
+        "teamId": "SUI",
+        "inName": "ミロ・ムハイム",
+        "outName": "ジブリル・ソウ"
+      },
+      {
+        "minute": 86,
+        "teamId": "SUI",
+        "inName": "シルヴァン・ヴィドマー",
+        "outName": "ファビアン・リーダー"
+      },
+      {
+        "minute": 86,
+        "teamId": "SUI",
+        "inName": "ゼキ・アムドゥニ",
+        "outName": "ダン・エンドイエ"
+      },
+      {
+        "minute": 90,
+        "teamId": "SUI",
+        "inName": "エライ・チョメルト",
+        "outName": "リカルド・ロドリゲス",
+        "addedTime": 5
+      },
+      {
+        "minute": 91,
+        "teamId": "ARG",
+        "inName": "ティアゴ・アルマーダ",
+        "outName": "エンソ・フェルナンデス"
+      },
+      {
+        "minute": 96,
+        "teamId": "SUI",
+        "inName": "アルドン・ヤシャリ",
+        "outName": "デニス・ザカリア"
+      },
+      {
+        "minute": 106,
+        "teamId": "ARG",
+        "inName": "ニコラス・オタメンディ",
+        "outName": "クリスティアン・ロメロ"
+      },
+      {
+        "minute": 110,
+        "teamId": "ARG",
+        "inName": "ホセ・マヌエル・ロペス",
+        "outName": "レアンドロ・パレデス"
+      },
+      {
+        "minute": 115,
+        "teamId": "SUI",
+        "inName": "ルベン・バルガス",
+        "outName": "レモ・フロイラー"
       }
     ]
   },
