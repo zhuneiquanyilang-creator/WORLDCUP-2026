@@ -39899,6 +39899,97 @@
         "playerName": "シャルル・デケテラーレ",
         "assistPlayerId": "p_bel_11",
         "assistPlayerName": "ティモシー・カスターニュ"
+      },
+      {
+        "minute": 88,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_17",
+        "playerName": "ミケル・メリーノ"
+      }
+    ],
+    "bookings": [
+      {
+        "minute": 43,
+        "teamId": "ESP",
+        "playerName": "パウ・クバルシ",
+        "type": "Y"
+      },
+      {
+        "minute": 85,
+        "teamId": "BEL",
+        "playerName": "ケビン・デブライネ",
+        "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "ESP",
+        "playerName": "エメリク・ラポルテ",
+        "type": "Y",
+        "addedTime": 3
+      },
+      {
+        "minute": 90,
+        "teamId": "BEL",
+        "playerName": "アクセル・ヴィツェル",
+        "type": "Y",
+        "addedTime": 5
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 55,
+        "teamId": "ESP",
+        "inName": "ペドリ",
+        "outName": "ファビアン・ルイス"
+      },
+      {
+        "minute": 55,
+        "teamId": "ESP",
+        "inName": "フェラン・トーレス",
+        "outName": "アレックス・バエナ"
+      },
+      {
+        "minute": 60,
+        "teamId": "BEL",
+        "inName": "ホアキン・セイス",
+        "outName": "マキシム・デ・カイパー"
+      },
+      {
+        "minute": 60,
+        "teamId": "BEL",
+        "inName": "アクセル・ヴィツェル",
+        "outName": "ハンス・ヴァナケン"
+      },
+      {
+        "minute": 60,
+        "teamId": "BEL",
+        "inName": "ロメル・ルカク",
+        "outName": "レアンドロ・トロサール"
+      },
+      {
+        "minute": 71,
+        "teamId": "BEL",
+        "inName": "センネ・ラメンス",
+        "outName": "ティボー・クルトワ"
+      },
+      {
+        "minute": 79,
+        "teamId": "ESP",
+        "inName": "ニコ・ウィリアムス",
+        "outName": "ミケル・オヤルサバル"
+      },
+      {
+        "minute": 86,
+        "teamId": "ESP",
+        "inName": "ミケル・メリーノ",
+        "outName": "ダニ・オルモ"
+      },
+      {
+        "minute": 86,
+        "teamId": "BEL",
+        "inName": "アレクシス・サーレマーケルス",
+        "outName": "ケビン・デブライネ"
       }
     ]
   },
