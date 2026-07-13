@@ -40408,7 +40408,367 @@
       "home": 3,
       "away": 1
     },
-    "liveLabel": ""
+    "liveLabel": "",
+    "manualLock": false,
+    "goals": [
+      {
+        "minute": 10,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_18",
+        "playerName": "アレクシス・マクアリスター",
+        "assistPlayerId": "p_arg_19",
+        "assistPlayerName": "リオネル・メッシ"
+      },
+      {
+        "minute": 67,
+        "teamId": "SUI",
+        "type": "normal",
+        "playerId": "p_sui_22",
+        "playerName": "ダン・エンドイエ",
+        "assistPlayerId": "p_sui_10",
+        "assistPlayerName": "リカルド・ロドリゲス"
+      },
+      {
+        "minute": 112,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_20",
+        "playerName": "フリアン・アルバレス",
+        "assistPlayerId": "p_arg_26",
+        "assistPlayerName": "ホセ・マヌエル・ロペス"
+      },
+      {
+        "minute": 120,
+        "teamId": "ARG",
+        "type": "normal",
+        "addedTime": 1,
+        "playerId": "p_arg_24",
+        "playerName": "ラウタロ・マルティネス"
+      }
+    ],
+    "homeFormation": {
+      "shape": "4-3-1-2",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 23,
+          "name": "エミリアーノ・マルティネス",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 26,
+          "name": "ナウエル・モリーナ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 13,
+          "name": "クリスティアン・ロメロ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 6,
+          "name": "リサンドロ・マルティネス",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 3,
+          "name": "ニコラス・タグリアフィコ",
+          "role": "DF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 16.666666666666664,
+          "number": 7,
+          "name": "ロドリゴ・デ・パウル",
+          "role": "MF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 50,
+          "number": 5,
+          "name": "レアンドロ・パレデス",
+          "role": "MF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 83.33333333333334,
+          "number": 20,
+          "name": "アレクシス・マクアリスター",
+          "role": "MF"
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 50,
+          "number": 24,
+          "name": "エンソ・フェルナンデス",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 25,
+          "number": 10,
+          "name": "リオネル・メッシ",
+          "role": "FW",
+          "isCaptain": true
+        },
+        {
+          "x": 80,
+          "y": 75,
+          "number": 9,
+          "name": "フリアン・アルバレス",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 1,
+          "name": "フアン・ムッソ"
+        },
+        {
+          "number": 2,
+          "name": "レオナルド・バレルディ"
+        },
+        {
+          "number": 4,
+          "name": "ゴンサロ・モンティエル"
+        },
+        {
+          "number": 8,
+          "name": "バレンティン・バルコ"
+        },
+        {
+          "number": 11,
+          "name": "ジオバニ・ロ・チェルソ"
+        },
+        {
+          "number": 12,
+          "name": "ヘロニモ・ルッリ"
+        },
+        {
+          "number": 14,
+          "name": "エセキエル・パラシオス"
+        },
+        {
+          "number": 15,
+          "name": "ニコラス・ゴンサレス"
+        },
+        {
+          "number": 16,
+          "name": "ティアゴ・アルマーダ"
+        },
+        {
+          "number": 17,
+          "name": "ジュリアーノ・シメオネ"
+        },
+        {
+          "number": 18,
+          "name": "ニコ・パス"
+        },
+        {
+          "number": 19,
+          "name": "ニコラス・オタメンディ"
+        },
+        {
+          "number": 21,
+          "name": "ホセ・マヌエル・ロペス"
+        },
+        {
+          "number": 22,
+          "name": "ラウタロ・マルティネス"
+        },
+        {
+          "number": 25,
+          "name": "ファクンド・メディーナ"
+        }
+      ]
+    },
+    "awayFormation": {
+      "shape": "4-2-3-1",
+      "starting": [
+        {
+          "x": 8,
+          "y": 50,
+          "number": 1,
+          "name": "グレゴール・コベル",
+          "role": "GK"
+        },
+        {
+          "x": 28,
+          "y": 12.5,
+          "number": 6,
+          "name": "デニス・ザカリア",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 37.5,
+          "number": 4,
+          "name": "ニコ・エルヴェディ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 62.5,
+          "number": 5,
+          "name": "マヌエル・アカンジ",
+          "role": "DF"
+        },
+        {
+          "x": 28,
+          "y": 87.5,
+          "number": 13,
+          "name": "リカルド・ロドリゲス",
+          "role": "DF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 25,
+          "number": 8,
+          "name": "レモ・フロイラー",
+          "role": "MF"
+        },
+        {
+          "x": 45.33333333333333,
+          "y": 75,
+          "number": 10,
+          "name": "グラニト・ジャカ",
+          "role": "MF",
+          "isCaptain": true
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 16.666666666666664,
+          "number": 15,
+          "name": "ジブリル・ソウ",
+          "role": "MF"
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 50,
+          "number": 22,
+          "name": "ファビアン・リーダー",
+          "role": "MF"
+        },
+        {
+          "x": 62.666666666666664,
+          "y": 83.33333333333334,
+          "number": 11,
+          "name": "ダン・エンドイエ",
+          "role": "MF"
+        },
+        {
+          "x": 80,
+          "y": 50,
+          "number": 7,
+          "name": "ブレール・エンボロ",
+          "role": "FW"
+        }
+      ],
+      "bench": [
+        {
+          "number": 2,
+          "name": "ミロ・ムハイム"
+        },
+        {
+          "number": 3,
+          "name": "シルヴァン・ヴィドマー"
+        },
+        {
+          "number": 9,
+          "name": "ヨハン・マンザンビ"
+        },
+        {
+          "number": 12,
+          "name": "イヴォン・ムヴォゴ"
+        },
+        {
+          "number": 14,
+          "name": "アルドン・ヤシャリ"
+        },
+        {
+          "number": 16,
+          "name": "クリスティアン・ファスナハト"
+        },
+        {
+          "number": 17,
+          "name": "ルベン・バルガス"
+        },
+        {
+          "number": 18,
+          "name": "エライ・チョメルト"
+        },
+        {
+          "number": 19,
+          "name": "ノア・オカフォー"
+        },
+        {
+          "number": 20,
+          "name": "ミシェル・アエビシャー"
+        },
+        {
+          "number": 21,
+          "name": "マルヴィン・ケラー"
+        },
+        {
+          "number": 23,
+          "name": "ゼキ・アムドゥニ"
+        },
+        {
+          "number": 24,
+          "name": "オレル・アメンダ"
+        },
+        {
+          "number": 25,
+          "name": "ルカ・ヤケス"
+        },
+        {
+          "number": 26,
+          "name": "セドリック・イッテン"
+        }
+      ]
+    },
+    "bookings": [
+      {
+        "minute": 44,
+        "teamId": "SUI",
+        "playerName": "ブレール・エンボロ",
+        "type": "Y"
+      },
+      {
+        "minute": 72,
+        "teamId": "SUI",
+        "playerName": "ブレール・エンボロ",
+        "type": "Y2R"
+      },
+      {
+        "minute": 97,
+        "teamId": "ARG",
+        "playerName": "ティアゴ・アルマーダ",
+        "type": "Y"
+      },
+      {
+        "minute": 98,
+        "teamId": "ARG",
+        "playerName": "ラウタロ・マルティネス",
+        "type": "Y"
+      },
+      {
+        "minute": 114,
+        "teamId": "ARG",
+        "playerName": "ホセ・マヌエル・ロペス",
+        "type": "Y"
+      }
+    ]
   },
   "m101": {
     "matchId": "m101",
