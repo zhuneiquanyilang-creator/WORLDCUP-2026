@@ -163,20 +163,30 @@ export function BracketView({ matches, teamMap }: Props) {
     (m) => m.stage === "third" && matchNumber(m.id) === THIRD_NUM
   );
 
-  // スマホ (≤640px) で開いたときの初期スクロール位置を R16 (左から 2 番目の列) に
-  // 合わせる。PC は横一覧できるので触らない。
+  // 初期スクロール位置:
+  //  - スマホ (≤640px): SF (準決勝) 列が可視領域の中央に来るようにスクロール
+  //    (SF を中心に据えて左右に QF / 決勝が見える構図)
+  //  - PC (>640px): R16 (ラウンド16) 列の左端が可視領域の左端に来るようにスクロール
+  //    (R32 を左に隠して残りが横一覧できるようにする)
   const bracketRef = useRef<HTMLDivElement>(null);
   const r16Ref = useRef<HTMLDivElement>(null);
+  const sfRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (window.matchMedia("(max-width: 640px)").matches) {
-      const bracket = bracketRef.current;
+    const bracket = bracketRef.current;
+    if (!bracket) return;
+    const isMobile = window.matchMedia("(max-width: 640px)").matches;
+    if (isMobile) {
+      const sf = sfRef.current;
+      if (!sf) return;
+      // SF 列を viewport 中央に揃える。負にならないように clamp。
+      const target = sf.offsetLeft - (bracket.clientWidth - sf.offsetWidth) / 2;
+      bracket.scrollLeft = Math.max(0, target);
+    } else {
       const r16 = r16Ref.current;
-      if (bracket && r16) {
-        // R16 列の左端が bracket の可視領域の左端に来るようにスクロール。
-        // 列間 gap (0.75rem = 12px) 分だけ引いて、R16 タイトルが端に張り付かない
-        // 少しの余白を残す。
-        bracket.scrollLeft = r16.offsetLeft - 12;
-      }
+      if (!r16) return;
+      // 列間 gap (0.75rem = 12px) 分だけ引いて、R16 タイトルが端に張り付かない
+      // 少しの余白を残す。
+      bracket.scrollLeft = r16.offsetLeft - 12;
     }
   }, []);
 
@@ -218,7 +228,7 @@ export function BracketView({ matches, teamMap }: Props) {
             title={col.title}
             matches={pickByOrder(matches, col.stage, col.order)}
             teamMap={teamMap}
-            innerRef={i === 1 ? r16Ref : undefined}
+            innerRef={i === 1 ? r16Ref : i === 3 ? sfRef : undefined}
             highlightedCardIds={cardIds}
             highlightedPathIds={pathIds}
             onHoverMatch={setHoveredMatchId}
