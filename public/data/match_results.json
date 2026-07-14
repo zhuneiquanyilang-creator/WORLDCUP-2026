@@ -41216,6 +41216,18 @@
         "teamId": "ESP",
         "inName": "フェラン・トーレス",
         "outName": "ミケル・オヤルサバル"
+      },
+      {
+        "minute": 77,
+        "teamId": "ESP",
+        "inName": "ミケル・メリーノ",
+        "outName": "ダニ・オルモ"
+      },
+      {
+        "minute": 77,
+        "teamId": "ESP",
+        "inName": "ペドリ",
+        "outName": "ファビアン・ルイス"
       }
     ]
   },
