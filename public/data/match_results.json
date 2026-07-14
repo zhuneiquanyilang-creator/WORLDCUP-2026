@@ -41160,6 +41160,12 @@
         "teamId": "ESP",
         "playerName": "マルク・ククレジャ",
         "type": "Y"
+      },
+      {
+        "minute": 86,
+        "teamId": "FRA",
+        "playerName": "キリアン・エンバペ",
+        "type": "Y"
       }
     ],
     "goals": [
