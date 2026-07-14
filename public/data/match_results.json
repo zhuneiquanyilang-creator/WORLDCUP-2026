@@ -41012,7 +41012,8 @@
           "y": 12.5,
           "number": 12,
           "name": "ペドロ・ポロ",
-          "role": "DF"
+          "role": "DF",
+          "isMvp": true
         },
         {
           "x": 28,
