@@ -41228,6 +41228,18 @@
         "teamId": "ESP",
         "inName": "ペドリ",
         "outName": "ファビアン・ルイス"
+      },
+      {
+        "minute": 84,
+        "teamId": "ESP",
+        "inName": "マルコス・ジョレンテ",
+        "outName": "ペドロ・ポロ"
+      },
+      {
+        "minute": 84,
+        "teamId": "ESP",
+        "inName": "アレックス・バエナ",
+        "outName": "ニコ・ウィリアムス"
       }
     ]
   },
