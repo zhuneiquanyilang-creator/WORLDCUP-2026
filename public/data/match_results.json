@@ -41147,7 +41147,15 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "1st half",
+    "bookings": [
+      {
+        "minute": 9,
+        "teamId": "FRA",
+        "playerName": "アドリアン・ラビオ",
+        "type": "Y"
+      }
+    ]
   },
   "m102": {
     "matchId": "m102",
