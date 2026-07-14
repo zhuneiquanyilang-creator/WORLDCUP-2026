@@ -41154,6 +41154,12 @@
         "teamId": "FRA",
         "playerName": "アドリアン・ラビオ",
         "type": "Y"
+      },
+      {
+        "minute": 31,
+        "teamId": "ESP",
+        "playerName": "マルク・ククレジャ",
+        "type": "Y"
       }
     ],
     "goals": [
@@ -41163,6 +41169,14 @@
         "type": "penalty",
         "playerId": "p_esp_23",
         "playerName": "ミケル・オヤルサバル"
+      }
+    ],
+    "substitutions": [
+      {
+        "minute": 30,
+        "teamId": "FRA",
+        "inName": "マクサンス・ラクロワ",
+        "outName": "ウィリアン・サリバ"
       }
     ]
   },
