@@ -41155,6 +41155,15 @@
         "playerName": "アドリアン・ラビオ",
         "type": "Y"
       }
+    ],
+    "goals": [
+      {
+        "minute": 22,
+        "teamId": "ESP",
+        "type": "penalty",
+        "playerId": "p_esp_23",
+        "playerName": "ミケル・オヤルサバル"
+      }
     ]
   },
   "m102": {
