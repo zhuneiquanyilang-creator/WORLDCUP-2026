@@ -41177,6 +41177,18 @@
         "teamId": "FRA",
         "inName": "マクサンス・ラクロワ",
         "outName": "ウィリアン・サリバ"
+      },
+      {
+        "minute": 46,
+        "teamId": "FRA",
+        "inName": "マヌ・コネ",
+        "outName": "アドリアン・ラビオ"
+      },
+      {
+        "minute": 57,
+        "teamId": "FRA",
+        "inName": "デジレ・ドゥエ",
+        "outName": "ブラッドリー・バルコラ"
       }
     ]
   },
