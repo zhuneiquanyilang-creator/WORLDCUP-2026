@@ -41169,6 +41169,15 @@
         "type": "penalty",
         "playerId": "p_esp_23",
         "playerName": "ミケル・オヤルサバル"
+      },
+      {
+        "minute": 58,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_10",
+        "playerName": "ペドロ・ポロ",
+        "assistPlayerId": "p_esp_21",
+        "assistPlayerName": "ダニ・オルモ"
       }
     ],
     "substitutions": [
