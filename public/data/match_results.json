@@ -41198,6 +41198,24 @@
         "teamId": "FRA",
         "inName": "デジレ・ドゥエ",
         "outName": "ブラッドリー・バルコラ"
+      },
+      {
+        "minute": 73,
+        "teamId": "FRA",
+        "inName": "ラヤン・シェルキ",
+        "outName": "マイケル・オリーセ"
+      },
+      {
+        "minute": 73,
+        "teamId": "FRA",
+        "inName": "テオ・エルナンデス",
+        "outName": "リュカ・ディニュ"
+      },
+      {
+        "minute": 74,
+        "teamId": "ESP",
+        "inName": "フェラン・トーレス",
+        "outName": "ミケル・オヤルサバル"
       }
     ]
   },
