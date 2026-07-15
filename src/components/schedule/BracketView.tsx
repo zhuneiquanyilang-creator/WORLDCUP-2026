@@ -242,7 +242,11 @@ export function BracketView({ matches, teamMap }: Props) {
           <div className={styles.columnTitle}>
             <span className={styles.finalTitleBadge}>決勝</span>
           </div>
-          <div className={`${styles.cards} ${styles.finalCards}`}>
+          <div
+            className={`${styles.cards} ${styles.finalCards} ${
+              fin && hoveredMatchId === fin.id ? styles.finalCardsHighlighted : ""
+            }`}
+          >
             {/* 優勝チーム欄: 決勝が終わるまで空。決着したら勝者を自動表示。 */}
             <div className={styles.championWrap}>
               <div className={styles.championLabel}>優勝</div>
@@ -262,13 +266,23 @@ export function BracketView({ matches, teamMap }: Props) {
             </div>
             {fin && (
               <div className={styles.finalCardWrap}>
-                <BracketMatch match={fin} teamMap={teamMap} />
+                <BracketMatch
+                  match={fin}
+                  teamMap={teamMap}
+                  highlighted={cardIds.has(fin.id)}
+                  onHoverMatch={setHoveredMatchId}
+                />
               </div>
             )}
             {third && (
               <div className={styles.thirdWrap}>
                 <div className={styles.thirdTitle}>3位決定戦</div>
-                <BracketMatch match={third} teamMap={teamMap} />
+                <BracketMatch
+                  match={third}
+                  teamMap={teamMap}
+                  highlighted={cardIds.has(third.id)}
+                  onHoverMatch={setHoveredMatchId}
+                />
               </div>
             )}
           </div>

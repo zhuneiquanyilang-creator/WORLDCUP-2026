@@ -189,6 +189,13 @@
   border-top-color: var(--color-danger, #d93535);
 }
 
+/* 決勝カードをホバーしたとき、SF→決勝の連結線を accent 色に切り替える
+   (経路ハイライトの一部)。.finalCardsAdvanced (赤) より優先度を高く。 */
+.finalCardsHighlighted::before {
+  border-top-color: var(--color-accent);
+  z-index: 5;
+}
+
 /* 決勝カードを連結線の右端 (2rem) に揃えて絶対配置 */
 .finalCardWrap {
   position: absolute;
