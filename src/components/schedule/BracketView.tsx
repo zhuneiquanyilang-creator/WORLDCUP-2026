@@ -277,12 +277,7 @@ export function BracketView({ matches, teamMap }: Props) {
             {third && (
               <div className={styles.thirdWrap}>
                 <div className={styles.thirdTitle}>3位決定戦</div>
-                <BracketMatch
-                  match={third}
-                  teamMap={teamMap}
-                  highlighted={cardIds.has(third.id)}
-                  onHoverMatch={setHoveredMatchId}
-                />
+                <BracketMatch match={third} teamMap={teamMap} />
               </div>
             )}
           </div>
