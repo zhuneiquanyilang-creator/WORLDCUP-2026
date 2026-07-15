@@ -41587,6 +41587,24 @@
         "teamId": "ARG",
         "inName": "ニコラス・ゴンサレス",
         "outName": "レアンドロ・パレデス"
+      },
+      {
+        "minute": 72,
+        "teamId": "ARG",
+        "inName": "ゴンサロ・モンティエル",
+        "outName": "ナウエル・モリーナ"
+      },
+      {
+        "minute": 72,
+        "teamId": "ARG",
+        "inName": "ニコラス・オタメンディ",
+        "outName": "リサンドロ・マルティネス"
+      },
+      {
+        "minute": 72,
+        "teamId": "ARG",
+        "inName": "ロドリゴ・デ・パウル",
+        "outName": "ジュリアーノ・シメオネ"
       }
     ]
   },
