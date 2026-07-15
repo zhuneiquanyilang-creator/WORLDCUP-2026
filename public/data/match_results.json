@@ -41556,6 +41556,12 @@
         "teamId": "ENG",
         "playerName": "エリオット・アンダーソン",
         "type": "Y"
+      },
+      {
+        "minute": 42,
+        "teamId": "ARG",
+        "playerName": "リサンドロ・マルティネス",
+        "type": "Y"
       }
     ]
   },
