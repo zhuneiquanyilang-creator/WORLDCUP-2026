@@ -41549,7 +41549,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "2nd half",
     "bookings": [
       {
         "minute": 37,
@@ -41561,6 +41561,12 @@
         "minute": 42,
         "teamId": "ARG",
         "playerName": "リサンドロ・マルティネス",
+        "type": "Y"
+      },
+      {
+        "minute": 51,
+        "teamId": "ARG",
+        "playerName": "クリスティアン・ロメロ",
         "type": "Y"
       }
     ]
