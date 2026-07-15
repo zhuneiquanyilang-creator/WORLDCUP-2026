@@ -41471,7 +41471,8 @@
           "number": 10,
           "name": "リオネル・メッシ",
           "role": "FW",
-          "isCaptain": true
+          "isCaptain": true,
+          "isMvp": true
         },
         {
           "x": 80,
@@ -41574,7 +41575,7 @@
         "teamId": "ARG",
         "playerName": "ロドリゴ・デ・パウル",
         "type": "Y",
-        "addedTime": 6
+        "addedTime": 4
       }
     ],
     "goals": [
@@ -41655,6 +41656,20 @@
         "teamId": "ENG",
         "inName": "ニコ・オライリー",
         "outName": "デクラン・ライス"
+      },
+      {
+        "minute": 90,
+        "teamId": "ENG",
+        "inName": "イヴァン・トニー",
+        "outName": "ジェド・スペンス",
+        "addedTime": 6
+      },
+      {
+        "minute": 90,
+        "teamId": "ENG",
+        "inName": "マーカス・ラッシュフォード",
+        "outName": "ジョン・ストーンズ",
+        "addedTime": 6
       }
     ]
   },
