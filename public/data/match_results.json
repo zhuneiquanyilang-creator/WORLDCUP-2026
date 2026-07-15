@@ -41605,6 +41605,24 @@
         "teamId": "ARG",
         "inName": "ロドリゴ・デ・パウル",
         "outName": "ジュリアーノ・シメオネ"
+      },
+      {
+        "minute": 81,
+        "teamId": "ARG",
+        "inName": "ラウタロ・マルティネス",
+        "outName": "ニコラス・タグリアフィコ"
+      },
+      {
+        "minute": 82,
+        "teamId": "ENG",
+        "inName": "ダニエル・バーン",
+        "outName": "リース・ジェームズ"
+      },
+      {
+        "minute": 82,
+        "teamId": "ENG",
+        "inName": "ニコ・オライリー",
+        "outName": "デクラン・ライス"
       }
     ]
   },
