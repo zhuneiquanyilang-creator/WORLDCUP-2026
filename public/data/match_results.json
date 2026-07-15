@@ -41590,6 +41590,12 @@
       },
       {
         "minute": 72,
+        "teamId": "ENG",
+        "inName": "エズリ・コンサ",
+        "outName": "アンソニー・ゴードン"
+      },
+      {
+        "minute": 72,
         "teamId": "ARG",
         "inName": "ゴンサロ・モンティエル",
         "outName": "ナウエル・モリーナ"
