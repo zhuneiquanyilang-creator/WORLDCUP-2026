@@ -41252,7 +41252,7 @@
   },
   "m102": {
     "matchId": "m102",
-    "status": "scheduled",
+    "status": "live",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -41543,7 +41543,13 @@
           "name": "ファクンド・メディーナ"
         }
       ]
-    }
+    },
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "note": "",
+    "liveLabel": "1st half"
   },
   "m103": {
     "matchId": "m103",
