@@ -41579,6 +41579,15 @@
         "playerName": "アンソニー・ゴードン",
         "assistPlayerId": "p_eng_15",
         "assistPlayerName": "モーガン・ロジャース"
+      },
+      {
+        "minute": 86,
+        "teamId": "ARG",
+        "type": "normal",
+        "playerId": "p_arg_17",
+        "playerName": "エンソ・フェルナンデス",
+        "assistPlayerId": "p_arg_19",
+        "assistPlayerName": "リオネル・メッシ"
       }
     ],
     "substitutions": [
