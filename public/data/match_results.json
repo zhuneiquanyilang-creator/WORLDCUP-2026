@@ -41549,7 +41549,15 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "1st half"
+    "liveLabel": "1st half",
+    "bookings": [
+      {
+        "minute": 37,
+        "teamId": "ENG",
+        "playerName": "エリオット・アンダーソン",
+        "type": "Y"
+      }
+    ]
   },
   "m103": {
     "matchId": "m103",
