@@ -41580,6 +41580,14 @@
         "assistPlayerId": "p_eng_15",
         "assistPlayerName": "モーガン・ロジャース"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 64,
+        "teamId": "ARG",
+        "inName": "ニコラス・ゴンサレス",
+        "outName": "レアンドロ・パレデス"
+      }
     ]
   },
   "m103": {
