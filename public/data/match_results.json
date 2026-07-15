@@ -41252,7 +41252,7 @@
   },
   "m102": {
     "matchId": "m102",
-    "status": "live",
+    "status": "finished",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -41549,7 +41549,7 @@
       "away": 2
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "bookings": [
       {
         "minute": 37,
