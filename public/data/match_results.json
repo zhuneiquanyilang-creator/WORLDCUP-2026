@@ -41546,7 +41546,7 @@
     },
     "score": {
       "home": 1,
-      "away": 1
+      "away": 2
     },
     "note": "",
     "liveLabel": "2nd half",
@@ -41568,6 +41568,13 @@
         "teamId": "ARG",
         "playerName": "クリスティアン・ロメロ",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "playerName": "ロドリゴ・デ・パウル",
+        "type": "Y",
+        "addedTime": 6
       }
     ],
     "goals": [
