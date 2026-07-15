@@ -41569,6 +41569,17 @@
         "playerName": "クリスティアン・ロメロ",
         "type": "Y"
       }
+    ],
+    "goals": [
+      {
+        "minute": 55,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_25",
+        "playerName": "アンソニー・ゴードン",
+        "assistPlayerId": "p_eng_15",
+        "assistPlayerName": "モーガン・ロジャース"
+      }
     ]
   },
   "m103": {
