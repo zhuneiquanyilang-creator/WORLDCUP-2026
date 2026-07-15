@@ -41588,6 +41588,16 @@
         "playerName": "エンソ・フェルナンデス",
         "assistPlayerId": "p_arg_19",
         "assistPlayerName": "リオネル・メッシ"
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "type": "normal",
+        "addedTime": 2,
+        "playerId": "p_arg_24",
+        "playerName": "ラウタロ・マルティネス",
+        "assistPlayerId": "p_arg_19",
+        "assistPlayerName": "リオネル・メッシ"
       }
     ],
     "substitutions": [
