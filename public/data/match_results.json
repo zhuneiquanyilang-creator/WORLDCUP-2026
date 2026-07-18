@@ -41980,6 +41980,15 @@
         "type": "normal",
         "playerId": "p_eng_16",
         "playerName": "デクラン・ライス"
+      },
+      {
+        "minute": 19,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_7",
+        "playerName": "エズリ・コンサ",
+        "assistPlayerId": "p_eng_16",
+        "assistPlayerName": "デクラン・ライス"
       }
     ]
   },
