@@ -41998,6 +41998,16 @@
         "playerName": "ブカヨ・サカ",
         "assistPlayerId": "p_eng_21",
         "assistPlayerName": "マーカス・ラッシュフォード"
+      },
+      {
+        "minute": 45,
+        "teamId": "ENG",
+        "type": "normal",
+        "addedTime": 2,
+        "playerId": "p_eng_23",
+        "playerName": "ブカヨ・サカ",
+        "assistPlayerId": "p_eng_17",
+        "assistPlayerName": "エベレチ・エゼ"
       }
     ]
   },
