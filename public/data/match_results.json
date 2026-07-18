@@ -42008,6 +42008,15 @@
         "playerName": "ブカヨ・サカ",
         "assistPlayerId": "p_eng_17",
         "assistPlayerName": "エベレチ・エゼ"
+      },
+      {
+        "minute": 48,
+        "teamId": "FRA",
+        "type": "normal",
+        "playerId": "p_fra_18",
+        "playerName": "キリアン・エンバペ",
+        "assistPlayerId": "p_fra_21",
+        "assistPlayerName": "マイケル・オリーセ"
       }
     ],
     "substitutions": [
