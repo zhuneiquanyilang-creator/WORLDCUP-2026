@@ -42035,6 +42035,13 @@
         "playerName": "キリアン・エンバペ",
         "assistPlayerId": "p_fra_21",
         "assistPlayerName": "マイケル・オリーセ"
+      },
+      {
+        "minute": 87,
+        "teamId": "ENG",
+        "type": "penalty",
+        "playerId": "p_eng_23",
+        "playerName": "ブカヨ・サカ"
       }
     ],
     "substitutions": [
@@ -42085,6 +42092,13 @@
         "teamId": "ENG",
         "inName": "リース・ジェームズ",
         "outName": "ジャレル・クアンサ"
+      },
+      {
+        "minute": 90,
+        "teamId": "FRA",
+        "inName": "ジュール・クンデ",
+        "outName": "マロ・ギュスト",
+        "addedTime": 1
       }
     ]
   },
