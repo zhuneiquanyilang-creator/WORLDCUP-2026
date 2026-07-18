@@ -42009,6 +42009,38 @@
         "assistPlayerId": "p_eng_17",
         "assistPlayerName": "エベレチ・エゼ"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 46,
+        "teamId": "FRA",
+        "inName": "ダヨ・ウパメカノ",
+        "outName": "イブラヒマ・コナテ"
+      },
+      {
+        "minute": 46,
+        "teamId": "FRA",
+        "inName": "リュカ・ディニュ",
+        "outName": "テオ・エルナンデス"
+      },
+      {
+        "minute": 46,
+        "teamId": "FRA",
+        "inName": "ブラッドリー・バルコラ",
+        "outName": "デジレ・ドゥエ"
+      },
+      {
+        "minute": 46,
+        "teamId": "FRA",
+        "inName": "ウスマン・デンベレ",
+        "outName": "ラヤン・シェルキ"
+      },
+      {
+        "minute": 46,
+        "teamId": "ENG",
+        "inName": "オリヴァー・ワトキンス",
+        "outName": "マーカス・ラッシュフォード"
+      }
     ]
   },
   "m104": {
