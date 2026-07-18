@@ -41675,13 +41675,13 @@
   },
   "m103": {
     "matchId": "m103",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 4,
-      "away": 5
+      "away": 6
     },
     "note": "",
-    "liveLabel": "2nd half",
+    "liveLabel": "",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
