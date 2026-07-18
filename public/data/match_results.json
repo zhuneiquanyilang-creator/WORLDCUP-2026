@@ -41678,7 +41678,7 @@
     "status": "live",
     "score": {
       "home": 0,
-      "away": 2
+      "away": 3
     },
     "note": "",
     "liveLabel": "1st half",
@@ -41989,6 +41989,15 @@
         "playerName": "エズリ・コンサ",
         "assistPlayerId": "p_eng_16",
         "assistPlayerName": "デクラン・ライス"
+      },
+      {
+        "minute": 37,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_23",
+        "playerName": "ブカヨ・サカ",
+        "assistPlayerId": "p_eng_21",
+        "assistPlayerName": "マーカス・ラッシュフォード"
       }
     ]
   },
