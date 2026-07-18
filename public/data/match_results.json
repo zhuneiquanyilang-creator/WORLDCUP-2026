@@ -42067,6 +42067,18 @@
         "teamId": "ENG",
         "inName": "オリヴァー・ワトキンス",
         "outName": "マーカス・ラッシュフォード"
+      },
+      {
+        "minute": 80,
+        "teamId": "ENG",
+        "inName": "エリオット・アンダーソン",
+        "outName": "エベレチ・エゼ"
+      },
+      {
+        "minute": 80,
+        "teamId": "ENG",
+        "inName": "ジュード・ベリンガム",
+        "outName": "イヴァン・トニー"
       }
     ]
   },
