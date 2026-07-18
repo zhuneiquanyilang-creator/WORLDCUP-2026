@@ -1,0 +1,126 @@
+.head {
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.sub {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid var(--color-accent);
+}
+
+.rankGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.rankCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.85rem 0.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--color-border);
+}
+
+.rank1 {
+  border-top-color: #f5c518;
+}
+
+.rank2 {
+  border-top-color: #b9bec4;
+}
+
+.rank3 {
+  border-top-color: #cd7f32;
+}
+
+.rank4 {
+  border-top-color: var(--color-border);
+}
+
+.rankLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* span (未確定時のテキスト) と TeamLink の <a> の両方に付く。
+   TeamLink 側が inline-flex + gap を持つので、ここでは色と字面だけ整える。 */
+.rankTeam {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+}
+
+a.rankTeam:hover {
+  text-decoration: underline;
+}
+
+.pending {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.awardList {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.awardRow {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.awardLabel {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+}
+
+.awardPlayer {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.awardNat {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .rankGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awardRow {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

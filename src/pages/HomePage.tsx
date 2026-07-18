@@ -9,6 +9,7 @@ const menus = [
   { to: "/past", label: "過去の大会", desc: "1930〜2022 年の歴代 W 杯と各賞" },
   { to: "/columns", label: "コラム", desc: "見どころや本サイトの使い方" },
   { to: "/regulations", label: "レギュレーション", desc: "大会の公式ルールまとめ" },
+  { to: "/awards", label: "表彰", desc: "最終順位と各賞" },
 ];
 
 export function HomePage() {

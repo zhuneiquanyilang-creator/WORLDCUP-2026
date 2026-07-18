@@ -9,6 +9,7 @@ const items = [
   { to: "/past", label: "過去の大会" },
   { to: "/columns", label: "コラム" },
   { to: "/regulations", label: "レギュレーション" },
+  { to: "/awards", label: "表彰" },
 ];
 
 export function Navigation() {

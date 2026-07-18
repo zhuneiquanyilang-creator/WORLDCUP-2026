@@ -86,8 +86,11 @@
 }
 
 /* 同じ `after` を持つ figure が複数あるときの横並びコンテナ。
-   4 枚並ぶときに各 figure を 1/4 幅に絞り、画像は flex item の幅いっぱいに広げる。
-   画像本来の sizeXs/sizeSm 制限を上書きするので !important で打ち消す。 */
+   各 figure の幅は「本文幅 ÷ その行の枚数」。枚数は ColumnDetailPage が
+   `--figure-cols` (PC) / `--figure-cols-mobile` (スマホ) に流し込む。
+   2 枚並びなら半分ずつ、4 枚並びなら 1/4 ずつになるので、枚数が少ない行の
+   写真が不必要に小さくならない。画像本来の sizeXs/sizeSm 制限は
+   flex item 幅に合わせるため !important で打ち消す。 */
 .figureRow {
   display: flex;
   flex-wrap: wrap;
@@ -99,7 +102,7 @@
 
 .figureRow > figure {
   flex: 1 1 140px;
-  max-width: calc(25% - 0.45rem);
+  max-width: calc(100% / var(--figure-cols, 4) - 0.45rem);
   margin: 0;
 }
 
@@ -110,8 +113,8 @@
 
 @media (max-width: 640px) {
   .figureRow > figure {
-    /* スマホでは 2 列 */
-    max-width: calc(50% - 0.3rem);
+    /* スマホは 4 枚並びなら 2 列、3 枚以下なら 1 列 (縦積み) */
+    max-width: calc(100% / var(--figure-cols-mobile, 2) - 0.3rem);
   }
 }
 

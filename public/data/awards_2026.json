@@ -1,0 +1,14 @@
+{
+  "year": 2026,
+  "first": "",
+  "second": "",
+  "third": "",
+  "fourth": "",
+  "goldenBall": { "player": "", "nationality": "" },
+  "silverBall": { "player": "", "nationality": "" },
+  "bronzeBall": { "player": "", "nationality": "" },
+  "goldenBoot": { "player": "", "nationality": "" },
+  "goldenGlove": { "player": "", "nationality": "" },
+  "bestYoungPlayer": { "player": "", "nationality": "" },
+  "bestGoal": { "player": "", "nationality": "" }
+}

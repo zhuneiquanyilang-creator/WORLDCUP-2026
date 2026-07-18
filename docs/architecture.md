@@ -86,3 +86,4 @@ new_claude_app/
 | `/columns` | コラム一覧 | `ColumnsPage` |
 | `/columns/:id` | コラム詳細 | `ColumnDetailPage` |
 | `/regulations` | 大会レギュレーション | `RegulationsPage` |
+| `/awards` | 表彰（最終順位・個人賞） | `AwardsPage` |

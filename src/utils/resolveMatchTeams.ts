@@ -6,6 +6,7 @@ import { matchNumber } from "@/utils/matchNumber";
 import { clinchedRanks } from "@/utils/groupClinch";
 import { computeStandings } from "@/utils/computeStandings";
 import { compareCrossGroup, sortGroupStandings } from "@/utils/tiebreaker";
+import { winnerSide } from "@/utils/matchOutcome";
 
 /**
  * matches.json のプレースホルダ team ID を、確定したチームに差し替える。
@@ -212,17 +213,10 @@ export function resolveMatchTeams(
     if (resolved.status !== "finished" || !resolved.score) continue;
     if (isResolvable(resolved.homeTeamId) || isResolvable(resolved.awayTeamId))
       continue;
-    const { home, away } = resolved.score;
-    let homeWon: boolean | null = null;
-    if (home > away) homeWon = true;
-    else if (home < away) homeWon = false;
-    else if (resolved.penaltyScore) {
-      // 90分+延長で同点 → PK 決着スコアで判定
-      const pk = resolved.penaltyScore;
-      if (pk.home > pk.away) homeWon = true;
-      else if (pk.home < pk.away) homeWon = false;
-    }
-    if (homeWon === null) continue; // 勝者未確定 (PK スコアも無い場合)
+    // 90分+延長で同点なら PK 決着スコアで判定 (utils/matchOutcome.ts)
+    const side = winnerSide(resolved);
+    if (side === null) continue; // 勝者未確定 (PK スコアも無い場合)
+    const homeWon = side === "home";
     const winner = homeWon ? resolved.homeTeamId : resolved.awayTeamId;
     const loser = homeWon ? resolved.awayTeamId : resolved.homeTeamId;
     winnerOf.set(num, winner);

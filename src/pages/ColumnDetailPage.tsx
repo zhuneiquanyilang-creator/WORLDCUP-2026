@@ -2,6 +2,7 @@
  * コラム詳細。`/columns/:id` でアクセス。
  * 該当 id が無ければ「見つかりませんでした」を表示し、一覧へ戻るリンクを付ける。
  */
+import type { CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useColumns } from "@/hooks/useColumns";
 import { Loading, ErrorMessage } from "@/components/common/AsyncState";
@@ -62,7 +63,17 @@ export function ColumnDetailPage() {
             <div key={i}>
               <p className={styles.paragraph}>{para}</p>
               {after.length >= 2 ? (
-                <div className={styles.figureRow}>
+                <div
+                  className={styles.figureRow}
+                  // 横並び時の 1 枚あたりの幅は「本文幅 ÷ 枚数」。
+                  // スマホは 4 枚以上のときだけ 2 列、それ以下は縦積みにする。
+                  style={
+                    {
+                      "--figure-cols": after.length,
+                      "--figure-cols-mobile": after.length >= 4 ? 2 : 1,
+                    } as CSSProperties
+                  }
+                >
                   {after.map((f, j) => (
                     <ColumnFigure key={`${i}-${j}`} figure={f} />
                   ))}
