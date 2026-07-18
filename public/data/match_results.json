@@ -42026,6 +42026,15 @@
         "playerName": "ブラッドリー・バルコラ",
         "assistPlayerId": "p_fra_18",
         "assistPlayerName": "キリアン・エンバペ"
+      },
+      {
+        "minute": 66,
+        "teamId": "FRA",
+        "type": "normal",
+        "playerId": "p_fra_18",
+        "playerName": "キリアン・エンバペ",
+        "assistPlayerId": "p_fra_21",
+        "assistPlayerName": "マイケル・オリーセ"
       }
     ],
     "substitutions": [
