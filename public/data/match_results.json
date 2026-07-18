@@ -41972,7 +41972,16 @@
           "name": "リース・ジェームズ"
         }
       ]
-    }
+    },
+    "goals": [
+      {
+        "minute": 3,
+        "teamId": "ENG",
+        "type": "normal",
+        "playerId": "p_eng_16",
+        "playerName": "デクラン・ライス"
+      }
+    ]
   },
   "m104": {
     "matchId": "m104",
