@@ -41678,7 +41678,7 @@
     "status": "live",
     "score": {
       "home": 3,
-      "away": 4
+      "away": 5
     },
     "note": "",
     "liveLabel": "2nd half",
@@ -42099,6 +42099,13 @@
         "inName": "ジュール・クンデ",
         "outName": "マロ・ギュスト",
         "addedTime": 1
+      },
+      {
+        "minute": 90,
+        "teamId": "ENG",
+        "inName": "トレヴォ・チャロバー",
+        "outName": "マルク・グエイ",
+        "addedTime": 3
       }
     ]
   },
