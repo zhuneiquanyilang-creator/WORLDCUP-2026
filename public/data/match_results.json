@@ -42042,6 +42042,24 @@
         "type": "penalty",
         "playerId": "p_eng_23",
         "playerName": "ブカヨ・サカ"
+      },
+      {
+        "minute": 90,
+        "teamId": "FRA",
+        "type": "normal",
+        "addedTime": 6,
+        "playerId": "p_fra_23",
+        "playerName": "ウスマン・デンベレ",
+        "assistPlayerId": "p_fra_6",
+        "assistPlayerName": "ダヨ・ウパメカノ"
+      },
+      {
+        "minute": 90,
+        "teamId": "ENG",
+        "type": "normal",
+        "addedTime": 8,
+        "playerId": "p_eng_19",
+        "playerName": "ジュード・ベリンガム"
       }
     ],
     "substitutions": [
