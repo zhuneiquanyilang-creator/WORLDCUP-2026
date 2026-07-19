@@ -42129,13 +42129,13 @@
   },
   "m104": {
     "matchId": "m104",
-    "status": "live",
+    "status": "finished",
     "score": {
       "home": 1,
       "away": 0
     },
     "note": "",
-    "liveLabel": "Extra time 2nd",
+    "liveLabel": "Full time",
     "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
