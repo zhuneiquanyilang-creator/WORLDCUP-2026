@@ -42508,6 +42508,18 @@
         "teamId": "ESP",
         "inName": "ニコ・ウィリアムス",
         "outName": "アレックス・バエナ"
+      },
+      {
+        "minute": 99,
+        "teamId": "ESP",
+        "inName": "エリック・ガルシア",
+        "outName": "エメリク・ラポルテ"
+      },
+      {
+        "minute": 99,
+        "teamId": "ESP",
+        "inName": "マルティン・スビメンディ",
+        "outName": "ロドリ"
       }
     ]
   }
