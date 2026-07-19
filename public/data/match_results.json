@@ -42471,6 +42471,18 @@
         "teamId": "ESP",
         "inName": "フェラン・トーレス",
         "outName": "ミケル・オヤルサバル"
+      },
+      {
+        "minute": 71,
+        "teamId": "ARG",
+        "inName": "ファクンド・メディーナ",
+        "outName": "クリスティアン・ロメロ"
+      },
+      {
+        "minute": 71,
+        "teamId": "ARG",
+        "inName": "ジュリアーノ・シメオネ",
+        "outName": "ロドリゴ・デ・パウル"
       }
     ]
   }
