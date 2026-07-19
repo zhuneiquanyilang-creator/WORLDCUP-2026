@@ -110,6 +110,17 @@ a.rankTeam:hover {
   color: var(--color-text);
 }
 
+.awardPlayerLink {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.awardPlayerLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .awardNat {
   color: var(--color-text-muted);
   font-size: 0.9rem;

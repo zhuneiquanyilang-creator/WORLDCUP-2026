@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigationType } from "react-router-dom";
 import type { Match } from "@/types/match";
 import type { Team } from "@/types/team";
 import { matchNumber } from "@/utils/matchNumber";
@@ -161,18 +162,70 @@ export function BracketView({ matches, teamMap }: Props) {
     (m) => m.stage === "third" && matchNumber(m.id) === THIRD_NUM
   );
 
-  // 初期スクロール位置: PC / スマホとも決勝列が可視領域の中央に来るようにする。
-  // 決勝を中心に据え、その左に SF → QF … と勝ち上がりが見える構図。
-  // 決勝は最終列なので右端まで詰めても中央には来ない (スクロール上限に当たる) が、
-  // その場合も clamp して「可能な限り中央寄り = 右端まで表示」に落ち着く。
+  // 初期表示位置: 決勝カードが縦横とも「全体が」見える状態にする。
+  //
+  //  - 横: 決勝は最終列なので右端まで送る。ただし決勝カードは absolute 配置で
+  //    列内に置かれており、国旗画像の読み込み等で列幅が後から変わるため、
+  //    「スクロール上限へ送る」だけだとカード右端が切れることがある。
+  //    そこでカードの実測 rect を見て、右端が可視領域に収まるまで補正する。
+  //  - 縦: ブラケットは min-height 1280px あり、決勝カードはその高さの中央
+  //    (top: 50%) に置かれるので、ページ先頭のままだと画面外に出てしまう。
   const bracketRef = useRef<HTMLDivElement>(null);
+  const finalCardRef = useRef<HTMLDivElement>(null);
+  const navType = useNavigationType();
   useEffect(() => {
     const bracket = bracketRef.current;
     if (!bracket) return;
-    // 右端まで送る = 最終列である決勝カード (スコア付き) が見える位置。
-    // PC・スマホ共通。決勝の左に SF・QF … と勝ち上がりが続く。
-    bracket.scrollLeft = Math.max(0, bracket.scrollWidth - bracket.clientWidth);
-  }, []);
+
+    // 自分が設定した scrollLeft を覚えておき、ユーザーが手で動かした後は
+    // 再補正しない (勝手に位置を奪わないため)。
+    let lastSet: number | null = null;
+
+    /** 決勝カードの右端が可視領域内に収まるまで横スクロールする。 */
+    const revealFinalHorizontally = () => {
+      if (lastSet !== null && Math.abs(bracket.scrollLeft - lastSet) > 1) return;
+      bracket.scrollLeft = Math.max(0, bracket.scrollWidth - bracket.clientWidth);
+      const card = finalCardRef.current;
+      if (card) {
+        const cardRect = card.getBoundingClientRect();
+        const boxRect = bracket.getBoundingClientRect();
+        // 右端に少し余白 (8px) を残して収める。切れている分だけ追加スクロール。
+        const overflow = cardRect.right - (boxRect.right - 8);
+        if (overflow > 0) bracket.scrollLeft += overflow;
+      }
+      lastSet = bracket.scrollLeft;
+    };
+
+    revealFinalHorizontally();
+    // 国旗 (flagcdn の img) は幅指定が無く、読み込み完了後に列幅が広がる。
+    // その結果 scrollWidth が後から伸びてカード右端が切れるので、描画が
+    // 落ち着くタイミングで再補正する。
+    const retries = [150, 400, 1000].map((d) =>
+      window.setTimeout(revealFinalHorizontally, d)
+    );
+
+    // POP (戻る/進む) では縦スクロールを触らない。useScrollRestoration が
+    // 復元したユーザーの元の位置を奪わないため。
+    // requestAnimationFrame で遅らせるのは、親 (Layout) の
+    // useScrollRestoration が新規遷移時に window.scrollTo(0) するのが
+    // 子のこの effect より後に走るため。rAF でその後に実行して上書きする。
+    const clearRetries = () => retries.forEach((t) => window.clearTimeout(t));
+    if (navType === "POP") return clearRetries;
+    const raf = requestAnimationFrame(() => {
+      // 縦だけ動かす (inline: "nearest" だと横位置を戻されることがあるため、
+      // 縦位置は自前で計算して window.scrollTo する)。
+      const card = finalCardRef.current;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const top = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+      window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      revealFinalHorizontally();
+    });
+    return () => {
+      clearRetries();
+      cancelAnimationFrame(raf);
+    };
+  }, [navType]);
 
   // ホバー中カードから、そのカードで対戦する両チームが「そこに至るまで」に通って
   // きた過去試合カード + 接続線をハイライトする。プレースホルダー ID (W89, GA1 等 =
@@ -248,7 +301,7 @@ export function BracketView({ matches, teamMap }: Props) {
               </div>
             </div>
             {fin && (
-              <div className={styles.finalCardWrap}>
+              <div className={styles.finalCardWrap} ref={finalCardRef}>
                 <BracketMatch
                   match={fin}
                   teamMap={teamMap}

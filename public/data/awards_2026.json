@@ -4,11 +4,9 @@
   "second": "",
   "third": "",
   "fourth": "",
-  "goldenBall": { "player": "", "nationality": "" },
-  "silverBall": { "player": "", "nationality": "" },
-  "bronzeBall": { "player": "", "nationality": "" },
-  "goldenBoot": { "player": "", "nationality": "" },
-  "goldenGlove": { "player": "", "nationality": "" },
-  "bestYoungPlayer": { "player": "", "nationality": "" },
+  "goldenBall": { "player": "ロドリ", "nationality": "スペイン" },
+  "goldenBoot": { "player": "キリアン・エンバペ", "nationality": "フランス" },
+  "goldenGlove": { "player": "ウナイ・シモン", "nationality": "スペイン" },
+  "bestYoungPlayer": { "player": "パウ・クバルシ", "nationality": "スペイン" },
   "bestGoal": { "player": "", "nationality": "" }
 }
