@@ -87,7 +87,6 @@ function BracketColumn({
   title,
   matches,
   teamMap,
-  innerRef,
   highlightedCardIds,
   highlightedPathIds,
   onHoverMatch,
@@ -95,7 +94,6 @@ function BracketColumn({
   title: string;
   matches: Match[];
   teamMap: Map<string, Team>;
-  innerRef?: React.Ref<HTMLDivElement>;
   /** カード自体をハイライトする対象 (hovered 段階以前の全カード) */
   highlightedCardIds: Set<string>;
   /** pair 接続線をハイライトする対象 (hovered より前の段階のカードのみ) */
@@ -106,7 +104,7 @@ function BracketColumn({
   const isCardHl = (id: string) => highlightedCardIds.has(id);
   const isPathHl = (id: string) => highlightedPathIds.has(id);
   return (
-    <div className={styles.column} ref={innerRef}>
+    <div className={styles.column}>
       <div className={styles.columnTitle}>{title}</div>
       <div className={styles.cards}>
         {pairs.map((pair, i) => {
@@ -163,31 +161,17 @@ export function BracketView({ matches, teamMap }: Props) {
     (m) => m.stage === "third" && matchNumber(m.id) === THIRD_NUM
   );
 
-  // 初期スクロール位置:
-  //  - スマホ (≤640px): SF (準決勝) 列が可視領域の中央に来るようにスクロール
-  //    (SF を中心に据えて左右に QF / 決勝が見える構図)
-  //  - PC (>640px): R16 (ラウンド16) 列の左端が可視領域の左端に来るようにスクロール
-  //    (R32 を左に隠して残りが横一覧できるようにする)
+  // 初期スクロール位置: PC / スマホとも決勝列が可視領域の中央に来るようにする。
+  // 決勝を中心に据え、その左に SF → QF … と勝ち上がりが見える構図。
+  // 決勝は最終列なので右端まで詰めても中央には来ない (スクロール上限に当たる) が、
+  // その場合も clamp して「可能な限り中央寄り = 右端まで表示」に落ち着く。
   const bracketRef = useRef<HTMLDivElement>(null);
-  const r16Ref = useRef<HTMLDivElement>(null);
-  const sfRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const bracket = bracketRef.current;
     if (!bracket) return;
-    const isMobile = window.matchMedia("(max-width: 640px)").matches;
-    if (isMobile) {
-      const sf = sfRef.current;
-      if (!sf) return;
-      // SF 列を viewport 中央に揃える。負にならないように clamp。
-      const target = sf.offsetLeft - (bracket.clientWidth - sf.offsetWidth) / 2;
-      bracket.scrollLeft = Math.max(0, target);
-    } else {
-      const r16 = r16Ref.current;
-      if (!r16) return;
-      // 列間 gap (0.75rem = 12px) 分だけ引いて、R16 タイトルが端に張り付かない
-      // 少しの余白を残す。
-      bracket.scrollLeft = r16.offsetLeft - 12;
-    }
+    // 右端まで送る = 最終列である決勝カード (スコア付き) が見える位置。
+    // PC・スマホ共通。決勝の左に SF・QF … と勝ち上がりが続く。
+    bracket.scrollLeft = Math.max(0, bracket.scrollWidth - bracket.clientWidth);
   }, []);
 
   // ホバー中カードから、そのカードで対戦する両チームが「そこに至るまで」に通って
@@ -222,13 +206,12 @@ export function BracketView({ matches, teamMap }: Props) {
   return (
     <div>
       <div className={styles.bracket} ref={bracketRef}>
-        {COLUMNS.map((col, i) => (
+        {COLUMNS.map((col) => (
           <BracketColumn
             key={col.title}
             title={col.title}
             matches={pickByOrder(matches, col.stage, col.order)}
             teamMap={teamMap}
-            innerRef={i === 1 ? r16Ref : i === 3 ? sfRef : undefined}
             highlightedCardIds={cardIds}
             highlightedPathIds={pathIds}
             onHoverMatch={setHoveredMatchId}
