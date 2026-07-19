@@ -42459,6 +42459,18 @@
         "teamId": "ARG",
         "inName": "ナウエル・モリーナ",
         "outName": "ゴンサロ・モンティエル"
+      },
+      {
+        "minute": 62,
+        "teamId": "ESP",
+        "inName": "ペドリ",
+        "outName": "ファビアン・ルイス"
+      },
+      {
+        "minute": 62,
+        "teamId": "ESP",
+        "inName": "フェラン・トーレス",
+        "outName": "ミケル・オヤルサバル"
       }
     ]
   }
