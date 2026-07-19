@@ -42483,6 +42483,18 @@
         "teamId": "ARG",
         "inName": "ジュリアーノ・シメオネ",
         "outName": "ロドリゴ・デ・パウル"
+      },
+      {
+        "minute": 75,
+        "teamId": "ESP",
+        "inName": "ミケル・メリーノ",
+        "outName": "ダニ・オルモ"
+      },
+      {
+        "minute": 75,
+        "teamId": "ESP",
+        "inName": "ニコ・ウィリアムス",
+        "outName": "アレックス・バエナ"
       }
     ]
   }
