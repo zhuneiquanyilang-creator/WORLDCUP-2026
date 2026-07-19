@@ -42135,8 +42135,8 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "2nd half",
-    "manualLock": false,
+    "liveLabel": "Extra time 1st",
+    "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
       "starting": [
