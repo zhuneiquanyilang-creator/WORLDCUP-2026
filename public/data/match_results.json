@@ -42452,6 +42452,12 @@
         "playerName": "エンソ・フェルナンデス",
         "type": "Y2R",
         "addedTime": 4
+      },
+      {
+        "minute": 111,
+        "teamId": "ARG",
+        "playerName": "アレクシス・マクアリスター",
+        "type": "Y"
       }
     ],
     "substitutions": [
