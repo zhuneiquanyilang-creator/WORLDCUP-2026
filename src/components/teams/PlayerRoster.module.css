@@ -166,12 +166,41 @@
     padding: 1rem;
   }
 
+  /* 表全体は 1 段小さくして 6 列を収めつつ、氏名だけは主役の情報なので
+     ベースより大きく保つ (氏名 0.88rem > ベース 0.8rem > クラブ 0.75rem)。
+     全列を同じサイズにすると氏名が長い選手ほど窮屈に見えるため、
+     列ごとに情報の主従をフォントサイズで付ける。 */
   .table {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .table th,
   .table td {
-    padding: 0.4rem 0.35rem;
+    padding: 0.4rem 0.3rem;
+  }
+
+  .table th {
+    font-size: 0.7rem;
+  }
+
+  /* 氏名に幅を寄せる (26% → 34%)。長い日本語表記の折り返し行数を減らす。
+     その分はクラブ名 (39% → 31%) から回す。 */
+  .colName {
+    width: 34%;
+  }
+
+  .colClub {
+    width: 31%;
+  }
+
+  .name,
+  .nameLink {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .club {
+    font-size: 0.75rem;
+    line-height: 1.35;
   }
 }
