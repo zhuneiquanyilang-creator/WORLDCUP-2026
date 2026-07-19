@@ -42445,6 +42445,13 @@
         "teamId": "ARG",
         "playerName": "エンソ・フェルナンデス",
         "type": "Y"
+      },
+      {
+        "minute": 90,
+        "teamId": "ARG",
+        "playerName": "エンソ・フェルナンデス",
+        "type": "Y2R",
+        "addedTime": 4
       }
     ],
     "substitutions": [
