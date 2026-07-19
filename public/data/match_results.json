@@ -42520,6 +42520,12 @@
         "teamId": "ESP",
         "inName": "マルティン・スビメンディ",
         "outName": "ロドリ"
+      },
+      {
+        "minute": 102,
+        "teamId": "ARG",
+        "inName": "レオナルド・バレルディ",
+        "outName": "フリアン・アルバレス"
       }
     ]
   }
