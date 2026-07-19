@@ -42434,6 +42434,14 @@
         "playerName": "リサンドロ・マルティネス",
         "type": "Y"
       }
+    ],
+    "substitutions": [
+      {
+        "minute": 44,
+        "teamId": "ARG",
+        "inName": "ニコラス・オタメンディ",
+        "outName": "リサンドロ・マルティネス"
+      }
     ]
   }
 }
