@@ -168,6 +168,18 @@
       "グループB",
       "グループC",
       "グループD"
+    ],
+    "figures": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/South_Corea_2-Czechia_1_%2855334091661%29.jpg/960px-South_Corea_2-Czechia_1_%2855334091661%29.jpg",
+        "alt": "2026 年 W 杯グループ A、韓国対チェコの一戦",
+        "caption": "韓国対チェコ (m002)。エスタディオ・グアダラハラで行われたグループ A 第 1 節で、韓国が 2-1 で勝利した。",
+        "credit": "Erik Cleves Kristensen / Wikimedia Commons / CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_Corea_2-Czechia_1_(55334091661).jpg",
+        "after": 1,
+        "size": "md"
+      }
     ]
   },
   {
@@ -331,6 +343,18 @@
       "振り返り",
       "試合結果",
       "日本代表"
+    ],
+    "figures": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Netherlands_v_Japan_%282026_FIFA_World_Cup_-_Group_F%29.jpg",
+        "alt": "2026 年 W 杯グループ F、ダラス・スタジアムで行われた日本対オランダ",
+        "caption": "日本対オランダ (2026 年 6 月 14 日、ダラス・スタジアム)。2-2 の引き分けに終わったグループ F 第 1 節。",
+        "credit": "Morogris / Wikimedia Commons / CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.ja",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Netherlands_v_Japan_(2026_FIFA_World_Cup_-_Group_F).jpg",
+        "after": 0,
+        "size": "md"
+      }
     ]
   },
   {
@@ -1235,6 +1259,18 @@
       "アルゼンチン",
       "フランス",
       "イングランド"
+    ],
+    "figures": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Rodri_France_v_Spain_7.24.26-278.jpg/960px-Rodri_France_v_Spain_7.24.26-278.jpg",
+        "alt": "準決勝フランス戦でプレーするスペイン代表のロドリ",
+        "caption": "準決勝フランス対スペイン (2026 年 7 月 14 日、ダラス) でのロドリ。スペインが 2-0 で決勝進出を決めた。",
+        "credit": "Bryan Berlin / Wikimedia Commons / CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.ja",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rodri_France_v_Spain_7.24.26-278.jpg",
+        "after": 1,
+        "size": "md"
+      }
     ]
   },
   {
