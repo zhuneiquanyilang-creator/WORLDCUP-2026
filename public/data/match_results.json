@@ -42426,6 +42426,14 @@
           "name": "ナウエル・モリーナ"
         }
       ]
-    }
+    },
+    "bookings": [
+      {
+        "minute": 41,
+        "teamId": "ARG",
+        "playerName": "リサンドロ・マルティネス",
+        "type": "Y"
+      }
+    ]
   }
 }
