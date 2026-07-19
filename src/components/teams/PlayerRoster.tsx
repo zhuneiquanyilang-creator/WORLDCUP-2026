@@ -20,6 +20,20 @@ const POSITION_LABEL: Record<Position, string> = {
   FW: "フォワード",
 };
 
+/**
+ * クラブ名の末尾に付く「（イングランド）」等の国名を落として表示する。
+ * 一覧では列幅を氏名に回したいため。`players/*.json` のデータ自体は
+ * 国名付きのまま保持する (選手詳細など他画面はそのまま)。
+ * 国名が付かないクラブ (例「ボカ・ジュニアーズ」) はそのまま返る。
+ * 括弧は全角・半角どちらも、開き閉じが混在していても受け付ける
+ * (データに「レッドスター・ベオグラード(セルビア）」のような表記ゆれがあるため)。
+ */
+function clubLabel(club: string | undefined): string {
+  if (!club) return "—";
+  const stripped = club.replace(/[（(][^（）()]*[）)]\s*$/, "").trim();
+  return stripped || club;
+}
+
 function groupByPosition(players: Player[]): Map<Position, Player[]> {
   const m = new Map<Position, Player[]>();
   POSITION_ORDER.forEach((p) => m.set(p, []));
@@ -119,7 +133,7 @@ export function PlayerRoster({ teamId }: Props) {
                           {p.name}
                         </Link>
                       </td>
-                      <td className={styles.club}>{p.club ?? "—"}</td>
+                      <td className={styles.club}>{clubLabel(p.club)}</td>
                       <td className={styles.age}>
                         {age !== null ? `${age}` : "—"}
                       </td>
