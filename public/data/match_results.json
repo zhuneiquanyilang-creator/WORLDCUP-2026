@@ -42131,11 +42131,11 @@
     "matchId": "m104",
     "status": "live",
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
     "note": "",
-    "liveLabel": "Extra time 1st",
+    "liveLabel": "Extra time 2nd",
     "manualLock": true,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -42526,6 +42526,17 @@
         "teamId": "ARG",
         "inName": "レオナルド・バレルディ",
         "outName": "フリアン・アルバレス"
+      }
+    ],
+    "goals": [
+      {
+        "minute": 106,
+        "teamId": "ESP",
+        "type": "normal",
+        "playerId": "p_esp_22",
+        "playerName": "フェラン・トーレス",
+        "assistPlayerId": "p_esp_24",
+        "assistPlayerName": "ニコ・ウィリアムス"
       }
     ]
   }
