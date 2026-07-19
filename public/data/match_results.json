@@ -42135,7 +42135,7 @@
       "away": 0
     },
     "note": "",
-    "liveLabel": "Halftime",
+    "liveLabel": "2nd half",
     "manualLock": false,
     "homeFormation": {
       "shape": "4-2-3-1",
@@ -42432,6 +42432,12 @@
         "minute": 41,
         "teamId": "ARG",
         "playerName": "リサンドロ・マルティネス",
+        "type": "Y"
+      },
+      {
+        "minute": 52,
+        "teamId": "ARG",
+        "playerName": "レアンドロ・パレデス",
         "type": "Y"
       }
     ],
