@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { usePlayers } from "@/hooks/usePlayers";
 import { useMatches } from "@/hooks/useMatches";
@@ -32,6 +32,29 @@ function clubLabel(club: string | undefined): string {
   if (!club) return "—";
   const stripped = club.replace(/[（(][^（）()]*[）)]\s*$/, "").trim();
   return stripped || club;
+}
+
+/**
+ * 氏名を「・」の位置だけで折り返せるようにする。
+ *
+ * 「エミリアーノ・マルティネス」が「エミリアーノ・マルティ / ネス」のように
+ * 名前の途中で切れると読みにくいので、区切りの直後に `<wbr>` (改行可能位置) を
+ * 置き、CSS 側の `word-break: keep-all` でそれ以外の位置での改行を禁止する。
+ * 結果として「エミリアーノ・」/「マルティネス」と姓名で行が分かれる。
+ * 1 行に収まる幅があるときはそのまま 1 行 (PC 表示など)。
+ */
+function NameWithBreaks({ name }: { name: string }) {
+  const parts = name.split("・");
+  return (
+    <>
+      {parts.map((part, i) => (
+        <Fragment key={i}>
+          {i > 0 && <wbr />}
+          {i < parts.length - 1 ? `${part}・` : part}
+        </Fragment>
+      ))}
+    </>
+  );
 }
 
 function groupByPosition(players: Player[]): Map<Position, Player[]> {
@@ -130,7 +153,7 @@ export function PlayerRoster({ teamId }: Props) {
                       </td>
                       <td className={styles.name}>
                         <Link to={`/players/${p.id}`} className={styles.nameLink}>
-                          {p.name}
+                          <NameWithBreaks name={p.name} />
                         </Link>
                       </td>
                       <td className={styles.club}>{clubLabel(p.club)}</td>

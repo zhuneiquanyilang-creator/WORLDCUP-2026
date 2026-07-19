@@ -115,6 +115,15 @@
   font-weight: 600;
 }
 
+/* 折り返しは「・」の直後 (PlayerRoster.tsx が入れる <wbr>) だけに限定する。
+   keep-all がカタカナ列の途中での改行を禁止し、収まらない超長名だけは
+   overflow-wrap で最終手段として折る (セルからのはみ出し防止)。 */
+.name,
+.nameLink {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .nameLink {
   color: var(--color-primary-dark);
   text-decoration: none;
