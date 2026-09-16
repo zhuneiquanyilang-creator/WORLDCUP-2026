@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useJsonResource } from "@/hooks/useJsonResource";
@@ -9,6 +10,7 @@ import { TeamLink } from "@/components/common/TeamLink";
 import type { WorldCupResult, Award } from "@/types/worldCupResult";
 import type { Team } from "@/types/team";
 import { computeFinalRanking } from "@/utils/finalRanking";
+import { matchNumber } from "@/utils/matchNumber";
 import { dataUrl } from "@/utils/dataUrl";
 import styles from "./AwardsPage.module.css";
 
@@ -22,11 +24,14 @@ function AwardRow({
   label,
   award,
   playerId,
+  note,
 }: {
   label: string;
   award: Award | undefined;
   /** 選手マスタで特定できた場合の id。あれば選手詳細へのリンクにする。 */
   playerId?: string;
+  /** 選手名の下に添える補足 (ベストゴールの対象試合など)。 */
+  note?: ReactNode;
 }) {
   const player = text(award?.player);
   const nat = award?.nationality?.trim();
@@ -34,14 +39,17 @@ function AwardRow({
     <div className={styles.awardRow}>
       <span className={styles.awardLabel}>{label}</span>
       <span className={styles.awardPlayer}>
-        {playerId ? (
-          <Link to={`/players/${playerId}`} className={styles.awardPlayerLink}>
-            {player}
-          </Link>
-        ) : (
-          player
-        )}
-        {nat && <span className={styles.awardNat}>（{nat}）</span>}
+        <span className={styles.awardPlayerName}>
+          {playerId ? (
+            <Link to={`/players/${playerId}`} className={styles.awardPlayerLink}>
+              {player}
+            </Link>
+          ) : (
+            player
+          )}
+          {nat && <span className={styles.awardNat}>（{nat}）</span>}
+        </span>
+        {note && <span className={styles.awardNote}>{note}</span>}
       </span>
     </div>
   );
@@ -80,7 +88,10 @@ function RankCard({ rank, teamId, fallback, teams }: RankCardProps) {
  * 扱わないシルバーボール / ブロンズボールを除いたもの。
  * (過去大会ページ `PastTournamentDetailPage` は両賞をそのまま表示する)
  */
-type Awards2026 = Omit<WorldCupResult, "silverBall" | "bronzeBall">;
+type Awards2026 = Omit<WorldCupResult, "silverBall" | "bronzeBall"> & {
+  /** ベストゴールが生まれた試合の id (例 "m086")。あれば試合へのリンクを添える。 */
+  bestGoalMatchId?: string;
+};
 
 export function AwardsPage() {
   const awardsRes = useJsonResource<Awards2026>(dataUrl("awards_2026.json"));
@@ -125,6 +136,34 @@ export function AwardsPage() {
       playerIdByName.get(`${name}|${nat}`) ?? playerIdByName.get(name) ?? undefined
     );
   };
+
+  /**
+   * ベストゴールの対象試合 (awards_2026.json の bestGoalMatchId) を
+   * 「第86試合 アルゼンチン vs カーボベルデ」という試合詳細へのリンクにする。
+   * id 未指定 / 試合が見つからない場合は null。
+   */
+  const bestGoalNote = useMemo((): ReactNode => {
+    if (awardsRes.status !== "ready" || matchesRes.status !== "ready") return null;
+    const id = awardsRes.data.bestGoalMatchId;
+    if (!id) return null;
+    const match = matchesRes.data.find((m) => m.id === id);
+    if (!match) return null;
+    const num = matchNumber(id);
+    const home =
+      teamsRes.map.get(match.homeTeamId)?.name ??
+      match.homeTeamLabel ??
+      match.homeTeamId;
+    const away =
+      teamsRes.map.get(match.awayTeamId)?.name ??
+      match.awayTeamLabel ??
+      match.awayTeamId;
+    return (
+      <Link to={`/matches/${id}`} className={styles.awardMatchLink}>
+        {num !== null ? `第${num}試合 ` : ""}
+        {home} vs {away}
+      </Link>
+    );
+  }, [awardsRes, matchesRes, teamsRes]);
 
   if (
     awardsRes.status === "loading" ||
@@ -193,6 +232,7 @@ export function AwardsPage() {
             label="ベストゴール"
             award={result.bestGoal}
             playerId={awardPlayerId(result.bestGoal)}
+            note={bestGoalNote}
           />
         </div>
       </section>

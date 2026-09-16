@@ -8,5 +8,6 @@
   "goldenBoot": { "player": "キリアン・エンバペ", "nationality": "フランス" },
   "goldenGlove": { "player": "ウナイ・シモン", "nationality": "スペイン" },
   "bestYoungPlayer": { "player": "パウ・クバルシ", "nationality": "スペイン" },
-  "bestGoal": { "player": "", "nationality": "" }
+  "bestGoal": { "player": "シドニー・カブラル", "nationality": "カーボベルデ" },
+  "bestGoalMatchId": "m086"
 }

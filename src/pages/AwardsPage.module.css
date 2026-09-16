@@ -108,6 +108,28 @@ a.rankTeam:hover {
 .awardPlayer {
   font-size: 1rem;
   color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.awardPlayerName {
+  /* 選手名 + 国籍を 1 行に。改行は下の awardNote (試合名) との間だけにする。 */
+  line-height: 1.4;
+}
+
+.awardNote {
+  font-size: 0.82rem;
+}
+
+.awardMatchLink {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.awardMatchLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .awardPlayerLink {
